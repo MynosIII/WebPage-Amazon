@@ -30,6 +30,7 @@ jobs:
           python scripts/validate_project_claims.py
           python scripts/generate_sitemap.py --check
           python scripts/add_image_dimensions.py --check
+          python scripts/build_catalog_static.py --check
       - name: Validate links, anchors, metadata and asset casing
         run: python scripts/validate_site.py
 

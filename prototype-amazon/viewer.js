@@ -110,6 +110,27 @@
   let sourceDomReady = false;
   const sourceStartedAt = performance.now();
   const isCreativeIndex = /\/creatives-(?:es|en)\.html$/i.test(sourceUrl.pathname);
+  function syncMeta(sourceDocument, sourceTitle) {
+    const selfUrl = window.location.origin + window.location.pathname + window.location.search;
+    const description = sourceDocument.querySelector('meta[name="description"]')?.content.trim()
+      || (isEnglish ? 'Project view from Matías Gaglio’s portfolio.' : 'Vista de proyecto del portfolio de Matías Gaglio.');
+    const title = sourceTitle + ' — Matías Gaglio';
+    // Every legacy source page shares the same generic og-card.png, and it
+    // names the old onrender.com domain, so it is never worth inheriting —
+    // this shell's own branded card is correct for all of them.
+
+    document.querySelector('meta[name="description"]').setAttribute('content', description);
+    document.querySelector('link[data-default-canonical]').setAttribute('href', selfUrl);
+    document.querySelector('meta[data-default-og-title]').setAttribute('content', title);
+    document.querySelector('meta[data-default-og-description]').setAttribute('content', description);
+    document.querySelector('meta[data-default-og-url]').setAttribute('content', selfUrl);
+    document.querySelector('meta[data-default-twitter-title]').setAttribute('content', title);
+    document.querySelector('meta[data-default-twitter-description]').setAttribute('content', description);
+    // The default shell state (no source resolved yet) stays noindex; a
+    // successfully loaded project is real, distinct content worth indexing.
+    document.querySelector('meta[data-default-robots]').setAttribute('content', 'index, follow');
+  }
+
   function prepareSource() {
     if (sourcePrepared) return;
     const sourceDocument = bootstrapFrame.contentDocument;
@@ -127,6 +148,7 @@
       const sourceTitle = sourceDocument.querySelector('h1')?.textContent.trim() || sourceDocument.title.split('|')[0].trim() || 'Proyecto';
       document.title = sourceTitle + ' — Matías Gaglio';
       if (crumb) crumb.textContent = sourceTitle;
+      syncMeta(sourceDocument, sourceTitle);
 
       // Keep canvas renderers and the interactive CV in their original document:
       // cloning HTML would discard canvas pixels and JavaScript event handlers.

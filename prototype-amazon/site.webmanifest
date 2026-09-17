@@ -1,0 +1,11 @@
+{
+  "name": "Matías Gaglio — Amazon Growth Portfolio",
+  "short_name": "Matías Gaglio",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1118",
+  "theme_color": "#131921",
+  "icons": [
+    { "src": "/prototype-amazon/logo-signal.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

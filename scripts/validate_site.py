@@ -131,6 +131,10 @@ def validate_page(path: Path, cache: dict[Path, PageParser]) -> list[str]:
             continue
         if not parsed.path:
             target = path
+        elif parsed.path.startswith("/"):
+            # A leading slash is site-root-relative (how browsers and both
+            # deploy targets resolve it), not filesystem-absolute.
+            target = (ROOT / unquote(parsed.path).lstrip("/")).resolve()
         else:
             target = (path.parent / unquote(parsed.path)).resolve()
         try:
@@ -166,7 +170,7 @@ def validate_case_tool_catalog(pages: list[Path]) -> list[str]:
         re.sub(r"-(?:en|es)(?=\.html$)", "", path.name, flags=re.I).lower()
         for path in pages
     }
-    listing_pages = {"index.html", "ecommerce.html", "articles.html", "creatives.html", "sobre-mi.html"}
+    listing_pages = {"index.html", "ecommerce.html", "articles.html", "creatives.html", "sobre-mi.html", "about.html"}
 
     for tool_id, tool in tools.items():
         asset = ROOT / "assets" / "software-logos" / str(tool.get("asset", ""))

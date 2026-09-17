@@ -1304,3 +1304,13 @@ html[data-theme="dark"] .process-row span { color: var(--orange); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+
+/* Static fallback for the software-stack carousel (data-software-carousel),
+   shown until software-stack.js mounts the real animated version, or
+   permanently if that fetch fails / JS never runs. */
+.market-tools-fallback { padding-block: 36px; border-block: 1px solid var(--line); }
+.market-tools-fallback h2 { margin: 6px 0 12px; font-size: clamp(1.5rem, 2.5vw, 2rem); }
+.market-tools-fallback > p:not(.path-label) { color: var(--muted); max-width: 68ch; margin: 0 0 24px; }
+.market-tools-fallback > div { padding-block: 10px; border-top: 1px solid var(--line); }
+.market-tools-fallback > div h3 { font-size: .85rem; margin: 0 0 6px; color: var(--muted); }
+.market-tools-fallback > div p { margin: 0; }
