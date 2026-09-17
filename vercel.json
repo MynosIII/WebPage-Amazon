@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
+    { "src": "^/$", "dest": "/prototype-amazon/index.html" },
+    { "src": "^/index-en\\.html$", "headers": { "Location": "/index.html?lang=en" }, "status": 308 },
+    { "src": "^/index\\.html$", "dest": "/prototype-amazon/index.html" },
+    { "src": "^/about\\.html$", "dest": "/prototype-amazon/about.html" },
+    { "src": "^/case-amazon-growth\\.html$", "dest": "/prototype-amazon/case-amazon-growth.html" },
+    { "src": "^/catalog\\.html$", "dest": "/prototype-amazon/catalog.html" },
+    { "src": "^/contact\\.html$", "dest": "/prototype-amazon/contact.html" },
+    { "src": "^/page\\.html$", "dest": "/prototype-amazon/page.html" },
+    { "src": "^/styles\\.css$", "dest": "/prototype-amazon/styles.css" },
+    { "src": "^/i18n\\.js$", "dest": "/prototype-amazon/i18n.js" },
+    { "src": "^/script\\.js$", "dest": "/prototype-amazon/script.js" },
+    { "src": "^/catalog\\.js$", "dest": "/prototype-amazon/catalog.js" },
+    { "src": "^/viewer\\.js$", "dest": "/prototype-amazon/viewer.js" },
+    { "src": "^/logo-signal\\.svg$", "dest": "/prototype-amazon/logo-signal.svg" },
+    { "src": "^/robots\\.txt$", "dest": "/prototype-amazon/robots.txt" },
+    { "src": "^/sitemap\\.xml$", "dest": "/prototype-amazon/sitemap.xml" },
+    { "src": "^/prototype-amazon/?$", "headers": { "Location": "/" }, "status": 308 },
+    { "handle": "filesystem" }
+  ]
+}

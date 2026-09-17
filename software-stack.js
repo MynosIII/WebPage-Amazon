@@ -1,7 +1,9 @@
+window.__softwareStackReady = false;
 (async () => {
   const base = document.currentScript?.src ? new URL('.', document.currentScript.src) : new URL('.', location.href);
   const logoPath = file => new URL(`assets/software-logos/${file}`, base).href;
-  if (!document.querySelector('link[data-software-stack-styles]')) {
+  const marketMount = document.querySelector('[data-software-carousel]');
+  if (!marketMount && !document.querySelector('link[data-software-stack-styles]')) {
     const stylesheet = document.createElement('link');
     stylesheet.rel = 'stylesheet';
     stylesheet.href = new URL('software-stack.css?v=20260806', base).href;
@@ -135,6 +137,28 @@
     target.append(badges);
   });
 
+  if (marketMount) {
+    const section = document.createElement('section');
+    section.className = 'market-tools app-width';
+    section.id = 'software-tools';
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    section.classList.toggle('is-paused', reduced);
+    section.innerHTML = `
+      <div class="market-tools__heading"><div><p class="path-label">${spanishPage ? 'Herramientas que uso' : 'Tools I use'}</p>
+      <h2>${spanishPage ? 'Mi stack de software' : 'My software stack'}</h2>
+      <p>${spanishPage ? 'Creatividad, análisis, ecommerce y automatización conectados en un mismo flujo de trabajo.' : 'Creative work, analytics, ecommerce and automation connected in one workflow.'}</p></div></div>
+      ${aboutRows.map(row => `<div class="market-tools__row"><h3>${row.label}</h3>
+        <div class="market-tools__viewport" tabindex="0" role="region" aria-label="${spanishPage ? 'Herramientas de' : 'Tools for'} ${row.label}">
+          <div class="market-tools__track ${row.direction === 'reverse' ? 'is-reverse' : ''}">
+            <div class="market-tools__group">${row.tools.map(card).join('')}</div>
+            <div class="market-tools__group" aria-hidden="true">${row.tools.map(card).join('')}</div>
+          </div>
+        </div></div>`).join('')}`;
+    marketMount.replaceWith(section);
+    document.querySelector('.account-card[href="#herramientas"]')?.setAttribute('href', '#software-tools');
+    return;
+  }
+
   if (isAbout) {
     const section = document.createElement('section');
     section.className = 'software-marquee-section';
@@ -169,4 +193,7 @@
   section.className = 'case-software-stack';
   section.innerHTML = `<div class="${shellClass}"><div class="case-software-heading"><span>Software stack</span><h2>${spanishCase ? 'Herramientas detrás de este caso' : 'Tools behind this case'}</h2></div><div class="case-software-grid">${selected.map(card).join('')}</div><div class="case-end-actions"><p>${spanishCase ? '¿Querés trabajar conmigo en un proyecto similar?' : 'Want to work together on a similar project?'}</p><a class="case-contact-cta" href="mailto:matiasignaciogaglio@gmail.com?subject=${contactSubject}">${spanishCase ? 'Contactame' : 'Let’s work together'} <span aria-hidden="true">↗</span></a>${backLink ? `<a class="case-back-link" href="${backLink[0]}">← ${spanishCase ? backLink[1] : backLink[2]}</a>` : ''}</div></div>`;
   document.querySelector('main')?.append(section);
-})();
+})().finally(() => {
+  window.__softwareStackReady = true;
+  window.dispatchEvent(new CustomEvent('software-stack-ready'));
+});

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 40" role="img" aria-labelledby="title">
+  <title id="title">Señal comercial convertida en decisión</title>
+  <path fill="#f29d38" d="M2 28h7v10H2zM13 20h7v18h-7zM24 8h7v30h-7z"/>
+  <path fill="none" stroke="#f5f7f8" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" d="M3 34h9l8-8 8 4 15-15"/>
+  <path fill="#f5f7f8" d="m36 13 9-1-1 9z"/>
+</svg>

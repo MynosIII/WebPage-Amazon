@@ -1,65 +1,57 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="La página solicitada no existe o cambió de ubicación.">
   <title>Página no encontrada — Matías Gaglio</title>
-  <meta name="description" content="La página solicitada no existe o cambió de ubicación." />
-  <!-- Shared discovery metadata: maintained by scripts/normalize_site.py -->
-  <link rel="canonical" href="https://matiasgaglio.onrender.com/404.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Matías Gaglio" />
-  <meta property="og:locale" content="es_AR" />
-  <meta property="og:locale:alternate" content="en_US" />
-  <meta property="og:title" content="Página no encontrada — Matías Gaglio" />
-  <meta property="og:description" content="La página solicitada no existe o cambió de ubicación." />
-  <meta property="og:url" content="https://matiasgaglio.onrender.com/404.html" />
-  <meta property="og:image" content="https://matiasgaglio.onrender.com/og-card.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Matías Gaglio — portafolio de ecommerce, analítica y estrategia creativa" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Página no encontrada — Matías Gaglio" />
-  <meta name="twitter:description" content="La página solicitada no existe o cambió de ubicación." />
-  <meta name="twitter:image" content="https://matiasgaglio.onrender.com/og-card.png" />
-  <meta name="referrer" content="strict-origin-when-cross-origin" />
-  <meta name="theme-color" content="#121212" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="manifest" href="site.webmanifest" />
-  <!-- /Shared discovery metadata -->
-<meta name="robots" content="noindex,follow" />
-  <meta name="theme-color" content="#121212" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    .not-found { min-height:100vh; display:grid; place-items:center; padding:2rem; text-align:center; }
-    .not-found__card { width:min(760px,100%); padding:clamp(2rem,7vw,5rem); border:1px solid rgba(var(--color-acento-rgb),.3); border-radius:12px; background:var(--color-superficie); }
-    .not-found__code { color:var(--color-acento); font:700 clamp(4rem,16vw,9rem)/.8 var(--font-titulos); }
-    .not-found h1 { margin:1.5rem 0 1rem; font-size:clamp(2rem,6vw,3.5rem); }
-    .not-found p { max-width:560px; margin:0 auto 2rem; color:var(--color-texto-sec); }
-    .not-found__actions { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; }
-  </style>
-  <link rel="stylesheet" href="global-nav.css">
+  <link rel="icon" href="/prototype-amazon/logo-signal.svg" type="image/svg+xml">
+  <script>document.documentElement.classList.add('js');try{const saved=localStorage.getItem('mg-theme');const preferred=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=saved||preferred}catch(error){document.documentElement.dataset.theme='light'}</script>
+  <link rel="stylesheet" href="/prototype-amazon/styles.css?v=20260903a">
+  <script src="/prototype-amazon/i18n.js?v=20260903a" defer></script>
+  <script src="/prototype-amazon/script.js?v=20260903a" defer></script>
 </head>
-<body>
-<header class="global-nav" data-global-nav>
-  <div class="global-nav__badge">
-    <a class="global-nav__logo" href="index-es.html">Matías Gaglio.</a>
-    <button class="global-nav__toggle" type="button" aria-controls="global-menu" aria-expanded="false" aria-label="Abrir menú" data-global-nav-toggle><span></span><span></span><span></span></button>
-    <nav class="global-nav__menu" id="global-menu" aria-label="Navegación principal" data-global-nav-menu><ul><li><a href="index-es.html">Inicio</a></li><li><a href="ecommerce-es.html">Ecommerce</a></li><li><a href="Articles-es.html">Artículos</a></li><li><a href="creatives-es.html">Contenido creativo</a></li><li><a href="consultora-es.html">Investigación de opinión</a></li><li><a href="otros-es.html">Otros proyectos</a></li><li><a href="sobre-mi-es.html">Sobre mí</a></li><li class="global-nav__locale"><a href="index-en.html" hreflang="en" aria-label="View in English">EN</a></li></ul></nav>
-  </div>
-</header>
-  <main class="not-found" id="main-content">
-    <section class="not-found__card" aria-labelledby="not-found-title">
-      <div class="not-found__code" aria-hidden="true">404</div>
-      <h1 id="not-found-title">Esta página no existe</h1>
-      <p>Puede que el enlace haya cambiado. Volvé al portafolio o revisá los proyectos disponibles.</p>
-      <div class="not-found__actions">
-        <a class="cta-button" href="index-es.html">Ir al inicio</a>
-        <a class="cta-button secondary" href="ecommerce-es.html">Ver proyectos</a>
+<body class="not-found-page">
+  <div class="load-progress" aria-hidden="true" data-load-progress><span></span></div>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="market-header" data-header>
+    <div class="utility-bar app-width">
+      <a class="identity" href="/index.html" aria-label="Matías Gaglio, inicio del portfolio"><img class="identity__logo" src="/prototype-amazon/logo-signal.svg" width="48" height="40" alt=""><strong>Matías Gaglio</strong></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="utility-nav" data-menu-toggle><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sr-only">Abrir navegación</span></button>
+      <nav class="utility-nav" id="utility-nav" aria-label="Utilidades" data-menu><a href="/about.html">Sobre mí</a><a href="/page.html?source=../cv-es.html">CV</a><a href="/contact.html">Contacto</a><button class="theme-toggle" type="button" data-theme-toggle><span aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button><a class="locale" href="?lang=en" hreflang="en" lang="en">EN</a></nav>
+    </div>
+    <form class="portfolio-search app-width" role="search" action="/catalog.html">
+      <label class="sr-only" for="missing-query">Buscar en el portfolio</label>
+      <select class="search-scope" aria-label="Filtrar por área" name="section"><option value="all">Todo el portfolio</option><option value="ecommerce">Amazon Growth &amp; PPC</option><option value="creative">Creatividad y medios</option><option value="research">Investigación y análisis</option></select>
+      <input id="missing-query" name="q" type="search" autocomplete="off" placeholder="Buscar casos, proyectos, herramientas o problemas">
+      <button type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>
+    </form>
+    <nav class="department-nav" aria-label="Explorar el portfolio"><div class="app-width department-nav__track"><a class="department-nav__all" href="/catalog.html?section=all">Explorar todo</a><a href="/catalog.html?section=ecommerce">Ecommerce</a><a href="/catalog.html?section=creative">Creatividad</a><a href="/catalog.html?section=articles">Sistemas y artículos</a><a href="/catalog.html?section=research">Investigación</a></div></nav>
+  </header>
+
+  <main class="not-found-main app-width" id="contenido">
+    <nav class="breadcrumb" aria-label="Migas de pan"><ol><li><a href="/index.html">Portfolio</a></li><li aria-current="page">Error 404</li></ol></nav>
+    <section class="not-found-console" aria-labelledby="not-found-title">
+      <div class="not-found-code" aria-hidden="true"><span>4</span><i></i><span>4</span></div>
+      <div class="not-found-copy">
+        <p class="path-label">Ruta no disponible</p>
+        <h1 id="not-found-title">No encontramos esta página.</h1>
+        <p>El enlace puede haber cambiado. Volvé al inicio o buscá el proyecto dentro del catálogo.</p>
+        <div class="not-found-actions"><a class="primary-action" href="/index.html">Volver al inicio</a><a class="banner-secondary" href="/catalog.html?section=all">Explorar el catálogo</a></div>
+      </div>
+    </section>
+    <section class="not-found-routes" aria-labelledby="routes-title">
+      <div class="section-heading"><p class="path-label">Rutas disponibles</p><h2 id="routes-title">Seguí explorando</h2></div>
+      <div class="account-grid">
+        <a class="account-card" href="/catalog.html?section=ecommerce"><span class="account-card__icon" aria-hidden="true">01</span><h3>Ecommerce y casos</h3><span class="result-action">Abrir ›</span></a>
+        <a class="account-card" href="/catalog.html?section=creative"><span class="account-card__icon" aria-hidden="true">02</span><h3>Creatividad y medios</h3><span class="result-action">Abrir ›</span></a>
+        <a class="account-card" href="/about.html"><span class="account-card__icon" aria-hidden="true">03</span><h3>Sobre mí</h3><span class="result-action">Abrir ›</span></a>
       </div>
     </section>
   </main>
-  <script src="global-nav.js?v=20260806b" defer></script>
+
+  <footer class="site-footer"><div class="app-width site-footer__inner"><p><strong>Matías Gaglio</strong><span>Portfolio independiente. No afiliado a Amazon.</span></p><a href="#contenido">Volver arriba ↑</a></div></footer>
 </body>
 </html>

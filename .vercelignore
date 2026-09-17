@@ -1,0 +1,9 @@
+.git
+.vercel
+node_modules
+prototype-homepage
+tmp
+test-results
+playwright-report
+__pycache__
+creatives/ecommerce-video/rollator-conversion-*.mp4
