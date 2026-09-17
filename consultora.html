@@ -377,8 +377,6 @@
     }
     renderTrend(); renderModel(); renderFigures(); renderReports();
     document.querySelector('#document-search').addEventListener('input',e=>renderReports(e.target.value.trim()));
-    const toggle=document.querySelector('.nav-toggle'), navbar=document.querySelector('.navbar');
-    toggle.addEventListener('click',()=>{const open=navbar.classList.toggle('nav-open');toggle.setAttribute('aria-expanded',String(open));});
   </script>
   <script src="accessibility.js" defer></script>
   <script src="global-nav.js?v=20260806b" defer></script>

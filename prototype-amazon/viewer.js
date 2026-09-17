@@ -130,7 +130,7 @@
 
       // Keep canvas renderers and the interactive CV in their original document:
       // cloning HTML would discard canvas pixels and JavaScript event handlers.
-      if (sourceMain.querySelector('canvas') || /\/(?:creatives|cv)-(?:es|en)\.html$/i.test(sourceUrl.pathname)) {
+      if (sourceMain.querySelector('canvas') || /\/(?:creatives|cv|consultora)-(?:es|en)\.html$/i.test(sourceUrl.pathname)) {
         const adapter = sourceDocument.createElement('link');
         adapter.rel = 'stylesheet';
         adapter.href = '/prototype-amazon/source-theme.css?v=20260903b';
@@ -325,7 +325,7 @@
     if (doc?.readyState === 'complete' || navigation?.domContentLoadedEventEnd > 0) sourceDomReady = true;
     const main = doc?.querySelector('main');
     const hasSoftwareStack = Boolean(doc?.querySelector('script[src*="software-stack.js"]'));
-    const keepsLiveDocument = Boolean(main?.querySelector('canvas')) || /\/(?:creatives|cv)-(?:es|en)\.html$/i.test(sourceUrl.pathname);
+    const keepsLiveDocument = Boolean(main?.querySelector('canvas')) || /\/(?:creatives|cv|consultora)-(?:es|en)\.html$/i.test(sourceUrl.pathname);
     const softwareReady = keepsLiveDocument || !hasSoftwareStack || sourceWindow?.__softwareStackReady === true || performance.now() - sourceStartedAt > 5000;
     const documentReady = sourceDomReady || (isCreativeIndex && sourceWindow?.__softwareStackReady === true && main?.querySelector('h1'));
     if (main && documentReady && softwareReady) prepareSource();

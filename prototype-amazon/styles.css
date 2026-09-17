@@ -474,7 +474,7 @@ select:focus-visible,
   padding: .7rem 1rem;
   transform: translateY(-150%);
   background: var(--surface-strong);
-  color: var(--navy-950);
+  color: var(--text);
   border: 2px solid var(--focus);
   font-weight: 700;
 }
