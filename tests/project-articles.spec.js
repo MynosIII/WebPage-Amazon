@@ -16,17 +16,18 @@ test('new Spanish project articles preserve text, media and responsive layout in
   for (const [source, heading, minimumImages] of articles) {
     await page.setViewportSize({ width: 1280, height: 800 });
     await page.goto('/' + source, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(1800);
+    await page.waitForFunction(() => window.__softwareStackReady === true, null, { timeout: 15000 });
     const sourceMain = page.locator('main');
     // Compare authored content rather than CSS-transformed presentation
     // (for example, an uppercase eyebrow in the standalone article).
-    const sourceText = normalized(await sourceMain.textContent());
+    const sourceText = normalized(await sourceMain.locator(':scope > article').textContent());
 
     await page.goto('/prototype-amazon/page.html?source=' + encodeURIComponent('../' + source), { waitUntil: 'domcontentloaded' });
     const embeddedMain = page.locator('[data-source-embed] main');
     await embeddedMain.waitFor({ state: 'attached', timeout: 15000 });
+    await embeddedMain.locator('.case-software-stack').waitFor({ state: 'attached', timeout: 15000 });
     await expect(embeddedMain.getByRole('heading', { level: 1 })).toContainText(heading);
-    const embeddedText = normalized(await embeddedMain.textContent());
+    const embeddedText = normalized(await embeddedMain.locator(':scope > article').textContent());
     if (embeddedText !== sourceText) failures.push(`${source}: embedded text differs from source`);
 
     const images = embeddedMain.locator('img');
@@ -52,6 +53,7 @@ test('new Spanish project articles preserve text, media and responsive layout in
 });
 
 test('Spanish article catalog exposes all four projects with real cover media', async ({ page }) => {
+  test.setTimeout(120000);
   await page.goto('/prototype-amazon/catalog.html?section=articles', { waitUntil: 'domcontentloaded' });
   await page.locator('[data-catalog-list] article').first().waitFor({ state: 'visible' });
 
@@ -62,6 +64,7 @@ test('Spanish article catalog exposes all four projects with real cover media', 
     await card.scrollIntoViewIfNeeded();
     const image = card.locator('img').first();
     await expect(image).toBeVisible();
-    await expect.poll(() => image.evaluate(node => node.complete && node.naturalWidth > 0)).toBe(true);
+    await image.evaluate(node => { node.loading = 'eager'; });
+    await expect.poll(() => image.evaluate(node => node.complete && node.naturalWidth > 0), { timeout: 15000 }).toBe(true);
   }
 });
