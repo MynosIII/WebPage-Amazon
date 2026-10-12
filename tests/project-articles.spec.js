@@ -18,13 +18,15 @@ test('new Spanish project articles preserve text, media and responsive layout in
     await page.goto('/' + source, { waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(1800);
     const sourceMain = page.locator('main');
-    const sourceText = normalized(await sourceMain.innerText());
+    // Compare authored content rather than CSS-transformed presentation
+    // (for example, an uppercase eyebrow in the standalone article).
+    const sourceText = normalized(await sourceMain.textContent());
 
     await page.goto('/prototype-amazon/page.html?source=' + encodeURIComponent('../' + source), { waitUntil: 'domcontentloaded' });
     const embeddedMain = page.locator('[data-source-embed] main');
     await embeddedMain.waitFor({ state: 'attached', timeout: 15000 });
     await expect(embeddedMain.getByRole('heading', { level: 1 })).toContainText(heading);
-    const embeddedText = normalized(await embeddedMain.innerText());
+    const embeddedText = normalized(await embeddedMain.textContent());
     if (embeddedText !== sourceText) failures.push(`${source}: embedded text differs from source`);
 
     const images = embeddedMain.locator('img');

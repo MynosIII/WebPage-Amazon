@@ -108,6 +108,7 @@
   let earlySourceCheck;
   let observedSourceDocument;
   let sourceDomReady = false;
+  let softwareStackWaitRegistered = false;
   const sourceStartedAt = performance.now();
   const isCreativeIndex = /\/creatives-(?:es|en)\.html$/i.test(sourceUrl.pathname);
   function syncMeta(sourceDocument, sourceTitle) {
@@ -136,6 +137,14 @@
     const sourceDocument = bootstrapFrame.contentDocument;
     const sourceWindow = bootstrapFrame.contentWindow;
     if (!sourceDocument || !sourceWindow) { showError(isEnglish ? 'The source page could not be read.' : 'No se pudo leer la página de origen.'); return; }
+    const hasAsyncSoftwareStack = Boolean(sourceDocument.querySelector('script[src*="software-stack.js"]'));
+    if (hasAsyncSoftwareStack && sourceWindow.__softwareStackReady !== true && performance.now() - sourceStartedAt <= 5000) {
+      if (!softwareStackWaitRegistered) {
+        softwareStackWaitRegistered = true;
+        sourceWindow.addEventListener('software-stack-ready', prepareSource, { once: true });
+      }
+      return;
+    }
     // Live documents keep their own DOM and scripts, so expose them as soon as
     // <main> exists. Async software badges can continue mounting in place.
     sourcePrepared = true;
@@ -162,7 +171,6 @@
         const syncTheme = function () { sourceDocument.documentElement.dataset.marketTheme = document.documentElement.dataset.theme || 'light'; };
         syncTheme();
         new MutationObserver(syncTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-        const hasAsyncSoftwareStack = Boolean(sourceDocument.querySelector('script[src*="software-stack.js"]'));
         const softwareStackReady = sourceWindow.__softwareStackReady === true;
         // Keep original case links intact until the source script has used
         // them to mount its real badges. Media can still be normalized now.
