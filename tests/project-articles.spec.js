@@ -4,14 +4,14 @@ const articles = [
   ['telemetry-one-ecosistema-es.html', 'De varios experimentos a un ecosistema navegable.', 3, 'Telemetry 1: ecosistema de Fórmula 1'],
   ['f1-predictor-walk-forward-es.html', 'Predecir antes de saber. Aprender después.', 1, 'F1Predictor: predicción walk-forward sin fuga de datos'],
   ['predestinato-simulador-carrera-es.html', 'Una vida deportiva hecha de decisiones conectadas.', 2, 'Predestinato: diseño de un simulador de carrera'],
-  ['deteccion-copas-arboles-es.html', 'De una imagen satelital a un mapa de copas.', 1, 'Detección geoespacial de copas de árboles']
+  ['deteccion-copas-arboles-es.html', 'De un código postal a un mapa de árboles.', 1, 'Detección geoespacial de copas de árboles']
 ];
 
 const englishArticles = [
   ['telemetry-one-ecosistema-en.html', 'From separate experiments to a navigable ecosystem.', 3, 'Telemetry 1: a Formula 1 ecosystem'],
   ['f1-predictor-walk-forward-en.html', 'Predict before knowing. Learn afterward.', 1, 'F1Predictor: leakage-free walk-forward prediction'],
   ['predestinato-simulador-carrera-en.html', 'A sporting life built from connected decisions.', 2, 'Predestinato: designing a career simulator'],
-  ['deteccion-copas-arboles-en.html', 'From satellite imagery to a tree-crown map.', 1, 'Geospatial tree-crown detection']
+  ['deteccion-copas-arboles-en.html', 'From a ZIP code to a tree map.', 1, 'Geospatial tree-crown detection']
 ];
 
 const normalized = value => String(value || '').replace(/\s+/g, ' ').trim();
@@ -142,6 +142,7 @@ test('English article catalog and All work expose the complete bilingual invento
 });
 
 test('every catalog section filter returns the same bilingual inventory shape', async ({ page }) => {
+  test.setTimeout(120000);
   const expected = { all: 36, ecommerce: 14, bi: 6, creative: 15, articles: 13, research: 5, other: 5 };
   for (const lang of ['es', 'en']) {
     for (const [section, count] of Object.entries(expected)) {
@@ -149,5 +150,22 @@ test('every catalog section filter returns the same bilingual inventory shape', 
       await expect(page.locator('[data-catalog-list] article')).toHaveCount(count);
       await expect(page.locator('[data-catalog-count]')).toContainText(String(count));
     }
+  }
+});
+
+test('tree detection case leads with the real 07042 result in both languages', async ({ page }) => {
+  for (const [source, lang, count] of [
+    ['deteccion-copas-arboles-es.html', 'es', '1.986'],
+    ['deteccion-copas-arboles-en.html', 'en', '1,986']
+  ]) {
+    await page.goto(`/prototype-amazon/page.html?source=${encodeURIComponent('../' + source)}${lang === 'en' ? '&lang=en' : ''}`, { waitUntil: 'domcontentloaded' });
+    const main = page.locator('[data-source-embed] main');
+    await main.waitFor({ state: 'attached', timeout: 15000 });
+    const resultImage = main.locator('img[src*="tree-crown-07042-results.webp"]');
+    await expect(resultImage).toBeVisible();
+    await expect.poll(() => resultImage.evaluate(image => image.complete && image.naturalWidth === 1920 && image.naturalHeight === 1080), { timeout: 15000 }).toBe(true);
+    await expect(main).toContainText('07042');
+    await expect(main).toContainText(count);
+    await expect(main).not.toContainText('tree-crown-pipeline');
   }
 });

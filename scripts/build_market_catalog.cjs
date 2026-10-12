@@ -55,7 +55,7 @@ const explicitCovers = {
   'telemetry-one-ecosistema.html': 'assets/project-articles/telemetry-home.png',
   'f1-predictor-walk-forward.html': 'assets/project-articles/f1-predictor-backtest.svg',
   'predestinato-simulador-carrera.html': 'assets/project-articles/predestinato-home.png',
-  'deteccion-copas-arboles.html': 'assets/project-articles/tree-crown-pipeline.svg'
+  'deteccion-copas-arboles.html': 'assets/project-articles/tree-crown-07042-results.webp'
 };
 
 const explicitCoverSets = {
@@ -76,7 +76,7 @@ const captureSpecs = {
 };
 
 const coverFit = (key, image) => /(?:dashboard|kpi|caso1_plot|caso1_sales|caso2|image_060|image_076)/i.test(image)
-  || /consultora|f1-predictor-walk-forward|deteccion-copas-arboles/.test(key) ? 'contain' : 'cover';
+  || /consultora|f1-predictor-walk-forward/.test(key) ? 'contain' : 'cover';
 
 (async () => {
   const browser = await chromium.launch();

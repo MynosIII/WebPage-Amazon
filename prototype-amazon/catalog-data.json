@@ -853,8 +853,8 @@
   },
   {
     "title": "Geospatial tree-crown detection",
-    "description": "How I built a Python computer-vision pipeline that detects tree crowns in high-resolution imagery and converts them into georeferenced geometries.",
-    "keywords": "tree detection, tree crowns, DeepForest, Python, rasterio, GeoPandas, QGIS, GeoJSON, NAIP, computer vision From satellite imagery to a tree-crown map. Turn visible vegetation into data that can be mapped. Preserve the geography after inferring in pixels. Acquire the raster Detect by tiles Transform coordinates Export and inspect A small tool with separated responsibilities. DeepForest as a starting point Georeference preserved Interoperable GeoJSON Annotated image Block-based work From a detection to a map From detection to new questions about the territory. Locate and count Read spatial differences Direct inspection A foundation for experimenting with vision and territory. A short, auditable prototype. Python",
+    "description": "How I turned New Jersey ZIP code 07042 into an annotated image, 1,986 tree candidates and georeferenced geometries with Python.",
+    "keywords": "tree detection, tree crowns, DeepForest, Python, rasterio, GeoPandas, QGIS, GeoJSON, NAIP, computer vision From a ZIP code to a tree map. One territorial query turned into four usable outputs. Preserve the geography after inferring in pixels. Acquire the raster Detect by tiles Transform coordinates Export and inspect A small tool with separated responsibilities. DeepForest as a starting point Georeference preserved Interoperable GeoJSON Annotated image Block-based work From a detection to a map From detection to new questions about the territory. Locate and count Read spatial differences Direct inspection A foundation for experimenting with vision and territory. A short, auditable prototype. Python",
     "lang": "en",
     "url": "deteccion-copas-arboles-en.html",
     "categories": [
@@ -862,8 +862,8 @@
       "research",
       "other"
     ],
-    "image": "assets/project-articles/tree-crown-pipeline.svg",
-    "mediaFit": "contain",
+    "image": "assets/project-articles/tree-crown-07042-results.webp",
+    "mediaFit": "cover",
     "toolLogos": [
       {
         "key": "python",
@@ -877,8 +877,8 @@
   },
   {
     "title": "Detección geoespacial de copas de árboles",
-    "description": "Cómo construí en Python un flujo de visión por computadora que detecta copas de árboles en imágenes de alta resolución y las convierte en geometrías georreferenciadas.",
-    "keywords": "detección de árboles, copas de árboles, DeepForest, Python, rasterio, GeoPandas, QGIS, GeoJSON, NAIP, visión por computadora De una imagen satelital a un mapa de copas. Convertir vegetación visible en datos que se pueden mapear. Conservar la geografía después de inferir en píxeles. Adquirir el raster Detectar por teselas Transformar coordenadas Exportar e inspeccionar Una herramienta pequeña con responsabilidades separadas. DeepForest como punto de partida Georreferencia preservada GeoJSON interoperable Imagen anotada Trabajo por bloques De una detección a un mapa De la detección a nuevas preguntas sobre el territorio. Localizar y contar Leer diferencias espaciales Dirigir la inspección Una base para experimentar con visión y territorio. Un prototipo corto y auditable. Python",
+    "description": "Cómo convertí el código postal 07042 de New Jersey en una imagen anotada, 1.986 candidatos de árbol y geometrías georreferenciadas con Python.",
+    "keywords": "detección de árboles, copas de árboles, DeepForest, Python, rasterio, GeoPandas, QGIS, GeoJSON, NAIP, visión por computadora De un código postal a un mapa de árboles. Una consulta territorial convertida en cuatro salidas utilizables. Conservar la geografía después de inferir en píxeles. Adquirir el raster Detectar por teselas Transformar coordenadas Exportar e inspeccionar Una herramienta pequeña con responsabilidades separadas. DeepForest como punto de partida Georreferencia preservada GeoJSON interoperable Imagen anotada Trabajo por bloques De una detección a un mapa De la detección a nuevas preguntas sobre el territorio. Localizar y contar Leer diferencias espaciales Dirigir la inspección Una base para experimentar con visión y territorio. Un prototipo corto y auditable. Python",
     "lang": "es",
     "url": "deteccion-copas-arboles-es.html",
     "categories": [
@@ -886,8 +886,8 @@
       "research",
       "other"
     ],
-    "image": "assets/project-articles/tree-crown-pipeline.svg",
-    "mediaFit": "contain",
+    "image": "assets/project-articles/tree-crown-07042-results.webp",
+    "mediaFit": "cover",
     "toolLogos": [
       {
         "key": "python",
