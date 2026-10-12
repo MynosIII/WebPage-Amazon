@@ -62,9 +62,9 @@
   function toolLogoMarkup(toolLogos) {
     if (!Array.isArray(toolLogos) || !toolLogos.length) return '';
     const names = toolLogos.map(function (tool) { return tool.name; }).join(', ');
-    return '<ul class="case-logo-row" aria-label="' + escape(names) + '">' + toolLogos.map(function (tool) {
-      return '<li title="' + escape(tool.name) + '"><img src="../assets/software-logos/' + escape(tool.asset) + '" alt="" width="28" height="28" loading="lazy" decoding="async"></li>';
-    }).join('') + '</ul>';
+    return '<div class="case-logo-row" role="list" aria-label="' + escape(names) + '">' + toolLogos.map(function (tool) {
+      return '<span role="listitem" title="' + escape(tool.name) + '"><img src="../assets/software-logos/' + escape(tool.asset) + '" alt="" width="28" height="28" loading="lazy" decoding="async"></span>';
+    }).join('') + '</div>';
   }
 
   function cardMarkup(item) {

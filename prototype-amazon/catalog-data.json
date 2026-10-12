@@ -852,6 +852,30 @@
     "toolLogos": []
   },
   {
+    "title": "Geospatial tree-crown detection",
+    "description": "How I built a Python computer-vision pipeline that detects tree crowns in high-resolution imagery and converts them into georeferenced geometries.",
+    "keywords": "tree detection, tree crowns, DeepForest, Python, rasterio, GeoPandas, QGIS, GeoJSON, NAIP, computer vision From satellite imagery to a tree-crown map. Turn visible vegetation into data that can be mapped. Preserve the geography after inferring in pixels. Acquire the raster Detect by tiles Transform coordinates Export and inspect A small tool with separated responsibilities. DeepForest as a starting point Georeference preserved Interoperable GeoJSON Annotated image Block-based work From a detection to a map From detection to new questions about the territory. Locate and count Read spatial differences Direct inspection A foundation for experimenting with vision and territory. A short, auditable prototype. Python",
+    "lang": "en",
+    "url": "deteccion-copas-arboles-en.html",
+    "categories": [
+      "articles",
+      "research",
+      "other"
+    ],
+    "image": "assets/project-articles/tree-crown-pipeline.svg",
+    "mediaFit": "contain",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      }
+    ]
+  },
+  {
     "title": "Detección geoespacial de copas de árboles",
     "description": "Cómo construí en Python un flujo de visión por computadora que detecta copas de árboles en imágenes de alta resolución y las convierte en geometrías georreferenciadas.",
     "keywords": "detección de árboles, copas de árboles, DeepForest, Python, rasterio, GeoPandas, QGIS, GeoJSON, NAIP, visión por computadora De una imagen satelital a un mapa de copas. Convertir vegetación visible en datos que se pueden mapear. Conservar la geografía después de inferir en píxeles. Adquirir el raster Detectar por teselas Transformar coordenadas Exportar e inspeccionar Una herramienta pequeña con responsabilidades separadas. DeepForest como punto de partida Georreferencia preservada GeoJSON interoperable Imagen anotada Trabajo por bloques De una detección a un mapa De la detección a nuevas preguntas sobre el territorio. Localizar y contar Leer diferencias espaciales Dirigir la inspección Una base para experimentar con visión y territorio. Un prototipo corto y auditable. Python",
@@ -1290,6 +1314,30 @@
     ]
   },
   {
+    "title": "F1Predictor: leakage-free walk-forward prediction",
+    "description": "How I built and validated a Formula 1 predictor that uses only information available before the first practice session of each Grand Prix.",
+    "keywords": "F1Predictor, Formula 1, machine learning, walk-forward, backtest, Elo, gradient boosting, Hedge, Python, sports prediction Predict before knowing. Learn afterward. The most important boundary is time. The prediction is built The result is revealed The code preserves the sequence A combination that can correct its own confidence. Multi-competitor Elo Gradient boosting Hedge blend Separated risks Each era contributes a different mix of information. Form and similarity Separated capabilities Rolling windows Pre-race context A reading that gains detail Accident versus mechanical Beating a competitive reference. A personal sports analytics lab. Every figure can be traced. Python",
+    "lang": "en",
+    "url": "f1-predictor-walk-forward-en.html",
+    "categories": [
+      "articles",
+      "research",
+      "other"
+    ],
+    "image": "assets/project-articles/f1-predictor-backtest.svg",
+    "mediaFit": "contain",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      }
+    ]
+  },
+  {
     "title": "F1Predictor: predicción walk-forward sin fuga de datos",
     "description": "Cómo construí y validé un predictor de Fórmula 1 que usa únicamente información disponible antes de la primera práctica de cada Gran Premio.",
     "keywords": "F1Predictor, Fórmula 1, machine learning, walk-forward, backtest, Elo, gradient boosting, Hedge, Python, predicción deportiva Predecir antes de saber. Aprender después. La frontera más importante es temporal. Se construye la predicción Se revela el resultado El código preserva la secuencia Una combinación que puede corregir su propia confianza. Elo multicompetidor Gradient boosting Mezcla Hedge Riesgos separados Cada época aporta una combinación distinta de información. Forma y similitud Capacidades separadas Ventanas móviles Contexto previo a la carrera Una lectura que gana detalle Accidente versus mecánica Superar una referencia competitiva. Un laboratorio personal de análisis deportivo. Cada cifra puede rastrearse. Python",
@@ -1371,6 +1419,30 @@
         "aliases": [
           "Illustrator",
           "Adobe Illustrator"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Predestinato: designing a career simulator",
+    "description": "How I designed Predestinato: a playable motorsport career prototype with contracts, sponsors, development, super licence rules, 16 minigames and an audit of 8,825 simulated seasons.",
+    "keywords": "Predestinato, game design, career simulator, Formula 1, JavaScript, UX, game economy, testing, minigames A sporting life built from connected decisions. The career is not a single ladder toward Formula 1. Five statistics and Form Pay, earn and negotiate Markets with alternatives Identity is already a game decision. Three offers, not one correct answer A visible curve Every season changes the next one. Preseason card Short agenda Result and settlement Market and development Detail matters when it changes the strategy. Three-year rolling window Seven points per season Development, prime and decline Cumulative protection Budget and patience Achievements across disciplines Simulating complete careers to improve the design. A system ready to keep growing. Play, review and reproduce. JavaScript",
+    "lang": "en",
+    "url": "predestinato-simulador-carrera-en.html",
+    "categories": [
+      "articles",
+      "other"
+    ],
+    "image": "assets/project-articles/predestinato-home.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
         ]
       }
     ]
@@ -1603,6 +1675,38 @@
         "aliases": [
           "Amazon Seller Central",
           "Seller Central"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Telemetry 1: a Formula 1 ecosystem",
+    "description": "How I designed Telemetry 1 to bring Formula 1 results, history, statistics, analytical models and games into one bilingual, navigable experience.",
+    "keywords": "Telemetry 1, Formula 1, Next.js, historical archive, data visualization, UX, F1DB, sports analytics, Python, TypeScript From separate experiments to a navigable ecosystem. The information existed. What it needed was a way to explore it. The season as an entry point 76 connected seasons Compare beyond the result One entrance, several levels of depth. Data that keeps its meaning Links as part of the model Generate, verify and then present. Normalize sources Build snapshots Verify invariants Serve with Next.js The model is part of the experience. The portal also supports independent products A personal project combining product, data and creativity. Product and method open for inspection. TypeScript Python",
+    "lang": "en",
+    "url": "telemetry-one-ecosistema-en.html",
+    "categories": [
+      "articles",
+      "research",
+      "other"
+    ],
+    "image": "assets/project-articles/telemetry-home.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "typescript",
+        "name": "TypeScript",
+        "asset": "typescript.svg",
+        "aliases": [
+          "TypeScript"
+        ]
+      },
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
         ]
       }
     ]

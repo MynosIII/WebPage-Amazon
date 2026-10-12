@@ -305,7 +305,7 @@ html[data-theme="dark"] .account-approach__meta dt { color: #ffb45d; }
 .catalog-result__body h3 a:hover { color: var(--link-hover); text-decoration: underline; }
 .catalog-result__body > p:not(.result-kicker) { margin: 0 0 .65rem; color: var(--muted); font-size: .9rem; }
 .case-logo-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 0; padding: 0; list-style: none; }
-.case-logo-row li { display: grid; place-items: center; width: 38px; height: 38px; padding: 6px; background: var(--surface-muted); border: 1px solid var(--line); }
+.case-logo-row > [role="listitem"] { display: grid; place-items: center; width: 38px; height: 38px; padding: 6px; background: var(--surface-muted); border: 1px solid var(--line); }
 .case-logo-row img { width: 100%; height: 100%; object-fit: contain; }
 .catalog-result__body .case-logo-row { margin-top: .8rem; }
 .system-message { margin-top: 1rem; padding: 1rem; background: var(--surface-strong); border: 1px solid var(--line); }

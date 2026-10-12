@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telemetry 1: a Formula 1 ecosystem | Matías Gaglio</title>
+  <meta name="description" content="How I designed Telemetry 1 to bring Formula 1 results, history, statistics, analytical models and games into one bilingual, navigable experience.">
+  <meta name="keywords" content="Telemetry 1, Formula 1, Next.js, historical archive, data visualization, UX, F1DB, sports analytics, Python, TypeScript">
+  <link rel="canonical" href="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-en.html">
+  <link rel="alternate" hreflang="es" href="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-es.html">
+  <link rel="alternate" hreflang="en" href="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-en.html">
+  <link rel="alternate" hreflang="x-default" href="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-es.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Matías Gaglio">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Telemetry 1: architecture for a Formula 1 ecosystem">
+  <meta property="og:description" content="From the latest race to 76 seasons of history, analytical models and games inside one digital product.">
+  <meta property="og:url" content="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-en.html">
+  <meta property="og:image" content="https://matiasgaglio.vercel.app/assets/project-articles/telemetry-home.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project-article.css">
+  <link rel="stylesheet" href="global-nav.css">
+</head>
+<body class="project-article-page">
+  <header class="global-nav" data-global-nav>
+    <div class="global-nav__badge">
+      <a class="global-nav__logo" href="index-en.html">Matías Gaglio.</a>
+      <button class="global-nav__toggle" type="button" aria-controls="global-menu" aria-expanded="false" aria-label="Open menu" data-global-nav-toggle><span></span><span></span><span></span></button>
+      <nav class="global-nav__menu" id="global-menu" aria-label="Main navigation"><ul><li><a href="index-en.html">Home</a></li><li><a href="ecommerce-en.html">Ecommerce</a></li><li><a href="Articles-en.html">Articles</a></li><li><a href="creatives-en.html">Creative work</a></li><li><a href="consultora-en.html">Research</a></li><li><a href="otros-en.html">Other projects</a></li><li><a href="sobre-mi-en.html">About me</a></li><li class="global-nav__locale"><a href="telemetry-one-ecosistema-es.html" hreflang="es" aria-label="Ver en español">ES</a></li></ul></nav>
+    </div>
+  </header>
+  <main class="project-article">
+    <article>
+      <header class="pa-hero"><div class="container">
+        <span class="pa-kicker">Digital product · Data · Formula 1</span>
+        <h1>From separate experiments to a <em>navigable ecosystem.</em></h1>
+        <p class="pa-deck">My interest in motorsport became a digital product of my own: Telemetry 1 brings current events, results, profiles, history, analytical models and games into one experience. The challenge was turning years of curiosity, data and experiments into an ecosystem that invites people to explore Formula 1 from different angles.</p>
+        <div class="pa-actions"><a class="pa-button pa-button--primary" href="https://telemetry-1.vercel.app" target="_blank" rel="noopener">Open Telemetry 1 ↗</a><a class="pa-button" href="https://github.com/MynosIII/telemetry-1" target="_blank" rel="noopener">View repository ↗</a></div>
+      </div></header>
+
+      <section class="pa-media"><div class="container">
+        <figure class="pa-figure pa-figure--wide"><img src="assets/project-articles/telemetry-home.png" width="1440" height="900" alt="Telemetry 1 home page with navigation, results and championship standings" fetchpriority="high"><figcaption>The home page connects the current season with results, history, rankings and games: different ways into the same universe.</figcaption></figure>
+        <div class="pa-facts"><div class="pa-fact"><strong>1,374</strong><span>entities indexed in the published historical archive</span></div><div class="pa-fact"><strong>1,149</strong><span>events with classifications in the 1950–2025 snapshot</span></div><div class="pa-fact"><strong>1,140</strong><span>named chassis connected to seasons and participants</span></div><div class="pa-fact"><strong>ES / EN</strong><span>bilingual interface, navigation and editorial content</span></div></div>
+      </div></section>
+
+      <section class="pa-section"><div class="container">
+        <span class="pa-label">The product problem</span>
+        <h2>The information existed. What it needed was a way to explore it.</h2>
+        <p>Recent results, the historical archive, the retrospective ranking and the games began as separate projects. Bringing them together meant resolving different timescales, sources and behaviors while keeping the experience clear.</p>
+        <div class="pa-grid"><article class="pa-card"><b>Current season</b><h3>The season as an entry point</h3><p>Calendar, results and standings make it possible to follow the present and open natural paths toward related drivers, teams and races.</p></article><article class="pa-card"><b>Archive</b><h3>76 connected seasons</h3><p>Seasons, races, drivers, constructors, engines, tires, circuits and cars are generated from identifiable snapshots and form a navigable historical network.</p></article><article class="pa-card"><b>Analysis</b><h3>Compare beyond the result</h3><p>The v7.6 ranking and expected probabilities add an analytical layer for exploring performance, context and careers across eras.</p></article></div>
+      </div></section>
+
+      <section class="pa-section"><div class="container pa-split">
+        <div class="pa-prose"><span class="pa-label">Information architecture</span><h2>One entrance, several levels of depth.</h2><p>The primary navigation supports different intentions: follow the season, look up an entity, compare careers, read a story or play. Inside the archive, a second layer moves through seasons, Grands Prix, drivers, constructors, engines, tires, nations, circuits, cars and records.</p><h3>Data that keeps its meaning</h3><p>The interface distinguishes confirmed results, available information and model outputs. That decision keeps an extensive database readable and enables comparison without losing the context behind each figure.</p><h3>Links as part of the model</h3><p>Pages are not isolated profiles. A race connects its season and participants; a chassis links the years in which it appeared; a driver joins official results with the analytical series that represents that career.</p></div>
+        <figure class="pa-figure"><img src="assets/project-articles/telemetry-history.png" width="1440" height="900" alt="Telemetry 1 historical index with filters and driver table"><figcaption>The historical index supports search and sorting without leaving the archive context.</figcaption></figure>
+      </div></section>
+
+      <section class="pa-section"><div class="container">
+        <span class="pa-label">Technical system</span><h2>Generate, verify and then present.</h2>
+        <div class="pa-flow"><article><h3>Normalize sources</h3><p>F1DB powers the historical archive; attributed sources provide information and media that the base dataset does not include.</p></article><article><h3>Build snapshots</h3><p>Separate scripts generate history, race weekends, tires, records and articles. Analytical models are prepared before the visit.</p></article><article><h3>Verify invariants</h3><p>Validation tasks check totals, links, special historical cases, pole-position rules and model coverage before publication.</p></article><article><h3>Serve with Next.js</h3><p>Dynamic routes read versioned artifacts and turn them into fast, linkable and search-friendly pages.</p></article></div>
+        <div class="pa-callout pa-callout--green"><strong>Key decision:</strong> the portal can evolve without redesigning the interface every time a new data family appears. New analyses become system capabilities rather than visual exceptions.</div>
+      </div></section>
+
+      <section class="pa-section"><div class="container pa-split">
+        <figure class="pa-figure"><img src="assets/project-articles/telemetry-ranking.png" width="1440" height="900" alt="Telemetry 1 historical driver ranking interface"><figcaption>The ranking keeps its analytical identity inside the same product and makes version, coverage and comparison mode visible.</figcaption></figure>
+        <div class="pa-prose"><span class="pa-label">Analytical integration</span><h2>The model is part of the experience.</h2><p>The ranking lets visitors select a calculated version, compare drivers or cars and switch the axis between race number and Grand Prix name. Each point can expose race context and model variables.</p><p>Official statistics and analytical outputs keep their own meaning: titles, wins and classifications belong to the archive; Elo, xP and expected-win probability belong to the model.</p><h3>The portal also supports independent products</h3><p>The games and Predestinato live in their own repositories. Telemetry 1 presents them as consistent destinations without tying their development cycle to the encyclopedia.</p></div>
+      </div></section>
+
+      <section class="pa-section"><div class="container">
+        <span class="pa-label">Capabilities in action</span><h2>A personal project combining product, data and creativity.</h2>
+        <ul class="pa-limit-list"><li><strong>Product design:</strong> I turned different needs—following, looking up, comparing, reading and playing—into coherent paths inside one interface.</li><li><strong>Data architecture:</strong> I organized current sources, historical snapshots and analytical results so each layer keeps its context.</li><li><strong>Visualization:</strong> rankings, profiles and comparison tools translate complex models into experiences that can be explored without knowing their implementation.</li><li><strong>Ecosystem building:</strong> Telemetry 1 connects encyclopedia, analysis and independent games, and can absorb new experiments without losing its identity.</li></ul>
+      </div></section>
+
+      <section class="pa-section"><div class="container"><span class="pa-label">Project sources</span><h2>Product and method open for inspection.</h2><ul class="pa-source-list"><li><a href="https://telemetry-1.vercel.app" target="_blank" rel="noopener"><strong>Telemetry 1 in production</strong><span>Open ↗</span></a></li><li><a href="https://github.com/MynosIII/telemetry-1" target="_blank" rel="noopener"><strong>Repository and technical documentation</strong><span>GitHub ↗</span></a></li><li><a href="https://github.com/MynosIII/TelemetryOne" target="_blank" rel="noopener"><strong>Original analytical visualizer</strong><span>GitHub ↗</span></a></li></ul></div></section>
+    </article>
+  </main>
+  <footer><div class="container"><p>© 2026 Matías Gaglio. Personal portfolio.</p></div></footer>
+  <script src="accessibility.js" defer></script>
+  <script src="software-stack.js?v=20261012" defer></script>
+  <script src="global-nav.js?v=20261012" defer></script>
+</body>
+</html>

@@ -86,10 +86,10 @@ def tool_logo_markup(tool_logos: list[dict]) -> str:
         return ""
     names = ", ".join(t["name"] for t in tool_logos)
     items = "".join(
-        f'<li title="{escape(t["name"])}"><img src="../assets/software-logos/{escape(t["asset"])}" alt="" width="28" height="28" loading="lazy" decoding="async"></li>'
+        f'<span role="listitem" title="{escape(t["name"])}"><img src="../assets/software-logos/{escape(t["asset"])}" alt="" width="28" height="28" loading="lazy" decoding="async"></span>'
         for t in tool_logos
     )
-    return f'<ul class="case-logo-row" aria-label="{escape(names)}">{items}</ul>'
+    return f'<div class="case-logo-row" role="list" aria-label="{escape(names)}">{items}</div>'
 
 
 def card_markup(item: dict, category_label: str) -> str:
