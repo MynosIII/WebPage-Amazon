@@ -1,17 +1,18 @@
 const { test, expect } = require('@playwright/test');
+const AxeBuilder = require('@axe-core/playwright').default;
 
 const articles = [
   ['telemetry-one-ecosistema-es.html', 'De varios experimentos a un ecosistema navegable.', 3, 'Telemetry 1: ecosistema de Fórmula 1'],
   ['f1-predictor-walk-forward-es.html', 'Predecir antes de saber. Aprender después.', 1, 'F1Predictor: predicción walk-forward sin fuga de datos'],
   ['predestinato-simulador-carrera-es.html', 'Una vida deportiva hecha de decisiones conectadas.', 2, 'Predestinato: diseño de un simulador de carrera'],
-  ['deteccion-copas-arboles-es.html', 'De un código postal a un mapa de árboles.', 1, 'Detección geoespacial de copas de árboles']
+  ['deteccion-copas-arboles-es.html', 'De un código postal a un mapa vivo del arbolado.', 1, 'Detección geoespacial de copas de árboles']
 ];
 
 const englishArticles = [
   ['telemetry-one-ecosistema-en.html', 'From separate experiments to a navigable ecosystem.', 3, 'Telemetry 1: a Formula 1 ecosystem'],
   ['f1-predictor-walk-forward-en.html', 'Predict before knowing. Learn afterward.', 1, 'F1Predictor: leakage-free walk-forward prediction'],
   ['predestinato-simulador-carrera-en.html', 'A sporting life built from connected decisions.', 2, 'Predestinato: designing a career simulator'],
-  ['deteccion-copas-arboles-en.html', 'From a ZIP code to a tree map.', 1, 'Geospatial tree-crown detection']
+  ['deteccion-copas-arboles-en.html', 'From a ZIP code to a living tree map.', 1, 'Geospatial tree-crown detection']
 ];
 
 const normalized = value => String(value || '').replace(/\s+/g, ' ').trim();
@@ -168,4 +169,32 @@ test('tree detection case leads with the real 07042 result in both languages', a
     await expect(main).toContainText(count);
     await expect(main).not.toContainText('tree-crown-pipeline');
   }
+});
+
+test('dark marketplace routes keep readable text contrast', async ({ page }) => {
+  test.setTimeout(120000);
+  const failures = [];
+  const routes = [
+    '/prototype-amazon/index.html?lang=en',
+    '/prototype-amazon/catalog.html?section=articles&lang=en',
+    '/prototype-amazon/about.html?lang=en',
+    ...englishArticles.map(([source]) => '/prototype-amazon/page.html?source=' + encodeURIComponent('../' + source) + '&lang=en')
+  ];
+
+  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'dark' });
+  await page.addInitScript(() => localStorage.setItem('mg-theme', 'dark'));
+  for (const route of routes) {
+    await page.goto(route, { waitUntil: 'domcontentloaded' });
+    if (route.includes('page.html')) {
+      await page.locator('[data-source-embed] main').waitFor({ state: 'attached', timeout: 15000 });
+    } else if (route.includes('catalog.html')) {
+      await page.locator('[data-catalog-list] article').first().waitFor({ state: 'visible', timeout: 15000 });
+    }
+    const results = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
+    for (const violation of results.violations) {
+      for (const node of violation.nodes) failures.push(`${route}: ${node.target.join(' > ')} — ${node.failureSummary}`);
+    }
+  }
+
+  expect(failures, failures.join('\n')).toEqual([]);
 });

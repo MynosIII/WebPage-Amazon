@@ -164,7 +164,7 @@
       if (sourceMain.querySelector('canvas') || /\/(?:creatives|cv|consultora)-(?:es|en)\.html$/i.test(sourceUrl.pathname)) {
         const adapter = sourceDocument.createElement('link');
         adapter.rel = 'stylesheet';
-        adapter.href = '/prototype-amazon/source-theme.css?v=20260903b';
+        adapter.href = '/prototype-amazon/source-theme.css?v=20261012c';
         const frameStyle = sourceDocument.createElement('style');
         frameStyle.textContent = 'html,body{height:auto!important;min-height:0!important;margin:0!important;overflow-x:hidden!important}body>header,body>footer,body>.skip-link,.portfolio-rail{display:none!important}main{margin:0!important;min-width:0;overflow-wrap:anywhere}main [class*="hero"]{min-height:0!important;height:auto!important}main .container{max-width:100%;box-sizing:border-box}[data-aos]{opacity:1!important;transform:none!important;visibility:visible!important}.modeling-lab-stage{height:480px!important;min-height:0!important}.source-table-scroll{max-width:100%;overflow-x:auto}main h1{font-size:clamp(1.8rem,4vw,2.75rem)!important}@media(max-width:620px){.modeling-lab-stage{height:320px!important}}';
         sourceDocument.head.append(adapter, frameStyle);
@@ -236,7 +236,7 @@
       const shadow = host.attachShadow({ mode: 'open' });
 
       const baseStyle = document.createElement('style');
-      baseStyle.textContent = ':host{display:block;min-width:0}html,body{min-height:0!important;margin:0!important;overflow:visible!important}body>header,body>footer,body>.skip-link,[data-global-nav],.portfolio-rail{display:none!important}main{margin-top:0!important}img,video{max-width:100%;transition:opacity .32s ease,transform .42s ease}[data-media-state="pending"]{opacity:.38;transform:scale(.994)}[data-media-state="ready"]{opacity:1;transform:none}[data-media-state="error"]{opacity:.22;outline:2px solid #b12704}[data-aos]{opacity:1!important;visibility:visible!important;transform:none!important}@media(prefers-reduced-motion:reduce){img,video{transition:none!important}}';
+      baseStyle.textContent = ':host{display:block;min-width:0}html,body{min-height:0!important;margin:0!important;overflow:visible!important}html{--embed-muted:#59636e;--embed-accent:#a85600}html[data-market-theme="dark"]{--embed-muted:#aab5bf;--embed-accent:#ffb45d}body>header,body>footer,body>.skip-link,[data-global-nav],.portfolio-rail{display:none!important}main{margin-top:0!important}main .pa-fact span{color:var(--embed-muted)!important}main :where(.pa-label,.pa-card>b,.pa-flow article::before,.pa-fact strong,.pa-table td strong){color:var(--embed-accent)!important}main .contact-action__label{color:#131921!important}img,video{max-width:100%;transition:opacity .32s ease,transform .42s ease}[data-media-state="pending"]{opacity:.38;transform:scale(.994)}[data-media-state="ready"]{opacity:1;transform:none}[data-media-state="error"]{opacity:.22;outline:2px solid #b12704}[data-aos]{opacity:1!important;visibility:visible!important;transform:none!important}@media(prefers-reduced-motion:reduce){img,video{transition:none!important}}';
       shadow.appendChild(baseStyle);
 
       sourceDocument.head.querySelectorAll('link[rel="stylesheet"], style').forEach(function (sourceStyle) {
@@ -256,7 +256,7 @@
 
       const themeStyle = document.createElement('link');
       themeStyle.rel = 'stylesheet';
-      themeStyle.href = '/prototype-amazon/source-theme.css?v=20260903b';
+      themeStyle.href = '/prototype-amazon/source-theme.css?v=20261012c';
       shadow.appendChild(themeStyle);
 
       const htmlRoot = document.createElement('html');
