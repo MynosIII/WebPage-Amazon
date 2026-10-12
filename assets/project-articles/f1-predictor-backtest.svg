@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Resumen del backtest histórico de F1Predictor</title>
+  <desc id="desc">Interfaz oscura con métricas verificadas del backtest de 1.156 Grandes Premios entre 1951 y 2026.</desc>
+  <rect width="1200" height="675" fill="#07090c"/>
+  <path d="M0 92H1200M0 584H1200" stroke="#252b33"/>
+  <text x="62" y="54" fill="#f4f6f8" font-family="Arial,sans-serif" font-size="22" font-weight="700">F1PREDICTOR · WALK-FORWARD BACKTEST</text>
+  <circle cx="1120" cy="46" r="8" fill="#ef2016"/>
+  <text x="1140" y="53" fill="#aeb4bf" font-family="Arial,sans-serif" font-size="15">1951–R14 2026</text>
+  <text x="62" y="154" fill="#ef2016" font-family="Arial,sans-serif" font-size="18" font-weight="700">CORTE PRE-FP1</text>
+  <text x="62" y="206" fill="#f4f6f8" font-family="Arial,sans-serif" font-size="48" font-weight="800">Predecir primero.</text>
+  <text x="62" y="260" fill="#f4f6f8" font-family="Arial,sans-serif" font-size="48" font-weight="800">Aprender después.</text>
+  <text x="62" y="304" fill="#aeb4bf" font-family="Arial,sans-serif" font-size="18">Cada carrera se predice con información disponible antes del fin de semana.</text>
+  <g transform="translate(62 360)">
+    <rect width="240" height="138" rx="10" fill="#11151b" stroke="#303741"/>
+    <text x="20" y="36" fill="#aeb4bf" font-family="Arial,sans-serif" font-size="14">CARRERAS</text>
+    <text x="20" y="90" fill="#f4f6f8" font-family="Arial,sans-serif" font-size="42" font-weight="800">1.156</text>
+    <text x="20" y="117" fill="#737c89" font-family="Arial,sans-serif" font-size="13">orden cronológico</text>
+  </g>
+  <g transform="translate(318 360)">
+    <rect width="240" height="138" rx="10" fill="#11151b" stroke="#303741"/>
+    <text x="20" y="36" fill="#aeb4bf" font-family="Arial,sans-serif" font-size="14">SPEARMAN MEDIO</text>
+    <text x="20" y="90" fill="#ef2016" font-family="Arial,sans-serif" font-size="42" font-weight="800">0,436</text>
+    <text x="20" y="117" fill="#737c89" font-family="Arial,sans-serif" font-size="13">IC 95% · 0,422–0,450</text>
+  </g>
+  <g transform="translate(574 360)">
+    <rect width="240" height="138" rx="10" fill="#11151b" stroke="#303741"/>
+    <text x="20" y="36" fill="#aeb4bf" font-family="Arial,sans-serif" font-size="14">GANADOR EXACTO</text>
+    <text x="20" y="90" fill="#f4f6f8" font-family="Arial,sans-serif" font-size="42" font-weight="800">30,8%</text>
+    <text x="20" y="117" fill="#737c89" font-family="Arial,sans-serif" font-size="13">IC 95% · 28,0–33,6%</text>
+  </g>
+  <g transform="translate(830 360)">
+    <rect width="308" height="138" rx="10" fill="#11151b" stroke="#303741"/>
+    <text x="20" y="36" fill="#aeb4bf" font-family="Arial,sans-serif" font-size="14">GANADOR EN TOP 3</text>
+    <text x="20" y="90" fill="#f4f6f8" font-family="Arial,sans-serif" font-size="42" font-weight="800">62,2%</text>
+    <text x="20" y="117" fill="#737c89" font-family="Arial,sans-serif" font-size="13">predicción previa al fin de semana</text>
+  </g>
+  <polyline points="62,610 190,597 318,604 446,574 574,581 702,548 830,557 958,526 1138,536" fill="none" stroke="#ef2016" stroke-width="4"/>
+  <g fill="#ef2016"><circle cx="62" cy="610" r="5"/><circle cx="318" cy="604" r="5"/><circle cx="574" cy="581" r="5"/><circle cx="830" cy="557" r="5"/><circle cx="1138" cy="536" r="5"/></g>
+  <text x="62" y="646" fill="#737c89" font-family="Arial,sans-serif" font-size="13">ELO + GRADIENT BOOSTING + HEDGE · SIN DATOS DEL MISMO FIN DE SEMANA</text>
+</svg>

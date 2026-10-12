@@ -15,7 +15,7 @@ function ConvertFrom-HtmlText([string]$value) {
 $pages = Get-ChildItem -LiteralPath $root -Recurse -File -Filter '*.html' |
     Where-Object {
         $_.Name -match '-(en|es)\.html$' -and $_.Name -notmatch '^search-(en|es)\.html$' -and
-        $_.FullName -notmatch '\\(assets|creatives|New format|Revolution|tmp)\\'
+        $_.FullName -notmatch '\\(\.vercel|assets|creatives|New format|Revolution|tmp)\\'
     } |
     ForEach-Object {
         $html = Get-Content -LiteralPath $_.FullName -Raw -Encoding UTF8

@@ -852,6 +852,30 @@
     "toolLogos": []
   },
   {
+    "title": "Detección geoespacial de copas de árboles",
+    "description": "Arquitectura y límites de un prototipo en Python que detecta copas de árboles en imágenes satelitales de alta resolución y exporta geometrías georreferenciadas.",
+    "keywords": "detección de árboles, copas de árboles, DeepForest, Python, rasterio, GeoPandas, QGIS, GeoJSON, NAIP, visión por computadora De una imagen satelital a un mapa de copas. “Detección de hojas” no describe exactamente el modelo. Conservar la geografía después de inferir en píxeles. Adquirir el raster Detectar por teselas Transformar coordenadas Exportar e inspeccionar Una herramienta pequeña con responsabilidades separadas. Pesos preentrenados Georreferencia preservada GeoJSON interoperable Imagen anotada Trabajo por bloques Candidato versus inventario Ver cajas no alcanza para decir que funciona bien. Qué confundió con árboles Qué copas no encontró Qué tan bien coincide la caja Qué hace hoy y qué todavía falta. Un prototipo corto y auditable. Python",
+    "lang": "es",
+    "url": "deteccion-copas-arboles-es.html",
+    "categories": [
+      "articles",
+      "research",
+      "other"
+    ],
+    "image": "assets/project-articles/tree-crown-pipeline.svg",
+    "mediaFit": "contain",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      }
+    ]
+  },
+  {
     "title": "Conversion Video 01",
     "description": "Conversion video case demonstrating adjustable fit, maneuverability and practical storage.",
     "keywords": "From product feature to buying reason. Premiere Pro After Effects",
@@ -1266,6 +1290,30 @@
     ]
   },
   {
+    "title": "F1Predictor: predicción walk-forward sin fuga de datos",
+    "description": "Cómo construí y validé un predictor de Fórmula 1 que usa únicamente información disponible antes de la primera práctica de cada Gran Premio.",
+    "keywords": "F1Predictor, Fórmula 1, machine learning, walk-forward, backtest, Elo, gradient boosting, Hedge, Python, predicción deportiva Predecir antes de saber. Aprender después. La frontera más importante es temporal. Se construye la predicción Se revela el resultado El código impide la fuga Una combinación que puede corregir su propia confianza. Elo multicompetidor Gradient boosting Mezcla Hedge Riesgos separados Usar más datos no significa fingir que siempre existieron. Forma y similitud Capacidades separadas Ventanas móviles Pronóstico, no clima observado Cobertura por época Accidente versus mecánica La pregunta no era si supera al azar. Lo que el backtest todavía no resuelve. Cada cifra puede rastrearse. Python",
+    "lang": "es",
+    "url": "f1-predictor-walk-forward-es.html",
+    "categories": [
+      "articles",
+      "research",
+      "other"
+    ],
+    "image": "assets/project-articles/f1-predictor-backtest.svg",
+    "mediaFit": "contain",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      }
+    ]
+  },
+  {
     "title": "Corporate Communication Icon System",
     "description": "A 170-icon visual communication system created to make product features, care instructions, health concepts and everyday use cases clear at a glance.",
     "keywords": "One system. Hundreds of messages. Communication before decoration. Built to stay clear at every scale. Shared geometry Outline and solid Immediate meaning Modular reuse 170 ways to make information faster. Illustrator",
@@ -1323,6 +1371,30 @@
         "aliases": [
           "Illustrator",
           "Adobe Illustrator"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Predestinato: diseño de un simulador de carrera",
+    "description": "Cómo diseñé Predestinato: un prototipo jugable de carrera automovilística con contratos, sponsors, evolución, superlicencia, 16 minijuegos y auditoría de 8.825 temporadas simuladas.",
+    "keywords": "Predestinato, game design, simulador de carrera, Fórmula 1, JavaScript, UX, economía de juego, testing, minijuegos Una vida deportiva hecha de decisiones conectadas. La carrera no es una escalera única hacia Fórmula 1. Cinco estadísticas y Forma Pagar, cobrar y negociar Mercados con alternativas La identidad ya es una decisión de juego. Tres ofertas, no una respuesta correcta Una curva visible Cada temporada modifica la siguiente. Carta de pretemporada Agenda breve Resultado y liquidación Mercado y evolución El detalle importa cuando cambia la estrategia. Ventana móvil de tres años Siete puntos por temporada Desarrollo, plenitud y caída Protección acumulativa Presupuesto y paciencia Logros entre disciplinas Simular carreras completas para encontrar incoherencias. Prototipo jugable, no producto terminado. Jugar, revisar y reproducir. JavaScript",
+    "lang": "es",
+    "url": "predestinato-simulador-carrera-es.html",
+    "categories": [
+      "articles",
+      "other"
+    ],
+    "image": "assets/project-articles/predestinato-home.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
         ]
       }
     ]
@@ -1531,6 +1603,38 @@
         "aliases": [
           "Amazon Seller Central",
           "Seller Central"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Telemetry 1: ecosistema de Fórmula 1",
+    "description": "Cómo diseñé Telemetry 1 para reunir resultados, historia, estadísticas, modelos y juegos de Fórmula 1 en una experiencia bilingüe, verificable y navegable.",
+    "keywords": "Telemetry 1, Fórmula 1, Next.js, archivo histórico, visualización de datos, UX, F1DB, estadísticas deportivas, Python, TypeScript De varios experimentos a un ecosistema navegable. La información existía. Lo que faltaba era una forma de recorrerla. Datos que pueden cambiar Historia reproducible Modelos con fronteras claras Una entrada común, varias profundidades. No confundir ausencia con cero Enlaces como parte del modelo Generar, verificar y después presentar. Normalizar fuentes Construir snapshots Verificar invariantes Servir con Next.js El modelo no es decoración. El portal también admite productos independientes Qué todavía no promete el sistema. Producto y método abiertos a inspección. TypeScript Python",
+    "lang": "es",
+    "url": "telemetry-one-ecosistema-es.html",
+    "categories": [
+      "articles",
+      "research",
+      "other"
+    ],
+    "image": "assets/project-articles/telemetry-home.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "typescript",
+        "name": "TypeScript",
+        "asset": "typescript.svg",
+        "aliases": [
+          "TypeScript"
+        ]
+      },
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
         ]
       }
     ]

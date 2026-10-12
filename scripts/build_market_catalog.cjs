@@ -13,6 +13,8 @@ const categories = key => {
   if (/^caso-1|^caso-daizzy|^caso-hogar/.test(key)) return ['ecommerce'];
   if (/^caso-3|animation|creative|ecommerce-video|icon-system|unimac/.test(key)) return ['creative'];
   if (/consultora|articulo-milei|documento/.test(key)) return ['research'];
+  if (/telemetry-one-ecosistema|f1-predictor-walk-forward|deteccion-copas-arboles/.test(key)) return ['articles', 'research', 'other'];
+  if (/predestinato-simulador-carrera/.test(key)) return ['articles', 'other'];
   return ['other'];
 };
 
@@ -49,7 +51,11 @@ const explicitCovers = {
   'cases/market-share-loss-diagnosis.html': 'Caso1_Sales.png',
   'cases/search-query-keyword-harvesting.html': 'image_060.png',
   'cases/search-suppression-catalog-recovery.html': 'assets/catalog-recovery-product-photo-1600.jpg',
-  'cases/voice-of-customer-conversion-brief.html': 'creatives/voc-bath-mat/04-size-fit.jpg'
+  'cases/voice-of-customer-conversion-brief.html': 'creatives/voc-bath-mat/04-size-fit.jpg',
+  'telemetry-one-ecosistema.html': 'assets/project-articles/telemetry-home.png',
+  'f1-predictor-walk-forward.html': 'assets/project-articles/f1-predictor-backtest.svg',
+  'predestinato-simulador-carrera.html': 'assets/project-articles/predestinato-home.png',
+  'deteccion-copas-arboles.html': 'assets/project-articles/tree-crown-pipeline.svg'
 };
 
 const explicitCoverSets = {
@@ -70,7 +76,7 @@ const captureSpecs = {
 };
 
 const coverFit = (key, image) => /(?:dashboard|kpi|caso1_plot|caso1_sales|caso2|image_060|image_076)/i.test(image)
-  || /consultora/.test(key) ? 'contain' : 'cover';
+  || /consultora|f1-predictor-walk-forward|deteccion-copas-arboles/.test(key) ? 'contain' : 'cover';
 
 (async () => {
   const browser = await chromium.launch();
@@ -115,7 +121,8 @@ const coverFit = (key, image) => /(?:dashboard|kpi|caso1_plot|caso1_sales|caso2|
       toolLogos: toolKeys.map(toolKey => ({ key: toolKey, ...toolCatalog.tools[toolKey] }))
     };
   });
-  if (manifest.some(item => !item.image)) throw new Error('Missing catalog cover');
+  const missingCovers = manifest.filter(item => !item.image).map(item => item.url);
+  if (missingCovers.length) throw new Error(`Missing catalog cover: ${missingCovers.join(', ')}`);
   fs.writeFileSync(path.join(root, 'prototype-amazon', 'catalog-data.json'), JSON.stringify(manifest, null, 2) + '\n');
   console.log(`Built ${manifest.length} localized entries; ${Object.keys(covers).length} original covers.`);
   await browser.close();

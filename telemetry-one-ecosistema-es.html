@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Telemetry 1: ecosistema de Fórmula 1 | Matías Gaglio</title>
+  <meta name="description" content="Cómo diseñé Telemetry 1 para reunir resultados, historia, estadísticas, modelos y juegos de Fórmula 1 en una experiencia bilingüe, verificable y navegable.">
+  <meta name="keywords" content="Telemetry 1, Fórmula 1, Next.js, archivo histórico, visualización de datos, UX, F1DB, estadísticas deportivas, Python, TypeScript">
+  <link rel="canonical" href="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-es.html">
+  <link rel="alternate" hreflang="es" href="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-es.html">
+  <link rel="alternate" hreflang="x-default" href="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-es.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Matías Gaglio">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="Telemetry 1: arquitectura de un ecosistema de Fórmula 1">
+  <meta property="og:description" content="Del resultado del domingo a 76 temporadas de historia, modelos y juegos dentro de un mismo producto digital.">
+  <meta property="og:url" content="https://matiasgaglio.vercel.app/telemetry-one-ecosistema-es.html">
+  <meta property="og:image" content="https://matiasgaglio.vercel.app/assets/project-articles/telemetry-home.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project-article.css">
+  <link rel="stylesheet" href="global-nav.css">
+</head>
+<body class="project-article-page">
+  <header class="global-nav" data-global-nav>
+    <div class="global-nav__badge">
+      <a class="global-nav__logo" href="index-es.html">Matías Gaglio.</a>
+      <button class="global-nav__toggle" type="button" aria-controls="global-menu" aria-expanded="false" aria-label="Abrir menú" data-global-nav-toggle><span></span><span></span><span></span></button>
+      <nav class="global-nav__menu" id="global-menu" aria-label="Navegación principal" data-global-nav-menu><ul><li><a href="index-es.html">Inicio</a></li><li><a href="ecommerce-es.html">Ecommerce</a></li><li><a href="Articles-es.html">Artículos</a></li><li><a href="creatives-es.html">Contenido creativo</a></li><li><a href="consultora-es.html">Investigación</a></li><li><a href="otros-es.html">Otros proyectos</a></li><li><a href="sobre-mi-es.html">Sobre mí</a></li></ul></nav>
+    </div>
+  </header>
+  <main class="project-article">
+    <article>
+      <header class="pa-hero"><div class="container">
+        <span class="pa-kicker">Producto digital · Datos · Fórmula 1</span>
+        <h1>De varios experimentos a un <em>ecosistema navegable.</em></h1>
+        <p class="pa-deck">Telemetry 1 reúne actualidad, resultados, perfiles, historia, modelos analíticos y juegos sin convertirlos en una colección de enlaces. El trabajo central fue diseñar una arquitectura donde cada módulo conserva su método, pero comparte lenguaje, navegación y criterios de evidencia.</p>
+        <div class="pa-actions"><a class="pa-button pa-button--primary" href="https://telemetry-1.vercel.app" target="_blank" rel="noopener">Abrir Telemetry 1 ↗</a><a class="pa-button" href="https://github.com/MynosIII/telemetry-1" target="_blank" rel="noopener">Ver repositorio ↗</a></div>
+      </div></header>
+
+      <section class="pa-media"><div class="container">
+        <figure class="pa-figure pa-figure--wide"><img src="assets/project-articles/telemetry-home.png" width="1440" height="900" alt="Página de inicio real de Telemetry 1 con navegación, resultados y tabla del campeonato" fetchpriority="high"><figcaption>La portada conecta información de temporada con rutas hacia resultados, historia, ranking y juegos. La advertencia de datos desactualizados es parte del producto: una fuente caída no se disfraza de dato actual.</figcaption></figure>
+        <div class="pa-facts"><div class="pa-fact"><strong>1.374</strong><span>entidades indexadas en el archivo histórico publicado</span></div><div class="pa-fact"><strong>1.149</strong><span>eventos con clasificaciones en el snapshot 1950–2025</span></div><div class="pa-fact"><strong>1.140</strong><span>chasis nominales conectados con temporadas y participantes</span></div><div class="pa-fact"><strong>ES / EN</strong><span>interfaz, navegación y contenido editorial bilingües</span></div></div>
+      </div></section>
+
+      <section class="pa-section"><div class="container">
+        <span class="pa-label">El problema de producto</span>
+        <h2>La información existía. Lo que faltaba era una forma de recorrerla.</h2>
+        <p>Los resultados recientes, el archivo histórico, el ranking retrospectivo y los juegos habían nacido como proyectos distintos. Unirlos no consistía en pegarlos dentro de una home: había que resolver escalas temporales, fuentes y comportamientos diferentes sin confundir al visitante.</p>
+        <div class="pa-grid"><article class="pa-card"><b>Actualidad</b><h3>Datos que pueden cambiar</h3><p>Calendario, temporada y resultados dependen de fuentes externas. El sistema conserva una copia y avisa cuando no puede asegurar que sea la más reciente.</p></article><article class="pa-card"><b>Archivo</b><h3>Historia reproducible</h3><p>Temporadas, carreras, pilotos, constructores, motores, neumáticos, circuitos y autos se generan desde snapshots identificables, no desde números escritos a mano en cada página.</p></article><article class="pa-card"><b>Análisis</b><h3>Modelos con fronteras claras</h3><p>El ranking v7.6 y las probabilidades esperadas aparecen como resultados de modelos retrospectivos. No se presentan como estadísticas oficiales ni como pronósticos.</p></article></div>
+      </div></section>
+
+      <section class="pa-section"><div class="container pa-split">
+        <div class="pa-prose"><span class="pa-label">Arquitectura de información</span><h2>Una entrada común, varias profundidades.</h2><p>La navegación principal responde a intenciones distintas: seguir la temporada, consultar una entidad, comparar trayectorias, leer una historia o jugar. Dentro del archivo, una segunda capa permite moverse por temporadas, Grandes Premios, pilotos, constructores, motores, neumáticos, naciones, circuitos, autos y récords.</p><h3>No confundir ausencia con cero</h3><p>Los datos incompletos quedan como no disponibles. Un proveedor sin identidad confirmada, una tabla histórica ausente o una probabilidad que el modelo no cubre no se transforma en un cero visualmente cómodo pero falso.</p><h3>Enlaces como parte del modelo</h3><p>Las páginas no son fichas aisladas. Una carrera enlaza temporada y participantes; un chasis enlaza los años en que aparece; un piloto conecta resultados oficiales con la serie analítica que lo representa.</p></div>
+        <figure class="pa-figure"><img src="assets/project-articles/telemetry-history.png" width="1440" height="900" alt="Índice histórico real de Telemetry 1 con filtros y tabla de pilotos"><figcaption>El índice histórico permite buscar y ordenar sin abandonar el contexto del archivo.</figcaption></figure>
+      </div></section>
+
+      <section class="pa-section"><div class="container">
+        <span class="pa-label">Sistema técnico</span><h2>Generar, verificar y después presentar.</h2>
+        <div class="pa-flow"><article><h3>Normalizar fuentes</h3><p>F1DB alimenta el archivo histórico; otras fuentes se usan con atribución para información y material que el dataset base no contiene.</p></article><article><h3>Construir snapshots</h3><p>Scripts separados generan historia, fines de semana, neumáticos, récords y artículos. El sitio no recalcula modelos analíticos durante una visita.</p></article><article><h3>Verificar invariantes</h3><p>Las tareas de validación comprueban totales, enlaces, casos históricos especiales, reglas de poles y cobertura del modelo antes de publicar.</p></article><article><h3>Servir con Next.js</h3><p>Las rutas dinámicas leen artefactos versionados y los convierten en páginas rápidas, enlazables y aptas para buscadores.</p></article></div>
+        <div class="pa-callout pa-callout--green"><strong>Decisión clave:</strong> el portal puede evolucionar sin obligar a rediseñar cada vez que aparece una nueva familia de datos. La interfaz trata los nuevos análisis como capacidades del sistema, no como excepciones visuales.</div>
+      </div></section>
+
+      <section class="pa-section"><div class="container pa-split">
+        <figure class="pa-figure"><img src="assets/project-articles/telemetry-ranking.png" width="1440" height="900" alt="Interfaz real del ranking histórico de pilotos de Telemetry 1"><figcaption>El ranking conserva su identidad analítica dentro del mismo producto y explicita versión, cobertura y modo de comparación.</figcaption></figure>
+        <div class="pa-prose"><span class="pa-label">Integración analítica</span><h2>El modelo no es decoración.</h2><p>La experiencia de ranking permite elegir una versión ya calculada, comparar pilotos o autos y cambiar el eje entre número de carrera y nombre del Gran Premio. Los detalles de cada punto incluyen contexto de la prueba y variables del modelo.</p><p>La separación entre estadísticas oficiales y resultados analíticos evita una lectura equivocada: títulos, victorias y clasificaciones pertenecen al archivo; ELO, xP y expectativa de victoria pertenecen al modelo y se etiquetan como tales.</p><h3>El portal también admite productos independientes</h3><p>Los juegos y Predestinato se despliegan en repositorios propios. Telemetry 1 los incorpora como destinos consistentes, sin acoplar su ciclo de desarrollo al de la enciclopedia.</p></div>
+      </div></section>
+
+      <section class="pa-section"><div class="container">
+        <span class="pa-label">Límites visibles</span><h2>Qué todavía no promete el sistema.</h2>
+        <ul class="pa-limit-list"><li><strong>Actualización en vivo:</strong> si una fuente de temporada falla, se muestra la última copia conocida y una advertencia; no hay garantía de tiempo real.</li><li><strong>Cobertura desigual:</strong> la historia oficial y el modelo no cubren exactamente el mismo conjunto de eventos. Sus cifras se mantienen separadas.</li><li><strong>Modelos precomputados:</strong> el sitio permite explorar versiones existentes, pero no vuelve a entrenar ni recalcular el ranking desde la interfaz.</li><li><strong>Dependencias externas:</strong> los juegos embebidos conservan dominios y despliegues propios; su disponibilidad debe monitorearse aparte.</li></ul>
+      </div></section>
+
+      <section class="pa-section"><div class="container"><span class="pa-label">Fuentes del proyecto</span><h2>Producto y método abiertos a inspección.</h2><ul class="pa-source-list"><li><a href="https://telemetry-1.vercel.app" target="_blank" rel="noopener"><strong>Telemetry 1 en producción</strong><span>Abrir ↗</span></a></li><li><a href="https://github.com/MynosIII/telemetry-1" target="_blank" rel="noopener"><strong>Repositorio y documentación técnica</strong><span>GitHub ↗</span></a></li><li><a href="https://github.com/MynosIII/TelemetryOne" target="_blank" rel="noopener"><strong>Visualizador analítico original</strong><span>GitHub ↗</span></a></li></ul></div></section>
+    </article>
+  </main>
+  <footer><div class="container"><p>© 2026 Matías Gaglio. Portfolio personal.</p></div></footer>
+  <script src="accessibility.js" defer></script>
+  <script src="software-stack.js?v=20261012" defer></script>
+  <script src="global-nav.js?v=20261012" defer></script>
+</body>
+</html>

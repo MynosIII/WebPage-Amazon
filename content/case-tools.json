@@ -56,6 +56,21 @@
         "Python"
       ]
     },
+    "typescript": {
+      "name": "TypeScript",
+      "asset": "typescript.svg",
+      "aliases": [
+        "TypeScript"
+      ]
+    },
+    "javascript": {
+      "name": "JavaScript",
+      "asset": "javascript.svg",
+      "aliases": [
+        "JavaScript",
+        "JS"
+      ]
+    },
     "power-bi": {
       "name": "Power BI",
       "asset": "power-bi.svg",
@@ -353,6 +368,19 @@
     ],
     "caso-3.html": [
       "photoshop"
+    ],
+    "telemetry-one-ecosistema.html": [
+      "typescript",
+      "python"
+    ],
+    "f1-predictor-walk-forward.html": [
+      "python"
+    ],
+    "predestinato-simulador-carrera.html": [
+      "javascript"
+    ],
+    "deteccion-copas-arboles.html": [
+      "python"
     ]
   }
 }
