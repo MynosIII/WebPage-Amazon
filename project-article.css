@@ -72,6 +72,7 @@ body.project-article-page {
 
 .pa-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
 .pa-button { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 20px; border: 1px solid var(--pa-line); border-radius: 6px; background: var(--pa-panel); font-weight: 800; text-decoration: none; }
+.pa-button:not(.pa-button--primary) { background: transparent; border-color: var(--market-line, var(--pa-line)); color: var(--market-text, var(--pa-text)) !important; }
 .pa-button--primary { background: var(--pa-red); border-color: var(--pa-red); color: #fff !important; }
 .pa-button:hover { transform: translateY(-2px); border-color: var(--pa-red); }
 
