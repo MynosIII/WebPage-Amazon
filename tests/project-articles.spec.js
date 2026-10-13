@@ -171,7 +171,7 @@ test('tree detection case leads with the real 07042 result in both languages', a
   }
 });
 
-test('dark marketplace routes keep readable text contrast', async ({ page }) => {
+test('marketplace routes keep readable text contrast in light and dark modes', async ({ page }) => {
   test.setTimeout(120000);
   const failures = [];
   const routes = [
@@ -181,18 +181,23 @@ test('dark marketplace routes keep readable text contrast', async ({ page }) => 
     ...englishArticles.map(([source]) => '/prototype-amazon/page.html?source=' + encodeURIComponent('../' + source) + '&lang=en')
   ];
 
-  await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: 'dark' });
-  await page.addInitScript(() => localStorage.setItem('mg-theme', 'dark'));
-  for (const route of routes) {
-    await page.goto(route, { waitUntil: 'domcontentloaded' });
-    if (route.includes('page.html')) {
-      await page.locator('[data-source-embed] main').waitFor({ state: 'attached', timeout: 15000 });
-    } else if (route.includes('catalog.html')) {
-      await page.locator('[data-catalog-list] article').first().waitFor({ state: 'visible', timeout: 15000 });
-    }
-    const results = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
-    for (const violation of results.violations) {
-      for (const node of violation.nodes) failures.push(`${route}: ${node.target.join(' > ')} — ${node.failureSummary}`);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  for (const theme of ['light', 'dark']) {
+    for (const route of routes) {
+      await page.goto(route, { waitUntil: 'domcontentloaded' });
+      await page.evaluate(activeTheme => {
+        localStorage.setItem('mg-theme', activeTheme);
+        document.documentElement.dataset.theme = activeTheme;
+      }, theme);
+      if (route.includes('page.html')) {
+        await page.locator('[data-source-embed] main').waitFor({ state: 'attached', timeout: 15000 });
+      } else if (route.includes('catalog.html')) {
+        await page.locator('[data-catalog-list] article').first().waitFor({ state: 'visible', timeout: 15000 });
+      }
+      const results = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
+      for (const violation of results.violations) {
+        for (const node of violation.nodes) failures.push(`${theme} ${route}: ${node.target.join(' > ')} — ${node.failureSummary}`);
+      }
     }
   }
 

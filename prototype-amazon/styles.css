@@ -197,7 +197,7 @@ html[data-theme="dark"] {
 .account-approach__grid > p { max-width: 780px; margin: 0; font-size: clamp(1.05rem, 1.65vw, 1.35rem); color: var(--muted); }
 .account-approach__meta { margin: 0; border-top: 4px solid var(--navy-750); background: var(--surface-strong); }
 .account-approach__meta div { display: grid; grid-template-columns: 94px minmax(0, 1fr); gap: 1rem; padding: .95rem 1rem; border: 1px solid var(--line); border-top: 0; }
-.account-approach__meta dt { color: var(--orange-dark); font: 800 .68rem var(--mono); text-transform: uppercase; }
+.account-approach__meta dt { color: #934900; font: 800 .68rem var(--mono); text-transform: uppercase; }
 .account-approach__meta dd { margin: 0; font-size: .86rem; font-weight: 700; }
 html[data-theme="dark"] .account-approach__meta dt { color: #ffb45d; }
 

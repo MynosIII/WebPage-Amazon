@@ -3,6 +3,14 @@ html, body {
   --market-bg: #fcfcfb; --market-muted-bg: #f0f2f3; --market-text: #18212a;
   --market-muted: #59636e; --market-line: #c6cdd3; --market-link: #007185;
   --market-accent: #a85600;
+  /* Project articles define their own dark-first palette. Remap it to the
+     marketplace theme so light mode cannot combine dark panels with dark text. */
+  --pa-bg: var(--market-bg) !important; --pa-panel: #ffffff !important;
+  --pa-panel-2: var(--market-muted-bg) !important; --pa-line: var(--market-line) !important;
+  --pa-text: var(--market-text) !important; --pa-muted: var(--market-muted) !important;
+  --software-accent: var(--market-accent) !important;
+  --software-text: var(--market-text) !important; --software-muted: var(--market-muted) !important;
+  --software-line: var(--market-line) !important;
   --text: var(--market-text) !important; --muted: var(--market-muted) !important;
   --line: var(--market-line) !important; --accent: var(--market-accent) !important;
   --bg: var(--market-bg) !important; --surface: var(--market-muted-bg) !important;
@@ -19,6 +27,7 @@ html[data-market-theme="dark"], html[data-market-theme="dark"] body {
   --market-bg: #16202a; --market-muted-bg: #1c2732; --market-text: #edf2f5;
   --market-muted: #aab5bf; --market-line: #354452; --market-link: #67c5d2;
   --market-accent: #ffb45d;
+  --pa-panel: #1c2732 !important;
 }
 main { background: var(--market-bg) !important; color: var(--market-text) !important; }
 main :where(section, header, article, aside) {
@@ -41,6 +50,7 @@ main :where(p,li,dd) { line-height: 1.65 !important; }
 main :where(.eyebrow,[class$="-kicker"],[class$="-eyebrow"],h1 em,h2 em) { color: var(--market-accent) !important; }
 main :where(.pa-label,.pa-card>b,.pa-flow article::before,.pa-fact strong,.pa-table td strong) { color: var(--market-accent) !important; }
 main .pa-fact span { color: var(--market-muted) !important; }
+main :where(.case-software-heading>span,.software-marquee-heading>span) { color: var(--market-accent) !important; }
 main .contact-action__label { color: #131921 !important; }
 main a { color: var(--market-link); }
 main :where(.case-facts,.disclosure,.case-finding,.case-metrics>div,.content-question-strip b,.content-ownership [role="row"],.software-logo-card,.case-card-tool-badge) {
