@@ -53,12 +53,7 @@
       ['src', 'poster'].forEach(function (attribute) {
         const value = element.getAttribute(attribute);
         if (!value || value.startsWith('data:') || value.startsWith('blob:')) return;
-        const resolved = new URL(assetHref(value));
-        if (/^\/creatives\/ecommerce-video\/rollator-conversion-\d+\.mp4$/i.test(resolved.pathname)) {
-          element.setAttribute(attribute, 'https://matiasgaglio.onrender.com' + resolved.pathname);
-        } else {
-          element.setAttribute(attribute, resolved.href);
-        }
+        element.setAttribute(attribute, assetHref(value));
       });
     });
     root.querySelectorAll('[srcset]').forEach(function (element) {

@@ -6,4 +6,12 @@ tmp
 test-results
 playwright-report
 __pycache__
-creatives/ecommerce-video/rollator-conversion-*.mp4
+fondos-podcast.zip
+fondos-podcast
+negocio
+telemetry_assets
+.env*
+.lighthouseci
+templates
+tests
+scripts

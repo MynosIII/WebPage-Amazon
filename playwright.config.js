@@ -6,16 +6,29 @@ module.exports = defineConfig({
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 1 : 0,
   reporter: process.env.CI ? [['list'], ['html', { open: 'never' }]] : 'list',
+  projects: [
+    { name: 'source', testIgnore: '**/deploy.spec.js' },
+    {
+      name: 'deploy',
+      testMatch: '**/deploy.spec.js',
+      use: { baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4174' }
+    }
+  ],
   use: {
     baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4173',
     browserName: 'chromium',
     colorScheme: 'dark',
     trace: 'retain-on-failure'
   },
-  webServer: process.env.PLAYWRIGHT_BASE_URL ? undefined : {
+  webServer: process.env.PLAYWRIGHT_BASE_URL ? undefined : [{
     command: 'python -m http.server 4173 --bind 127.0.0.1',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: !process.env.CI,
     timeout: 30000
-  }
+  }, {
+    command: 'python scripts/serve_deploy.py',
+    url: 'http://127.0.0.1:4174',
+    reuseExistingServer: !process.env.CI,
+    timeout: 30000
+  }]
 });

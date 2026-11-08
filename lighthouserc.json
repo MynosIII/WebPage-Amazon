@@ -1,8 +1,9 @@
 {
   "ci": {
     "collect": {
-      "staticDistDir": ".",
-      "url": ["http://localhost/index.html", "http://localhost/index-en.html"],
+      "startServerCommand": "python scripts/serve_deploy.py --port 4175",
+      "startServerReadyPattern": "Serving portfolio",
+      "url": ["http://127.0.0.1:4175/", "http://127.0.0.1:4175/index.html?lang=en"],
       "numberOfRuns": 1,
       "settings": {
         "chromeFlags": "--no-sandbox --headless"

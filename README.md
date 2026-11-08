@@ -1,6 +1,6 @@
 # Matías Gaglio portfolio
 
-This repository is the source of truth for the bilingual static portfolio deployed at <https://matiasgaglio.onrender.com>. Render deploys the `main` branch of `MynosIII/WebPage`; ZIP extractions and unrelated local folders do not deploy.
+The public portfolio is <https://matiasgaglio.vercel.app>. Vercel builds the `main` branch of `MynosIII/WebPage-Amazon` for production and uses `vercel.json` to route visitors to the marketplace interface. The Render configuration below describes the legacy site.
 
 ## Site architecture
 
@@ -17,7 +17,15 @@ This repository is the source of truth for the bilingual static portfolio deploy
 - `language-catalog.json` defines the 40 Spanish/English page pairs. `scripts/apply_legacy_translation_fixes.py` preserves the reviewed legacy glossary, while `scripts/validate_localization.py` checks language declarations, reciprocal `hreflang`, encoding, and banned literal translations.
 - `robots.txt` and `sitemap.xml` are generated from canonical page metadata.
 
-## Local preview
+## Preview and release
+
+Run `python scripts/serve_deploy.py` and open <http://127.0.0.1:4174> to exercise the public routing locally. The plain HTTP server below is useful for editing and testing the source pages.
+
+Before merging, run the Site quality workflow and verify the Vercel preview. The Playwright `deploy` project covers the public aliases, catalog, language switch, cases, contact, CV and 404. To run it against an accessible preview, set `PLAYWRIGHT_BASE_URL` to that deployment URL and run `npm test -- --project=deploy`. Lighthouse uses the public routes served by the local preview script.
+
+After release, repeat the public smoke checks on the production domain and verify that the case videos play and seek. Keep the previous production deployment ID available for rollback.
+
+## Local source preview
 
 Python is sufficient for the website itself:
 

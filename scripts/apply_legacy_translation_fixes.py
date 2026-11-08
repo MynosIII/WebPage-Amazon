@@ -634,7 +634,7 @@ def main() -> int:
 
     for entry in catalog:
         page = entry["page"]
-        if page in GENERATED or page.startswith("SEO"):
+        if entry.get("legacy") is False or page in GENERATED or page.startswith("SEO"):
             continue
         specific = PAGE_FIXES.get(page, {})
         for lang, common in (("es", COMMON_ES), ("en", COMMON_EN)):

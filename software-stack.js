@@ -87,12 +87,12 @@ window.__softwareStackReady = false;
   const card = key => {
     const tool = tools[key];
     if (!tool) return '';
-    return `<span class="software-logo-card"><img src="${logoPath(tool.asset)}" alt="" aria-hidden="true" data-media-type="software-logo" data-media-description="Logo de ${tool.name}" decoding="async"><b>${tool.name}</b></span>`;
+    return `<span class="software-logo-card"><img src="${logoPath(tool.asset)}" width="34" height="34" style="width:34px;height:34px;max-width:34px;flex:0 0 34px;object-fit:contain" alt="" aria-hidden="true" data-media-type="software-logo" data-media-description="Logo de ${tool.name}" decoding="async"><b>${tool.name}</b></span>`;
   };
   const compactCard = key => {
     const tool = tools[key];
     if (!tool) return '';
-    return `<span class="case-card-tool-badge"><img src="${logoPath(tool.asset)}" alt="" aria-hidden="true" decoding="async"><span>${tool.name}</span></span>`;
+    return `<span class="case-card-tool-badge"><img src="${logoPath(tool.asset)}" width="18" height="18" style="width:18px;height:18px;max-width:18px;flex:0 0 18px;object-fit:contain" alt="" aria-hidden="true" decoding="async"><span>${tool.name}</span></span>`;
   };
 
   const pageName = decodeURIComponent(location.pathname.split('/').pop() || 'index.html');

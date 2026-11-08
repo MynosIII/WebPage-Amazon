@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import re
 from pathlib import Path
+from validate_site import public_files
 from urllib.parse import unquote, urlsplit
 
 from PIL import Image
@@ -67,8 +68,8 @@ def main() -> int:
     args = parser.parse_args()
     total = 0
     affected: list[str] = []
-    for path in sorted(ROOT.rglob("*.html")):
-        if ".git" in path.parts:
+    for path in sorted(public_files()):
+        if path.suffix != ".html":
             continue
         updated, changed = update_page(path)
         if not changed:

@@ -134,17 +134,17 @@ test('English article catalog and All work expose the complete bilingual invento
   await expect(allWork).toBeVisible();
   await allWork.click();
   await expect(page).toHaveURL(/section=all/);
-  await expect(page.locator('[data-catalog-list] article')).toHaveCount(36);
-  await expect(page.locator('[data-catalog-count]')).toContainText('36');
+  await expect(page.locator('[data-catalog-list] article')).toHaveCount(39);
+  await expect(page.locator('[data-catalog-count]')).toContainText('39');
 
   await page.goto('/prototype-amazon/catalog.html?section=all', { waitUntil: 'domcontentloaded' });
   await page.locator('[data-catalog-list] article').first().waitFor({ state: 'visible' });
-  await expect(page.locator('[data-catalog-list] article')).toHaveCount(36);
+  await expect(page.locator('[data-catalog-list] article')).toHaveCount(39);
 });
 
 test('every catalog section filter returns the same bilingual inventory shape', async ({ page }) => {
   test.setTimeout(120000);
-  const expected = { all: 36, ecommerce: 14, bi: 6, creative: 15, articles: 13, research: 5, other: 5 };
+  const expected = { all: 39, ecommerce: 15, bi: 6, creative: 16, articles: 16, research: 5, other: 6 };
   for (const lang of ['es', 'en']) {
     for (const [section, count] of Object.entries(expected)) {
       await page.goto(`/prototype-amazon/catalog.html?section=${section}${lang === 'en' ? '&lang=en' : ''}`, { waitUntil: 'domcontentloaded' });
@@ -168,6 +168,23 @@ test('tree detection case leads with the real 07042 result in both languages', a
     await expect(main).toContainText('07042');
     await expect(main).toContainText(count);
     await expect(main).not.toContainText('tree-crown-pipeline');
+  }
+});
+
+test('software logos keep stable intrinsic dimensions while styles load', async ({ page }) => {
+  await page.goto('/prototype-amazon/page.html?source=' + encodeURIComponent('../caso-2-en.html') + '&lang=en', { waitUntil: 'commit' });
+  await page.waitForFunction(() => document.querySelector('[data-source-embed]') || document.querySelector('iframe.source-live-frame'), null, { timeout: 15000 });
+  const embeddedLogos = page.locator('[data-source-embed] .software-logo-card img');
+  const logos = await embeddedLogos.count()
+    ? embeddedLogos
+    : page.frameLocator('iframe.source-live-frame').locator('.software-logo-card img');
+  await expect(logos).toHaveCount(2);
+  for (const logo of await logos.all()) {
+    await expect(logo).toHaveAttribute('width', '34');
+    await expect(logo).toHaveAttribute('height', '34');
+    const bounds = await logo.boundingBox();
+    expect(bounds?.width).toBeLessThanOrEqual(40);
+    expect(bounds?.height).toBeLessThanOrEqual(40);
   }
 });
 
