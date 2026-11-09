@@ -1,0 +1,28 @@
+name: Deployed videos
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/deployed-videos.yml'
+      - 'scripts/check_deployed_videos.cjs'
+      - 'ecommerce-video-*.js'
+      - 'creatives/ecommerce-video/**'
+      - 'vercel.json'
+
+permissions:
+  contents: read
+
+jobs:
+  playback:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: node scripts/check_deployed_videos.cjs
