@@ -82,7 +82,7 @@ test('English catalog uses English source entries and media', async ({ page }) =
   await animationCard.scrollIntoViewIfNeeded();
   await expect(animationCard.locator('h3')).toContainText(/Neon Orbital Study/i);
   await expect(animationCard.locator('.catalog-result__media img')).toHaveAttribute('src', /social-edit-01-poster\.jpg/);
-  await expect(animationCard.locator('a').last()).toHaveAttribute('href', /animation-01-en\.html.*lang=en/);
+  await expect(animationCard.locator('a').last()).toHaveAttribute('href', '/animation-01-en.html');
 });
 
 test('home, case, about and contact have no serious automated accessibility violations', async ({ page }) => {

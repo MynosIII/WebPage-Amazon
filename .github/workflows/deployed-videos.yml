@@ -2,10 +2,19 @@ name: Deployed videos
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deployed-videos.yml'
+      - 'scripts/build_deploy.cjs'
+      - 'scripts/check_deployed_videos.cjs'
+      - 'creatives/ecommerce-video/**'
+      - 'vercel.json'
   pull_request:
     paths:
       - '.github/workflows/deployed-videos.yml'
       - 'scripts/check_deployed_videos.cjs'
+      - 'scripts/build_deploy.cjs'
       - 'ecommerce-video-*.js'
       - 'creatives/ecommerce-video/**'
       - 'vercel.json'
@@ -25,4 +34,24 @@ jobs:
       - run: corepack enable
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec playwright install --with-deps chromium
-      - run: node scripts/check_deployed_videos.cjs
+      - name: Verify playback and seeking in the release candidate
+        if: github.event_name == 'pull_request'
+        run: |
+          python3 scripts/serve_deploy.py > /tmp/portfolio-video-server.log 2>&1 &
+          trap 'kill $! 2>/dev/null || true' EXIT
+          for attempt in {1..30}; do
+            if curl -fsS http://127.0.0.1:4174/ -o /dev/null; then break; fi
+            sleep 1
+          done
+          PLAYWRIGHT_BASE_URL=http://127.0.0.1:4174 node scripts/check_deployed_videos.cjs
+      - name: Verify playback and seeking in production
+        if: github.event_name != 'pull_request'
+        run: |
+          legacy_url='https://matiasgaglio.vercel.app/page.html?source=..%2Fecommerce-video-01-es.html'
+          for attempt in {1..30}; do
+            status=$(curl -sS --max-time 5 -o /dev/null -w '%{http_code}' "$legacy_url" || true)
+            if [ "$status" = 308 ]; then break; fi
+            sleep 3
+          done
+          test "$status" = 308
+          node scripts/check_deployed_videos.cjs

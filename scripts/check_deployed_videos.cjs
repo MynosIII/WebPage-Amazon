@@ -26,13 +26,21 @@ async function checkPlayer(page, number) {
   const video = page.locator('main video');
   await expect(video).toBeVisible({ timeout: 15000 });
   assert.equal(await video.evaluate(node => node.controls), true, 'The video needs visible playback controls');
-  const duration = await video.evaluate(async node => {
+  await video.evaluate(node => {
     node.muted = true;
-    await node.play();
-    return node.duration;
-  }, null, { timeout: 15000 });
+    node.play().catch(error => { node.dataset.playbackFailure = error.message; });
+  });
+  try {
+    await expect.poll(() => video.evaluate(node => node.currentTime), { timeout: 15000 }).toBeGreaterThan(.2);
+  } catch (error) {
+    const state = await video.evaluate(node => ({
+      currentSrc: node.currentSrc, readyState: node.readyState, networkState: node.networkState,
+      mediaError: node.error?.message, playError: node.dataset.playbackFailure
+    }));
+    throw new Error(`Video ${number} did not play: ${JSON.stringify(state)}`, { cause: error });
+  }
+  const duration = await video.evaluate(node => node.duration);
   assert.ok(Number.isFinite(duration) && duration > 2, `Unexpected duration for video ${number}`);
-  await expect.poll(() => video.evaluate(node => node.currentTime), { timeout: 10000 }).toBeGreaterThan(.2);
   const destination = duration * .7;
   await video.evaluate((node, time) => {
     node.pause();
@@ -43,6 +51,8 @@ async function checkPlayer(page, number) {
   { timeout: 15000 }).toBe(true);
   const currentSrc = await video.evaluate(node => node.currentSrc);
   assert.equal(currentSrc, `${origin}/creatives/ecommerce-video/rollator-conversion-${number}.mp4`);
+  await video.evaluate(node => { node.play().catch(() => {}); });
+  await expect.poll(() => video.evaluate(node => node.currentTime), { timeout: 10000 }).toBeGreaterThan(destination + .1);
   return duration;
 }
 
@@ -51,6 +61,7 @@ async function main() {
   console.log('All five video URLs support partial requests.');
   const browser = await chromium.launch();
   try {
+    const failures = [];
     await Promise.all([
       ['desktop', { viewport: { width: 1440, height: 900 } }],
       ['mobile (Pixel 7 emulation)', devices['Pixel 7']]
@@ -60,13 +71,19 @@ async function main() {
         const page = await context.newPage();
         page.setDefaultTimeout(15000);
         for (const number of clips) {
-          const duration = await checkPlayer(page, number);
-          console.log(`${label} / ${number}: played and seeked successfully (${duration.toFixed(1)}s).`);
+          try {
+            const duration = await checkPlayer(page, number);
+            console.log(`${label} / ${number}: played, seeked and resumed (${duration.toFixed(1)}s).`);
+          } catch (error) {
+            failures.push(error);
+            console.error(`${label} / ${number}: ${error.message}`);
+          }
         }
       } finally {
         await context.close();
       }
     }));
+    if (failures.length) throw new Error(`${failures.length} playback checks failed.`);
   } finally {
     await browser.close();
   }

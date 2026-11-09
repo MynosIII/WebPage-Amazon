@@ -231,6 +231,10 @@
   function withLanguage(href, targetLanguage) {
     if (!href || /^(?:#|mailto:|tel:|https?:\/\/)/i.test(href)) return href;
     const url = new URL(href, window.location.href);
+    if (href.startsWith('/') && /-(?:es|en)\.html$/i.test(url.pathname)) {
+      const localized = url.pathname.replace(/-(?:es|en)\.html$/i, '-' + targetLanguage + '.html');
+      return localized + url.search + url.hash;
+    }
     const sourceValue = url.searchParams.get('source');
     if (sourceValue) {
       url.searchParams.set('source', sourceValue.replace(/-(?:es|en)(\.html)$/i, '-' + targetLanguage + '$1'));

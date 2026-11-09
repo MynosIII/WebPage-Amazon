@@ -23,6 +23,8 @@ Run `python scripts/serve_deploy.py` and open <http://127.0.0.1:4174> to exercis
 
 Before merging, run the Site quality workflow and verify the Vercel preview. The Playwright `deploy` project covers the public aliases, catalog, language switch, cases, contact, CV and 404. To run it against an accessible preview, set `PLAYWRIGHT_BASE_URL` to that deployment URL and run `npm test -- --project=deploy`. Lighthouse uses the public routes served by the local preview script.
 
+Vercel and the local deployment server both run `node scripts/build_deploy.cjs`. It packages the site into `portfolio-dist/`, adds production discovery metadata to the bilingual case pages, and renders the conversion video writeups and players from the existing case data. The catalog generator maintains the public sitemap and the redirects from legacy viewer links.
+
 After release, repeat the public smoke checks on the production domain and verify that the case videos play and seek. Keep the previous production deployment ID available for rollback.
 
 ## Local source preview
