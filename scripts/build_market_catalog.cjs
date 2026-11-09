@@ -32,8 +32,8 @@ const categories = key => {
 // project covers. Every entry below points to an original project asset or to
 // a screenshot of the project's own UI.
 const explicitCovers = {
-  'construccion-portfolio.html': 'og-card.png',
-  'oxi-contenido-y-analisis.html': 'og-card.png',
+  'construccion-portfolio.html': 'assets/catalog-previews/construccion-portfolio.png',
+  'oxi-contenido-y-analisis.html': 'assets/catalog-previews/oxi-contenido-y-analisis.png',
   'revolution-operacion-amazon.html': 'assets/fitment-compatibility-photo.jpg',
   'animation-01.html': 'assets/social-edit-01-poster.jpg',
   'animation-02.html': 'assets/social-edit-02-poster.jpg',

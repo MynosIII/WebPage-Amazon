@@ -2437,11 +2437,12 @@
     "keywords": "Desarrollo web / Diseño / IA",
     "lang": "es",
     "url": "construccion-portfolio-es.html",
+    "staticArticle": true,
     "categories": [
       "articles",
       "other"
     ],
-    "image": "og-card.png",
+    "image": "assets/catalog-previews/construccion-portfolio.png",
     "mediaFit": "cover",
     "toolLogos": [
       {
@@ -2461,8 +2462,7 @@
           "JS"
         ]
       }
-    ],
-    "staticArticle": true
+    ]
   },
   {
     "title": "Building this portfolio: from a work archive to a product",
@@ -2470,11 +2470,12 @@
     "keywords": "Web development / Design / AI",
     "lang": "en",
     "url": "construccion-portfolio-en.html",
+    "staticArticle": true,
     "categories": [
       "articles",
       "other"
     ],
-    "image": "og-card.png",
+    "image": "assets/catalog-previews/construccion-portfolio.png",
     "mediaFit": "cover",
     "toolLogos": [
       {
@@ -2494,8 +2495,7 @@
           "JS"
         ]
       }
-    ],
-    "staticArticle": true
+    ]
   },
   {
     "title": "Oxi: construir una agencia entre contenido y análisis",
@@ -2503,14 +2503,14 @@
     "keywords": "Comunicación / Producción / Marketing",
     "lang": "es",
     "url": "oxi-contenido-y-analisis-es.html",
+    "staticArticle": true,
     "categories": [
       "articles",
       "creative"
     ],
-    "image": "og-card.png",
+    "image": "assets/catalog-previews/oxi-contenido-y-analisis.png",
     "mediaFit": "cover",
-    "toolLogos": [],
-    "staticArticle": true
+    "toolLogos": []
   },
   {
     "title": "Oxi: building an agency around content and analysis",
@@ -2518,14 +2518,14 @@
     "keywords": "Communication / Production / Marketing",
     "lang": "en",
     "url": "oxi-contenido-y-analisis-en.html",
+    "staticArticle": true,
     "categories": [
       "articles",
       "creative"
     ],
-    "image": "og-card.png",
+    "image": "assets/catalog-previews/oxi-contenido-y-analisis.png",
     "mediaFit": "cover",
-    "toolLogos": [],
-    "staticArticle": true
+    "toolLogos": []
   },
   {
     "title": "Revolution: conectar catálogo, publicidad y contenido en Amazon",
@@ -2533,6 +2533,7 @@
     "keywords": "Amazon / Operaciones / Estrategia",
     "lang": "es",
     "url": "revolution-operacion-amazon-es.html",
+    "staticArticle": true,
     "categories": [
       "articles",
       "ecommerce"
@@ -2559,8 +2560,7 @@
           "Amazon PPC"
         ]
       }
-    ],
-    "staticArticle": true
+    ]
   },
   {
     "title": "Revolution: connecting Amazon catalog, advertising and content",
@@ -2568,6 +2568,7 @@
     "keywords": "Amazon / Operations / Strategy",
     "lang": "en",
     "url": "revolution-operacion-amazon-en.html",
+    "staticArticle": true,
     "categories": [
       "articles",
       "ecommerce"
@@ -2594,7 +2595,6 @@
           "Amazon PPC"
         ]
       }
-    ],
-    "staticArticle": true
+    ]
   }
 ]

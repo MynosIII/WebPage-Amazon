@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
+const bookingUrl = 'https://calendar.app.google/UyiMPukNRaHi2HhD7';
 
 test('public aliases redirect and unknown pages return a real 404', async ({ request }) => {
   for (const [path, location] of [
@@ -29,7 +30,7 @@ test('article URLs expose localized content and metadata without JavaScript', as
       expect(new URL(redirect.headers().location, base).pathname).toBe(url.pathname);
       await page.goto(url.href);
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
-      await expect(page.locator('main h1')).toContainText('Telemetry One');
+      await expect(page.locator('main h1')).toContainText(lang === 'es' ? 'ecosistema navegable' : 'navigable ecosystem');
       await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://matiasgaglio.vercel.app' + url.pathname);
       await expect(page.locator('link[hreflang="' + (lang === 'es' ? 'en' : 'es') + '"]')).toHaveCount(1);
     }
@@ -44,6 +45,8 @@ for (const lang of ['es', 'en']) {
     await page.goto(lang === 'es' ? '/' : '/index-en.html');
     await expect(page.locator('html')).toHaveAttribute('lang', lang);
     await expect(page.locator('.market-header')).toBeVisible();
+    const bookingLabel = lang === 'es' ? 'Agendar una reunión' : 'Book a call';
+    await expect(page.locator('.sponsored-banner').getByRole('link', { name: bookingLabel })).toHaveAttribute('href', bookingUrl);
     await page.locator('[data-search-input]').fill('Amazon');
     await page.locator('[data-search-form] button[type="submit"]').click();
     await expect(page).toHaveURL(/\/catalog\.html\?/);
@@ -59,8 +62,12 @@ for (const lang of ['es', 'en']) {
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(391);
     }
 
-    await expect(page.locator('.direct-contact a')).toHaveAttribute('href', /^(?:mailto:|https:\/\/)/);
+    const contact = page.locator('.direct-contact');
+    await expect(contact.getByRole('link', { name: bookingLabel })).toHaveAttribute('href', bookingUrl);
+    await expect(contact.locator('a[href^="mailto:"]')).toBeVisible();
     await expect(page.locator('.load-progress')).toBeHidden();
+    await page.waitForFunction(() => Array.from(document.querySelectorAll('[data-reveal]'))
+      .every(element => getComputedStyle(element).opacity === '1'));
     const results = await new AxeBuilder({ page }).analyze();
     expect(results.violations.filter(({ impact }) => ['serious', 'critical'].includes(impact))).toEqual([]);
 

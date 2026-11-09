@@ -369,6 +369,9 @@ html[data-theme="dark"] .account-approach__meta dt { color: #ffb45d; }
 .direct-contact .path-label, .direct-contact p { color: #d4dbe0; }
 .direct-contact p { margin: .25rem 0 0; }
 .direct-contact .primary-action { flex: 0 0 auto; }
+.booking-actions { display: flex; flex-wrap: wrap; gap: .65rem 1rem; align-items: center; }
+.direct-contact .booking-actions { flex: 0 0 auto; }
+.direct-contact .booking-actions a:not(.primary-action) { color: #fff; }
 
 @media (max-width: 1024px) {
   .account-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

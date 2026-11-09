@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTICLES = [
-    ('construccion-portfolio', 'og-card.png', ['articles', 'other'], {
+    ('construccion-portfolio', 'assets/catalog-previews/construccion-portfolio.png', ['articles', 'other'], {
         'es': ('Construir este portfolio: del archivo de trabajos a un producto', 'Desarrollo web / Diseño / IA', 'Cómo organicé mi trabajo en un sitio bilingüe que conecta casos, herramientas y evidencia.', [
             ('El problema era encontrar un hilo', 'Mi trabajo reúne publicidad, análisis, contenido y desarrollo. Al construir esta página, el desafío fue darles una estructura que permita entender qué hice, por qué y con qué evidencia. El CV resume una trayectoria; acá puedo mostrar el proceso y dejar que cada persona explore lo que le interesa.'),
             ('Un catálogo como puerta de entrada', 'El sitio incorpora una interfaz inspirada en un marketplace: categorías, búsqueda y páginas de detalle. Esa decisión convierte cada proyecto en una entrada que se puede descubrir por su tema. Alguien interesado en Amazon puede recorrer casos comerciales; alguien interesado en desarrollo puede llegar a Predestinato o Telemetry One desde el mismo catálogo.'),
@@ -21,7 +21,7 @@ ARTICLES = [
             ('Working with AI requires judgment', 'I use ChatGPT and Codex to explore solutions, write code and review changes. I still define the problem, choose the evidence and assess the result. A page can build successfully while explaining a project poorly, so I review the writing as well as the navigation.'),
             ('Checking quality in concrete ways', 'The repository includes link, localization and metadata validation, Playwright interface tests and accessibility checks. These help detect repeatable problems. Screenshots, mobile review and editorial reading help assess whether the experience makes sense and whether evidence is easy to find.'),
             ('A website that evolves with my work', 'Predestinato, Telemetry One, Oxi and Revolution projects keep expanding the story. Maintaining this portfolio means revisiting the selection, updating articles and connecting work across disciplines. Building the site is itself an example of how I organize information and turn an idea into a usable experience.')])}),
-    ('oxi-contenido-y-analisis', 'og-card.png', ['articles', 'creative'], {
+    ('oxi-contenido-y-analisis', 'assets/catalog-previews/oxi-contenido-y-analisis.png', ['articles', 'creative'], {
         'es': ('Oxi: construir una agencia entre contenido y análisis', 'Comunicación / Producción / Marketing', 'La construcción de Oxi: ideas, guiones, producción audiovisual y análisis de marketing dentro de un mismo proceso.', [
             ('Una idea compartida', 'Oxi es el proyecto de agencia de marketing y contenido que estoy construyendo con un equipo. Reúne producción audiovisual, comunicación y análisis para ayudar a empresas a explicar mejor lo que hacen. Mi aporte se concentra en marketing cuantitativo y PPC, conectado con el trabajo de guion y producción.'),
             ('Elegir qué queremos explicar', 'El contenido combina temas de medición, publicidad y realización audiovisual. Podemos partir del retorno marginal de una inversión, de las palabras clave negativas o de una decisión de iluminación. Cada tema necesita una pregunta concreta, un ejemplo y una conclusión que pueda usarse después de ver el video.'),
