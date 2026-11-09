@@ -44,13 +44,7 @@
   }
 
   function prototypeUrl(item) {
-    const url = item.url;
-    if (item.staticArticle) return '/' + url;
-    const suffix = isEnglish ? '?lang=en' : '';
-    if (url === 'caso-1-' + language + '.html') return 'case-amazon-growth.html' + suffix;
-    if (url === 'sobre-mi-' + language + '.html') return 'about.html' + suffix;
-    if (url === 'index.html' || url === 'index-' + language + '.html') return 'index.html' + suffix;
-    return 'page.html?source=' + encodeURIComponent('../' + url) + (isEnglish ? '&lang=en' : '');
+    return '/' + item.url.split('/').map(encodeURIComponent).join('/');
   }
 
   function toolText(toolLogos) {

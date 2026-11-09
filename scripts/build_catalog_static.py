@@ -30,7 +30,8 @@ CATALOG_PATH = PROTO / "catalog.html"
 SITEMAP_PATH = PROTO / "sitemap.xml"
 SITE = "https://matiasgaglio.vercel.app"
 LANGUAGE = "es"
-FIXED_PAGES = ["/", "/about.html", "/case-amazon-growth.html", "/catalog.html", "/contact.html"]
+FIXED_PAGES = ["/", "/about.html", "/catalog.html", "/contact.html"]
+VERCEL_CONFIG = ROOT / "vercel.json"
 
 SECTION_LABELS_ES = {
     "all": "Todo el catálogo",
@@ -62,16 +63,7 @@ def resolve_media(value: str) -> str:
 
 
 def prototype_url(item: dict) -> str:
-    url = item["url"]
-    if item.get("staticArticle"):
-        return "/" + urllib.parse.quote(url, safe="/")
-    if url == f"caso-1-{LANGUAGE}.html":
-        return "case-amazon-growth.html"
-    if url == f"sobre-mi-{LANGUAGE}.html":
-        return "about.html"
-    if url in ("index.html", f"index-{LANGUAGE}.html"):
-        return "index.html"
-    return "page.html?source=" + urllib.parse.quote("../" + url, safe="")
+    return "/" + urllib.parse.quote(item["url"], safe="/")
 
 
 def media_markup(item: dict) -> str:
@@ -128,12 +120,7 @@ def build_sitemap_urls(items: list[dict]) -> list[str]:
     seen = set(FIXED_PAGES)
     urls = list(FIXED_PAGES)
     for item in items:
-        if item.get("lang") != LANGUAGE and not item.get("staticArticle"):
-            continue
-        dest = prototype_url(item)
-        if dest.startswith(("case-amazon-growth.html", "about.html", "index.html")):
-            continue  # already covered by a fixed page above
-        path = "/" + dest.lstrip("/")
+        path = prototype_url(item)
         if path not in seen:
             seen.add(path)
             urls.append(path)
@@ -152,6 +139,27 @@ def sync_sitemap(items: list[dict], check_only: bool) -> bool:
     SITEMAP_PATH.write_text(xml, encoding="utf-8")
     print(f"Wrote {len(urls)} URLs into {SITEMAP_PATH.relative_to(ROOT)}.")
     return True
+
+
+def sync_viewer_redirects(items: list[dict], check_only: bool) -> bool:
+    """Keep the edge's exact list of recognized legacy links in sync with the catalog."""
+    keys = sorted({re.sub(r"-(?:es|en)\.html$", "", item["url"]) for item in items})
+    pattern = r"^(?:\.\./|\./|/)?(?<article>(?:" + "|".join(map(re.escape, keys)) + "))-"
+    config = VERCEL_CONFIG.read_text(encoding="utf-8")
+    updated = config
+    for suffix, location in [(r"(?:es|en)\.html$", "/$article-en.html"), (r"(?<locale>es|en)\.html$", "/$article-$locale.html")]:
+        updated, count = re.subn(
+            r'("key": "source", "value": )"(?:[^"\\]|\\.)*"(?=[^\n]*"Location": "' + re.escape(location) + r'")',
+            lambda match: match[1] + json.dumps(pattern + suffix),
+            updated,
+        )
+        if count != 1:
+            raise ValueError(f"Expected one legacy redirect for {location}, found {count}")
+    if updated == config:
+        return True
+    if not check_only:
+        VERCEL_CONFIG.write_text(updated, encoding="utf-8", newline="\n")
+    return False
 
 
 def main() -> int:
@@ -176,6 +184,7 @@ def main() -> int:
     )
 
     sitemap_ok = sync_sitemap(all_items, check_only)
+    redirects_ok = sync_viewer_redirects(all_items, check_only)
     catalog_changed = updated != html
 
     if check_only:
@@ -185,6 +194,9 @@ def main() -> int:
             ok = False
         if not sitemap_ok:
             print("prototype-amazon/sitemap.xml is stale; run scripts/build_catalog_static.py.")
+            ok = False
+        if not redirects_ok:
+            print("The viewer redirects in vercel.json are stale; run scripts/build_catalog_static.py.")
             ok = False
         if ok:
             print(f"catalog.html and sitemap.xml are up to date ({count} entries).")

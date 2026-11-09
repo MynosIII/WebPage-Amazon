@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TEST_STUBS = {"anchor-test.html", "revolution-test.html"}
 FORBIDDEN_SUFFIXES = {".doc", ".docx", ".xls", ".xlsx", ".download"}
 SKIP_SCHEMES = {"http", "https", "mailto", "tel", "data", "javascript"}
-IGNORED_DIRECTORIES = {".git", ".vercel", ".lighthouseci", "node_modules", "templates", "test-results", "playwright-report", "tmp", "prototype-homepage", "fondos-podcast", "negocio", "telemetry_assets", "__pycache__"}
+IGNORED_DIRECTORIES = {".git", ".vercel", ".lighthouseci", "node_modules", "templates", "test-results", "playwright-report", "tmp", "prototype-homepage", "fondos-podcast", "negocio", "telemetry_assets", "__pycache__", "portfolio-dist"}
 VERCEL_ROUTES = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))["routes"]
 
 

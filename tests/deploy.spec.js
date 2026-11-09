@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
+const catalog = require('../prototype-amazon/catalog-data.json');
 const bookingUrl = 'https://calendar.app.google/UyiMPukNRaHi2HhD7';
 
 test('public aliases redirect and unknown pages return a real 404', async ({ request }) => {
@@ -39,6 +40,39 @@ test('article URLs expose localized content and metadata without JavaScript', as
   }
 });
 
+test('the sitemap lists indexable case pages in both languages', async ({ request }) => {
+  test.setTimeout(90000);
+  const sitemap = await (await request.get('/sitemap.xml')).text();
+  expect(sitemap).not.toContain('page.html?source=');
+  const canonicalOrigin = 'https://matiasgaglio.vercel.app';
+  for (const item of catalog) {
+    const pathname = '/' + item.url;
+    const opposite = item.lang === 'es' ? 'en' : 'es';
+    const sibling = pathname.replace(/-(?:es|en)\.html$/, '-' + opposite + '.html');
+    const response = await request.get(pathname, { maxRedirects: 0 });
+    expect(response.status(), pathname).toBe(200);
+    const html = await response.text();
+    expect(html, pathname).toMatch(/<h1\b[^>]*>\s*(?:[^<\s]|<(?:em|span|strong)\b)/i);
+    expect(html, pathname).toContain(`<link rel="canonical" href="${canonicalOrigin}${pathname}">`);
+    expect(html, pathname).toContain(`hreflang="${opposite}" href="${canonicalOrigin}${sibling}"`);
+    expect(html, pathname).not.toMatch(/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/i);
+    expect(sitemap).toContain(`<loc>${canonicalOrigin}${pathname}</loc>`);
+  }
+});
+
+test('previous project links resolve to the matching localized case', async ({ request }) => {
+  for (const [path, destination] of [
+    ['/case-amazon-growth.html', '/caso-1-es.html'],
+    ['/case-amazon-growth.html?lang=en', '/caso-1-en.html'],
+    ['/page.html?source=..%2FCases%2FDayParting-Case-es.html&lang=en', '/Cases/DayParting-Case-en.html'],
+    ['/prototype-amazon/page.html?source=..%2Fecommerce-video-05-en.html', '/ecommerce-video-05-en.html']
+  ]) {
+    const response = await request.get(path, { maxRedirects: 0 });
+    expect(response.status(), path).toBe(308);
+    expect(new URL(response.headers().location, response.url()).pathname).toBe(destination);
+  }
+});
+
 for (const lang of ['es', 'en']) {
   test(`public ${lang} home leads to catalog, case, CV and contact on mobile`, async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
@@ -54,7 +88,7 @@ for (const lang of ['es', 'en']) {
     await expect(page.locator('.catalog-result').first()).toBeVisible();
 
     const query = lang === 'en' ? '?lang=en' : '';
-    for (const path of ['/case-amazon-growth.html', '/about.html', '/contact.html']) {
+    for (const path of [`/caso-1-${lang}.html`, '/about.html', '/contact.html']) {
       const response = await page.goto(path + query);
       expect(response.ok(), path).toBeTruthy();
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
