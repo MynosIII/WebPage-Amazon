@@ -36,9 +36,9 @@ async function verifyLanguage(page, language) {
     const hasCanvas = await sourceMain.locator('canvas').count() > 0;
 
     await page.goto(wrapperPath(entry.url, language), { waitUntil: 'domcontentloaded' });
-    const liveGallery = /^creatives-/.test(entry.url) || hasCanvas;
+    const liveGallery = /^(?:creatives|consultora)-/.test(entry.url) || hasCanvas;
     const copiedMainLocator = liveGallery ? page.frameLocator('[data-source-live]').locator('main') : page.locator('[data-source-embed] main');
-    await copiedMainLocator.waitFor({ state: 'attached', timeout: 10000 });
+    await expect(copiedMainLocator, entry.url).toBeAttached({ timeout: 10000 });
     await page.waitForTimeout(2200);
     const copiedText = normalize(await copiedMainLocator.innerText());
     const copiedMedia = await copiedMainLocator.locator('img, video').count();

@@ -873,7 +873,8 @@
           "Python"
         ]
       }
-    ]
+    ],
+    "staticArticle": true
   },
   {
     "title": "Detección geoespacial de copas de árboles",
@@ -897,7 +898,8 @@
           "Python"
         ]
       }
-    ]
+    ],
+    "staticArticle": true
   },
   {
     "title": "Conversion Video 01",
@@ -1335,7 +1337,8 @@
           "Python"
         ]
       }
-    ]
+    ],
+    "staticArticle": true
   },
   {
     "title": "F1Predictor: predicción walk-forward sin fuga de datos",
@@ -1359,7 +1362,8 @@
           "Python"
         ]
       }
-    ]
+    ],
+    "staticArticle": true
   },
   {
     "title": "Corporate Communication Icon System",
@@ -1445,7 +1449,8 @@
           "JS"
         ]
       }
-    ]
+    ],
+    "staticArticle": true
   },
   {
     "title": "Predestinato: diseño de un simulador de carrera",
@@ -1469,7 +1474,8 @@
           "JS"
         ]
       }
-    ]
+    ],
+    "staticArticle": true
   },
   {
     "title": "Amazon Listing Refresh Case Study",
@@ -1708,8 +1714,18 @@
         "aliases": [
           "Python"
         ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ]
       }
-    ]
+    ],
+    "staticArticle": true
   },
   {
     "title": "Telemetry 1: ecosistema de Fórmula 1",
@@ -1740,8 +1756,18 @@
         "aliases": [
           "Python"
         ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ]
       }
-    ]
+    ],
+    "staticArticle": true
   },
   {
     "title": "UNIMAC Case — Industrial Heater Campaign",
@@ -2401,6 +2427,172 @@
         "aliases": [
           "Helium 10",
           "Helium10"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Construir este portfolio: del archivo de trabajos a un producto",
+    "description": "Cómo organicé mi trabajo en un sitio bilingüe que conecta casos, herramientas y evidencia.",
+    "keywords": "Desarrollo web / Diseño / IA",
+    "lang": "es",
+    "url": "construccion-portfolio-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "other"
+    ],
+    "image": "assets/catalog-previews/construccion-portfolio.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Building this portfolio: from a work archive to a product",
+    "description": "How I organized my work into a bilingual website connecting projects, tools and evidence.",
+    "keywords": "Web development / Design / AI",
+    "lang": "en",
+    "url": "construccion-portfolio-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "other"
+    ],
+    "image": "assets/catalog-previews/construccion-portfolio.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Oxi: construir una agencia entre contenido y análisis",
+    "description": "La construcción de Oxi: ideas, guiones, producción audiovisual y análisis de marketing dentro de un mismo proceso.",
+    "keywords": "Comunicación / Producción / Marketing",
+    "lang": "es",
+    "url": "oxi-contenido-y-analisis-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "creative"
+    ],
+    "image": "assets/catalog-previews/oxi-contenido-y-analisis.png",
+    "mediaFit": "cover",
+    "toolLogos": []
+  },
+  {
+    "title": "Oxi: building an agency around content and analysis",
+    "description": "Building Oxi through ideas, scripts, audiovisual production and marketing analysis.",
+    "keywords": "Communication / Production / Marketing",
+    "lang": "en",
+    "url": "oxi-contenido-y-analisis-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "creative"
+    ],
+    "image": "assets/catalog-previews/oxi-contenido-y-analisis.png",
+    "mediaFit": "cover",
+    "toolLogos": []
+  },
+  {
+    "title": "Revolution: conectar catálogo, publicidad y contenido en Amazon",
+    "description": "Cómo se relacionan PPC, compatibilidad automotriz, contenido A+ y coordinación del canal en mi trabajo en Revolution Supply.",
+    "keywords": "Amazon / Operaciones / Estrategia",
+    "lang": "es",
+    "url": "revolution-operacion-amazon-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/fitment-compatibility-photo.jpg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Revolution: connecting Amazon catalog, advertising and content",
+    "description": "How PPC, automotive fitment, A+ content and channel coordination connect in my work at Revolution Supply.",
+    "keywords": "Amazon / Operations / Strategy",
+    "lang": "en",
+    "url": "revolution-operacion-amazon-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/fitment-compatibility-photo.jpg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
         ]
       }
     ]

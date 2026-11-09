@@ -371,7 +371,8 @@
     ],
     "telemetry-one-ecosistema.html": [
       "typescript",
-      "python"
+      "python",
+      "javascript"
     ],
     "f1-predictor-walk-forward.html": [
       "python"
@@ -381,6 +382,14 @@
     ],
     "deteccion-copas-arboles.html": [
       "python"
+    ],
+    "construccion-portfolio.html": [
+      "python",
+      "javascript"
+    ],
+    "revolution-operacion-amazon.html": [
+      "amazon-seller-central",
+      "amazon-ads"
     ]
   }
 }

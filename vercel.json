@@ -1,13 +1,17 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "routes": [
+    { "src": "/(.*)", "headers": { "X-Content-Type-Options": "nosniff", "X-Frame-Options": "SAMEORIGIN", "Referrer-Policy": "strict-origin-when-cross-origin" }, "continue": true },
     { "src": "^/$", "dest": "/prototype-amazon/index.html" },
+    { "src": "^/index-es\\.html$", "headers": { "Location": "/" }, "status": 308 },
     { "src": "^/index-en\\.html$", "headers": { "Location": "/index.html?lang=en" }, "status": 308 },
     { "src": "^/index\\.html$", "dest": "/prototype-amazon/index.html" },
     { "src": "^/about\\.html$", "dest": "/prototype-amazon/about.html" },
     { "src": "^/case-amazon-growth\\.html$", "dest": "/prototype-amazon/case-amazon-growth.html" },
     { "src": "^/catalog\\.html$", "dest": "/prototype-amazon/catalog.html" },
     { "src": "^/contact\\.html$", "dest": "/prototype-amazon/contact.html" },
+    { "src": "^/page\\.html$", "has": [{ "type": "query", "key": "source", "value": "^(?:\\.\\./|/)?(?<article>(?:construccion-portfolio|deteccion-copas-arboles|f1-predictor-walk-forward|oxi-contenido-y-analisis|predestinato-simulador-carrera|revolution-operacion-amazon|telemetry-one-ecosistema))-(?:es|en)\\.html$" }, { "type": "query", "key": "lang", "value": "^en$" }], "headers": { "Location": "/$article-en.html" }, "status": 308 },
+    { "src": "^/page\\.html$", "has": [{ "type": "query", "key": "source", "value": "^(?:\\.\\./|/)?(?<article>(?:construccion-portfolio|deteccion-copas-arboles|f1-predictor-walk-forward|oxi-contenido-y-analisis|predestinato-simulador-carrera|revolution-operacion-amazon|telemetry-one-ecosistema))-(?<locale>es|en)\\.html$" }], "headers": { "Location": "/$article-$locale.html" }, "status": 308 },
     { "src": "^/page\\.html$", "dest": "/prototype-amazon/page.html" },
     { "src": "^/styles\\.css$", "dest": "/prototype-amazon/styles.css" },
     { "src": "^/i18n\\.js$", "dest": "/prototype-amazon/i18n.js" },

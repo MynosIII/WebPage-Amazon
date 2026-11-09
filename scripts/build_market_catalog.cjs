@@ -6,7 +6,16 @@ const { chromium } = require('@playwright/test');
 const root = path.resolve(__dirname, '..');
 const base = process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:8765';
 const canonical = value => value.replace(/-(es|en)(?=\.html$)/i, '').toLowerCase();
+const staticArticles = new Set([
+  'construccion-portfolio.html', 'deteccion-copas-arboles.html',
+  'f1-predictor-walk-forward.html', 'oxi-contenido-y-analisis.html',
+  'predestinato-simulador-carrera.html', 'revolution-operacion-amazon.html',
+  'telemetry-one-ecosistema.html'
+]);
 const categories = key => {
+  if (/revolution-operacion-amazon/.test(key)) return ['articles', 'ecommerce'];
+  if (/oxi-contenido-y-analisis/.test(key)) return ['articles', 'creative'];
+  if (/construccion-portfolio/.test(key)) return ['articles', 'other'];
   if (/^cases\//.test(key)) return ['articles', 'ecommerce', ...(/dayparting|market-share|search-query|voice-of/.test(key) ? ['bi'] : [])];
   if (/amazon-content|amazon-lifecycle/.test(key)) return ['articles', 'ecommerce'];
   if (/^caso-2|^bi-case/.test(key)) return ['bi', 'ecommerce'];
@@ -23,6 +32,9 @@ const categories = key => {
 // project covers. Every entry below points to an original project asset or to
 // a screenshot of the project's own UI.
 const explicitCovers = {
+  'construccion-portfolio.html': 'assets/catalog-previews/construccion-portfolio.png',
+  'oxi-contenido-y-analisis.html': 'assets/catalog-previews/oxi-contenido-y-analisis.png',
+  'revolution-operacion-amazon.html': 'assets/fitment-compatibility-photo.jpg',
   'animation-01.html': 'assets/social-edit-01-poster.jpg',
   'animation-02.html': 'assets/social-edit-02-poster.jpg',
   'animation-03.html': 'assets/social-edit-03-poster.jpg',
@@ -114,6 +126,7 @@ const coverFit = (key, image) => /(?:dashboard|kpi|caso1_plot|caso1_sales|caso2|
     const toolKeys = normalizedCaseTools[stackKey] || fallbackToolKeys(tools);
     return {
       title, description, keywords, lang, url,
+      staticArticle: staticArticles.has(key) || undefined,
       categories: categories(key),
       image,
       imageSet: explicitCoverSets[key] || undefined,

@@ -43,7 +43,9 @@
     return String(value || '').toLocaleLowerCase(language).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
-  function prototypeUrl(url) {
+  function prototypeUrl(item) {
+    const url = item.url;
+    if (item.staticArticle) return '/' + url;
     const suffix = isEnglish ? '?lang=en' : '';
     if (url === 'caso-1-' + language + '.html') return 'case-amazon-growth.html' + suffix;
     if (url === 'sobre-mi-' + language + '.html') return 'about.html' + suffix;
@@ -69,8 +71,8 @@
 
   function cardMarkup(item) {
     return '<article class="catalog-result" data-source="' + item.url + '">' +
-      '<a class="catalog-result__media is-media-pending" data-media-fit="' + (item.mediaFit || 'cover') + '"' + (item.imageSet?.length ? ' data-media-kind="icon-mosaic"' : '') + ' href="' + prototypeUrl(item.url) + '" tabindex="-1" aria-hidden="true"><span class="catalog-media-skeleton" data-catalog-placeholder></span></a>' +
-      '<div class="catalog-result__body"><p class="result-kicker">' + item.categoryLabel + '</p><h3><a href="' + prototypeUrl(item.url) + '">' + escape(item.title) + '</a></h3><p>' + escape(item.description) + '</p>' + toolLogoMarkup(item.toolLogos) + '</div></article>';
+      '<a class="catalog-result__media is-media-pending" data-media-fit="' + (item.mediaFit || 'cover') + '"' + (item.imageSet?.length ? ' data-media-kind="icon-mosaic"' : '') + ' href="' + prototypeUrl(item) + '" tabindex="-1" aria-hidden="true"><span class="catalog-media-skeleton" data-catalog-placeholder></span></a>' +
+      '<div class="catalog-result__body"><p class="result-kicker">' + item.categoryLabel + '</p><h3><a href="' + prototypeUrl(item) + '">' + escape(item.title) + '</a></h3><p>' + escape(item.description) + '</p>' + toolLogoMarkup(item.toolLogos) + '</div></article>';
   }
 
   function resolveMedia(value, source) {

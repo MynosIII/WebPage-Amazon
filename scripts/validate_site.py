@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from collections import Counter
@@ -15,7 +16,22 @@ ROOT = Path(__file__).resolve().parents[1]
 TEST_STUBS = {"anchor-test.html", "revolution-test.html"}
 FORBIDDEN_SUFFIXES = {".doc", ".docx", ".xls", ".xlsx", ".download"}
 SKIP_SCHEMES = {"http", "https", "mailto", "tel", "data", "javascript"}
-IGNORED_DIRECTORIES = {".git", "node_modules", "templates", "test-results", "playwright-report", "tmp"}
+IGNORED_DIRECTORIES = {".git", ".vercel", ".lighthouseci", "node_modules", "templates", "test-results", "playwright-report", "tmp", "prototype-homepage", "fondos-podcast", "negocio", "telemetry_assets", "__pycache__"}
+VERCEL_ROUTES = json.loads((ROOT / "vercel.json").read_text(encoding="utf-8"))["routes"]
+
+
+def public_files():
+    for directory, subdirectories, filenames in os.walk(ROOT):
+        subdirectories[:] = [name for name in subdirectories if name not in IGNORED_DIRECTORIES]
+        for name in filenames:
+            yield Path(directory) / name
+
+
+def vercel_target(path: str) -> Path:
+    for route in VERCEL_ROUTES:
+        if "dest" in route and re.fullmatch(route["src"], path):
+            return ROOT / route["dest"].lstrip("/")
+    return ROOT / path.lstrip("/")
 
 
 class PageParser(HTMLParser):
@@ -134,7 +150,7 @@ def validate_page(path: Path, cache: dict[Path, PageParser]) -> list[str]:
         elif parsed.path.startswith("/"):
             # A leading slash is site-root-relative (how browsers and both
             # deploy targets resolve it), not filesystem-absolute.
-            target = (ROOT / unquote(parsed.path).lstrip("/")).resolve()
+            target = vercel_target(unquote(parsed.path)).resolve()
         else:
             target = (path.parent / unquote(parsed.path)).resolve()
         try:
@@ -229,10 +245,11 @@ def validate_case_tool_catalog(pages: list[Path]) -> list[str]:
 def main() -> int:
     issues: list[str] = []
     cache: dict[Path, PageParser] = {}
+    files = list(public_files())
     pages = [
         path
-        for path in ROOT.rglob("*.html")
-        if not IGNORED_DIRECTORIES.intersection(path.parts) and path.name not in TEST_STUBS
+        for path in files
+        if path.suffix == ".html" and path.name not in TEST_STUBS
     ]
     for path in sorted(pages):
         issues.extend(validate_page(path, cache))
@@ -240,10 +257,8 @@ def main() -> int:
 
     forbidden = [
         path.relative_to(ROOT).as_posix()
-        for path in ROOT.rglob("*")
-        if path.is_file()
-        and not IGNORED_DIRECTORIES.intersection(path.parts)
-        and path.suffix.lower() in FORBIDDEN_SUFFIXES
+        for path in files
+        if path.suffix.lower() in FORBIDDEN_SUFFIXES
     ]
     if forbidden:
         issues.append("Forbidden deploy-source files:\n  " + "\n  ".join(sorted(forbidden)))

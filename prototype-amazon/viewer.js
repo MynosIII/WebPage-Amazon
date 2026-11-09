@@ -53,12 +53,7 @@
       ['src', 'poster'].forEach(function (attribute) {
         const value = element.getAttribute(attribute);
         if (!value || value.startsWith('data:') || value.startsWith('blob:')) return;
-        const resolved = new URL(assetHref(value));
-        if (/^\/creatives\/ecommerce-video\/rollator-conversion-\d+\.mp4$/i.test(resolved.pathname)) {
-          element.setAttribute(attribute, 'https://matiasgaglio.onrender.com' + resolved.pathname);
-        } else {
-          element.setAttribute(attribute, resolved.href);
-        }
+        element.setAttribute(attribute, assetHref(value));
       });
     });
     root.querySelectorAll('[srcset]').forEach(function (element) {
@@ -112,6 +107,8 @@
   const sourceStartedAt = performance.now();
   const isCreativeIndex = /\/creatives-(?:es|en)\.html$/i.test(sourceUrl.pathname);
   function syncMeta(sourceDocument, sourceTitle) {
+    const canonical = document.querySelector('link[data-default-canonical]');
+    if (!canonical) return;
     const selfUrl = window.location.origin + window.location.pathname + window.location.search;
     const description = sourceDocument.querySelector('meta[name="description"]')?.content.trim()
       || (isEnglish ? 'Project view from Matías Gaglio’s portfolio.' : 'Vista de proyecto del portfolio de Matías Gaglio.');
@@ -121,7 +118,7 @@
     // this shell's own branded card is correct for all of them.
 
     document.querySelector('meta[name="description"]').setAttribute('content', description);
-    document.querySelector('link[data-default-canonical]').setAttribute('href', selfUrl);
+    canonical.setAttribute('href', selfUrl);
     document.querySelector('meta[data-default-og-title]').setAttribute('content', title);
     document.querySelector('meta[data-default-og-description]').setAttribute('content', description);
     document.querySelector('meta[data-default-og-url]').setAttribute('content', selfUrl);

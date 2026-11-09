@@ -3,15 +3,39 @@
 from __future__ import annotations
 
 import argparse
-import html
 import json
 import re
+from html.parser import HTMLParser
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG_PATH = ROOT / "content" / "case-tools.json"
 PUBLIC_DIRS = (ROOT, ROOT / "Cases")
+
+
+class VisibleText(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.in_main = False
+        self.ignored = None
+        self.parts: list[str] = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag == "main":
+            self.in_main = True
+        if tag in {"script", "style", "template"}:
+            self.ignored = tag
+
+    def handle_endtag(self, tag):
+        if tag == "main":
+            self.in_main = False
+        if tag == self.ignored:
+            self.ignored = None
+
+    def handle_data(self, data):
+        if self.in_main and self.ignored is None:
+            self.parts.append(data)
 
 
 def base_page_name(name: str) -> str:
@@ -23,8 +47,10 @@ def public_case_sources() -> dict[str, str]:
     for directory in PUBLIC_DIRS:
         for path in directory.glob("*.html"):
             key = base_page_name(path.name)
-            sources.setdefault(key, []).append(path.read_text(encoding="utf-8"))
-    return {key: html.unescape("\n".join(parts)) for key, parts in sources.items()}
+            parser = VisibleText()
+            parser.feed(path.read_text(encoding="utf-8"))
+            sources.setdefault(key, []).extend(parser.parts)
+    return {key: " ".join(parts) for key, parts in sources.items()}
 
 
 def mentions(source: str, alias: str) -> bool:

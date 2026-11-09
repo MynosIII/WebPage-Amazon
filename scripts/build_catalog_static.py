@@ -21,6 +21,7 @@ import re
 import sys
 import urllib.parse
 from pathlib import Path
+from add_image_dimensions import dimensions
 
 ROOT = Path(__file__).resolve().parents[1]
 PROTO = ROOT / "prototype-amazon"
@@ -60,7 +61,10 @@ def resolve_media(value: str) -> str:
     return quoted.replace("+", "%2B")
 
 
-def prototype_url(url: str) -> str:
+def prototype_url(item: dict) -> str:
+    url = item["url"]
+    if item.get("staticArticle"):
+        return "/" + urllib.parse.quote(url, safe="/")
     if url == f"caso-1-{LANGUAGE}.html":
         return "case-amazon-growth.html"
     if url == f"sobre-mi-{LANGUAGE}.html":
@@ -71,13 +75,18 @@ def prototype_url(url: str) -> str:
 
 
 def media_markup(item: dict) -> str:
+    def image_markup(path: str) -> str:
+        size = dimensions(ROOT / path)
+        intrinsic = f' width="{size[0]}" height="{size[1]}"' if size else ""
+        return f'<img src="{resolve_media(path)}" alt=""{intrinsic} loading="lazy" decoding="async">'
+
     image_set = item.get("imageSet") or []
     if image_set:
-        imgs = "".join(f'<img src="{resolve_media(path)}" alt="" loading="lazy" decoding="async">' for path in image_set)
+        imgs = "".join(image_markup(path) for path in image_set)
         return f'<span class="catalog-icon-mosaic" aria-hidden="true">{imgs}</span>'
     image = item.get("image")
     if image:
-        return f'<img src="{resolve_media(image)}" alt="" loading="lazy" decoding="async">'
+        return image_markup(image)
     return '<span class="catalog-media-skeleton" data-catalog-placeholder></span>'
 
 
@@ -93,7 +102,7 @@ def tool_logo_markup(tool_logos: list[dict]) -> str:
 
 
 def card_markup(item: dict, category_label: str) -> str:
-    url = prototype_url(item["url"])
+    url = prototype_url(item)
     media_fit = item.get("mediaFit") or "cover"
     media_kind = ' data-media-kind="icon-mosaic"' if item.get("imageSet") else ""
     return (
@@ -119,10 +128,12 @@ def build_sitemap_urls(items: list[dict]) -> list[str]:
     seen = set(FIXED_PAGES)
     urls = list(FIXED_PAGES)
     for item in items:
-        dest = prototype_url(item["url"])
+        if item.get("lang") != LANGUAGE and not item.get("staticArticle"):
+            continue
+        dest = prototype_url(item)
         if dest.startswith(("case-amazon-growth.html", "about.html", "index.html")):
             continue  # already covered by a fixed page above
-        path = "/" + dest
+        path = "/" + dest.lstrip("/")
         if path not in seen:
             seen.add(path)
             urls.append(path)
@@ -164,7 +175,7 @@ def main() -> int:
         updated,
     )
 
-    sitemap_ok = sync_sitemap(es_items, check_only)
+    sitemap_ok = sync_sitemap(all_items, check_only)
     catalog_changed = updated != html
 
     if check_only:

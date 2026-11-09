@@ -239,6 +239,55 @@
       "sourceLanguage": "en",
       "english": "unimac-case-en.html",
       "spanish": "unimac-case-es.html"
+    },
+    {
+      "page": "construccion-portfolio.html",
+      "sourceLanguage": "es",
+      "english": "construccion-portfolio-en.html",
+      "spanish": "construccion-portfolio-es.html",
+      "legacy": false
+    },
+    {
+      "page": "deteccion-copas-arboles.html",
+      "sourceLanguage": "es",
+      "english": "deteccion-copas-arboles-en.html",
+      "spanish": "deteccion-copas-arboles-es.html",
+      "legacy": false
+    },
+    {
+      "page": "f1-predictor-walk-forward.html",
+      "sourceLanguage": "es",
+      "english": "f1-predictor-walk-forward-en.html",
+      "spanish": "f1-predictor-walk-forward-es.html",
+      "legacy": false
+    },
+    {
+      "page": "oxi-contenido-y-analisis.html",
+      "sourceLanguage": "es",
+      "english": "oxi-contenido-y-analisis-en.html",
+      "spanish": "oxi-contenido-y-analisis-es.html",
+      "legacy": false
+    },
+    {
+      "page": "predestinato-simulador-carrera.html",
+      "sourceLanguage": "es",
+      "english": "predestinato-simulador-carrera-en.html",
+      "spanish": "predestinato-simulador-carrera-es.html",
+      "legacy": false
+    },
+    {
+      "page": "revolution-operacion-amazon.html",
+      "sourceLanguage": "es",
+      "english": "revolution-operacion-amazon-en.html",
+      "spanish": "revolution-operacion-amazon-es.html",
+      "legacy": false
+    },
+    {
+      "page": "telemetry-one-ecosistema.html",
+      "sourceLanguage": "es",
+      "english": "telemetry-one-ecosistema-en.html",
+      "spanish": "telemetry-one-ecosistema-es.html",
+      "legacy": false
     }
   ],
   "excludedDevelopmentFiles": [
