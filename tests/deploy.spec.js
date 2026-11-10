@@ -55,6 +55,8 @@ test('the sitemap lists indexable case pages in both languages', async ({ reques
     expect(html, pathname).toMatch(/<h1\b[^>]*>\s*(?:[^<\s]|<(?:em|span|strong)\b)/i);
     expect(html, pathname).toContain(`<link rel="canonical" href="${canonicalOrigin}${pathname}">`);
     expect(html, pathname).toContain(`hreflang="${opposite}" href="${canonicalOrigin}${sibling}"`);
+    expect(html, pathname).toMatch(/<meta\b[^>]*name="description"[^>]*content="[^"]+"/i);
+    expect(html, pathname).toMatch(/<meta\b[^>]*property="og:description"[^>]*content="[^"]+"/i);
     expect(html, pathname).not.toMatch(/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/i);
     expect(sitemap).toContain(`<loc>${canonicalOrigin}${pathname}</loc>`);
   }
