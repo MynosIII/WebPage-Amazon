@@ -3730,5 +3730,673 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Escucha social política con fuentes abiertas (OSINT)",
+    "description": "Cómo construí un sistema diario de escucha social para la política de Argentina y Brasil: qué fuentes abiertas recolecta, cómo clasifica tono y narrativas con Python y modelos de lenguaje, y qué cuidados de privacidad aplica.",
+    "keywords": "OSINT, fuentes abiertas, escucha social, social listening, opinión pública, política argentina, política brasileña, análisis de sentimiento, análisis de discurso, NLP, procesamiento de lenguaje natural, modelado de tópicos, NMF, TF-IDF, detección de coordinación, reputación política, Python, pandas, NumPy, scikit-learn, pysentimiento, RoBERTuito, Hugging Face, PyTorch, NetworkX, Plotly, GitHub Actions, YouTube Data API, Google News, Google Trends, GDELT, Wikipedia, Bluesky, Mastodon, Reddit, Milei, Lula",
+    "lang": "es",
+    "url": "escucha-social-politica-osint-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "research"
+    ],
+    "image": "assets/catalog-previews/escucha-social-politica-osint.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "pandas",
+        "name": "pandas",
+        "asset": "pandas.svg",
+        "aliases": [
+          "pandas"
+        ]
+      },
+      {
+        "key": "numpy",
+        "name": "NumPy",
+        "asset": "numpy.svg",
+        "aliases": [
+          "NumPy"
+        ]
+      },
+      {
+        "key": "scikit-learn",
+        "name": "scikit-learn",
+        "asset": "scikit-learn.svg",
+        "aliases": [
+          "scikit-learn",
+          "sklearn"
+        ]
+      },
+      {
+        "key": "pysentimiento",
+        "name": "pysentimiento",
+        "asset": "pysentimiento.svg",
+        "aliases": [
+          "pysentimiento",
+          "RoBERTuito"
+        ]
+      },
+      {
+        "key": "hugging-face",
+        "name": "Hugging Face",
+        "asset": "hugging-face.svg",
+        "aliases": [
+          "Hugging Face",
+          "Transformers"
+        ]
+      },
+      {
+        "key": "pytorch",
+        "name": "PyTorch",
+        "asset": "pytorch.svg",
+        "aliases": [
+          "PyTorch"
+        ]
+      },
+      {
+        "key": "networkx",
+        "name": "NetworkX",
+        "asset": "networkx.svg",
+        "aliases": [
+          "NetworkX"
+        ]
+      },
+      {
+        "key": "plotly",
+        "name": "Plotly",
+        "asset": "plotly.svg",
+        "aliases": [
+          "Plotly"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "youtube",
+        "name": "YouTube Data API",
+        "asset": "youtube.svg",
+        "aliases": [
+          "YouTube",
+          "YouTube Data API"
+        ]
+      },
+      {
+        "key": "google-news",
+        "name": "Google News",
+        "asset": "google-news.svg",
+        "aliases": [
+          "Google News"
+        ]
+      },
+      {
+        "key": "google-trends",
+        "name": "Google Trends",
+        "asset": "google-trends.svg",
+        "aliases": [
+          "Google Trends"
+        ]
+      },
+      {
+        "key": "gdelt",
+        "name": "GDELT",
+        "asset": "gdelt.svg",
+        "aliases": [
+          "GDELT",
+          "GDELT Project"
+        ]
+      },
+      {
+        "key": "wikipedia",
+        "name": "Wikipedia",
+        "asset": "wikipedia.svg",
+        "aliases": [
+          "Wikipedia",
+          "Wikimedia"
+        ]
+      },
+      {
+        "key": "bluesky",
+        "name": "Bluesky",
+        "asset": "bluesky.svg",
+        "aliases": [
+          "Bluesky"
+        ]
+      },
+      {
+        "key": "mastodon",
+        "name": "Mastodon",
+        "asset": "mastodon.svg",
+        "aliases": [
+          "Mastodon"
+        ]
+      },
+      {
+        "key": "reddit",
+        "name": "Reddit",
+        "asset": "reddit.svg",
+        "aliases": [
+          "Reddit"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Political social listening with open sources (OSINT)",
+    "description": "How I built a daily social listening system for Argentine and Brazilian politics: which open sources it collects, how it classifies tone and narratives with Python and language models, and which privacy safeguards it applies.",
+    "keywords": "OSINT, open source intelligence, social listening, public opinion, Argentine politics, Brazilian politics, sentiment analysis, discourse analysis, NLP, natural language processing, topic modeling, NMF, TF-IDF, coordinated behavior detection, political reputation, Python, pandas, NumPy, scikit-learn, pysentimiento, RoBERTuito, Hugging Face, PyTorch, NetworkX, Plotly, GitHub Actions, YouTube Data API, Google News, Google Trends, GDELT, Wikipedia, Bluesky, Mastodon, Reddit, Milei, Lula",
+    "lang": "en",
+    "url": "escucha-social-politica-osint-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "research"
+    ],
+    "image": "assets/catalog-previews/escucha-social-politica-osint.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "pandas",
+        "name": "pandas",
+        "asset": "pandas.svg",
+        "aliases": [
+          "pandas"
+        ]
+      },
+      {
+        "key": "numpy",
+        "name": "NumPy",
+        "asset": "numpy.svg",
+        "aliases": [
+          "NumPy"
+        ]
+      },
+      {
+        "key": "scikit-learn",
+        "name": "scikit-learn",
+        "asset": "scikit-learn.svg",
+        "aliases": [
+          "scikit-learn",
+          "sklearn"
+        ]
+      },
+      {
+        "key": "pysentimiento",
+        "name": "pysentimiento",
+        "asset": "pysentimiento.svg",
+        "aliases": [
+          "pysentimiento",
+          "RoBERTuito"
+        ]
+      },
+      {
+        "key": "hugging-face",
+        "name": "Hugging Face",
+        "asset": "hugging-face.svg",
+        "aliases": [
+          "Hugging Face",
+          "Transformers"
+        ]
+      },
+      {
+        "key": "pytorch",
+        "name": "PyTorch",
+        "asset": "pytorch.svg",
+        "aliases": [
+          "PyTorch"
+        ]
+      },
+      {
+        "key": "networkx",
+        "name": "NetworkX",
+        "asset": "networkx.svg",
+        "aliases": [
+          "NetworkX"
+        ]
+      },
+      {
+        "key": "plotly",
+        "name": "Plotly",
+        "asset": "plotly.svg",
+        "aliases": [
+          "Plotly"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "youtube",
+        "name": "YouTube Data API",
+        "asset": "youtube.svg",
+        "aliases": [
+          "YouTube",
+          "YouTube Data API"
+        ]
+      },
+      {
+        "key": "google-news",
+        "name": "Google News",
+        "asset": "google-news.svg",
+        "aliases": [
+          "Google News"
+        ]
+      },
+      {
+        "key": "google-trends",
+        "name": "Google Trends",
+        "asset": "google-trends.svg",
+        "aliases": [
+          "Google Trends"
+        ]
+      },
+      {
+        "key": "gdelt",
+        "name": "GDELT",
+        "asset": "gdelt.svg",
+        "aliases": [
+          "GDELT",
+          "GDELT Project"
+        ]
+      },
+      {
+        "key": "wikipedia",
+        "name": "Wikipedia",
+        "asset": "wikipedia.svg",
+        "aliases": [
+          "Wikipedia",
+          "Wikimedia"
+        ]
+      },
+      {
+        "key": "bluesky",
+        "name": "Bluesky",
+        "asset": "bluesky.svg",
+        "aliases": [
+          "Bluesky"
+        ]
+      },
+      {
+        "key": "mastodon",
+        "name": "Mastodon",
+        "asset": "mastodon.svg",
+        "aliases": [
+          "Mastodon"
+        ]
+      },
+      {
+        "key": "reddit",
+        "name": "Reddit",
+        "asset": "reddit.svg",
+        "aliases": [
+          "Reddit"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Un mapa político multidimensional con 977 respuestas",
+    "description": "Una prueba de concepto que ubica a cada persona en tres ejes (economía, sociedad e instituciones) y compara cómo se definen, qué responden y con qué dirigentes se identifican.",
+    "keywords": "mapa político, brújula política, encuesta, opinión pública, identidad política, política argentina, peronismo, liberalismo, libertarismo, análisis multivariado, PCA, análisis de componentes principales, V de Cramér, dispersión intragrupo, estadística, visualización de datos, Python, pandas, NumPy, SciPy, scikit-learn, Plotly, Google Sheets, GitHub Actions, JavaScript",
+    "lang": "es",
+    "url": "mapa-politico-multidimensional-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "research"
+    ],
+    "image": "assets/catalog-previews/mapa-politico-multidimensional.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "pandas",
+        "name": "pandas",
+        "asset": "pandas.svg",
+        "aliases": [
+          "pandas"
+        ]
+      },
+      {
+        "key": "numpy",
+        "name": "NumPy",
+        "asset": "numpy.svg",
+        "aliases": [
+          "NumPy"
+        ]
+      },
+      {
+        "key": "scipy",
+        "name": "SciPy",
+        "asset": "scipy.svg",
+        "aliases": [
+          "SciPy"
+        ]
+      },
+      {
+        "key": "scikit-learn",
+        "name": "scikit-learn",
+        "asset": "scikit-learn.svg",
+        "aliases": [
+          "scikit-learn",
+          "sklearn"
+        ]
+      },
+      {
+        "key": "plotly",
+        "name": "Plotly",
+        "asset": "plotly.svg",
+        "aliases": [
+          "Plotly"
+        ]
+      },
+      {
+        "key": "google-sheets",
+        "name": "Google Sheets",
+        "asset": "google-sheets.svg",
+        "aliases": [
+          "Google Sheets",
+          "Sheets"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "A multidimensional political map from 977 survey answers",
+    "description": "A proof of concept that places each respondent on three axes (economy, society and institutions) and compares how people label themselves, what they answer and which leaders they identify with.",
+    "keywords": "political map, political compass, survey, public opinion, political identity, Argentine politics, Peronism, liberalism, libertarianism, multivariate analysis, PCA, principal component analysis, Cramér's V, within-group dispersion, statistics, data visualization, Python, pandas, NumPy, SciPy, scikit-learn, Plotly, Google Sheets, GitHub Actions, JavaScript",
+    "lang": "en",
+    "url": "mapa-politico-multidimensional-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "research"
+    ],
+    "image": "assets/catalog-previews/mapa-politico-multidimensional.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "pandas",
+        "name": "pandas",
+        "asset": "pandas.svg",
+        "aliases": [
+          "pandas"
+        ]
+      },
+      {
+        "key": "numpy",
+        "name": "NumPy",
+        "asset": "numpy.svg",
+        "aliases": [
+          "NumPy"
+        ]
+      },
+      {
+        "key": "scipy",
+        "name": "SciPy",
+        "asset": "scipy.svg",
+        "aliases": [
+          "SciPy"
+        ]
+      },
+      {
+        "key": "scikit-learn",
+        "name": "scikit-learn",
+        "asset": "scikit-learn.svg",
+        "aliases": [
+          "scikit-learn",
+          "sklearn"
+        ]
+      },
+      {
+        "key": "plotly",
+        "name": "Plotly",
+        "asset": "plotly.svg",
+        "aliases": [
+          "Plotly"
+        ]
+      },
+      {
+        "key": "google-sheets",
+        "name": "Google Sheets",
+        "asset": "google-sheets.svg",
+        "aliases": [
+          "Google Sheets",
+          "Sheets"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "De los datos a la estrategia política",
+    "description": "Por qué un tablero no alcanza: cómo combinar estadística, análisis del discurso y OSINT para convertir información pública en diagnósticos y decisiones.",
+    "keywords": "estrategia política, inteligencia política, OSINT, opinión pública, análisis del discurso, social listening, escucha social, machine learning, análisis de redes, clustering, análisis factorial, correlación de Spearman, encuestas, consultoría política, comunicación política, Python, scikit-learn, NetworkX, pysentimiento, Plotly, Google Sheets, Google Trends",
+    "lang": "es",
+    "url": "datos-a-estrategia-politica-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "research"
+    ],
+    "image": "assets/catalog-previews/datos-a-estrategia-politica.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "scikit-learn",
+        "name": "scikit-learn",
+        "asset": "scikit-learn.svg",
+        "aliases": [
+          "scikit-learn",
+          "sklearn"
+        ]
+      },
+      {
+        "key": "networkx",
+        "name": "NetworkX",
+        "asset": "networkx.svg",
+        "aliases": [
+          "NetworkX"
+        ]
+      },
+      {
+        "key": "pysentimiento",
+        "name": "pysentimiento",
+        "asset": "pysentimiento.svg",
+        "aliases": [
+          "pysentimiento",
+          "RoBERTuito"
+        ]
+      },
+      {
+        "key": "plotly",
+        "name": "Plotly",
+        "asset": "plotly.svg",
+        "aliases": [
+          "Plotly"
+        ]
+      },
+      {
+        "key": "google-sheets",
+        "name": "Google Sheets",
+        "asset": "google-sheets.svg",
+        "aliases": [
+          "Google Sheets",
+          "Sheets"
+        ]
+      },
+      {
+        "key": "google-trends",
+        "name": "Google Trends",
+        "asset": "google-trends.svg",
+        "aliases": [
+          "Google Trends"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "From data to political strategy",
+    "description": "Why a dashboard is not enough: how to combine statistics, discourse analysis and OSINT to turn public information into diagnoses and decisions.",
+    "keywords": "political strategy, political intelligence, OSINT, public opinion, discourse analysis, social listening, machine learning, network analysis, clustering, factor analysis, Spearman correlation, polling, political consulting, political communication, Python, scikit-learn, NetworkX, pysentimiento, Plotly, Google Sheets, Google Trends",
+    "lang": "en",
+    "url": "datos-a-estrategia-politica-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "research"
+    ],
+    "image": "assets/catalog-previews/datos-a-estrategia-politica.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "scikit-learn",
+        "name": "scikit-learn",
+        "asset": "scikit-learn.svg",
+        "aliases": [
+          "scikit-learn",
+          "sklearn"
+        ]
+      },
+      {
+        "key": "networkx",
+        "name": "NetworkX",
+        "asset": "networkx.svg",
+        "aliases": [
+          "NetworkX"
+        ]
+      },
+      {
+        "key": "pysentimiento",
+        "name": "pysentimiento",
+        "asset": "pysentimiento.svg",
+        "aliases": [
+          "pysentimiento",
+          "RoBERTuito"
+        ]
+      },
+      {
+        "key": "plotly",
+        "name": "Plotly",
+        "asset": "plotly.svg",
+        "aliases": [
+          "Plotly"
+        ]
+      },
+      {
+        "key": "google-sheets",
+        "name": "Google Sheets",
+        "asset": "google-sheets.svg",
+        "aliases": [
+          "Google Sheets",
+          "Sheets"
+        ]
+      },
+      {
+        "key": "google-trends",
+        "name": "Google Trends",
+        "asset": "google-trends.svg",
+        "aliases": [
+          "Google Trends"
+        ]
+      }
+    ]
   }
 ]

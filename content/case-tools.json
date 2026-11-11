@@ -307,6 +307,131 @@
       "aliases": [
         "Audacity"
       ]
+    },
+    "pandas": {
+      "name": "pandas",
+      "asset": "pandas.svg",
+      "aliases": [
+        "pandas"
+      ]
+    },
+    "numpy": {
+      "name": "NumPy",
+      "asset": "numpy.svg",
+      "aliases": [
+        "NumPy"
+      ]
+    },
+    "scipy": {
+      "name": "SciPy",
+      "asset": "scipy.svg",
+      "aliases": [
+        "SciPy"
+      ]
+    },
+    "scikit-learn": {
+      "name": "scikit-learn",
+      "asset": "scikit-learn.svg",
+      "aliases": [
+        "scikit-learn",
+        "sklearn"
+      ]
+    },
+    "plotly": {
+      "name": "Plotly",
+      "asset": "plotly.svg",
+      "aliases": [
+        "Plotly"
+      ]
+    },
+    "networkx": {
+      "name": "NetworkX",
+      "asset": "networkx.svg",
+      "aliases": [
+        "NetworkX"
+      ]
+    },
+    "pysentimiento": {
+      "name": "pysentimiento",
+      "asset": "pysentimiento.svg",
+      "aliases": [
+        "pysentimiento",
+        "RoBERTuito"
+      ]
+    },
+    "hugging-face": {
+      "name": "Hugging Face",
+      "asset": "hugging-face.svg",
+      "aliases": [
+        "Hugging Face",
+        "Transformers"
+      ]
+    },
+    "pytorch": {
+      "name": "PyTorch",
+      "asset": "pytorch.svg",
+      "aliases": [
+        "PyTorch"
+      ]
+    },
+    "youtube": {
+      "name": "YouTube Data API",
+      "asset": "youtube.svg",
+      "aliases": [
+        "YouTube",
+        "YouTube Data API"
+      ]
+    },
+    "google-news": {
+      "name": "Google News",
+      "asset": "google-news.svg",
+      "aliases": [
+        "Google News"
+      ]
+    },
+    "google-trends": {
+      "name": "Google Trends",
+      "asset": "google-trends.svg",
+      "aliases": [
+        "Google Trends"
+      ]
+    },
+    "gdelt": {
+      "name": "GDELT",
+      "asset": "gdelt.svg",
+      "aliases": [
+        "GDELT",
+        "GDELT Project"
+      ]
+    },
+    "wikipedia": {
+      "name": "Wikipedia",
+      "asset": "wikipedia.svg",
+      "aliases": [
+        "Wikipedia",
+        "Wikimedia"
+      ]
+    },
+    "bluesky": {
+      "name": "Bluesky",
+      "asset": "bluesky.svg",
+      "aliases": [
+        "Bluesky"
+      ]
+    },
+    "mastodon": {
+      "name": "Mastodon",
+      "asset": "mastodon.svg",
+      "aliases": [
+        "Mastodon"
+      ]
+    },
+    "reddit": {
+      "name": "Reddit",
+      "asset": "reddit.svg",
+      "aliases": [
+        "Reddit"
+      ]
     }
   },
   "cases": {
@@ -444,12 +569,17 @@
       "python",
       "vercel",
       "github",
-      "claude"
+      "claude",
+      "plotly"
     ],
     "f1-predictor-walk-forward.html": [
       "python",
       "github",
-      "claude"
+      "claude",
+      "pandas",
+      "numpy",
+      "scipy",
+      "scikit-learn"
     ],
     "predestinato-simulador-carrera.html": [
       "javascript",
@@ -494,7 +624,8 @@
       "audacity",
       "claude",
       "python",
-      "ffmpeg"
+      "ffmpeg",
+      "numpy"
     ],
     "oxi-contenido-y-analisis.html": [
       "davinci-resolve",
@@ -525,6 +656,46 @@
       "amazon-seller-central",
       "amazon-ads",
       "excel"
+    ],
+    "escucha-social-politica-osint.html": [
+      "python",
+      "pandas",
+      "numpy",
+      "scikit-learn",
+      "pysentimiento",
+      "hugging-face",
+      "pytorch",
+      "networkx",
+      "plotly",
+      "github",
+      "youtube",
+      "google-news",
+      "google-trends",
+      "gdelt",
+      "wikipedia",
+      "bluesky",
+      "mastodon",
+      "reddit"
+    ],
+    "mapa-politico-multidimensional.html": [
+      "python",
+      "pandas",
+      "numpy",
+      "scipy",
+      "scikit-learn",
+      "plotly",
+      "google-sheets",
+      "github",
+      "javascript"
+    ],
+    "datos-a-estrategia-politica.html": [
+      "python",
+      "scikit-learn",
+      "networkx",
+      "pysentimiento",
+      "plotly",
+      "google-sheets",
+      "google-trends"
     ]
   }
 }
