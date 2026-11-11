@@ -168,8 +168,9 @@ function buildEnglish(name, page, glossary) {
   head = setMeta(head, ['property', 'og:locale'], page.locale);
   head = setMeta(head, ['name', 'twitter:title'], page.title);
   head = setMeta(head, ['name', 'twitter:description'], page.description);
-  head = head.replace(/"url":"[^"]*","name":"([^"]*)"/, `"url":"${SITE}${page.en}","name":"$1"`);
+  head = head.replace(/"url":"[^"]*","name":"[^"]*"/, `"url":"${SITE}${page.en}","name":${JSON.stringify(page.title)}`);
   head = head.replace(/"inLanguage":"es[^"]*"/g, '"inLanguage":"en"');
+  head = head.split(`"@id":"${SITE}/#profile-page"`).join(`"@id":"${SITE}${page.en}#profile-page"`);
 
   if (name === 'catalog') body = englishCatalog(body);
   body = translateBody(body, glossary);

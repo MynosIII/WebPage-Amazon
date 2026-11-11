@@ -142,7 +142,7 @@ function structuredData(html, item) {
         url: canonical,
         mainEntityOfPage: canonical,
         image: canonicalOrigin + '/' + image.split('/').map(encodeURIComponent).join('/'),
-        author: { '@type': 'Person', name: 'Matías Gaglio', url: home },
+        author: { '@type': 'Person', '@id': `${canonicalOrigin}/#matias-gaglio`, name: 'Matías Gaglio', url: home },
         isPartOf: { '@type': 'WebSite', name: 'Matías Gaglio', url: `${canonicalOrigin}/` }
       },
       {
