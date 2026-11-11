@@ -167,7 +167,7 @@ def render(lang: str, default: bool = False) -> str:
     structured = {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
-        "url": f"https://matiasgaglio.vercel.app/{slug}.html",
+        "url": f"https://matiasgaglio.com/{slug}.html",
         "inLanguage": lang,
         "mainEntity": {
             "@type": "Person",
@@ -180,7 +180,7 @@ def render(lang: str, default: bool = False) -> str:
     values = {
         **{key: esc(value) for key, value in ui.items() if isinstance(value, str)},
         "lang": lang,
-        "canonical": f"https://matiasgaglio.vercel.app/{slug}.html",
+        "canonical": f"https://matiasgaglio.com/{slug}.html",
         "global_nav": render_global_nav(lang, "cv-en.html" if es else "cv-es.html"),
         "structured_data": json.dumps(structured, ensure_ascii=False).replace("</", "<\\/"),
         "role": esc(content["role"]),

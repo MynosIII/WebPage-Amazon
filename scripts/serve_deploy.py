@@ -33,7 +33,10 @@ class DeployHandler(SimpleHTTPRequestHandler):
             captures.update(path_match.groupdict())
             for condition in route.get("has", []):
                 pattern = condition["value"].replace("(?<", "(?P<")
-                value = query.get(condition["key"], [""])[0]
+                if condition["type"] == "host":
+                    value = (self.headers.get("Host") or "").split(":")[0]
+                else:
+                    value = query.get(condition["key"], [""])[0]
                 match = re.fullmatch(pattern, value)
                 if match is None:
                     break

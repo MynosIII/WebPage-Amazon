@@ -47,7 +47,7 @@ jobs:
       - name: Verify playback and seeking in production
         if: github.event_name != 'pull_request'
         run: |
-          legacy_url='https://matiasgaglio.vercel.app/page.html?source=..%2Fecommerce-video-01-es.html'
+          legacy_url='https://matiasgaglio.com/page.html?source=..%2Fecommerce-video-01-es.html'
           for attempt in {1..30}; do
             status=$(curl -sS --max-time 5 -o /dev/null -w '%{http_code}' "$legacy_url" || true)
             if [ "$status" = 308 ]; then break; fi

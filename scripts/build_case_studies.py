@@ -83,7 +83,7 @@ def render_case(case_id: str, case: dict[str, object], claims: dict[str, object]
     claim = claims[case_id]
     slug = case["slug"]
     suffix = "" if default else f"-{lang}"
-    canonical = f"https://matiasgaglio.vercel.app/{slug}{suffix}.html"
+    canonical = f"https://matiasgaglio.com/{slug}{suffix}.html"
     spanish = lang == "es"
     labels = {
         "skip_label": "Saltar al contenido principal" if spanish else "Skip to main content",
@@ -120,8 +120,8 @@ def render_case(case_id: str, case: dict[str, object], claims: dict[str, object]
         "title": esc(data.get("seo_title", f'{data["title"]} | Matías Gaglio')),
         "description": esc(data["description"]),
         "canonical": canonical,
-        "alternate_es": f"https://matiasgaglio.vercel.app/{slug}-es.html",
-        "alternate_en": f"https://matiasgaglio.vercel.app/{slug}-en.html",
+        "alternate_es": f"https://matiasgaglio.com/{slug}-es.html",
+        "alternate_en": f"https://matiasgaglio.com/{slug}-en.html",
         "home_href": "index.html" if spanish else "index-en.html",
         "nav_items": render_nav(lang),
         "switch_href": f"{slug}-en.html" if spanish else f"{slug}-es.html",

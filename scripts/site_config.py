@@ -8,5 +8,5 @@ from __future__ import annotations
 
 import os
 
-DEFAULT_SITE_URL = "https://matiasgaglio.vercel.app"
+DEFAULT_SITE_URL = "https://matiasgaglio.com"
 SITE_URL = os.environ.get("SITE_URL", DEFAULT_SITE_URL).rstrip("/")
