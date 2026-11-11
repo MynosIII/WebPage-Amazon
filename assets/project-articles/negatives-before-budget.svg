@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="ROAS by campaign set from the 30-day search term audit">
+<rect width="1600" height="900" fill="#07090c"/>
+<text x="240" y="140" fill="#ef2016" font-family="system-ui,sans-serif" font-size="26" font-weight="800" letter-spacing="5">SEARCH TERM AUDIT · 30 DAYS</text>
+<text x="240" y="205" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="52" font-weight="800">ROAS by campaign set</text>
+<text x="240" y="314" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Sponsored Display</text>
+<rect x="620" y="265" width="600" height="74" rx="8" fill="#2fbf71"/>
+<text x="1236" y="315" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">10.34</text>
+<text x="240" y="418" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Canada</text>
+<rect x="620" y="369" width="470" height="74" rx="8" fill="#5fd28b"/>
+<text x="1106" y="419" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">8.1</text>
+<text x="240" y="522" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Harvested ASIN targets</text>
+<rect x="620" y="473" width="286" height="74" rx="8" fill="#f0c75e"/>
+<text x="922" y="523" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">4.93</text>
+<text x="240" y="626" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Sponsored Brands</text>
+<rect x="620" y="577" width="93" height="74" rx="8" fill="#ef2016"/>
+<text x="729" y="627" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">1.61</text>
+<text x="240" y="730" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Harvested keywords</text>
+<rect x="620" y="681" width="80" height="74" rx="8" fill="#ef2016"/>
+<text x="716" y="731" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">1.39</text>
+</svg>

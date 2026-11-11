@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Monthly ROAS of fitment campaigns versus the account">
+<rect width="1600" height="900" fill="#07090c"/>
+<text x="240" y="140" fill="#ef2016" font-family="system-ui,sans-serif" font-size="26" font-weight="800" letter-spacing="5">FITMENT CAMPAIGNS VS ACCOUNT</text>
+<text x="240" y="205" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="52" font-weight="800">Monthly ROAS, Sep–Nov</text>
+<text x="240" y="309" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Sep · fitment</text>
+<rect x="620" y="265" width="219" height="66" rx="8" fill="#ef2016"/>
+<text x="855" y="310" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">1.83</text>
+<text x="240" y="402" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Sep · account</text>
+<rect x="620" y="358" width="522" height="66" rx="8" fill="#5fd28b"/>
+<text x="1158" y="403" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">4.35</text>
+<text x="240" y="495" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Oct · fitment</text>
+<rect x="620" y="451" width="248" height="66" rx="8" fill="#ef2016"/>
+<text x="884" y="496" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">2.07</text>
+<text x="240" y="588" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Oct · account</text>
+<rect x="620" y="544" width="584" height="66" rx="8" fill="#5fd28b"/>
+<text x="1220" y="589" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">4.87</text>
+<text x="240" y="681" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Nov · fitment</text>
+<rect x="620" y="637" width="193" height="66" rx="8" fill="#ef2016"/>
+<text x="829" y="682" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">1.61</text>
+<text x="240" y="774" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Nov · account</text>
+<rect x="620" y="730" width="528" height="66" rx="8" fill="#5fd28b"/>
+<text x="1164" y="775" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">4.40</text>
+</svg>

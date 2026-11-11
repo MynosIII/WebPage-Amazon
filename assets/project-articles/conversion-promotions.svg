@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Account conversion by month and promotion conversion rates">
+<rect width="1600" height="900" fill="#07090c"/>
+<text x="240" y="140" fill="#ef2016" font-family="system-ui,sans-serif" font-size="26" font-weight="800" letter-spacing="5">CONVERSION · AUG–NOV</text>
+<text x="240" y="205" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="52" font-weight="800">Account vs promotion conversion</text>
+<text x="240" y="309" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Aug · account</text>
+<rect x="620" y="265" width="317" height="66" rx="8" fill="#5fd28b"/>
+<text x="953" y="310" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">9.52%</text>
+<text x="240" y="402" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Sep · account</text>
+<rect x="620" y="358" width="315" height="66" rx="8" fill="#5fd28b"/>
+<text x="951" y="403" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">9.45%</text>
+<text x="240" y="495" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Oct · account</text>
+<rect x="620" y="451" width="307" height="66" rx="8" fill="#f0c75e"/>
+<text x="943" y="496" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">9.23%</text>
+<text x="240" y="588" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Nov · account</text>
+<rect x="620" y="544" width="282" height="66" rx="8" fill="#ef2016"/>
+<text x="918" y="589" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">8.47%</text>
+<text x="240" y="681" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Lug nut discounts</text>
+<rect x="620" y="637" width="600" height="66" rx="8" fill="#2fbf71"/>
+<text x="1236" y="682" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">11–18%</text>
+<text x="240" y="774" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Spacer discounts</text>
+<rect x="620" y="730" width="210" height="66" rx="8" fill="#ef2016"/>
+<text x="846" y="775" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">3.8–6.3%</text>
+</svg>

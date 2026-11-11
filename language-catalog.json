@@ -309,6 +309,41 @@
       "english": "limpieza-audio-entrevista-ia-en.html",
       "spanish": "limpieza-audio-entrevista-ia-es.html",
       "legacy": false
+    },
+    {
+      "page": "amazon-ppc-roas-banding-playbook.html",
+      "sourceLanguage": "en",
+      "english": "amazon-ppc-roas-banding-playbook-en.html",
+      "spanish": "amazon-ppc-roas-banding-playbook-es.html",
+      "legacy": false
+    },
+    {
+      "page": "amazon-ads-negatives-before-budget.html",
+      "sourceLanguage": "en",
+      "english": "amazon-ads-negatives-before-budget-en.html",
+      "spanish": "amazon-ads-negatives-before-budget-es.html",
+      "legacy": false
+    },
+    {
+      "page": "amazon-fitment-campaigns-roas.html",
+      "sourceLanguage": "en",
+      "english": "amazon-fitment-campaigns-roas-en.html",
+      "spanish": "amazon-fitment-campaigns-roas-es.html",
+      "legacy": false
+    },
+    {
+      "page": "amazon-conversion-promotions-a-plus.html",
+      "sourceLanguage": "en",
+      "english": "amazon-conversion-promotions-a-plus-en.html",
+      "spanish": "amazon-conversion-promotions-a-plus-es.html",
+      "legacy": false
+    },
+    {
+      "page": "amazon-diy-vs-shop-b2b-share.html",
+      "sourceLanguage": "en",
+      "english": "amazon-diy-vs-shop-b2b-share-en.html",
+      "spanish": "amazon-diy-vs-shop-b2b-share-es.html",
+      "legacy": false
     }
   ],
   "excludedDevelopmentFiles": [
