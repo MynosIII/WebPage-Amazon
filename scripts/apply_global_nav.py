@@ -18,6 +18,18 @@ HEADER = re.compile(r'<header class="global-nav" data-global-nav>.*?</header>\n?
 SWITCH = re.compile(r'<li class="global-nav__locale"><a href="([^"]*)"')
 
 
+def pair_href(name: str, lang: str) -> str:
+    """The other-language version of a page, if one exists."""
+    other = "en" if lang == "es" else "es"
+    path = Path(name)
+    stem = path.stem
+    if stem.endswith(f"-{lang}"):
+        candidate = path.with_name(f"{stem[:-3]}-{other}{path.suffix}")
+        if (ROOT / candidate).exists():
+            return candidate.name if candidate.parent == path.parent else "/" + candidate.as_posix()
+    return ""
+
+
 def main() -> int:
     check = "--check" in sys.argv
     files = subprocess.run(["git", "ls-files", "*.html"], cwd=ROOT, capture_output=True, text=True, check=True).stdout.split()
@@ -31,7 +43,8 @@ def main() -> int:
         lang = re.search(r'<html[^>]*\blang="([a-z]{2})', text)
         lang = lang.group(1) if lang else "es"
         switch = SWITCH.search(match.group(0))
-        updated = text[:match.start()] + render_global_nav(lang, switch.group(1) if switch else "/") + text[match.end():]
+        href = pair_href(name, lang) or (switch.group(1) if switch else "") or ("/index.html?lang=en" if lang == "es" else "/")
+        updated = text[:match.start()] + render_global_nav(lang, href) + text[match.end():]
         if updated != text:
             stale.append(name)
             if not check:
