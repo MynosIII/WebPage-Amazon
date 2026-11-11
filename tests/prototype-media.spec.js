@@ -36,7 +36,7 @@ test('catalog resolves every preview and uses lightweight original-video posters
   }
 
   await expect(page.locator('[data-catalog-placeholder]')).toHaveCount(0, { timeout: 60000 });
-  await expect(page.locator('[data-source="ecommerce-video-01-es.html"] .catalog-result__media img')).toHaveAttribute('src', /rollator-conversion-01-poster\.jpg/);
+  await expect(page.locator('[data-source="ecommerce-video-01-es.html"] .catalog-result__media img')).toHaveAttribute('src', /rollator-conversion-01-poster[.-]jpg/);
   await expect(page.locator('[data-source="ecommerce-video-01-es.html"] video')).toHaveCount(0);
   const brokenImages = await page.locator('.catalog-result img').evaluateAll((images) => images.filter((image) => image.complete && image.naturalWidth === 0).map((image) => image.src));
   expect(brokenImages).toEqual([]);

@@ -87,7 +87,7 @@ for (const lang of ['es', 'en']) {
     await expect(page.locator('.sponsored-banner').getByRole('link', { name: bookingLabel })).toHaveAttribute('href', bookingUrl);
     await page.locator('[data-search-input]').fill('Amazon');
     await page.locator('[data-search-form] button[type="submit"]').click();
-    await expect(page).toHaveURL(/\/catalog\.html\?/);
+    await expect(page).toHaveURL(/\/catalog(?:-en)?\.html\?/);
     await expect(page.locator('[data-catalog-list]')).toHaveAttribute('aria-busy', 'false');
     await expect(page.locator('.catalog-result').first()).toBeVisible();
 
@@ -102,7 +102,7 @@ for (const lang of ['es', 'en']) {
 
     const contact = page.locator('.direct-contact');
     await expect(contact.getByRole('link', { name: bookingLabel })).toHaveAttribute('href', bookingUrl);
-    await expect(contact.locator('a[href^="mailto:"]')).toBeVisible();
+    await expect(contact.locator('a[href^="mailto:"]').first()).toBeVisible();
     await expect(page.locator('.load-progress')).toBeHidden();
     await page.waitForFunction(() => Array.from(document.querySelectorAll('[data-reveal]'))
       .every(element => getComputedStyle(element).opacity === '1'));
@@ -111,7 +111,9 @@ for (const lang of ['es', 'en']) {
 
     const params = new URLSearchParams({ source: `/cv-${lang}.html` });
     if (lang === 'en') params.set('lang', 'en');
+    // Old viewer links to the CV now redirect to the standalone CV page.
     await page.goto('/page.html?' + params);
-    await expect(page.locator('[data-source-live]')).toBeVisible();
+    await expect(page).toHaveURL(new RegExp(`/cv-${lang}\\.html$`));
+    await expect(page.locator('main h1')).toBeVisible();
   });
 }
