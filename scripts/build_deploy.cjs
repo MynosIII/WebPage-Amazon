@@ -6,7 +6,9 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'portfolio-dist');
 const marker = path.join(output, '.generated-portfolio');
-const origin = 'https://matiasgaglio.vercel.app';
+// Set SITE_URL (for example in the Vercel project settings) to publish under another domain.
+const canonicalOrigin = 'https://matiasgaglio.vercel.app';
+const origin = (process.env.SITE_URL || canonicalOrigin).replace(/\/+$/, '');
 const catalog = require('../prototype-amazon/catalog-data.json');
 const publicDirectories = ['assets', 'Cases', 'creatives', 'New format', 'output/pdf', 'prototype-amazon', 'Revolution', 'vendor'];
 const publicExtensions = /\.(?:css|glb|html|jpe?g|js|mp4|pdf|png|svg|txt|webmanifest|webp|xml)$/i;
@@ -96,6 +98,26 @@ function renderVideoCase(html, number, lang, data) {
     .replace(/<script\b[^>]*\bsrc="ecommerce-video-(?:case-data|page)-(?:es|en)\.js"[^>]*><\/script>/gi, '');
 }
 
+const bookingUrl = 'https://calendar.app.google/UyiMPukNRaHi2HhD7';
+const contactEmail = 'matiasignaciogaglio@gmail.com';
+const nextStepCopy = {
+  es: { label: 'Siguiente paso', title: '¿Querés aplicar este enfoque en tu marca o equipo?', body: 'Agendá una llamada de 30 minutos, revisá mi CV o escribime.', book: 'Agendar una reunión', cv: 'Ver CV', more: 'Explorar más trabajo' },
+  en: { label: 'Next step', title: 'Want to apply this approach to your brand or team?', body: 'Book a 30-minute call, review my CV or email me.', book: 'Book a call', cv: 'View CV', more: 'Explore more work' }
+};
+
+// Every case ends with the same next step: booking, CV and email.
+function nextStep(html, lang) {
+  if (html.includes('data-case-next-step')) return html;
+  const copy = nextStepCopy[lang];
+  const catalogHref = lang === 'en' ? '/catalog.html?section=all&amp;lang=en' : '/catalog.html?section=all';
+  const block = `<section class="case-next-step" data-case-next-step aria-labelledby="case-next-step-title"><div class="case-next-step__inner">`
+    + `<p class="case-next-step__label">${copy.label}</p><h2 id="case-next-step-title">${copy.title}</h2><p>${copy.body}</p>`
+    + `<div class="case-next-step__actions"><a class="case-next-step__primary" href="${bookingUrl}">${copy.book}</a>`
+    + `<a href="/cv-${lang}.html">${copy.cv}</a><a href="mailto:${contactEmail}">${contactEmail}</a><a href="${catalogHref}">${copy.more}</a></div>`
+    + `</div></section>`;
+  return html.replace(/<\/main>/i, block + '</main>');
+}
+
 function renderProjects() {
   const pairs = new Map();
   for (const item of catalog) {
@@ -125,9 +147,31 @@ function renderProjects() {
     if (!/<h1\b[^>]*>\s*[^<\s]|<h1\b[^>]*>\s*<(?:em|span|strong)\b/i.test(html)) {
       throw new Error(`No static heading in ${item.url}`);
     }
-    fs.writeFileSync(target, discoveryHead(html, item, pair));
+    fs.writeFileSync(target, discoveryHead(nextStep(html, item.lang), item, pair));
   }
   console.log(`Prepared ${catalog.length} case pages in ${pairs.size} bilingual pairs.`);
+}
+
+function* textFiles(directory) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const child = path.join(directory, entry.name);
+    if (entry.isDirectory()) yield* textFiles(child);
+    else if (/\.(?:html|json|txt|webmanifest|xml)$/i.test(entry.name)) yield child;
+  }
+}
+
+// Publish every absolute URL under one origin and refuse to ship the retired Render domain.
+function finalizeOrigins() {
+  const stale = [];
+  for (const file of textFiles(output)) {
+    let text = fs.readFileSync(file, 'utf8');
+    if (origin !== canonicalOrigin && text.includes(canonicalOrigin)) {
+      text = text.split(canonicalOrigin).join(origin);
+      fs.writeFileSync(file, text);
+    }
+    if (text.includes('onrender.com')) stale.push(path.relative(output, file));
+  }
+  if (stale.length) throw new Error(`Retired onrender.com URLs found in: ${stale.slice(0, 10).join(', ')}`);
 }
 
 if (fs.existsSync(output)) {
@@ -144,3 +188,4 @@ for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
 for (const directory of publicDirectories) copyPublicDirectory(directory);
 for (const relative of publicData) copy(relative);
 renderProjects();
+finalizeOrigins();

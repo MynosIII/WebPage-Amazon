@@ -2688,3 +2688,12 @@ footer p { color: var(--color-texto-sec); font-size: 0.9rem; }
     .academic-article-card { gap: 1rem; }
     .academic-pdf-frame { min-height: 68vh; height: 68vh; }
 }
+
+/* Hero containers are flex items: let them shrink so long words wrap instead of widening the page on phones. */
+.commerce-video-hero > .container, .voc-hero > .container, .lifecycle-hero > .container, .page-hero > .container { min-width: 0; width: 100%; }
+@media (max-width: 480px) {
+  .commerce-video-hero h1, .voc-hero h1, .lifecycle-hero h1, .page-hero h1 { overflow-wrap: anywhere; hyphens: auto; }
+  .commerce-video-hero h1, .voc-hero h1 { font-size: clamp(2.4rem, 11vw, 3.4rem); }
+}
+.table-scroll { max-width: 100%; overflow-x: auto; }
+.table-scroll:focus-visible { outline: 3px solid var(--color-acento, #00e0ff); outline-offset: 2px; }

@@ -156,9 +156,9 @@ def structured_data(locale: dict[str, object]) -> str:
         "inLanguage": locale["lang"],
         "mainEntity": {
             "@type": "Person",
-            "@id": "https://matiasgaglio.onrender.com/#matias-gaglio",
+            "@id": "https://matiasgaglio.vercel.app/#matias-gaglio",
             "name": "Matías Gaglio",
-            "url": "https://matiasgaglio.onrender.com/",
+            "url": "https://matiasgaglio.vercel.app/",
             "email": "mailto:matiasignaciogaglio@gmail.com",
             "sameAs": [
                 "https://linkedin.com/in/matiasignaciogaglio",

@@ -109,6 +109,7 @@
     'Tu cuenta': 'Your account',
     'Información profesional': 'Professional information',
     'Rol y foco actual': 'Current role and focus',
+    'Gerente de Ventas en Amazon · Revolution Supply Co. (desde jun. 2025)': 'Amazon Sales Manager · Revolution Supply Co. (since Jun 2025)',
     'Ecommerce, Amazon PPC, BI y contenido.': 'Ecommerce, Amazon PPC, BI and content.',
     'Historial profesional': 'Professional history',
     'De Comunicación a ecommerce, análisis y sistemas.': 'From Communication to ecommerce, analysis and systems.',

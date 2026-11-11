@@ -132,3 +132,15 @@ body.menu-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) {
   .global-nav *, .global-nav *::before, .global-nav *::after { transition: none !important; }
 }
+
+/* Closing call to action added to every case page by scripts/build_deploy.cjs. */
+.case-next-step { padding: clamp(3rem, 7vw, 5.5rem) 1.25rem; background: #131921; color: #f4f6f8; border-top: 4px solid #f3a33a; }
+.case-next-step__inner { width: min(1100px, 100%); margin: 0 auto; }
+.case-next-step .case-next-step__label { margin: 0 0 .6rem; color: #f3a33a; font-size: .75rem; font-weight: 700; line-height: 1.2; letter-spacing: .12em; text-transform: uppercase; }
+.case-next-step h2 { margin: 0 0 .8rem; color: #fff; font-size: clamp(1.6rem, 3.6vw, 2.6rem); line-height: 1.1; text-align: left; overflow-wrap: anywhere; }
+.case-next-step p { max-width: 640px; margin: 0 0 1.6rem; color: #c9d1d9; }
+.case-next-step__actions { display: flex; flex-wrap: wrap; gap: .75rem 1.25rem; align-items: center; }
+.case-next-step__actions a { color: #f4f6f8; font-weight: 600; text-decoration: underline; text-underline-offset: .2em; overflow-wrap: anywhere; }
+.case-next-step__actions a.case-next-step__primary { padding: .85rem 1.3rem; background: #f3a33a; color: #131921; text-decoration: none; border-radius: 2px; }
+.case-next-step__actions a:focus-visible { outline: 3px solid #f3a33a; outline-offset: 3px; }
+.case-next-step__actions a.case-next-step__primary:focus-visible { outline-color: #fff; }

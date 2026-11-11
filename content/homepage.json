@@ -2,7 +2,7 @@
   "es": {
     "lang": "es",
     "locale": "es_AR",
-    "canonical": "https://matiasgaglio.onrender.com/",
+    "canonical": "https://matiasgaglio.vercel.app/",
     "switch_href": "index-en.html",
     "switch_label": "EN",
     "switch_aria": "View in English",
@@ -133,7 +133,7 @@
   "en": {
     "lang": "en",
     "locale": "en_US",
-    "canonical": "https://matiasgaglio.onrender.com/index-en.html",
+    "canonical": "https://matiasgaglio.vercel.app/index-en.html",
     "switch_href": "index.html",
     "switch_label": "ES",
     "switch_aria": "Ver en español",

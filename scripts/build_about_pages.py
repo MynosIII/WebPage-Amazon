@@ -43,7 +43,7 @@ def render(data: dict[str, object], default: bool = False) -> str:
     values = {
         "global_nav": render_global_nav(lang, "sobre-mi-en.html" if es else "sobre-mi-es.html"),
         **{key: esc(value) for key, value in data.items() if not isinstance(value, list)},
-        "canonical": f"https://matiasgaglio.onrender.com/{slug}.html",
+        "canonical": f"https://matiasgaglio.vercel.app/{slug}.html",
         "skip_label": "Saltar al contenido principal" if es else "Skip to main content",
         "home_href": "index.html" if es else "index-en.html",
         "home_label": "Inicio" if es else "Home",

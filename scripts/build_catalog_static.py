@@ -28,7 +28,7 @@ PROTO = ROOT / "prototype-amazon"
 DATA_PATH = PROTO / "catalog-data.json"
 CATALOG_PATH = PROTO / "catalog.html"
 SITEMAP_PATH = PROTO / "sitemap.xml"
-SITE = "https://matiasgaglio.vercel.app"
+from site_config import SITE_URL as SITE
 LANGUAGE = "es"
 FIXED_PAGES = ["/", "/about.html", "/catalog.html", "/contact.html"]
 VERCEL_CONFIG = ROOT / "vercel.json"

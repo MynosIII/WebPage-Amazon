@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE_URL = "https://matiasgaglio.onrender.com"
+from site_config import SITE_URL
 EXCLUDED = {"404.html", "anchor-test.html", "revolution-test.html"}
 
 
