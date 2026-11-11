@@ -2,29 +2,30 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Documento – Matías Gaglio</title>
   <meta name="description" content="Lector de informes académicos de Matías Gaglio." />
   <!-- Shared discovery metadata: maintained by scripts/normalize_site.py -->
-  <link rel="canonical" href="https://matiasgaglio.onrender.com/documento-es.html" />
-  <link rel="alternate" hreflang="en" href="https://matiasgaglio.onrender.com/documento-en.html" />
-  <link rel="alternate" hreflang="es" href="https://matiasgaglio.onrender.com/documento-es.html" />
-  <link rel="alternate" hreflang="x-default" href="https://matiasgaglio.onrender.com/documento-en.html" />
+  <link rel="canonical" href="https://matiasgaglio.vercel.app/documento-es.html" />
+  <link rel="alternate" hreflang="en" href="https://matiasgaglio.vercel.app/documento-en.html" />
+  <link rel="alternate" hreflang="es" href="https://matiasgaglio.vercel.app/documento-es.html" />
+  <link rel="alternate" hreflang="x-default" href="https://matiasgaglio.vercel.app/documento-en.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Matías Gaglio" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:title" content="Documento – Matías Gaglio" />
   <meta property="og:description" content="Lector de informes académicos de Matías Gaglio." />
-  <meta property="og:url" content="https://matiasgaglio.onrender.com/documento-es.html" />
-  <meta property="og:image" content="https://matiasgaglio.onrender.com/og-card.png" />
+  <meta property="og:url" content="https://matiasgaglio.vercel.app/documento-es.html" />
+  <meta property="og:image" content="https://matiasgaglio.vercel.app/prototype-amazon/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Matías Gaglio — portafolio de ecommerce, analítica y estrategia creativa" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Documento – Matías Gaglio" />
   <meta name="twitter:description" content="Lector de informes académicos de Matías Gaglio." />
-  <meta name="twitter:image" content="https://matiasgaglio.onrender.com/og-card.png" />
+  <meta name="twitter:image" content="https://matiasgaglio.vercel.app/prototype-amazon/og-card.png" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#121212" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -36,9 +37,9 @@
 <body class="document-page">
 <header class="global-nav" data-global-nav>
   <div class="global-nav__badge">
-    <a class="global-nav__logo" href="index-es.html">Matías Gaglio.</a>
+    <a class="global-nav__logo" href="/">Matías Gaglio.</a>
     <button class="global-nav__toggle" type="button" aria-controls="global-menu" aria-expanded="false" aria-label="Abrir menú" data-global-nav-toggle><span></span><span></span><span></span></button>
-    <nav class="global-nav__menu" id="global-menu" aria-label="Navegación principal" data-global-nav-menu><ul><li><a href="index-es.html">Inicio</a></li><li><a href="ecommerce-es.html">Ecommerce</a></li><li><a href="Articles-es.html">Artículos</a></li><li><a href="creatives-es.html">Contenido creativo</a></li><li><a href="consultora-es.html">Investigación de opinión</a></li><li><a href="otros-es.html">Otros proyectos</a></li><li><a href="sobre-mi-es.html">Sobre mí</a></li><li class="global-nav__locale"><a href="documento-en.html" hreflang="en" aria-label="View in English">EN</a></li></ul></nav>
+    <nav class="global-nav__menu" id="global-menu" aria-label="Navegación principal" data-global-nav-menu><ul><li><a href="/">Inicio</a></li><li><a href="/catalog.html?section=all">Explorar trabajo</a></li><li><a href="/about.html">Sobre mí</a></li><li><a href="/cv-es.html">CV</a></li><li><a href="/contact.html">Contacto</a></li><li class="global-nav__locale"><a href="documento-en.html" hreflang="en" aria-label="View in English">EN</a></li></ul></nav>
   </div>
 </header>
   <header class="document-header">
@@ -79,17 +80,16 @@
       ['informe_academico_ddd_mayo_2026.pdf', 'Aprobación de gobierno y demanda de cambio'],
       ['informe_academico_ddd_octubre_2025.pdf', 'Informe académico de resultados de encuesta: “Sin dólares no hay paraíso”'],
       ['informe_academico_encuesta_ni_una_menos.pdf', 'Percepciones sociales sobre la violencia contra las mujeres en Argentina'],
-      ['informe_academico_encuesta_ni_una_menos (1).pdf', 'Percepciones sociales sobre la violencia contra las mujeres en Argentina'],
       ['informe_academico_juventudes_unvm_2025.pdf', 'Juventudes, política y representación'],
       ['informe_academico_lo_peor_ya_paso_septiembre_2025.pdf', 'Informe académico de datos de encuesta: “Lo peor ya pasó”'],
       ['informe_academico_medios_noticias_argentina.pdf', 'Medios de comunicación y noticias en Argentina'],
-      ['informe_academico_medios_noticias_argentina (1).pdf', 'Medios de comunicación y noticias en Argentina'],
       ['informe_academico_un_ano_de_polarizacion_2024.pdf', 'Un año de polarización total'],
       ['informe_academico_vdd_agosto_2025.pdf', 'Ciencia, inteligencia artificial y política']
     ]);
 
     const params = new URLSearchParams(window.location.search);
-    const file = params.get('file');
+    // Older links used duplicate copies named "... (1).pdf".
+    const file = (params.get('file') || '').replace(/ \(1\)\.pdf$/, '.pdf');
     const title = allowedDocuments.get(file);
     const heading = document.querySelector('#document-title');
     const pdfObject = document.querySelector('#pdf-object');

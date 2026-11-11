@@ -36,7 +36,7 @@ test('catalog resolves every preview and uses lightweight original-video posters
   }
 
   await expect(page.locator('[data-catalog-placeholder]')).toHaveCount(0, { timeout: 60000 });
-  await expect(page.locator('[data-source="ecommerce-video-01-es.html"] .catalog-result__media img')).toHaveAttribute('src', /rollator-conversion-01-poster\.jpg/);
+  await expect(page.locator('[data-source="ecommerce-video-01-es.html"] .catalog-result__media img')).toHaveAttribute('src', /rollator-conversion-01-poster[.-]jpg/);
   await expect(page.locator('[data-source="ecommerce-video-01-es.html"] video')).toHaveCount(0);
   const brokenImages = await page.locator('.catalog-result img').evaluateAll((images) => images.filter((image) => image.complete && image.naturalWidth === 0).map((image) => image.src));
   expect(brokenImages).toEqual([]);
@@ -61,7 +61,7 @@ test('custom 404 stays inside the same UI in Spanish and English', async ({ page
   await page.goto('/404.html?lang=en', { waitUntil: 'networkidle' });
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.locator('h1')).toHaveText('We could not find this page.');
-  await expect(page.locator('.not-found-actions a').first()).toHaveAttribute('href', '/index.html?lang=en');
+  await expect(page.locator('.not-found-actions a').first()).toHaveAttribute('href', '/index-en.html');
 });
 
 test('all conversion-video cases populate their original content and defer heavy playback', async ({ page }) => {

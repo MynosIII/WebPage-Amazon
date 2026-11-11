@@ -31,6 +31,10 @@ jobs:
           python scripts/generate_sitemap.py --check
           python scripts/add_image_dimensions.py --check
           python scripts/build_catalog_static.py --check
+          python scripts/build_catalog_thumbs.py --check
+          python scripts/apply_global_nav.py --check
+          python scripts/sync_department_nav.py --check
+          node scripts/build_english_hubs.cjs --check
       - name: Validate links, anchors, metadata and asset casing
         run: python scripts/validate_site.py
 

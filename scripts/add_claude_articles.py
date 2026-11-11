@@ -106,6 +106,7 @@ def build_page(article: dict, lang: str, tool_catalog: dict) -> str:
     tool_names = [tool_catalog['tools'][key]['name'] for key in article['tools']]
     source = (ROOT / f'{TEMPLATE}-{lang}.html').read_text(encoding='utf-8')
     head = source.split('<body')[0]
+    head = re.sub(r'\s*<script type="application/ld\+json">.*?</script>', '', head, flags=re.S)  # the template's own Article data
     head = re.sub(r'<title>.*?</title>', f'<title>{escape(data["title"])} | Matías Gaglio</title>', head)
     meta = [('description', data['deck']), ('keywords', ', '.join(data['keywords'])), ('og:title', data['title']),
             ('og:description', data['deck']), ('og:image', f'{SITE}/{cover}')]

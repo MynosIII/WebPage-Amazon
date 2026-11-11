@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Estrategia de ecommerce y Amazon Growth: Business Intelligence, PPC y contenido visual para aumentar conversión y rentabilidad.">
   <link rel="canonical" href="https://matiasgaglio.vercel.app/">
+  <link rel="alternate" hreflang="es" href="https://matiasgaglio.vercel.app/">
+  <link rel="alternate" hreflang="en" href="https://matiasgaglio.vercel.app/index-en.html">
   <link rel="alternate" hreflang="x-default" href="https://matiasgaglio.vercel.app/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Matías Gaglio">
@@ -50,22 +52,17 @@
 
       <nav class="utility-nav" id="utility-nav" aria-label="Utilidades" data-menu>
         <a href="about.html">Sobre mí</a>
-        <a href="page.html?source=../cv-es.html">CV</a>
+        <a href="/cv-es.html">CV</a>
         <a href="contact.html">Contacto</a>
         <button class="theme-toggle" type="button" data-theme-toggle><span aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
-        <a class="locale" href="page.html?source=../index-en.html" hreflang="en" lang="en">EN</a>
+        <a class="locale" href="index-en.html" hreflang="en" lang="en" aria-label="View in English">EN</a>
       </nav>
     </div>
 
     <form class="portfolio-search app-width" role="search" action="catalog.html" method="get" data-search-form>
       <label class="sr-only" for="portfolio-query">Buscar en el portfolio</label>
       <label class="sr-only" for="portfolio-scope">Filtrar por área</label>
-      <select class="search-scope" id="portfolio-scope" name="section" data-search-scope>
-        <option value="all">Todo el portfolio</option>
-        <option value="ecommerce">Amazon Growth &amp; PPC</option>
-        <option value="bi">Business Intelligence</option>
-        <option value="creative">Data-to-Creative</option>
-      </select>
+      <select class="search-scope" id="portfolio-scope" name="section" data-search-scope><option value="all">Todo el portfolio</option><option value="ecommerce">Amazon Growth &amp; PPC</option><option value="bi">Business Intelligence</option><option value="creative">Data-to-Creative</option><option value="articles">Sistemas y artículos</option><option value="research">Investigación</option><option value="other">Automatización y código</option></select>
       <input id="portfolio-query" name="q" type="search" autocomplete="off" placeholder="Buscar casos, problemas, herramientas o disciplinas" data-search-input>
       <button type="submit" aria-label="Buscar">
         <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
@@ -178,9 +175,9 @@
               <p><strong>Problema:</strong> La galería anterior mostraba el producto, pero no jerarquizaba compatibilidad, especificaciones ni beneficios.</p>
               <p><strong>Intervención:</strong> Definí la secuencia de mensajes y convertí la información técnica en seis piezas visuales modulares.</p>
               <dl class="result-facts">
-                <div><dt>Antes</dt><dd>6 imágenes de producto</dd></div>
-                <div><dt>Después</dt><dd>6 imágenes rediseñadas</dd></div>
-                <div><dt>Atribución</dt><dd>Sin claim causal</dd></div>
+                <div><dt>Responde</dt><dd>Compatibilidad, especificaciones y uso</dd></div>
+                <div><dt>Entregable</dt><dd>Galería de 6 piezas modulares</dd></div>
+                <div><dt>Alcance</dt><dd>Sin datos de ventas atribuidos</dd></div>
               </dl>
               <ul class="case-logo-row" aria-label="Photoshop">
                 <li title="Photoshop"><img src="../assets/software-logos/photoshop.svg" width="28" height="28" alt="" loading="lazy" decoding="async"></li>
@@ -194,10 +191,10 @@
     <section class="evidence-ledger app-width" aria-labelledby="ledger-title">
       <div class="section-heading"><h2 id="ledger-title">Resultados documentados</h2></div>
       <div class="evidence-strip">
-        <a href="/caso-1-es.html"><strong>US$1.560 → US$2.830</strong><span>ventas retail · Amazon · 17 ago–11 oct</span></a>
-        <a href="/caso-1-es.html#results-title"><strong>6,28% → 13,69%</strong><span>conversión · Amazon · 10 ago–4 oct</span></a>
-        <a href="/caso-2-es.html"><strong>US$96.842 → US$312.480</strong><span>ventas · portafolio · jul–27 oct</span></a>
-        <a href="/caso-daizzy-gear-es.html"><strong>US$874 → US$2.415</strong><span>ingresos semanales · Amazon · 14–27 jun</span></a>
+        <a href="/caso-1-es.html"><strong>US$1.560 → US$2.830</strong><span>ventas retail · Amazon · 17 ago–11 oct 2025</span></a>
+        <a href="/caso-1-es.html#results-title"><strong>6,28% → 13,69%</strong><span>conversión · Amazon · 10 ago–4 oct 2025</span></a>
+        <a href="/caso-2-es.html"><strong>US$96.842 → US$312.480</strong><span>ventas · portafolio · jul–27 oct 2025</span></a>
+        <a href="/caso-daizzy-gear-es.html"><strong>US$874 → US$2.415</strong><span>ingresos semanales · Amazon · 14–27 jun 2026</span></a>
       </div>
     </section>
 
@@ -215,14 +212,14 @@
     <section class="operator-profile" id="perfil" aria-labelledby="profile-title">
       <div class="app-width operator-profile__grid">
         <div>
-          <p class="path-label">Perfil del operador</p>
+          <p class="path-label">Perfil profesional</p>
           <h2 id="profile-title">Marketing para formular el problema. Datos para decidir. Tecnología para ejecutar.</h2>
         </div>
         <div class="profile-body">
           <p>Mi formación en Comunicación me enseñó cómo las personas interpretan mensajes. Ecommerce agregó tráfico, conversión, margen y búsqueda. La programación me permite transformar análisis repetitivos en herramientas y sistemas de trabajo.</p>
           <ul class="profile-links">
             <li><a href="about.html">Historia profesional <span aria-hidden="true">›</span></a></li>
-            <li><a href="page.html?source=../cv-es.html">CV interactivo <span aria-hidden="true">›</span></a></li>
+            <li><a href="/cv-es.html">CV interactivo <span aria-hidden="true">›</span></a></li>
             <li><a href="https://github.com/MynosIII" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a></li>
           </ul>
         </div>
@@ -232,7 +229,7 @@
     <section class="contact-strip" aria-labelledby="contact-title">
       <div class="app-width contact-strip__grid">
         <div><p class="path-label">Siguiente acción</p><h2 id="contact-title">¿Dónde se está perdiendo conversión, presupuesto o margen?</h2></div>
-        <div><p>Puedo ayudarte a ordenar el diagnóstico antes de elegir una táctica.</p><div class="booking-actions"><a class="primary-action" href="https://calendar.app.google/UyiMPukNRaHi2HhD7" data-booking-link>Agendar una reunión</a><a href="contact.html">Abrir centro de contacto</a></div></div>
+        <div><p>Puedo ayudarte a ordenar el diagnóstico antes de elegir una táctica.</p><div class="booking-actions"><a class="primary-action" href="https://calendar.app.google/UyiMPukNRaHi2HhD7" data-booking-link>Agendar una reunión</a><a href="contact.html">Ir a contacto</a></div><p class="email-copy"><a href="mailto:matiasignaciogaglio@gmail.com">matiasignaciogaglio@gmail.com</a> <button type="button" data-copy-email="matiasignaciogaglio@gmail.com">Copiar</button> <span class="email-copy__status" role="status" aria-live="polite" data-copy-status></span></p></div>
       </div>
     </section>
   </main>

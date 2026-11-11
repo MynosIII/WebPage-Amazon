@@ -13,8 +13,8 @@ from urllib.parse import quote
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SITE_URL = "https://matiasgaglio.onrender.com"
-OG_IMAGE = f"{SITE_URL}/og-card.png"
+from site_config import SITE_URL
+OG_IMAGE = f"{SITE_URL}/prototype-amazon/og-card.png"
 EXCLUDED = {"anchor-test.html", "revolution-test.html", "index.html", "index-es.html", "index-en.html"}
 
 

@@ -2,29 +2,30 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Document – Matías Gaglio</title>
   <meta name="description" content="Matías Gaglio Academic Report Reader." />
   <!-- Shared discovery metadata: maintained by scripts/normalize_site.py -->
-  <link rel="canonical" href="https://matiasgaglio.onrender.com/documento-en.html" />
-  <link rel="alternate" hreflang="en" href="https://matiasgaglio.onrender.com/documento-en.html" />
-  <link rel="alternate" hreflang="es" href="https://matiasgaglio.onrender.com/documento-es.html" />
-  <link rel="alternate" hreflang="x-default" href="https://matiasgaglio.onrender.com/documento-en.html" />
+  <link rel="canonical" href="https://matiasgaglio.vercel.app/documento-en.html" />
+  <link rel="alternate" hreflang="en" href="https://matiasgaglio.vercel.app/documento-en.html" />
+  <link rel="alternate" hreflang="es" href="https://matiasgaglio.vercel.app/documento-es.html" />
+  <link rel="alternate" hreflang="x-default" href="https://matiasgaglio.vercel.app/documento-en.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Matías Gaglio" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:locale:alternate" content="es_AR" />
   <meta property="og:title" content="Document – Matías Gaglio" />
   <meta property="og:description" content="Matías Gaglio Academic Report Reader." />
-  <meta property="og:url" content="https://matiasgaglio.onrender.com/documento-en.html" />
-  <meta property="og:image" content="https://matiasgaglio.onrender.com/og-card.png" />
+  <meta property="og:url" content="https://matiasgaglio.vercel.app/documento-en.html" />
+  <meta property="og:image" content="https://matiasgaglio.vercel.app/prototype-amazon/og-card.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="Matías Gaglio — ecommerce, analytics and creative strategy portfolio" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Document – Matías Gaglio" />
   <meta name="twitter:description" content="Matías Gaglio Academic Report Reader." />
-  <meta name="twitter:image" content="https://matiasgaglio.onrender.com/og-card.png" />
+  <meta name="twitter:image" content="https://matiasgaglio.vercel.app/prototype-amazon/og-card.png" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="theme-color" content="#121212" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
@@ -36,9 +37,9 @@
 <body class="document-page">
 <header class="global-nav" data-global-nav>
   <div class="global-nav__badge">
-    <a class="global-nav__logo" href="index-en.html">Matías Gaglio.</a>
+    <a class="global-nav__logo" href="/index-en.html">Matías Gaglio.</a>
     <button class="global-nav__toggle" type="button" aria-controls="global-menu" aria-expanded="false" aria-label="Open menu" data-global-nav-toggle><span></span><span></span><span></span></button>
-    <nav class="global-nav__menu" id="global-menu" aria-label="Main navigation" data-global-nav-menu><ul><li><a href="index-en.html">Home</a></li><li><a href="ecommerce-en.html">Ecommerce</a></li><li><a href="Articles-en.html">Articles</a></li><li><a href="creatives-en.html">Creatives</a></li><li><a href="consultora-en.html">Opinion Consultancy</a></li><li><a href="otros-en.html">Other projects</a></li><li><a href="sobre-mi-en.html">About</a></li><li class="global-nav__locale"><a href="documento-es.html" hreflang="es" aria-label="Ver en español">ES</a></li></ul></nav>
+    <nav class="global-nav__menu" id="global-menu" aria-label="Main navigation" data-global-nav-menu><ul><li><a href="/index-en.html">Home</a></li><li><a href="/catalog-en.html?section=all">Explore work</a></li><li><a href="/about-en.html">About</a></li><li><a href="/cv-en.html">CV</a></li><li><a href="/contact-en.html">Contact</a></li><li class="global-nav__locale"><a href="documento-es.html" hreflang="es" aria-label="Ver en español">ES</a></li></ul></nav>
   </div>
 </header>
 
@@ -69,29 +70,28 @@
 
   <script>
     const allowedDocuments = new Map([
-      ['informe_academico_cfk_justicia_junio_2025.pdf', 'Cristina Fernández de Kirchner, justicia y polarización'],
-      ['informe_academico_ddd_abril_2025.pdf', 'Argentina ante un escenario internacional turbulento'],
-      ['informe_academico_ddd_abril_2026.pdf', 'Reelección, desgaste y renovación política'],
-      ['informe_academico_ddd_diciembre.pdf', 'Dos años de gestión libertaria y percepciones sobre vacunación'],
-      ['informe_academico_ddd_febrero_2025.pdf', 'Multimillonarios, poder económico y política'],
-      ['informe_academico_ddd_julio_2025.pdf', 'Economía doméstica, ingresos y malestar social'],
-      ['informe_academico_ddd_junio_2025.pdf', 'Ahorro, dólares y participación electoral'],
-      ['informe_academico_ddd_junio_2026.pdf', 'Violencia de género, justicia y respuesta estatal'],
-      ['informe_academico_ddd_mayo_2025.pdf', 'Gobierno, periodismo y libertad de prensa'],
-      ['informe_academico_ddd_mayo_2026.pdf', 'Aprobación de gobierno y demanda de cambio'],
-      ['informe_academico_ddd_octubre_2025.pdf', 'Informe académico de resultados de encuesta: “Sin dólares no hay paraíso”'],
-      ['informe_academico_encuesta_ni_una_menos.pdf', 'Percepciones sociales sobre la violencia contra las mujeres en Argentina'],
-      ['informe_academico_encuesta_ni_una_menos (1).pdf', 'Percepciones sociales sobre la violencia contra las mujeres en Argentina'],
-      ['informe_academico_juventudes_unvm_2025.pdf', 'Juventudes, política y representación'],
-      ['informe_academico_lo_peor_ya_paso_septiembre_2025.pdf', 'Informe académico de datos de encuesta: “Lo peor ya pasó”'],
-      ['informe_academico_medios_noticias_argentina.pdf', 'Medios de comunicación y noticias en Argentina'],
-      ['informe_academico_medios_noticias_argentina (1).pdf', 'Medios de comunicación y noticias en Argentina'],
-      ['informe_academico_un_ano_de_polarizacion_2024.pdf', 'Un año de polarización total'],
-      ['informe_academico_vdd_agosto_2025.pdf', 'Ciencia, inteligencia artificial y política']
+      ['informe_academico_cfk_justicia_junio_2025.pdf', 'Cristina Fernández de Kirchner, the courts and polarization'],
+      ['informe_academico_ddd_abril_2025.pdf', 'Argentina in a turbulent international landscape'],
+      ['informe_academico_ddd_abril_2026.pdf', 'Re-election, political fatigue and renewal'],
+      ['informe_academico_ddd_diciembre.pdf', 'Two years of libertarian government and views on vaccination'],
+      ['informe_academico_ddd_febrero_2025.pdf', 'Billionaires, economic power and politics'],
+      ['informe_academico_ddd_julio_2025.pdf', 'Household finances, income and social discontent'],
+      ['informe_academico_ddd_junio_2025.pdf', 'Savings, dollars and voter turnout'],
+      ['informe_academico_ddd_junio_2026.pdf', 'Gender violence, justice and the state response'],
+      ['informe_academico_ddd_mayo_2025.pdf', 'Government, journalism and press freedom'],
+      ['informe_academico_ddd_mayo_2026.pdf', 'Government approval and demand for change'],
+      ['informe_academico_ddd_octubre_2025.pdf', 'Academic survey report: “No dollars, no paradise”'],
+      ['informe_academico_encuesta_ni_una_menos.pdf', 'Public perceptions of violence against women in Argentina'],
+      ['informe_academico_juventudes_unvm_2025.pdf', 'Young people, politics and representation'],
+      ['informe_academico_lo_peor_ya_paso_septiembre_2025.pdf', 'Academic survey report: “The worst is over”'],
+      ['informe_academico_medios_noticias_argentina.pdf', 'Media and news in Argentina'],
+      ['informe_academico_un_ano_de_polarizacion_2024.pdf', 'A year of total polarization'],
+      ['informe_academico_vdd_agosto_2025.pdf', 'Science, artificial intelligence and politics']
     ]);
 
     const params = new URLSearchParams(window.location.search);
-    const file = params.get('file');
+    // Older links used duplicate copies named "... (1).pdf".
+    const file = (params.get('file') || '').replace(/ \(1\)\.pdf$/, '.pdf');
     const title = allowedDocuments.get(file);
     const heading = document.querySelector('#document-title');
     const pdfObject = document.querySelector('#pdf-object');
@@ -100,14 +100,14 @@
 
     if (file && title) {
       const pdfUrl = `New format/${encodeURIComponent(file)}`;
-      document.title = title;
+      document.title = title + ' (in Spanish) – Matías Gaglio';
       heading.textContent = title;
       pdfObject.data = pdfUrl;
       download.href = pdfUrl;
       fallback.href = pdfUrl;
     } else {
-      document.title = 'Documento no encontrado';
-      heading.textContent = 'Documento no encontrado';
+      document.title = 'Document not found';
+      heading.textContent = 'Document not found';
       download.hidden = true;
       pdfObject.replaceWith(Object.assign(document.createElement('p'), {
         className: 'document-error',

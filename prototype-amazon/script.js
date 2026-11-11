@@ -35,7 +35,7 @@
       ['other', 'Automatización y código']
     ];
     const sectionHref = function (key) {
-      return prefix + 'catalog.html?section=' + key + (isEnglish ? '&lang=en' : '');
+      return prefix + (isEnglish ? 'catalog-en.html' : 'catalog.html') + '?section=' + key;
     };
     if (nav) {
       nav.replaceChildren.apply(nav, sections.map(function (section, index) {
@@ -312,4 +312,20 @@
     });
     if (requestedTab) activateTab(requestedTab, false);
   }
+
+  // Visible email with a copy button, for visitors without a mail client.
+  document.querySelectorAll('[data-copy-email]').forEach(function (button) {
+    const status = button.parentElement.querySelector('[data-copy-status]');
+    const english = document.documentElement.lang === 'en';
+    button.addEventListener('click', function () {
+      const address = button.getAttribute('data-copy-email');
+      const done = function () { if (status) status.textContent = english ? 'Copied' : 'Copiado'; };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(address).then(done, function () {});
+      else {
+        const field = document.createElement('textarea');
+        field.value = address; field.setAttribute('readonly', ''); field.style.position = 'fixed'; field.style.opacity = '0';
+        document.body.appendChild(field); field.select(); document.execCommand('copy'); field.remove(); done();
+      }
+    });
+  });
 })();

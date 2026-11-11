@@ -263,7 +263,7 @@ test('shared navigation uses the tablet drawer without clipping', async ({ page 
   await menuButton.click();
   await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
   await expect(page.locator('main')).toHaveJSProperty('inert', true);
-  await expect(page.locator('[data-global-nav-menu] a[href="sobre-mi-es.html"]')).toBeVisible();
+  await expect(page.locator('[data-global-nav-menu] a[href="/about.html"]')).toBeVisible();
   await page.keyboard.press('Escape');
   await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
   await expect(menuButton).toBeFocused();
@@ -273,7 +273,7 @@ test('site-wide shared navigation is correctly localized in English', async ({ p
   await page.goto('/BI-case-2-en.html', { waitUntil: 'networkidle' });
   const sharedNav = page.locator('[data-global-nav-menu]');
   await expect(sharedNav).toHaveAttribute('aria-label', 'Main navigation');
-  await expect(sharedNav.getByRole('link', { name: 'Opinion Consultancy' })).toHaveAttribute('href', /consultora-en\.html$/);
+  await expect(sharedNav.getByRole('link', { name: 'About' })).toHaveAttribute('href', /about-en\.html$/);
   await expect(page.locator('.site-search-toggle')).toBeVisible();
 });
 

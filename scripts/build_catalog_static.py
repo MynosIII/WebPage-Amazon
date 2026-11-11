@@ -28,9 +28,9 @@ PROTO = ROOT / "prototype-amazon"
 DATA_PATH = PROTO / "catalog-data.json"
 CATALOG_PATH = PROTO / "catalog.html"
 SITEMAP_PATH = PROTO / "sitemap.xml"
-SITE = "https://matiasgaglio.vercel.app"
+from site_config import SITE_URL as SITE
 LANGUAGE = "es"
-FIXED_PAGES = ["/", "/about.html", "/catalog.html", "/contact.html"]
+FIXED_PAGES = ["/", "/index-en.html", "/about.html", "/about-en.html", "/catalog.html", "/catalog-en.html", "/contact.html", "/contact-en.html", "/cv-es.html", "/cv-en.html"]
 VERCEL_CONFIG = ROOT / "vercel.json"
 
 SECTION_LABELS_ES = {
@@ -42,6 +42,19 @@ SECTION_LABELS_ES = {
     "research": "Investigación y análisis",
     "other": "Otros proyectos",
 }
+
+SECTION_LABELS_EN = {
+    "all": "All work",
+    "ecommerce": "Ecommerce and Amazon Growth",
+    "bi": "Business Intelligence",
+    "creative": "Creative and media",
+    "articles": "Systems and articles",
+    "research": "Research and analysis",
+    "other": "Other projects",
+}
+
+# Cards are one column on phones and about 320 px wide on desktop.
+THUMB_SIZES = "(max-width: 700px) 92vw, 340px"
 
 START = "<!-- STATIC_CATALOG_START -->"
 END = "<!-- STATIC_CATALOG_END -->"
@@ -77,6 +90,13 @@ def media_markup(item: dict) -> str:
         imgs = "".join(image_markup(path) for path in image_set)
         return f'<span class="catalog-icon-mosaic" aria-hidden="true">{imgs}</span>'
     image = item.get("image")
+    if image and not image.lower().endswith(".svg"):
+        from build_catalog_thumbs import thumb_path
+        small, large = (thumb_path(image, width).relative_to(ROOT).as_posix() for width in (480, 800))
+        size = dimensions(ROOT / image)
+        intrinsic = f' width="{size[0]}" height="{size[1]}"' if size else ""
+        return (f'<img src="{resolve_media(small)}" srcset="{resolve_media(small)} 480w, {resolve_media(large)} 800w" '
+                f'sizes="{THUMB_SIZES}" alt=""{intrinsic} loading="lazy" decoding="async">')
     if image:
         return image_markup(image)
     return '<span class="catalog-media-skeleton" data-catalog-placeholder></span>'
@@ -107,13 +127,19 @@ def card_markup(item: dict, category_label: str) -> str:
     )
 
 
-def build_list_html(items: list[dict]) -> tuple[str, int]:
+def build_list_html(items: list[dict], labels: dict[str, str] = SECTION_LABELS_ES) -> tuple[str, int]:
     cards = []
     for item in items:
         category = item["categories"][0]
-        label = SECTION_LABELS_ES.get(category, SECTION_LABELS_ES["all"])
+        label = labels.get(category, labels["all"])
         cards.append(card_markup(item, label))
     return "".join(cards), len(items)
+
+
+def english_list_html() -> str:
+    """Static English cards for prototype-amazon/catalog-en.html (see build_english_hubs.cjs)."""
+    items = [item for item in json.loads(DATA_PATH.read_text(encoding="utf-8")) if item.get("lang") == "en"]
+    return build_list_html(items, SECTION_LABELS_EN)[0]
 
 
 def build_sitemap_urls(items: list[dict]) -> list[str]:

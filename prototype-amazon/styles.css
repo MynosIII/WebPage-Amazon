@@ -1318,3 +1318,11 @@ html[data-theme="dark"] .process-row span { color: var(--orange); }
 .market-tools-fallback > div { padding-block: 10px; border-top: 1px solid var(--line); }
 .market-tools-fallback > div h3 { font-size: .85rem; margin: 0 0 6px; color: var(--muted); }
 .market-tools-fallback > div p { margin: 0; }
+
+/* Visible email address with a copy button (contact page and homepage contact strip). */
+.email-copy { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .75rem; flex-basis: 100%; margin: .9rem 0 0; }
+.email-copy a { font-weight: 700; overflow-wrap: anywhere; }
+.email-copy button { min-height: 36px; padding: .35rem .8rem; border: 1px solid currentColor; background: transparent; color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
+.email-copy button:focus-visible { outline: 3px solid #f3a33a; outline-offset: 2px; }
+.direct-contact .email-copy, .contact-strip .email-copy { color: #fff; }
+.direct-contact .email-copy a, .contact-strip .email-copy a { color: #fff; }

@@ -202,12 +202,19 @@ test('marketplace routes keep readable text contrast in light and dark modes', a
   for (const theme of ['light', 'dark']) {
     for (const route of routes) {
       await page.goto(route, { waitUntil: 'domcontentloaded' });
+      // Measure the settled theme, not a color transition caught mid-frame.
+      await page.addStyleTag({ content: '*, *::before, *::after { transition: none !important; }' });
       await page.evaluate(activeTheme => {
         localStorage.setItem('mg-theme', activeTheme);
         document.documentElement.dataset.theme = activeTheme;
       }, theme);
       if (route.includes('page.html')) {
         await page.locator('[data-source-embed] main').waitFor({ state: 'attached', timeout: 15000 });
+        // The embed's theme stylesheet loads after the article; measure once it applies.
+        await page.waitForFunction(() => {
+          const shadow = document.querySelector('[data-source-embed]')?.shadowRoot;
+          return shadow && [...shadow.querySelectorAll('link[rel="stylesheet"]')].every(link => link.sheet);
+        }, null, { timeout: 15000 });
       } else if (route.includes('catalog.html')) {
         await page.locator('[data-catalog-list] article').first().waitFor({ state: 'visible', timeout: 15000 });
       }

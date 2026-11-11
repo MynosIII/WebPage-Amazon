@@ -14,7 +14,7 @@
   const description = document.querySelector('[data-catalog-description]');
   const crumb = document.querySelector('[data-catalog-crumb]');
   const params = new URLSearchParams(window.location.search);
-  const language = params.get('lang') === 'en' ? 'en' : 'es';
+  const language = document.documentElement.lang === 'en' || params.get('lang') === 'en' ? 'en' : 'es';
   const isEnglish = language === 'en';
   let section = params.get('section') || 'all';
   let items = [];
@@ -98,7 +98,15 @@
       }, { once: true });
     } else {
       element = document.createElement('img');
-      element.src = media.url;
+      if (media.thumbs) {
+        // Small WebP thumbnails from scripts/build_catalog_thumbs.py; fall back to the original.
+        element.srcset = media.thumbs[0] + ' 480w, ' + media.thumbs[1] + ' 800w';
+        element.sizes = '(max-width: 700px) 92vw, 340px';
+        element.addEventListener('error', function () { element.removeAttribute('srcset'); element.src = media.url; }, { once: true });
+        element.src = media.thumbs[0];
+      } else {
+        element.src = media.url;
+      }
       element.alt = '';
       element.decoding = 'async';
       element.loading = priority ? 'eager' : 'lazy';
@@ -153,7 +161,10 @@
     if (item?.imageSet?.length) {
       showImageSet(card, item.imageSet.map(function (image) { return resolveMedia('/' + image, item.url); }), priority);
     } else if (item?.image) {
-      showMedia(card, { type: 'image', url: resolveMedia('/' + item.image, item.url) }, priority);
+      const thumbs = /\.svg$/i.test(item.image) ? null : [480, 800].map(function (width) {
+        return '/assets/catalog-thumbs/' + item.image.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + width + '.webp';
+      });
+      showMedia(card, { type: 'image', url: resolveMedia('/' + item.image, item.url), thumbs: thumbs }, priority);
     }
   }
 
@@ -165,8 +176,8 @@
     window.history.replaceState(null, '', url);
     const locale = document.querySelector('.locale');
     if (locale) {
-      if (isEnglish) url.searchParams.delete('lang');
-      else url.searchParams.set('lang', 'en');
+      url.searchParams.delete('lang');
+      url.pathname = url.pathname.replace(/catalog(?:-en)?\.html$/, isEnglish ? 'catalog.html' : 'catalog-en.html');
       locale.href = url.href;
     }
   }
@@ -232,7 +243,7 @@
   scope?.addEventListener('change', function () {
     section = scope.value;
     syncSection();
-    window.history.replaceState(null, '', '?section=' + encodeURIComponent(section) + (input?.value ? '&q=' + encodeURIComponent(input.value) : '') + (isEnglish ? '&lang=en' : ''));
+    window.history.replaceState(null, '', '?section=' + encodeURIComponent(section) + (input?.value ? '&q=' + encodeURIComponent(input.value) : '') + (isEnglish && !/-en\.html$/.test(window.location.pathname) ? '&lang=en' : ''));
     render();
   });
   sort?.addEventListener('change', render);

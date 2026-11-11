@@ -27,7 +27,7 @@ for (const lang of ['es', 'en']) {
     for (const section of ['ecommerce', 'bi', 'creative', 'other', 'research']) {
       await page.goto(`/prototype-amazon/index.html?lang=${lang}`);
       await page.locator(`.department-nav a[href*="section=${section}"]`).click();
-      await expect(page).toHaveURL(new RegExp(`catalog.html\\?section=${section}`));
+      await expect(page).toHaveURL(new RegExp(`catalog(?:-en)?\\.html\\?section=${section}`));
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
       await expect(page.locator('[data-catalog-list]')).toHaveAttribute('aria-busy', 'false');
     }
@@ -58,7 +58,7 @@ test('original tools carousel, brand links and account icons are present without
   await page.goto('/prototype-amazon/contact.html?lang=en');
   await expect(page.locator('a[href*="github.com"] svg')).toHaveCount(1);
   await expect(page.locator('a[href*="linkedin.com"] svg')).toHaveCount(1);
-  await expect(page.locator('.direct-contact a svg')).toHaveCount(1);
+  await expect(page.locator('.direct-contact a:not(.email-copy a) svg')).toHaveCount(1);
 });
 
 test('the same discovery header is used on every screen-native route', async ({ page }) => {
@@ -76,7 +76,7 @@ test('catalog cards use curated covers and logo-only tool metadata', async ({ pa
   await page.goto('/prototype-amazon/catalog.html?section=all&lang=en');
   await expect(page.locator('[data-catalog-list]')).toHaveAttribute('aria-busy', 'false');
   const fitment = page.locator('[data-source="Cases/automotive-fitment-seo-en.html"]');
-  await expect(fitment.locator('.catalog-result__media img')).toHaveAttribute('src', /fitment-compatibility-photo\.jpg/);
+  await expect(fitment.locator('.catalog-result__media img')).toHaveAttribute('src', /fitment-compatibility-photo[.-]jpg/);
   await expect(fitment.locator('.case-logo-row img')).toHaveCount(3);
   await expect(page.locator('[data-source="icon-system-case-en.html"] .catalog-icon-mosaic img')).toHaveCount(6);
   await expect(page.locator('.catalog-tools')).toHaveCount(0);
@@ -91,8 +91,8 @@ test('case presentation follows the shared theme and back links retain English',
   await expect(root).toHaveAttribute('data-market-theme', 'dark');
   await page.locator('[data-theme-toggle]').click();
   await expect(root).toHaveAttribute('data-market-theme', 'light');
-  const back = page.locator('[data-source-embed] a[href*="catalog.html?section=articles"]');
-  await expect(back.first()).toHaveAttribute('href', /lang=en/);
+  const back = page.locator('[data-source-embed] a[href*="section=articles"]');
+  await expect(back.first()).toHaveAttribute('href', /catalog-en\.html/);
   await back.first().click();
   await expect(page.locator('[data-catalog-title]')).toHaveText('Systems and articles');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');

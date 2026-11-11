@@ -3,12 +3,16 @@
 
   const params = new URLSearchParams(window.location.search);
   const source = params.get('source') || '';
-  const isEnglish = params.get('lang') === 'en' || /\/index-en\.html$/i.test(window.location.pathname) || /(?:^|\/)(?:index|[^/]+)-en\.html$/i.test(source);
+  // English hubs are prerendered as /<page>-en.html with <html lang="en">.
+  const isEnglish = document.documentElement.lang === 'en' || params.get('lang') === 'en' || /\/index-en\.html$/i.test(window.location.pathname) || /(?:^|\/)(?:index|[^/]+)-en\.html$/i.test(source);
   const language = isEnglish ? 'en' : 'es';
   document.documentElement.lang = language;
   window.portfolioLanguage = language;
 
   const english = {
+    'Herramientas que uso': 'Tools I use',
+    'Mi stack de software': 'My software stack',
+    'Creatividad, análisis, ecommerce y automatización conectados en un mismo flujo de trabajo.': 'Creativity, analysis, ecommerce and automation connected in one workflow.',
     'Todo': 'All',
     'Saltar al contenido': 'Skip to main content',
     'Abrir navegación': 'Open navigation',
@@ -39,6 +43,7 @@
     'Hablemos': 'Contact me',
     'Agendar una reunión': 'Book a call',
     'Escribirme por correo': 'Email me',
+    'Copiar': 'Copy',
     'Reservá una videollamada de 30 minutos para conversar sobre tu proyecto.': 'Book a 30-minute video call to discuss your project.',
     'Foco': 'Focus',
     'Método': 'Method',
@@ -81,15 +86,20 @@
     '6 imágenes rediseñadas': '6 redesigned images',
     'Atribución': 'Attribution',
     'Sin claim causal': 'No causal claim',
+    'Responde': 'Answers',
+    'Compatibilidad, especificaciones y uso': 'Compatibility, specs and use',
+    'Entregable': 'Deliverable',
+    'Galería de 6 piezas modulares': 'Modular 6-piece gallery',
+    'Alcance': 'Scope',
+    'Sin datos de ventas atribuidos': 'No attributed sales data',
     'No encontré casos con esa combinación.': 'No cases match that combination.',
     'Probá con “Amazon Ads”, “conversión”, “contenido” o limpiá la búsqueda.': 'Try “Amazon Ads”, “conversion” or “content”, or clear the search.',
     'Mostrar todos los casos': 'Show all cases',
     'Resultados documentados': 'Documented outcomes',
-    'ventas retail · Amazon · 17 ago–11 oct': 'retail sales · Amazon · Aug 17–Oct 11',
-    'conversión · Amazon · 10 ago–4 oct': 'conversion · Amazon · Aug 10–Oct 4',
-    'ventas · portafolio · jul–27 oct': 'sales · portfolio · Jul–Oct 27',
-    'ingresos semanales · Amazon · 14–27 jun': 'weekly revenue · Amazon · Jun 14–27',
-    'Perfil del operador': 'Operator profile',
+    'ventas retail · Amazon · 17 ago–11 oct 2025': 'retail sales · Amazon · Aug 17–Oct 11, 2025',
+    'conversión · Amazon · 10 ago–4 oct 2025': 'conversion · Amazon · Aug 10–Oct 4, 2025',
+    'ventas · portafolio · jul–27 oct 2025': 'sales · portfolio · Jul–Oct 27, 2025',
+    'ingresos semanales · Amazon · 14–27 jun 2026': 'weekly revenue · Amazon · Jun 14–27, 2026',
     'Marketing para formular el problema. Datos para decidir. Tecnología para ejecutar.': 'Marketing to frame the problem. Data to decide. Technology to execute.',
     'Mi formación en Comunicación me enseñó cómo las personas interpretan mensajes. Ecommerce agregó tráfico, conversión, margen y búsqueda. La programación me permite transformar análisis repetitivos en herramientas y sistemas de trabajo.': 'My Communication background taught me how people interpret messages. Ecommerce added traffic, conversion, margin and search. Programming lets me turn repetitive analysis into tools and working systems.',
     'Historia profesional': 'Professional story',
@@ -97,8 +107,7 @@
     'Siguiente acción': 'Next step',
     '¿Dónde se está perdiendo conversión, presupuesto o margen?': 'Where is conversion, budget or margin being lost?',
     'Puedo ayudarte a ordenar el diagnóstico antes de elegir una táctica.': 'I can help structure the diagnosis before choosing a tactic.',
-    'Abrir centro de contacto': 'Open contact center',
-    'Tu cuenta profesional': 'Your professional account',
+    'Ir a contacto': 'Go to contact',
     'Perfil / Cuenta profesional': 'Profile / Professional account',
     'Comunicación para entender. Datos para decidir.': 'Communication to understand. Data to decide.',
     'Soy Matías Gaglio, Ecommerce & Amazon Growth Strategist. Conecto comportamiento del cliente, datos comerciales y ejecución para resolver problemas de conversión y rentabilidad.': 'I am Matías Gaglio, an Ecommerce & Amazon Growth Strategist. I connect customer behavior, commercial data and execution to solve conversion and profitability problems.',
@@ -106,9 +115,9 @@
     'El problema rara vez pertenece a una sola disciplina.': 'The problem rarely belongs to one discipline.',
     'Una caída de conversión puede empezar en el tráfico, la oferta, la compatibilidad, el inventario o la jerarquía visual. Mi trabajo consiste en localizar la restricción real antes de recomendar una solución.': 'A conversion drop may begin in traffic, offer, compatibility, inventory or visual hierarchy. My job is to locate the real constraint before recommending a solution.',
     'Amazon Growth · Business Intelligence · Data-to-Creative': 'Amazon Growth · Business Intelligence · Data-to-Creative',
-    'Tu cuenta': 'Your account',
     'Información profesional': 'Professional information',
     'Rol y foco actual': 'Current role and focus',
+    'Gerente de Ventas en Amazon · Revolution Supply Co. (desde jun. 2025)': 'Amazon Sales Manager · Revolution Supply Co. (since Jun 2025)',
     'Ecommerce, Amazon PPC, BI y contenido.': 'Ecommerce, Amazon PPC, BI and content.',
     'Historial profesional': 'Professional history',
     'De Comunicación a ecommerce, análisis y sistemas.': 'From Communication to ecommerce, analysis and systems.',
@@ -119,7 +128,7 @@
     'Experiencia y educación': 'Experience and education',
     'Ciencias de la Comunicación, UBA · Agente de Propaganda Médica, Universidad Favaloro.': 'Communication Sciences, UBA · Pharmaceutical Sales Representative, Favaloro University.',
     'Abrir CV ›': 'Open resume ›',
-    'Centro de contacto': 'Contact center',
+    'Contacto': 'Contact',
     'Contame el problema antes de elegir una táctica.': 'Tell me the problem before choosing a tactic.',
     'Escribir a Matías ›': 'Write to Matías ›',
     'Actividad de la cuenta': 'Account activity',
@@ -165,7 +174,7 @@
     'Puedo ayudarte a detectar dónde se pierde conversión, presupuesto o margen.': 'I can help identify where conversion, budget or margin is being lost.',
     'Catálogo': 'Catalog',
     'Todo el catálogo': 'All work',
-    'Marketplace / Inventario de trabajo': 'Marketplace / Work inventory',
+    'Portfolio / Todo el trabajo': 'Portfolio / All work',
     'Casos, sistemas de trabajo, investigación y piezas creativas dentro de una sola arquitectura.': 'Cases, working systems, research and creative work within one architecture.',
     'Ordenar por': 'Sort by',
     'Relevancia': 'Relevance',
@@ -228,9 +237,22 @@
     });
   }
 
+  // Spanish hub -> static English twin.
+  const englishHubs = { '': 'index-en.html', 'index.html': 'index-en.html', 'about.html': 'about-en.html', 'catalog.html': 'catalog-en.html', 'contact.html': 'contact-en.html' };
+
   function withLanguage(href, targetLanguage) {
     if (!href || /^(?:#|mailto:|tel:|https?:\/\/)/i.test(href)) return href;
     const url = new URL(href, window.location.href);
+    const hubDirectory = /^\/(?:prototype-amazon\/)?[^/]*$/.test(url.pathname);
+    const name = url.pathname.split('/').pop();
+    const spanishHub = name.match(/^(index|about|catalog|contact)-en\.html$/i);
+    if (hubDirectory && ((targetLanguage === 'en' && name in englishHubs) || (targetLanguage === 'es' && spanishHub))) {
+      const target = targetLanguage === 'en' ? englishHubs[name] : (spanishHub[1] === 'index' ? (href.startsWith('/') ? '' : 'index.html') : spanishHub[1] + '.html');
+      url.pathname = url.pathname.replace(/[^/]*$/, target);
+      url.searchParams.delete('lang');
+      return (href.startsWith('/') ? url.pathname : (url.pathname.split('/').pop() || 'index.html')) + url.search + url.hash;
+    }
+    if (/^(?:index|about|catalog|contact)-en\.html$/i.test(name)) return href;
     if (href.startsWith('/') && /-(?:es|en)\.html$/i.test(url.pathname)) {
       const localized = url.pathname.replace(/-(?:es|en)\.html$/i, '-' + targetLanguage + '.html');
       return localized + url.search + url.hash;
@@ -279,8 +301,8 @@
   if (language === 'en') {
     translateText(document.body);
     const titles = {
-      'account-page': 'Your professional account — Matías Gaglio',
-      'help-page': 'Contact center — Matías Gaglio',
+      'account-page': 'About — Matías Gaglio',
+      'help-page': 'Contact — Matías Gaglio',
       'catalog-page': 'Work catalog — Matías Gaglio',
       'source-page': 'Project — Matías Gaglio',
       'not-found-page': 'Page not found — Matías Gaglio'

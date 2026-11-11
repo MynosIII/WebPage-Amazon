@@ -57,7 +57,7 @@ test('creative catalog loads a poster from the original animation media', async 
   await animationCard.scrollIntoViewIfNeeded();
   const preview = animationCard.locator('.catalog-result__media img');
   await expect(preview).toHaveCount(1);
-  await expect(preview).toHaveAttribute('src', /social-edit-01-poster\.jpg/);
+  await expect(preview).toHaveAttribute('src', /social-edit-01-poster[.-]jpg/);
 });
 
 test('English switch keeps the Amazon interface and routes to English content', async ({ page }) => {
@@ -81,7 +81,7 @@ test('English catalog uses English source entries and media', async ({ page }) =
   const animationCard = page.locator('[data-source="animation-01-en.html"]');
   await animationCard.scrollIntoViewIfNeeded();
   await expect(animationCard.locator('h3')).toContainText(/Neon Orbital Study/i);
-  await expect(animationCard.locator('.catalog-result__media img')).toHaveAttribute('src', /social-edit-01-poster\.jpg/);
+  await expect(animationCard.locator('.catalog-result__media img')).toHaveAttribute('src', /social-edit-01-poster[.-]jpg/);
   await expect(animationCard.locator('a').last()).toHaveAttribute('href', '/animation-01-en.html');
 });
 

@@ -1,10 +1,12 @@
 # Matías Gaglio portfolio
 
-The public portfolio is <https://matiasgaglio.vercel.app>. Vercel builds the `main` branch of `MynosIII/WebPage-Amazon` for production and uses `vercel.json` to route visitors to the marketplace interface. The Render configuration below describes the legacy site.
+The public portfolio is <https://matiasgaglio.vercel.app>. Vercel builds the `main` branch of `MynosIII/WebPage-Amazon` for production and uses `vercel.json` to route visitors to the marketplace interface. Absolute URLs come from one setting: `SITE_URL` (default `https://matiasgaglio.vercel.app`, see `scripts/site_config.py`). To move to a custom domain, set `SITE_URL` in the Vercel project's environment variables and redeploy; `build_deploy.cjs` rewrites canonicals, hreflang, Open Graph URLs and the sitemap. The legacy Render site only redirects here (see below).
 
 ## Site architecture
 
-- `/` serves the Spanish homepage directly. `/index-en.html` is its English counterpart and `/index-es.html` remains a backwards-compatible Spanish URL.
+- `/`, `/about.html`, `/catalog.html` and `/contact.html` serve the Spanish hubs from `prototype-amazon/`. Their English versions (`/index-en.html`, `/about-en.html`, `/catalog-en.html`, `/contact-en.html`) are prerendered by `node scripts/build_english_hubs.cjs` from the Spanish source and the `i18n.js` glossary; never edit the `-en` hub files directly. Old `?lang=en` hub links redirect to them, and `/index-es.html` redirects to `/`.
+- `scripts/apply_global_nav.py` gives every legacy page the shared header from `scripts/shared_nav.py`; `scripts/sync_department_nav.py` keeps the static search scopes and department menus in line with `script.js`.
+- `scripts/build_catalog_thumbs.py` makes the 480/800 px WebP catalog thumbnails in `assets/catalog-thumbs/`. Run it (with `--force` when replacing an image) after changing a catalog image.
 - `content/homepage.json` is the bilingual content source for all three homepage files; the homepage combines three evidence-led flagship cases with a portfolio shortcut rail, an early searchable portfolio map, and a secondary Analytical Translator interaction.
 - `content/project-claims.json` is the credibility source of truth for every public metric, period, baseline, contribution, source, approved claim, and evidence note in the flagship and Daizzy cases.
 - `content/case-tools.json` maps software aliases to case badges and search keywords. `scripts/sync_case_tools.py` automatically adds every tool mentioned in a case's Spanish or English HTML while preserving explicit assignments for tools that are not named in public copy.
@@ -15,7 +17,7 @@ The public portfolio is <https://matiasgaglio.vercel.app>. Vercel builds the `ma
 - `scripts/resume_content.py` is the shared source for the interactive HTML resume and printable PDFs. `scripts/build_cv_pages.py` generates `cv.html`, `cv-es.html`, and `cv-en.html`; `scripts/build_resumes.py` generates the downloadable PDFs in `output/pdf/`.
 - Additional case-study pages remain static HTML and use `style.css` plus `accessibility.js` while they are progressively migrated to shared templates.
 - `language-catalog.json` defines the 40 Spanish/English page pairs. `scripts/apply_legacy_translation_fixes.py` preserves the reviewed legacy glossary, while `scripts/validate_localization.py` checks language declarations, reciprocal `hreflang`, encoding, and banned literal translations.
-- `robots.txt` and `sitemap.xml` are generated from canonical page metadata.
+- The public sitemap is `prototype-amazon/sitemap.xml` (served at `/sitemap.xml`), written by `scripts/build_catalog_static.py`; `build_deploy.cjs` adds `lastmod` dates from Git history when the build has full history.
 
 ## Preview and release
 
@@ -84,19 +86,11 @@ To regenerate the resumes, install ReportLab and run `python scripts/build_resum
 
 GitHub Actions repeats link/casing/metadata validation, responsive checks at 390, 820, 1024, and 1440 px, automated accessibility checks, screenshots, and Lighthouse budgets on every pull request.
 
-## Render deployment
+## Legacy Render site
 
-The reproducible service definition is in `render.yaml`:
+`matiasgaglio.onrender.com` (repository `MynosIII/WebPage`) is retired. Its `render.yaml` now only redirects every path to the same path on the Vercel site with a 301, so old links and search results land on the current pages. The `render.yaml` in this repository is kept for reference only and is not deployed.
 
-- service type: Static Site
-- repository: `MynosIII/WebPage`
-- branch: `main`
-- build command: generated homepage, case-study, About, interactive CV, Ecommerce claim, discovery, credibility, and site-validation checks from `render.yaml`
-- publish directory: `.`
-- auto-deploy: enabled for `main`
-- pull-request previews: disabled
-
-The Blueprint also documents the security and cache headers. Render serves the static output through its CDN, forces HTTPS, and atomically invalidates its CDN cache after a successful deploy.
+`build_deploy.cjs` leaves out files that `vercel.json` always redirects or rewrites (legacy unsuffixed duplicates and the old root homepages) along with repository config files, so they can't be served by accident.
 
 ## Asset policy
 

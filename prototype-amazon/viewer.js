@@ -13,7 +13,7 @@
   if (rawSource && isEnglish) rawSource = rawSource.replace(/-es(\.html)$/i, '-en$1');
 
   function showError(message) {
-    status.innerHTML = '<strong>' + (isEnglish ? 'This project could not be opened.' : 'No se pudo abrir este proyecto.') + '</strong><span>' + message + '</span><a href="catalog.html?section=all' + (isEnglish ? '&lang=en' : '') + '">' + (isEnglish ? 'Return to the catalog' : 'Volver al catálogo') + '</a>';
+    status.innerHTML = '<strong>' + (isEnglish ? 'This project could not be opened.' : 'No se pudo abrir este proyecto.') + '</strong><span>' + message + '</span><a href="' + (isEnglish ? 'catalog-en.html' : 'catalog.html') + '?section=all">' + (isEnglish ? 'Return to the catalog' : 'Volver al catálogo') + '</a>';
     status.classList.add('is-error');
   }
 
@@ -33,7 +33,7 @@
     const targetIsEnglish = /-en\.html$/i.test(filename) || (!/-es\.html$/i.test(filename) && isEnglish);
     const languageQuery = targetIsEnglish ? '?lang=en' : '';
     const category = { articles: 'articles', ecommerce: 'ecommerce', creatives: 'creative', otros: 'other' }[filename.replace(/-(?:en|es)(?=\.html$)/i, '').replace(/\.html$/i, '').toLowerCase()];
-    if (category) return 'catalog.html?section=' + category + (targetIsEnglish ? '&lang=en' : '');
+    if (category) return (targetIsEnglish ? 'catalog-en.html' : 'catalog.html') + '?section=' + category;
     if (/^caso-1-(?:es|en)\.html$/i.test(filename)) return 'case-amazon-growth.html' + languageQuery + url.hash;
     if (/^sobre-mi-(?:es|en)\.html$/i.test(filename)) return 'about.html' + languageQuery + url.hash;
     if (filename === 'index.html' || /^index-(?:es|en)\.html$/i.test(filename)) return 'index.html' + languageQuery + url.hash;
@@ -151,7 +151,10 @@
       const sourceMain = sourceDocument.querySelector('main');
       if (!sourceMain) { showError(isEnglish ? 'The source page has no main content.' : 'La página de origen no contiene un bloque principal.'); return; }
 
-      const sourceTitle = sourceDocument.querySelector('h1')?.textContent.trim() || sourceDocument.title.split('|')[0].trim() || 'Proyecto';
+      const headingNode = sourceDocument.querySelector('h1')?.cloneNode(true);
+      // A <br> inside the heading would otherwise glue two words together.
+      headingNode?.querySelectorAll('br').forEach(function (br) { br.replaceWith(' '); });
+      const sourceTitle = (headingNode?.textContent || '').replace(/\s+/g, ' ').trim() || sourceDocument.title.split('|')[0].trim() || 'Proyecto';
       document.title = sourceTitle + ' — Matías Gaglio';
       if (crumb) crumb.textContent = sourceTitle;
       syncMeta(sourceDocument, sourceTitle);

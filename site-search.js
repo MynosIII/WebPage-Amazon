@@ -77,7 +77,10 @@
     fullStatus.textContent = matches.length ? labels.count(matches.length) : labels.empty;
     fullResults.innerHTML = matches.map(({ page }) => resultMarkup(page)).join('');
   };
-  fetch(new URL('search-index.json', baseUrl)).then(response => response.ok ? response.json() : Promise.reject()).then(data => { pages = data.filter(page => page.lang === lang); renderFullPage(); }).catch(() => { status.textContent = labels.empty; if (fullStatus) fullStatus.textContent = labels.empty; });
+  // The index is about 600 KB, so fetch it only when someone starts searching.
+  let indexRequest = null;
+  const loadIndex = () => indexRequest || (indexRequest = fetch(new URL('search-index.json', baseUrl)).then(response => response.ok ? response.json() : Promise.reject()).then(data => { pages = data.filter(page => page.lang === lang); renderFullPage(); if (input.value.trim()) input.dispatchEvent(new Event('input')); }).catch(() => { status.textContent = labels.empty; if (fullStatus) fullStatus.textContent = labels.empty; }));
+  if (fullResults) loadIndex();
   let restoreTarget = toggle;
   const setOpen = (open, trigger = restoreTarget) => {
     const nextOpen = Boolean(open);
@@ -86,6 +89,7 @@
     externalTriggers.forEach(item => item.setAttribute('aria-expanded', String(nextOpen)));
     document.body.classList.toggle('site-search-open', nextOpen);
     if (nextOpen) {
+      loadIndex();
       restoreTarget = trigger;
       requestAnimationFrame(() => input.focus());
     }
@@ -115,6 +119,7 @@
     if (panel.hidden || shell.contains(event.target) || externalTriggers.some(trigger => trigger.contains(event.target))) return;
     closeSearch(false);
   });
-  input.addEventListener('input', () => { currentQuery = input.value.trim(); if (!currentQuery) { status.textContent = ''; results.innerHTML = ''; return; } const matches = find(currentQuery, 10); status.textContent = matches.length ? labels.count(matches.length) : labels.empty; results.innerHTML = matches.map(({ page }) => resultMarkup(page)).join(''); });
+  input.addEventListener('focus', loadIndex);
+  input.addEventListener('input', () => { loadIndex(); currentQuery = input.value.trim(); if (!currentQuery) { status.textContent = ''; results.innerHTML = ''; return; } const matches = find(currentQuery, 10); status.textContent = matches.length ? labels.count(matches.length) : labels.empty; results.innerHTML = matches.map(({ page }) => resultMarkup(page)).join(''); });
   input.addEventListener('keydown', event => { if (event.key === 'Enter' && input.value.trim()) { event.preventDefault(); location.href = new URL(`search-${lang}.html?q=${encodeURIComponent(input.value.trim())}`, baseUrl).href; } });
 })();

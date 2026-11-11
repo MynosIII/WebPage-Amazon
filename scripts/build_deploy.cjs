@@ -6,12 +6,25 @@ const vm = require('node:vm');
 const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'portfolio-dist');
 const marker = path.join(output, '.generated-portfolio');
-const origin = 'https://matiasgaglio.vercel.app';
+// Set SITE_URL (for example in the Vercel project settings) to publish under another domain.
+const canonicalOrigin = 'https://matiasgaglio.vercel.app';
+const origin = (process.env.SITE_URL || canonicalOrigin).replace(/\/+$/, '');
 const catalog = require('../prototype-amazon/catalog-data.json');
 const publicDirectories = ['assets', 'Cases', 'creatives', 'New format', 'output/pdf', 'prototype-amazon', 'Revolution', 'vendor'];
 const publicExtensions = /\.(?:css|glb|html|jpe?g|js|mp4|pdf|png|svg|txt|webmanifest|webp|xml)$/i;
-const excluded = new Set(['anchor-test.html', 'revolution-test.html', 'debug.log']);
+const excluded = new Set(['anchor-test.html', 'revolution-test.html', 'debug.log', 'playwright.config.js', 'lighthouserc.json', 'package.json', 'package-lock.json', 'vercel.json']);
 const publicData = ['content/case-tools.json', 'prototype-amazon/catalog-data.json', 'search-index.json'];
+
+// Files that vercel.json always redirects or rewrites elsewhere would never be
+// served, so leave them out of the deploy (legacy unsuffixed duplicates, the
+// old root homepages). Routes with a `has` condition only match some requests.
+const routes = JSON.parse(fs.readFileSync(path.join(root, 'vercel.json'), 'utf8')).routes;
+function shadowedByRoute(relative) {
+  if (!relative.endsWith('.html') || relative === '404.html') return false;
+  const pathname = '/' + relative;
+  return routes.some(route => route.src && !route.has && !route.continue && (route.status || route.dest)
+    && new RegExp(route.src).test(pathname));
+}
 
 function copy(relative) {
   const target = path.join(output, relative);
@@ -24,7 +37,7 @@ function copyPublicDirectory(relative) {
     if (entry.name.startsWith('.')) continue;
     const child = path.join(relative, entry.name);
     if (entry.isDirectory()) copyPublicDirectory(child);
-    else if (entry.isFile() && publicExtensions.test(entry.name)) copy(child);
+    else if (entry.isFile() && publicExtensions.test(entry.name) && !shadowedByRoute(child.split(path.sep).join("/"))) copy(child);
   }
 }
 
@@ -96,6 +109,69 @@ function renderVideoCase(html, number, lang, data) {
     .replace(/<script\b[^>]*\bsrc="ecommerce-video-(?:case-data|page)-(?:es|en)\.js"[^>]*><\/script>/gi, '');
 }
 
+const bookingUrl = 'https://calendar.app.google/UyiMPukNRaHi2HhD7';
+const contactEmail = 'matiasignaciogaglio@gmail.com';
+const nextStepCopy = {
+  es: { label: 'Siguiente paso', title: '¿Querés aplicar este enfoque en tu marca o equipo?', body: 'Agendá una llamada de 30 minutos, revisá mi CV o escribime.', book: 'Agendar una reunión', cv: 'Ver CV', more: 'Explorar más trabajo' },
+  en: { label: 'Next step', title: 'Want to apply this approach to your brand or team?', body: 'Book a 30-minute call, review my CV or email me.', book: 'Book a call', cv: 'View CV', more: 'Explore more work' }
+};
+
+// Every case ends with the same next step: booking, CV and email.
+function nextStep(html, lang) {
+  if (html.includes('data-case-next-step')) return html;
+  const copy = nextStepCopy[lang];
+  const catalogHref = lang === 'en' ? '/catalog-en.html?section=all' : '/catalog.html?section=all';
+  const block = `<section class="case-next-step" data-case-next-step aria-labelledby="case-next-step-title"><div class="case-next-step__inner">`
+    + `<p class="case-next-step__label">${copy.label}</p><h2 id="case-next-step-title">${copy.title}</h2><p>${copy.body}</p>`
+    + `<div class="case-next-step__actions"><a class="case-next-step__primary" href="${bookingUrl}">${copy.book}</a>`
+    + `<a href="/cv-${lang}.html">${copy.cv}</a><a href="mailto:${contactEmail}">${contactEmail}</a><a href="${catalogHref}">${copy.more}</a></div>`
+    + `</div></section>`;
+  return html.replace(/<\/main>/i, block + '</main>');
+}
+
+const sectionNames = {
+  es: { ecommerce: 'Ecommerce y Amazon Growth', bi: 'Business Intelligence', creative: 'Creatividad y medios', articles: 'Sistemas y artículos', research: 'Investigación y análisis', other: 'Otros proyectos' },
+  en: { ecommerce: 'Ecommerce and Amazon Growth', bi: 'Business Intelligence', creative: 'Creative and media', articles: 'Systems and articles', research: 'Research and analysis', other: 'Other projects' }
+};
+
+// Article + breadcrumb structured data for each case page.
+function structuredData(html, item) {
+  const section = item.categories?.[0] || 'all';
+  const home = item.lang === 'en' ? `${canonicalOrigin}/index-en.html` : `${canonicalOrigin}/`;
+  const catalogPage = `${canonicalOrigin}/${item.lang === 'en' ? 'catalog-en.html' : 'catalog.html'}`;
+  const canonical = canonicalOrigin + '/' + item.url.split('/').map(encodeURIComponent).join('/');
+  const image = item.image && !item.image.endsWith('.svg') ? item.image : 'prototype-amazon/og-card.png';
+  const data = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        '@id': `${canonical}#article`,
+        headline: item.title,
+        description: item.description,
+        inLanguage: item.lang,
+        url: canonical,
+        mainEntityOfPage: canonical,
+        image: canonicalOrigin + '/' + image.split('/').map(encodeURIComponent).join('/'),
+        author: { '@type': 'Person', '@id': `${canonicalOrigin}/#matias-gaglio`, name: 'Matías Gaglio', url: home },
+        isPartOf: { '@type': 'WebSite', name: 'Matías Gaglio', url: `${canonicalOrigin}/` }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: item.lang === 'en' ? 'Home' : 'Inicio', item: home },
+          { '@type': 'ListItem', position: 2, name: sectionNames[item.lang][section] || 'Portfolio', item: `${catalogPage}?section=${section}` },
+          { '@type': 'ListItem', position: 3, name: item.title, item: canonical }
+        ]
+      }
+    ]
+  };
+  // Pages that ship their own Article data keep it; only the breadcrumb is added.
+  if (/<script type="application\/ld\+json">[^<]*"@type":\s*"Article"/.test(html)) data['@graph'].shift();
+  const json = JSON.stringify(data).replace(/</g, '\\u003c');
+  return html.replace(/<\/head>/i, `  <script type="application/ld+json" data-case-schema>${json}</script>\n</head>`);
+}
+
 function renderProjects() {
   const pairs = new Map();
   for (const item of catalog) {
@@ -125,9 +201,57 @@ function renderProjects() {
     if (!/<h1\b[^>]*>\s*[^<\s]|<h1\b[^>]*>\s*<(?:em|span|strong)\b/i.test(html)) {
       throw new Error(`No static heading in ${item.url}`);
     }
-    fs.writeFileSync(target, discoveryHead(html, item, pair));
+    fs.writeFileSync(target, structuredData(discoveryHead(nextStep(html, item.lang), item, pair), item));
   }
   console.log(`Prepared ${catalog.length} case pages in ${pairs.size} bilingual pairs.`);
+}
+
+function* textFiles(directory) {
+  for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+    const child = path.join(directory, entry.name);
+    if (entry.isDirectory()) yield* textFiles(child);
+    else if (/\.(?:html|json|txt|webmanifest|xml)$/i.test(entry.name)) yield child;
+  }
+}
+
+// Add <lastmod> from the last commit that touched each page's source file.
+// A shallow clone or a build without git history would give wrong dates, so
+// the sitemap then ships without them.
+function addSitemapDates() {
+  const { execFileSync } = require('node:child_process');
+  const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  try {
+    if (git('rev-parse', '--is-shallow-repository') !== 'false') return;
+  } catch {
+    return;
+  }
+  const sitemap = path.join(output, 'prototype-amazon', 'sitemap.xml');
+  const source = (pathname) => {
+    if (pathname === '/') return 'prototype-amazon/index.html';
+    const relative = decodeURIComponent(pathname.slice(1));
+    return fs.existsSync(path.join(root, 'prototype-amazon', relative)) && !relative.includes('/') ? `prototype-amazon/${relative}` : relative;
+  };
+  const xml = fs.readFileSync(sitemap, 'utf8').replace(/<url><loc>([^<]+)<\/loc><\/url>/g, (entry, loc) => {
+    const file = source(new URL(loc).pathname);
+    let date = '';
+    try { date = git('log', '-1', '--format=%cs', '--', file); } catch { /* untracked */ }
+    return date ? `<url><loc>${loc}</loc><lastmod>${date}</lastmod></url>` : entry;
+  });
+  fs.writeFileSync(sitemap, xml);
+}
+
+// Publish every absolute URL under one origin and refuse to ship the retired Render domain.
+function finalizeOrigins() {
+  const stale = [];
+  for (const file of textFiles(output)) {
+    let text = fs.readFileSync(file, 'utf8');
+    if (origin !== canonicalOrigin && text.includes(canonicalOrigin)) {
+      text = text.split(canonicalOrigin).join(origin);
+      fs.writeFileSync(file, text);
+    }
+    if (text.includes('onrender.com')) stale.push(path.relative(output, file));
+  }
+  if (stale.length) throw new Error(`Retired onrender.com URLs found in: ${stale.slice(0, 10).join(', ')}`);
 }
 
 if (fs.existsSync(output)) {
@@ -139,8 +263,10 @@ if (fs.existsSync(output)) {
 fs.mkdirSync(output);
 fs.writeFileSync(marker, 'Generated by scripts/build_deploy.cjs.\n');
 for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
-  if (entry.isFile() && !excluded.has(entry.name) && publicExtensions.test(entry.name)) copy(entry.name);
+  if (entry.isFile() && !excluded.has(entry.name) && publicExtensions.test(entry.name) && !shadowedByRoute(entry.name)) copy(entry.name);
 }
 for (const directory of publicDirectories) copyPublicDirectory(directory);
 for (const relative of publicData) copy(relative);
 renderProjects();
+addSitemapDates();
+finalizeOrigins();

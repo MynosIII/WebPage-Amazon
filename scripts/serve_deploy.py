@@ -24,9 +24,13 @@ class DeployHandler(SimpleHTTPRequestHandler):
         self.route_headers = {}
         self.remaining_bytes = None
         for route in ROUTES:
-            if "src" not in route or not re.fullmatch(route["src"], request.path):
+            if "src" not in route:
                 continue
-            captures = {}
+            path_match = re.fullmatch(route["src"].replace("(?<", "(?P<"), request.path)
+            if not path_match:
+                continue
+            captures = {str(index): group for index, group in enumerate(path_match.groups(), 1)}
+            captures.update(path_match.groupdict())
             for condition in route.get("has", []):
                 pattern = condition["value"].replace("(?<", "(?P<")
                 value = query.get(condition["key"], [""])[0]
@@ -36,7 +40,7 @@ class DeployHandler(SimpleHTTPRequestHandler):
                 captures.update(match.groupdict())
             else:
                 self.route_headers.update({
-                    name: re.sub(r"\$([a-z]+)", lambda m: captures[m[1]], value)
+                    name: re.sub(r"\$(\w+)", lambda m: captures[m[1]], value)
                     for name, value in route.get("headers", {}).items()
                 })
                 if route.get("continue"):
@@ -47,7 +51,7 @@ class DeployHandler(SimpleHTTPRequestHandler):
                     self.end_headers()
                     return None
                 if "dest" in route:
-                    self.path = route["dest"]
+                    self.path = re.sub(r"\$(\w+)", lambda m: captures[m[1]], route["dest"])
                     break
 
         target = Path(self.translate_path(self.path))

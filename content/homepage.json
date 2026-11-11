@@ -2,7 +2,7 @@
   "es": {
     "lang": "es",
     "locale": "es_AR",
-    "canonical": "https://matiasgaglio.onrender.com/",
+    "canonical": "https://matiasgaglio.vercel.app/",
     "switch_href": "index-en.html",
     "switch_label": "EN",
     "switch_aria": "View in English",
@@ -28,10 +28,10 @@
     "availability": "Disponible para proyectos freelance, consultoría y colaboraciones remotas.",
     "proof_label": "Resultados documentados",
     "proof": [
-      ["US$1.560 → US$2.830", "ventas retail · Amazon · 17 ago–11 oct", "caso-1-es.html"],
-      ["6,28% → 13,69%", "conversión · Amazon · 10 ago–4 oct", "caso-1-es.html"],
-      ["US$96.842 → US$312.480", "ventas · portafolio · jul–27 oct", "caso-2-es.html"],
-      ["US$874 → US$2.415", "ingresos semanales · Amazon · 14–27 jun", "caso-daizzy-gear-es.html"]
+      ["US$1.560 → US$2.830", "ventas retail · Amazon · 17 ago–11 oct 2025", "caso-1-es.html"],
+      ["6,28% → 13,69%", "conversión · Amazon · 10 ago–4 oct 2025", "caso-1-es.html"],
+      ["US$96.842 → US$312.480", "ventas · portafolio · jul–27 oct 2025", "caso-2-es.html"],
+      ["US$874 → US$2.415", "ingresos semanales · Amazon · 14–27 jun 2026", "caso-daizzy-gear-es.html"]
     ],
     "capabilities_eyebrow": "Qué resuelvo",
     "capabilities_title": "Tres disciplinas, una sola decisión comercial.",
@@ -133,7 +133,7 @@
   "en": {
     "lang": "en",
     "locale": "en_US",
-    "canonical": "https://matiasgaglio.onrender.com/index-en.html",
+    "canonical": "https://matiasgaglio.vercel.app/index-en.html",
     "switch_href": "index.html",
     "switch_label": "ES",
     "switch_aria": "Ver en español",
@@ -159,10 +159,10 @@
     "availability": "Available for freelance projects, consulting and remote collaborations.",
     "proof_label": "Documented outcomes",
     "proof": [
-      ["$1,560 → $2,830", "retail sales · Amazon · Aug 17–Oct 11", "caso-1-en.html"],
-      ["6.28% → 13.69%", "conversion · Amazon · Aug 10–Oct 4", "caso-1-en.html"],
-      ["$96,842 → $312,480", "sales · portfolio · Jul–Oct 27", "caso-2-en.html"],
-      ["$874 → $2,415", "weekly revenue · Amazon · Jun 14–27", "caso-daizzy-gear-en.html"]
+      ["$1,560 → $2,830", "retail sales · Amazon · Aug 17–Oct 11, 2025", "caso-1-en.html"],
+      ["6.28% → 13.69%", "conversion · Amazon · Aug 10–Oct 4, 2025", "caso-1-en.html"],
+      ["$96,842 → $312,480", "sales · portfolio · Jul–Oct 27, 2025", "caso-2-en.html"],
+      ["$874 → $2,415", "weekly revenue · Amazon · Jun 14–27, 2026", "caso-daizzy-gear-en.html"]
     ],
     "capabilities_eyebrow": "What I solve",
     "capabilities_title": "Three disciplines, one commercial decision.",
