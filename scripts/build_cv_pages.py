@@ -195,7 +195,7 @@ def render(lang: str, default: bool = False) -> str:
         "skill_groups": skill_groups,
         "education_items": education_items,
         "availability_value": esc(content["availability_value"]),
-        "home_href": "index-es.html" if es else "index-en.html",
+        "home_href": "/" if es else "/index-en.html",
     }
     return Template(TEMPLATE.read_text(encoding="utf-8")).substitute(values).rstrip() + "\n"
 
