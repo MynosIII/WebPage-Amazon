@@ -168,3 +168,5 @@ body.project-article-page {
 .pa-tags li { padding: 6px 12px; border: 1px solid var(--pa-line); border-radius: 999px; background: var(--pa-panel-2); color: var(--pa-text); font-size: .86rem; line-height: 1.3; }
 .pa-tags--topics li { background: transparent; color: var(--pa-muted); }
 .pa-section > .container > p + p { margin-top: 14px; }
+.pa-figure--inline { margin: 26px 0; }
+.pa-figure--inline img { aspect-ratio: auto; object-fit: contain; }
