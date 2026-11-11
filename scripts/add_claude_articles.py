@@ -61,6 +61,10 @@ def render_block(block: tuple) -> str:
         head = ''.join(f'<th scope="col">{escape(h)}</th>' for h in headers)
         body = ''.join('<tr>' + ''.join((f'<td><strong>{escape(c)}</strong></td>' if i == 0 else f'<td>{escape(c)}</td>') for i, c in enumerate(row)) + '</tr>' for row in rows)
         return f'<div class="pa-table-wrap" role="region" aria-label="{escape(caption, quote=True)}" tabindex="0"><table class="pa-table"><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
+    if kind == 'figure':
+        _, src, width, height, alt, caption = block
+        return (f'<figure class="pa-figure pa-figure--inline"><img src="{escape(src, quote=True)}" width="{width}" height="{height}" alt="{escape(alt, quote=True)}" loading="lazy" decoding="async">'
+                f'<figcaption>{escape(caption)}</figcaption></figure>')
     if kind == 'sources':
         items = []
         for href, title, note in block[1]:
@@ -158,13 +162,15 @@ def main() -> None:
             (ROOT / url).write_text(build_page(article, lang, tool_catalog), encoding='utf-8')
             keywords = ', '.join(data['keywords'])
 
+            positions = [i for i, entry in enumerate(catalog) if entry.get('url') == url]
             catalog = [entry for entry in catalog if entry.get('url') != url]
-            catalog.append(dict(title=data['title'], description=data['deck'], keywords=keywords, lang=lang, url=url,
+            catalog.insert(positions[0] if positions else len(catalog), dict(title=data['title'], description=data['deck'], keywords=keywords, lang=lang, url=url,
                                 staticArticle=True, categories=article['categories'], image=article['cover'], mediaFit='cover',
                                 toolLogos=[dict(key=key, **tool_catalog['tools'][key]) for key in article['tools']]))
 
+            positions = [i for i, entry in enumerate(search) if entry.get('url') == url]
             search = [entry for entry in search if entry.get('url') != url]
-            search.append(search_entry(url, tool_catalog))
+            search.insert(positions[0] if positions else len(search), search_entry(url, tool_catalog))
 
             for listing in [f'Articles-{lang}.html'] + (['Articles.html'] if lang == 'en' else []):
                 path = ROOT / listing
