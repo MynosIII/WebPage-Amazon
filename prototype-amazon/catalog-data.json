@@ -1318,7 +1318,7 @@
   {
     "title": "F1Predictor: leakage-free walk-forward prediction",
     "description": "How I built and validated a Formula 1 predictor that uses only information available before the first practice session of each Grand Prix.",
-    "keywords": "F1Predictor, Formula 1, machine learning, walk-forward, backtest, Elo, gradient boosting, Hedge, Python, sports prediction Predict before knowing. Learn afterward. The most important boundary is time. The prediction is built The result is revealed The code preserves the sequence A combination that can correct its own confidence. Multi-competitor Elo Gradient boosting Hedge blend Separated risks Each era contributes a different mix of information. Form and similarity Separated capabilities Rolling windows Pre-race context A reading that gains detail Accident versus mechanical Beating a competitive reference. A personal sports analytics lab. Every figure can be traced. Python",
+    "keywords": "F1Predictor, Formula 1, F1, machine learning, online learning, walk-forward, backtest, Elo, gradient boosting, Hedge, Python, pandas, NumPy, scikit-learn, SciPy, pytest, Jolpica, OpenF1, Claude Code, GitHub, sports prediction, sports analytics, statistical validation, Telemetry One",
     "lang": "en",
     "url": "f1-predictor-walk-forward-en.html",
     "categories": [
@@ -1336,6 +1336,25 @@
         "aliases": [
           "Python"
         ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
       }
     ],
     "staticArticle": true
@@ -1343,7 +1362,7 @@
   {
     "title": "F1Predictor: predicción walk-forward sin fuga de datos",
     "description": "Cómo construí y validé un predictor de Fórmula 1 que usa únicamente información disponible antes de la primera práctica de cada Gran Premio.",
-    "keywords": "F1Predictor, Fórmula 1, machine learning, walk-forward, backtest, Elo, gradient boosting, Hedge, Python, predicción deportiva Predecir antes de saber. Aprender después. La frontera más importante es temporal. Se construye la predicción Se revela el resultado El código preserva la secuencia Una combinación que puede corregir su propia confianza. Elo multicompetidor Gradient boosting Mezcla Hedge Riesgos separados Cada época aporta una combinación distinta de información. Forma y similitud Capacidades separadas Ventanas móviles Contexto previo a la carrera Una lectura que gana detalle Accidente versus mecánica Superar una referencia competitiva. Un laboratorio personal de análisis deportivo. Cada cifra puede rastrearse. Python",
+    "keywords": "F1Predictor, Fórmula 1, F1, machine learning, aprendizaje online, walk-forward, backtest, Elo, gradient boosting, Hedge, Python, pandas, NumPy, scikit-learn, SciPy, pytest, Jolpica, OpenF1, Claude Code, GitHub, predicción deportiva, analítica deportiva, validación estadística, Telemetry One",
     "lang": "es",
     "url": "f1-predictor-walk-forward-es.html",
     "categories": [
@@ -1360,6 +1379,25 @@
         "asset": "python.svg",
         "aliases": [
           "Python"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
         ]
       }
     ],
@@ -1430,7 +1468,7 @@
   {
     "title": "Predestinato: designing a career simulator",
     "description": "How I designed Predestinato: a playable motorsport career prototype with contracts, sponsors, development, super licence rules, 16 minigames and an audit of 8,825 simulated seasons.",
-    "keywords": "Predestinato, game design, career simulator, Formula 1, JavaScript, UX, game economy, testing, minigames A sporting life built from connected decisions. The career is not a single ladder toward Formula 1. Five statistics and Form Pay, earn and negotiate Markets with alternatives Identity is already a game decision. Three offers, not one correct answer A visible curve Every season changes the next one. Preseason card Short agenda Result and settlement Market and development Detail matters when it changes the strategy. Three-year rolling window Seven points per season Development, prime and decline Cumulative protection Budget and patience Achievements across disciplines Simulating complete careers to improve the design. A system ready to keep growing. Play, review and reproduce. JavaScript",
+    "keywords": "Predestinato, game design, career simulator, motorsport, Formula 1, karting, JavaScript, HTML, CSS, GitHub, Vercel, UX, game economy, balancing, simulation, testing, QA, minigames, web game",
     "lang": "en",
     "url": "predestinato-simulador-carrera-en.html",
     "categories": [
@@ -1448,6 +1486,23 @@
           "JavaScript",
           "JS"
         ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "vercel",
+        "name": "Vercel",
+        "asset": "vercel.svg",
+        "aliases": [
+          "Vercel"
+        ]
       }
     ],
     "staticArticle": true
@@ -1455,7 +1510,7 @@
   {
     "title": "Predestinato: diseño de un simulador de carrera",
     "description": "Cómo diseñé Predestinato: un prototipo jugable de carrera automovilística con contratos, sponsors, evolución, superlicencia, 16 minijuegos y auditoría de 8.825 temporadas simuladas.",
-    "keywords": "Predestinato, game design, simulador de carrera, Fórmula 1, JavaScript, UX, economía de juego, testing, minijuegos Una vida deportiva hecha de decisiones conectadas. La carrera no es una escalera única hacia Fórmula 1. Cinco estadísticas y Forma Pagar, cobrar y negociar Mercados con alternativas La identidad ya es una decisión de juego. Tres ofertas, no una respuesta correcta Una curva visible Cada temporada modifica la siguiente. Carta de pretemporada Agenda breve Resultado y liquidación Mercado y evolución El detalle importa cuando cambia la estrategia. Ventana móvil de tres años Siete puntos por temporada Desarrollo, plenitud y caída Protección acumulativa Presupuesto y paciencia Logros entre disciplinas Simular carreras completas para mejorar el diseño. Un sistema preparado para seguir creciendo. Jugar, revisar y reproducir. JavaScript",
+    "keywords": "Predestinato, game design, diseño de juegos, simulador de carrera, automovilismo, Fórmula 1, karting, JavaScript, HTML, CSS, GitHub, Vercel, UX, economía de juego, balance, simulación, testing, QA, minijuegos, juego web",
     "lang": "es",
     "url": "predestinato-simulador-carrera-es.html",
     "categories": [
@@ -1472,6 +1527,23 @@
         "aliases": [
           "JavaScript",
           "JS"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "vercel",
+        "name": "Vercel",
+        "asset": "vercel.svg",
+        "aliases": [
+          "Vercel"
         ]
       }
     ],
@@ -1686,9 +1758,9 @@
     ]
   },
   {
-    "title": "Telemetry 1: a Formula 1 ecosystem",
-    "description": "How I designed Telemetry 1 to bring Formula 1 results, history, statistics, analytical models and games into one bilingual, navigable experience.",
-    "keywords": "Telemetry 1, Formula 1, Next.js, historical archive, data visualization, UX, F1DB, sports analytics, Python, TypeScript From separate experiments to a navigable ecosystem. The information existed. What it needed was a way to explore it. The season as an entry point 76 connected seasons Compare beyond the result One entrance, several levels of depth. Data that keeps its meaning Links as part of the model Generate, verify and then present. Normalize sources Build snapshots Verify invariants Serve with Next.js The model is part of the experience. The portal also supports independent products A personal project combining product, data and creativity. Product and method open for inspection. TypeScript Python",
+    "title": "Telemetry One: a Formula 1 ecosystem",
+    "description": "How I designed Telemetry One to bring Formula 1 results, live replay, post-race reports, history, statistics, analytical models and games into one bilingual, navigable experience.",
+    "keywords": "Telemetry One, Formula 1, F1, Next.js, React, TypeScript, Python, Vercel, GitHub, GitHub Actions, Claude Code, OpenF1, Jolpica, F1DB, MapLibre, Plotly, Neon, Postgres, historical archive, data visualization, race replay, post-race report, sports analytics, UX, digital product",
     "lang": "en",
     "url": "telemetry-one-ecosistema-en.html",
     "categories": [
@@ -1700,11 +1772,29 @@
     "mediaFit": "cover",
     "toolLogos": [
       {
+        "key": "nextjs",
+        "name": "Next.js",
+        "asset": "nextjs.svg",
+        "aliases": [
+          "Next.js",
+          "NextJS"
+        ]
+      },
+      {
         "key": "typescript",
         "name": "TypeScript",
         "asset": "typescript.svg",
         "aliases": [
           "TypeScript"
+        ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
         ]
       },
       {
@@ -1716,21 +1806,39 @@
         ]
       },
       {
-        "key": "javascript",
-        "name": "JavaScript",
-        "asset": "javascript.svg",
+        "key": "vercel",
+        "name": "Vercel",
+        "asset": "vercel.svg",
         "aliases": [
-          "JavaScript",
-          "JS"
+          "Vercel"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
         ]
       }
     ],
     "staticArticle": true
   },
   {
-    "title": "Telemetry 1: ecosistema de Fórmula 1",
-    "description": "Cómo diseñé Telemetry 1 para reunir resultados, historia, estadísticas, modelos y juegos de Fórmula 1 en una experiencia bilingüe, verificable y navegable.",
-    "keywords": "Telemetry 1, Fórmula 1, Next.js, archivo histórico, visualización de datos, UX, F1DB, estadísticas deportivas, Python, TypeScript De varios experimentos a un ecosistema navegable. La información existía. Lo que faltaba era una forma de recorrerla. La temporada como punto de entrada 76 temporadas conectadas Comparar más allá del resultado Una entrada común, varias profundidades. Datos que conservan su significado Enlaces como parte del modelo Generar, verificar y después presentar. Normalizar fuentes Construir snapshots Verificar invariantes Servir con Next.js El modelo no es decoración. El portal también admite productos independientes Un proyecto personal que reúne producto, datos y creatividad. Producto y método abiertos a inspección. TypeScript Python",
+    "title": "Telemetry One: ecosistema de Fórmula 1",
+    "description": "Cómo diseñé Telemetry One para reunir resultados, replay en vivo, informes post-carrera, historia, estadísticas, modelos analíticos y juegos de Fórmula 1 en una experiencia bilingüe y navegable.",
+    "keywords": "Telemetry One, Fórmula 1, F1, Next.js, React, TypeScript, Python, Vercel, GitHub, GitHub Actions, Claude Code, OpenF1, Jolpica, F1DB, MapLibre, Plotly, Neon, Postgres, archivo histórico, visualización de datos, replay de carreras, informe post-carrera, analítica deportiva, UX, producto digital",
     "lang": "es",
     "url": "telemetry-one-ecosistema-es.html",
     "categories": [
@@ -1742,11 +1850,29 @@
     "mediaFit": "cover",
     "toolLogos": [
       {
+        "key": "nextjs",
+        "name": "Next.js",
+        "asset": "nextjs.svg",
+        "aliases": [
+          "Next.js",
+          "NextJS"
+        ]
+      },
+      {
         "key": "typescript",
         "name": "TypeScript",
         "asset": "typescript.svg",
         "aliases": [
           "TypeScript"
+        ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
         ]
       },
       {
@@ -1758,12 +1884,30 @@
         ]
       },
       {
-        "key": "javascript",
-        "name": "JavaScript",
-        "asset": "javascript.svg",
+        "key": "vercel",
+        "name": "Vercel",
+        "asset": "vercel.svg",
         "aliases": [
-          "JavaScript",
-          "JS"
+          "Vercel"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
         ]
       }
     ],
@@ -2432,9 +2576,449 @@
     ]
   },
   {
+    "title": "Trabajar con un agente de IA: Claude como parte del equipo",
+    "description": "Cómo uso Claude Code conectado a GitHub, Vercel, Google Drive y aplicaciones de escritorio para construir, auditar y publicar proyectos reales, y qué reglas mantengo para que el resultado sea confiable.",
+    "keywords": "Claude, Claude Code, Anthropic, agente de IA, IA aplicada, MCP, Model Context Protocol, GitHub, pull requests, Vercel, Next.js, TypeScript, Python, Google Drive, Canva, Playwright, auditoría web, SEO técnico, automatización, flujo de trabajo, productividad",
+    "lang": "es",
+    "url": "trabajo-con-claude-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "other"
+    ],
+    "image": "assets/catalog-previews/trabajo-con-claude.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "vercel",
+        "name": "Vercel",
+        "asset": "vercel.svg",
+        "aliases": [
+          "Vercel"
+        ]
+      },
+      {
+        "key": "nextjs",
+        "name": "Next.js",
+        "asset": "nextjs.svg",
+        "aliases": [
+          "Next.js",
+          "NextJS"
+        ]
+      },
+      {
+        "key": "typescript",
+        "name": "TypeScript",
+        "asset": "typescript.svg",
+        "aliases": [
+          "TypeScript"
+        ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ]
+      },
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "google-drive",
+        "name": "Google Drive",
+        "asset": "google-drive.svg",
+        "aliases": [
+          "Google Drive"
+        ]
+      },
+      {
+        "key": "canva",
+        "name": "Canva",
+        "asset": "canva.svg",
+        "aliases": [
+          "Canva"
+        ]
+      },
+      {
+        "key": "davinci-resolve",
+        "name": "DaVinci Resolve",
+        "asset": "davinci-resolve.svg",
+        "aliases": [
+          "DaVinci Resolve",
+          "Davinci Resolve"
+        ]
+      },
+      {
+        "key": "audacity",
+        "name": "Audacity",
+        "asset": "audacity.svg",
+        "aliases": [
+          "Audacity"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Working with an AI agent: Claude as part of the team",
+    "description": "How I use Claude Code connected to GitHub, Vercel, Google Drive and desktop apps to build, audit and ship real projects, and the rules I keep so the output can be trusted.",
+    "keywords": "Claude, Claude Code, Anthropic, AI agent, applied AI, MCP, Model Context Protocol, GitHub, pull requests, Vercel, Next.js, TypeScript, Python, Google Drive, Canva, Playwright, website audit, technical SEO, automation, workflow, productivity",
+    "lang": "en",
+    "url": "trabajo-con-claude-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "other"
+    ],
+    "image": "assets/catalog-previews/trabajo-con-claude.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "vercel",
+        "name": "Vercel",
+        "asset": "vercel.svg",
+        "aliases": [
+          "Vercel"
+        ]
+      },
+      {
+        "key": "nextjs",
+        "name": "Next.js",
+        "asset": "nextjs.svg",
+        "aliases": [
+          "Next.js",
+          "NextJS"
+        ]
+      },
+      {
+        "key": "typescript",
+        "name": "TypeScript",
+        "asset": "typescript.svg",
+        "aliases": [
+          "TypeScript"
+        ]
+      },
+      {
+        "key": "javascript",
+        "name": "JavaScript",
+        "asset": "javascript.svg",
+        "aliases": [
+          "JavaScript",
+          "JS"
+        ]
+      },
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "google-drive",
+        "name": "Google Drive",
+        "asset": "google-drive.svg",
+        "aliases": [
+          "Google Drive"
+        ]
+      },
+      {
+        "key": "canva",
+        "name": "Canva",
+        "asset": "canva.svg",
+        "aliases": [
+          "Canva"
+        ]
+      },
+      {
+        "key": "davinci-resolve",
+        "name": "DaVinci Resolve",
+        "asset": "davinci-resolve.svg",
+        "aliases": [
+          "DaVinci Resolve",
+          "Davinci Resolve"
+        ]
+      },
+      {
+        "key": "audacity",
+        "name": "Audacity",
+        "asset": "audacity.svg",
+        "aliases": [
+          "Audacity"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Postproducción de video con IA: DaVinci Resolve conectado a Claude",
+    "description": "Cómo conecté DaVinci Resolve a Claude mediante MCP para animar el logo de Oxi, armar reels verticales, empatar color, generar efectos de sonido por código y documentar todo en una guía de edición para el equipo.",
+    "keywords": "DaVinci Resolve, Claude, Claude Code, MCP, Model Context Protocol, Python, FFmpeg, OBS Studio, postproducción, edición de video, motion graphics, animación de logo, reels, Instagram Reels, video vertical, corrección de color, efectos de sonido, diseño sonoro, subtítulos, Oxi, IA aplicada",
+    "lang": "es",
+    "url": "postproduccion-video-davinci-resolve-ia-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "creative"
+    ],
+    "image": "assets/catalog-previews/postproduccion-video-davinci-resolve-ia.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "davinci-resolve",
+        "name": "DaVinci Resolve",
+        "asset": "davinci-resolve.svg",
+        "aliases": [
+          "DaVinci Resolve",
+          "Davinci Resolve"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      },
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "ffmpeg",
+        "name": "FFmpeg",
+        "asset": "ffmpeg.svg",
+        "aliases": [
+          "FFmpeg"
+        ]
+      },
+      {
+        "key": "obs-studio",
+        "name": "OBS Studio",
+        "asset": "obs-studio.svg",
+        "aliases": [
+          "OBS Studio",
+          "OBS"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "AI-assisted video post-production: DaVinci Resolve connected to Claude",
+    "description": "How I connected DaVinci Resolve to Claude through MCP to animate the Oxi logo, build vertical reels, match color, generate sound effects with code and document it all in an editing guide for the team.",
+    "keywords": "DaVinci Resolve, Claude, Claude Code, MCP, Model Context Protocol, Python, FFmpeg, OBS Studio, post-production, video editing, motion graphics, logo animation, reels, Instagram Reels, vertical video, color correction, sound effects, sound design, subtitles, Oxi, applied AI",
+    "lang": "en",
+    "url": "postproduccion-video-davinci-resolve-ia-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "creative"
+    ],
+    "image": "assets/catalog-previews/postproduccion-video-davinci-resolve-ia.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "davinci-resolve",
+        "name": "DaVinci Resolve",
+        "asset": "davinci-resolve.svg",
+        "aliases": [
+          "DaVinci Resolve",
+          "Davinci Resolve"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      },
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "ffmpeg",
+        "name": "FFmpeg",
+        "asset": "ffmpeg.svg",
+        "aliases": [
+          "FFmpeg"
+        ]
+      },
+      {
+        "key": "obs-studio",
+        "name": "OBS Studio",
+        "asset": "obs-studio.svg",
+        "aliases": [
+          "OBS Studio",
+          "OBS"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Limpiar el audio de una entrevista con IA: Audacity y DeepFilterNet",
+    "description": "Cómo conecté Audacity a Claude para mejorar una entrevista de casi 22 minutos, por qué la primera versión empeoró el sonido y cómo una segunda pasada con DeepFilterNet bajó 21 dB el ruido sin mover una sola muestra.",
+    "keywords": "Audacity, DeepFilterNet, Claude, Claude Code, MCP, mod-script-pipe, Python, NumPy, FFmpeg, reducción de ruido, limpieza de audio, IA para audio, entrevista, podcast, LUFS, normalización, compresor, procesamiento de audio, control de calidad, IA aplicada",
+    "lang": "es",
+    "url": "limpieza-audio-entrevista-ia-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "creative"
+    ],
+    "image": "assets/catalog-previews/limpieza-audio-entrevista-ia.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "audacity",
+        "name": "Audacity",
+        "asset": "audacity.svg",
+        "aliases": [
+          "Audacity"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      },
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "ffmpeg",
+        "name": "FFmpeg",
+        "asset": "ffmpeg.svg",
+        "aliases": [
+          "FFmpeg"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Cleaning interview audio with AI: Audacity and DeepFilterNet",
+    "description": "How I connected Audacity to Claude to improve a nearly 22-minute interview, why the first version made it sound worse, and how a second pass with DeepFilterNet cut background noise by 21 dB without moving a single sample.",
+    "keywords": "Audacity, DeepFilterNet, Claude, Claude Code, MCP, mod-script-pipe, Python, NumPy, FFmpeg, noise reduction, audio cleanup, AI audio, interview, podcast, LUFS, loudness normalization, compressor, audio processing, quality control, applied AI",
+    "lang": "en",
+    "url": "limpieza-audio-entrevista-ia-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "creative"
+    ],
+    "image": "assets/catalog-previews/limpieza-audio-entrevista-ia.png",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "audacity",
+        "name": "Audacity",
+        "asset": "audacity.svg",
+        "aliases": [
+          "Audacity"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      },
+      {
+        "key": "python",
+        "name": "Python",
+        "asset": "python.svg",
+        "aliases": [
+          "Python"
+        ]
+      },
+      {
+        "key": "ffmpeg",
+        "name": "FFmpeg",
+        "asset": "ffmpeg.svg",
+        "aliases": [
+          "FFmpeg"
+        ]
+      }
+    ]
+  },
+  {
     "title": "Construir este portfolio: del archivo de trabajos a un producto",
     "description": "Cómo organicé mi trabajo en un sitio bilingüe que conecta casos, herramientas y evidencia.",
-    "keywords": "Desarrollo web / Diseño / IA",
+    "keywords": "portfolio, desarrollo web, sitio bilingüe, HTML, CSS, JavaScript, Python, Vercel, GitHub, Playwright, Claude, Claude Code, ChatGPT, Codex, IA aplicada, SEO técnico, accesibilidad, catálogo, diseño UX",
     "lang": "es",
     "url": "construccion-portfolio-es.html",
     "staticArticle": true,
@@ -2461,13 +3045,40 @@
           "JavaScript",
           "JS"
         ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "vercel",
+        "name": "Vercel",
+        "asset": "vercel.svg",
+        "aliases": [
+          "Vercel"
+        ]
       }
     ]
   },
   {
     "title": "Building this portfolio: from a work archive to a product",
     "description": "How I organized my work into a bilingual website connecting projects, tools and evidence.",
-    "keywords": "Web development / Design / AI",
+    "keywords": "portfolio, web development, bilingual website, HTML, CSS, JavaScript, Python, Vercel, GitHub, Playwright, Claude, Claude Code, ChatGPT, Codex, applied AI, technical SEO, accessibility, catalog, UX design",
     "lang": "en",
     "url": "construccion-portfolio-en.html",
     "staticArticle": true,
@@ -2494,13 +3105,40 @@
           "JavaScript",
           "JS"
         ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      },
+      {
+        "key": "github",
+        "name": "GitHub",
+        "asset": "github.svg",
+        "aliases": [
+          "GitHub",
+          "GitHub Actions"
+        ]
+      },
+      {
+        "key": "vercel",
+        "name": "Vercel",
+        "asset": "vercel.svg",
+        "aliases": [
+          "Vercel"
+        ]
       }
     ]
   },
   {
     "title": "Oxi: construir una agencia entre contenido y análisis",
     "description": "La construcción de Oxi: ideas, guiones, producción audiovisual y análisis de marketing dentro de un mismo proceso.",
-    "keywords": "Comunicación / Producción / Marketing",
+    "keywords": "Oxi, agencia de marketing, contenido, producción audiovisual, reels, guion, marketing cuantitativo, PPC, Meridian, marketing mix modeling, DaVinci Resolve, Claude, MCP, identidad de marca, edición de video",
     "lang": "es",
     "url": "oxi-contenido-y-analisis-es.html",
     "staticArticle": true,
@@ -2510,12 +3148,32 @@
     ],
     "image": "assets/catalog-previews/oxi-contenido-y-analisis.png",
     "mediaFit": "cover",
-    "toolLogos": []
+    "toolLogos": [
+      {
+        "key": "davinci-resolve",
+        "name": "DaVinci Resolve",
+        "asset": "davinci-resolve.svg",
+        "aliases": [
+          "DaVinci Resolve",
+          "Davinci Resolve"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      }
+    ]
   },
   {
     "title": "Oxi: building an agency around content and analysis",
     "description": "Building Oxi through ideas, scripts, audiovisual production and marketing analysis.",
-    "keywords": "Communication / Production / Marketing",
+    "keywords": "Oxi, marketing agency, content, video production, reels, scriptwriting, quantitative marketing, PPC, Meridian, marketing mix modeling, DaVinci Resolve, Claude, MCP, brand identity, video editing",
     "lang": "en",
     "url": "oxi-contenido-y-analisis-en.html",
     "staticArticle": true,
@@ -2525,7 +3183,27 @@
     ],
     "image": "assets/catalog-previews/oxi-contenido-y-analisis.png",
     "mediaFit": "cover",
-    "toolLogos": []
+    "toolLogos": [
+      {
+        "key": "davinci-resolve",
+        "name": "DaVinci Resolve",
+        "asset": "davinci-resolve.svg",
+        "aliases": [
+          "DaVinci Resolve",
+          "Davinci Resolve"
+        ]
+      },
+      {
+        "key": "claude",
+        "name": "Claude",
+        "asset": "claude.svg",
+        "aliases": [
+          "Claude",
+          "Claude Code",
+          "Anthropic Claude"
+        ]
+      }
+    ]
   },
   {
     "title": "Revolution: conectar catálogo, publicidad y contenido en Amazon",

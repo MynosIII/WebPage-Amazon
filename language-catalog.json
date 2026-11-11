@@ -288,6 +288,27 @@
       "english": "telemetry-one-ecosistema-en.html",
       "spanish": "telemetry-one-ecosistema-es.html",
       "legacy": false
+    },
+    {
+      "page": "trabajo-con-claude.html",
+      "sourceLanguage": "es",
+      "english": "trabajo-con-claude-en.html",
+      "spanish": "trabajo-con-claude-es.html",
+      "legacy": false
+    },
+    {
+      "page": "postproduccion-video-davinci-resolve-ia.html",
+      "sourceLanguage": "es",
+      "english": "postproduccion-video-davinci-resolve-ia-en.html",
+      "spanish": "postproduccion-video-davinci-resolve-ia-es.html",
+      "legacy": false
+    },
+    {
+      "page": "limpieza-audio-entrevista-ia.html",
+      "sourceLanguage": "es",
+      "english": "limpieza-audio-entrevista-ia-en.html",
+      "spanish": "limpieza-audio-entrevista-ia-es.html",
+      "legacy": false
     }
   ],
   "excludedDevelopmentFiles": [
