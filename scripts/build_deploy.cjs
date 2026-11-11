@@ -118,6 +118,47 @@ function nextStep(html, lang) {
   return html.replace(/<\/main>/i, block + '</main>');
 }
 
+const sectionNames = {
+  es: { ecommerce: 'Ecommerce y Amazon Growth', bi: 'Business Intelligence', creative: 'Creatividad y medios', articles: 'Sistemas y artículos', research: 'Investigación y análisis', other: 'Otros proyectos' },
+  en: { ecommerce: 'Ecommerce and Amazon Growth', bi: 'Business Intelligence', creative: 'Creative and media', articles: 'Systems and articles', research: 'Research and analysis', other: 'Other projects' }
+};
+
+// Article + breadcrumb structured data for each case page.
+function structuredData(html, item) {
+  const section = item.categories?.[0] || 'all';
+  const home = item.lang === 'en' ? `${canonicalOrigin}/index-en.html` : `${canonicalOrigin}/`;
+  const catalogPage = `${canonicalOrigin}/${item.lang === 'en' ? 'catalog-en.html' : 'catalog.html'}`;
+  const canonical = canonicalOrigin + '/' + item.url.split('/').map(encodeURIComponent).join('/');
+  const image = item.image && !item.image.endsWith('.svg') ? item.image : 'prototype-amazon/og-card.png';
+  const data = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Article',
+        '@id': `${canonical}#article`,
+        headline: item.title,
+        description: item.description,
+        inLanguage: item.lang,
+        url: canonical,
+        mainEntityOfPage: canonical,
+        image: canonicalOrigin + '/' + image.split('/').map(encodeURIComponent).join('/'),
+        author: { '@type': 'Person', name: 'Matías Gaglio', url: home },
+        isPartOf: { '@type': 'WebSite', name: 'Matías Gaglio', url: `${canonicalOrigin}/` }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: item.lang === 'en' ? 'Home' : 'Inicio', item: home },
+          { '@type': 'ListItem', position: 2, name: sectionNames[item.lang][section] || 'Portfolio', item: `${catalogPage}?section=${section}` },
+          { '@type': 'ListItem', position: 3, name: item.title, item: canonical }
+        ]
+      }
+    ]
+  };
+  const json = JSON.stringify(data).replace(/</g, '\\u003c');
+  return html.replace(/<\/head>/i, `  <script type="application/ld+json" data-case-schema>${json}</script>\n</head>`);
+}
+
 function renderProjects() {
   const pairs = new Map();
   for (const item of catalog) {
@@ -147,7 +188,7 @@ function renderProjects() {
     if (!/<h1\b[^>]*>\s*[^<\s]|<h1\b[^>]*>\s*<(?:em|span|strong)\b/i.test(html)) {
       throw new Error(`No static heading in ${item.url}`);
     }
-    fs.writeFileSync(target, discoveryHead(nextStep(html, item.lang), item, pair));
+    fs.writeFileSync(target, structuredData(discoveryHead(nextStep(html, item.lang), item, pair), item));
   }
   console.log(`Prepared ${catalog.length} case pages in ${pairs.size} bilingual pairs.`);
 }
