@@ -61,6 +61,11 @@ test('the sitemap lists indexable case pages in both languages', async ({ reques
     expect(html, pathname).toMatch(/<meta\b[^>]*property="og:description"[^>]*content="[^"]+"/i);
     expect(html, pathname).not.toMatch(/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/i);
     expect(sitemap).toContain(`<loc>${canonicalOrigin}${pathname}</loc>`);
+    // Every article is tagged for search and links to related work.
+    expect(html, pathname).toMatch(/<meta\b[^>]*name="keywords"[^>]*content="[^"]+"/i);
+    expect(html, pathname).toMatch(/<meta\b[^>]*property="article:tag"/i);
+    expect(html, pathname).toMatch(/pa-tags-section|class="case-discovery__tags/);
+    expect(html, pathname).toContain('class="case-discovery__related"');
   }
 });
 
