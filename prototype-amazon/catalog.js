@@ -39,16 +39,16 @@
     other: ['Otros proyectos', 'Software, automatizaciones y experimentos técnicos fuera del flujo principal de ecommerce.']
   };
 
-  // Each department has its own layout, label and tilt depth (see the
-  // "Section identities and 3D cards" block in styles.css).
+  // Each department has its own layout and card label (see the
+  // "Section identities" block in styles.css).
   const sectionStyle = {
-    all: { layout: 'list', tilt: 1.5 },
-    ecommerce: { layout: 'grid', tilt: 7, label: isEnglish ? 'Case' : 'Caso' },
-    bi: { layout: 'grid', tilt: 6, label: 'Panel' },
-    creative: { layout: 'grid', tilt: 9, label: '' },
-    articles: { layout: 'grid', tilt: 7, label: 'Nº' },
-    research: { layout: 'list', tilt: 0, label: '' },
-    other: { layout: 'grid', tilt: 6, label: '' }
+    all: { layout: 'list' },
+    ecommerce: { layout: 'grid', label: isEnglish ? 'Case' : 'Caso' },
+    bi: { layout: 'grid', label: 'Panel' },
+    creative: { layout: 'grid', label: '' },
+    articles: { layout: 'grid', label: 'Nº' },
+    research: { layout: 'list', label: '' },
+    other: { layout: 'grid', label: '' }
   };
 
   function thumbFor(image, width) {
@@ -95,6 +95,27 @@
     toolbar.insertBefore(art, toolbar.querySelector('.catalog-sort'));
   }
 
+  // The creative section also hosts the interactive 3D model lab, the only
+  // 3D-interactive element of the site. Its module (and three.js, later) loads
+  // only when this section is shown.
+  function syncModelLab() {
+    let lab = document.querySelector('[data-model-lab]');
+    if (section !== 'creative') {
+      if (lab) lab.hidden = true;
+      return;
+    }
+    if (!lab) {
+      lab = document.createElement('section');
+      lab.className = 'model-lab';
+      lab.id = 'modelado-3d';
+      lab.setAttribute('aria-labelledby', 'model-lab-title');
+      lab.dataset.modelLab = '';
+      document.querySelector('.catalog-layout')?.before(lab);
+      import('/prototype-amazon/model-lab.js').then(function (module) { module.mountModelLab(lab, language); }).catch(function () { lab.hidden = true; });
+    }
+    lab.hidden = false;
+  }
+
   function normalize(value) {
     return String(value || '').toLocaleLowerCase(language).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
@@ -128,7 +149,7 @@
     } else if (style.label !== undefined) {
       extra = '<span class="catalog-result__index" aria-hidden="true">' + (style.label ? style.label + ' ' : '') + number + '</span>';
     }
-    return '<article class="catalog-result" data-source="' + item.url + '"' + (style.tilt ? ' data-tilt="' + style.tilt + '"' : '') + '>' + extra +
+    return '<article class="catalog-result" data-source="' + item.url + '">' + extra +
       '<a class="catalog-result__media is-media-pending" data-media-fit="' + (item.mediaFit || 'cover') + '"' + (item.imageSet?.length ? ' data-media-kind="icon-mosaic"' : '') + ' href="' + prototypeUrl(item) + '" tabindex="-1" aria-hidden="true"><span class="catalog-media-skeleton" data-catalog-placeholder></span></a>' +
       '<div class="catalog-result__body"><p class="result-kicker">' + item.categoryLabel + '</p><h3><a href="' + prototypeUrl(item) + '">' + escape(item.title) + '</a></h3><p>' + escape(item.description) + '</p>' + toolLogoMarkup(item.toolLogos) + '</div></article>';
   }
@@ -275,6 +296,7 @@
   function syncSection() {
     const meta = sectionMeta[section] || sectionMeta.all;
     document.body.dataset.section = section;
+    syncModelLab();
     title.textContent = meta[0];
     description.textContent = meta[1];
     crumb.textContent = meta[0];

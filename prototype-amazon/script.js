@@ -111,55 +111,6 @@
     });
   }
 
-
-  // 3D tilt for cards marked [data-tilt] (value = max degrees). Catalog cards
-  // are rendered later by catalog.js, so listeners are delegated. Only a fine
-  // mouse pointer tilts; touch, pen and reduced motion keep cards flat.
-  document.querySelectorAll('.portfolio-result').forEach(function (card) { card.dataset.tilt = '2.5'; });
-  document.querySelectorAll('.evidence-strip > a').forEach(function (card) { card.dataset.tilt = '9'; });
-  (function tiltCards() {
-    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-    if (reducedMotion) return;
-    let active = null;
-    let pending = null;
-    let frame = 0;
-    function reset(card) {
-      card.classList.remove('is-tilting');
-      ['--rx', '--ry', '--gx', '--gy'].forEach(function (name) { card.style.removeProperty(name); });
-    }
-    function apply() {
-      frame = 0;
-      if (!active || !pending) return;
-      const bounds = active.getBoundingClientRect();
-      if (!bounds.width || !bounds.height) return;
-      const x = Math.min(Math.max((pending.clientX - bounds.left) / bounds.width, 0), 1);
-      const y = Math.min(Math.max((pending.clientY - bounds.top) / bounds.height, 0), 1);
-      const max = parseFloat(active.dataset.tilt) || 6;
-      active.style.setProperty('--ry', ((x - 0.5) * 2 * max).toFixed(2) + 'deg');
-      active.style.setProperty('--rx', ((0.5 - y) * 2 * max).toFixed(2) + 'deg');
-      active.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
-      active.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
-      active.classList.add('is-tilting');
-    }
-    document.addEventListener('pointermove', function (event) {
-      if (event.pointerType !== 'mouse' || !finePointer.matches) return;
-      const card = event.target.closest ? event.target.closest('[data-tilt]') : null;
-      if (card !== active) {
-        if (active) reset(active);
-        active = card;
-      }
-      if (!card) return;
-      pending = event;
-      if (!frame) frame = requestAnimationFrame(apply);
-    }, { passive: true });
-    document.addEventListener('pointerout', function (event) {
-      if (active && !active.contains(event.relatedTarget)) {
-        reset(active);
-        active = null;
-      }
-    }, { passive: true });
-  })();
-
   const revealTargets = Array.from(document.querySelectorAll([
     '.sponsored-banner > *',
     '.filter-panel',
