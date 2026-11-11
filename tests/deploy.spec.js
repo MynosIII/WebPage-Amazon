@@ -34,7 +34,7 @@ test('article URLs expose localized content and metadata without JavaScript', as
       await page.goto(url.href);
       await expect(page.locator('html')).toHaveAttribute('lang', lang);
       await expect(page.locator('main h1')).toContainText(lang === 'es' ? 'ecosistema navegable' : 'navigable ecosystem');
-      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://matiasgaglio.vercel.app' + url.pathname);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://matiasgaglio.com' + url.pathname);
       await expect(page.locator('link[hreflang="' + (lang === 'es' ? 'en' : 'es') + '"]')).toHaveCount(1);
     }
   } finally {
@@ -46,7 +46,7 @@ test('the sitemap lists indexable case pages in both languages', async ({ reques
   test.setTimeout(90000);
   const sitemap = await (await request.get('/sitemap.xml')).text();
   expect(sitemap).not.toContain('page.html?source=');
-  const canonicalOrigin = 'https://matiasgaglio.vercel.app';
+  const canonicalOrigin = 'https://matiasgaglio.com';
   for (const item of catalog) {
     const pathname = '/' + item.url;
     const opposite = item.lang === 'es' ? 'en' : 'es';
