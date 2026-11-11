@@ -18,7 +18,7 @@ const path = require('node:path');
 
 const root = path.resolve(__dirname, '..');
 const proto = path.join(root, 'prototype-amazon');
-const SITE = (process.env.SITE_URL_SOURCE || 'https://matiasgaglio.vercel.app').replace(/\/$/, '');
+const SITE = (process.env.SITE_URL_SOURCE || 'https://matiasgaglio.com').replace(/\/$/, '');
 const check = process.argv.includes('--check');
 
 const pages = {

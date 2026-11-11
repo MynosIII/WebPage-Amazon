@@ -1,7 +1,7 @@
 const assert = require('node:assert/strict');
 const { chromium, devices, expect } = require('@playwright/test');
 
-const origin = new URL(process.env.PLAYWRIGHT_BASE_URL || 'https://matiasgaglio.vercel.app').origin;
+const origin = new URL(process.env.PLAYWRIGHT_BASE_URL || 'https://matiasgaglio.com').origin;
 const clips = ['01', '02', '03', '04', '05'];
 
 async function checkByteRanges(number) {

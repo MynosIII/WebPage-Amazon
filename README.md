@@ -1,6 +1,6 @@
 # Matías Gaglio portfolio
 
-The public portfolio is <https://matiasgaglio.vercel.app>. Vercel builds the `main` branch of `MynosIII/WebPage-Amazon` for production and uses `vercel.json` to route visitors to the marketplace interface. Absolute URLs come from one setting: `SITE_URL` (default `https://matiasgaglio.vercel.app`, see `scripts/site_config.py`). To move to a custom domain, set `SITE_URL` in the Vercel project's environment variables and redeploy; `build_deploy.cjs` rewrites canonicals, hreflang, Open Graph URLs and the sitemap. The legacy Render site only redirects here (see below).
+The public portfolio is <https://matiasgaglio.com>. Vercel builds the `main` branch of `MynosIII/WebPage-Amazon` for production and uses `vercel.json` to route visitors to the marketplace interface. Absolute URLs come from one setting: `SITE_URL` (default `https://matiasgaglio.com`, see `scripts/site_config.py`). To move to a custom domain, set `SITE_URL` in the Vercel project's environment variables and redeploy; `build_deploy.cjs` rewrites canonicals, hreflang, Open Graph URLs and the sitemap. The legacy Render site only redirects here (see below).
 
 ## Site architecture
 

@@ -8,13 +8,15 @@ this card carries the new site's own branding and domain.
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "prototype-amazon" / "og-card.png"
-FONTS = Path("C:/Windows/Fonts")
+# Arial on Windows; set OG_FONTS_DIR to a folder with arial.ttf/arialbd.ttf elsewhere.
+FONTS = Path(os.environ.get("OG_FONTS_DIR", "C:/Windows/Fonts"))
 
 W, H = 1200, 630
 NAVY = (11, 17, 24)
@@ -100,7 +102,7 @@ def main() -> None:
         y += 38
 
     domain_font = font("arialbd.ttf", 24)
-    domain_text = "matiasgaglio.vercel.app"
+    domain_text = "matiasgaglio.com"
     pad_x, pad_y = 22, 13
     tw = draw.textlength(domain_text, font=domain_font)
     box_top = H - 120

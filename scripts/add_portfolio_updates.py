@@ -89,7 +89,7 @@ def main():
             head = re.sub(r'\s*<script type="application/ld\+json">.*?</script>', '', head, flags=re.S)  # the template's own Article data
             head = re.sub(r'<title>.*?</title>', f'<title>{escape(title)} | Matías Gaglio</title>', head)
             keywords = KEYWORDS.get(slug, {}).get(lang)
-            for key, value in [('description', description), ('keywords', ', '.join(keywords) if keywords else label), ('og:title', title), ('og:description', description), ('og:image', 'https://matiasgaglio.vercel.app/' + cover)]:
+            for key, value in [('description', description), ('keywords', ', '.join(keywords) if keywords else label), ('og:title', title), ('og:description', description), ('og:image', 'https://matiasgaglio.com/' + cover)]:
                 head = re.sub(r'(<meta (?:name|property)="' + re.escape(key) + r'" content=")[^"]*', lambda m: m[1] + escape(value, quote=True), head)
             head = head.replace('predestinato-simulador-carrera-', slug + '-')
             stack = tool_catalog['cases'].get(slug + '.html', [])

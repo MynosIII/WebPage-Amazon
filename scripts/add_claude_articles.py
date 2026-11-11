@@ -19,7 +19,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from claude_articles_content import ARTICLES, PUBLISHED  # noqa: E402
 from update_search_index import entry as search_entry  # noqa: E402
 
-SITE = 'https://matiasgaglio.vercel.app'
+SITE = 'https://matiasgaglio.com'
 TEMPLATE = 'predestinato-simulador-carrera'
 
 NEW_TOOLS = {

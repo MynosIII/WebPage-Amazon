@@ -7,7 +7,9 @@ const root = path.resolve(__dirname, '..');
 const output = path.join(root, 'portfolio-dist');
 const marker = path.join(output, '.generated-portfolio');
 // Set SITE_URL (for example in the Vercel project settings) to publish under another domain.
-const canonicalOrigin = 'https://matiasgaglio.vercel.app';
+const canonicalOrigin = 'https://matiasgaglio.com';
+// The old Vercel hostname now 308-redirects to canonicalOrigin (see vercel.json).
+const legacyOrigins = ['https://matiasgaglio.vercel.app'];
 const origin = (process.env.SITE_URL || canonicalOrigin).replace(/\/+$/, '');
 const catalog = require('../prototype-amazon/catalog-data.json');
 const publicDirectories = ['assets', 'Cases', 'creatives', 'New format', 'output/pdf', 'prototype-amazon', 'Revolution', 'vendor'];
@@ -245,10 +247,10 @@ function finalizeOrigins() {
   const stale = [];
   for (const file of textFiles(output)) {
     let text = fs.readFileSync(file, 'utf8');
-    if (origin !== canonicalOrigin && text.includes(canonicalOrigin)) {
-      text = text.split(canonicalOrigin).join(origin);
-      fs.writeFileSync(file, text);
-    }
+    let rewritten = text;
+    for (const legacy of legacyOrigins) rewritten = rewritten.split(legacy).join(canonicalOrigin);
+    if (origin !== canonicalOrigin) rewritten = rewritten.split(canonicalOrigin).join(origin);
+    if (rewritten !== text) fs.writeFileSync(file, text = rewritten);
     if (text.includes('onrender.com')) stale.push(path.relative(output, file));
   }
   if (stale.length) throw new Error(`Retired onrender.com URLs found in: ${stale.slice(0, 10).join(', ')}`);
