@@ -137,12 +137,14 @@ def listing_card(url: str, label: str, title: str, description: str) -> str:
             f'<h3>{escape(title)}</h3><p>{escape(description)}</p></div></a>')
 
 
-def main() -> None:
+def main(articles: list | None = None, new_tools: dict | None = None) -> None:
+    articles = ARTICLES if articles is None else articles
+    new_tools = NEW_TOOLS if new_tools is None else new_tools
     tools_path = ROOT / 'content/case-tools.json'
     tool_catalog = json.loads(tools_path.read_text(encoding='utf-8'))
-    for key, spec in NEW_TOOLS.items():
+    for key, spec in new_tools.items():
         tool_catalog['tools'].setdefault(key, spec)
-    for article in ARTICLES:
+    for article in articles:
         tool_catalog['cases'][f'{article["slug"]}.html'] = article['tools']
     tools_path.write_text(json.dumps(tool_catalog, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
@@ -153,7 +155,7 @@ def main() -> None:
     lang_path = ROOT / 'language-catalog.json'
     lang_catalog = json.loads(lang_path.read_text(encoding='utf-8'))
 
-    for article in ARTICLES:
+    for article in articles:
         slug = article['slug']
         tool_names = [tool_catalog['tools'][key]['name'] for key in article['tools']]
         for lang in ('es', 'en'):

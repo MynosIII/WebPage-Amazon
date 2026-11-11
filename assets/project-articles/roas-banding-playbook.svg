@@ -1,20 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Five ROAS bands mapped to pause, cut, hold and scale actions">
-<rect width="1600" height="900" fill="#07090c"/>
-<text x="240" y="150" fill="#ef2016" font-family="system-ui,sans-serif" font-size="24" font-weight="800" letter-spacing="4">AGE GATE → NEGATIVES → ROAS BAND → BUDGET</text>
-<text x="240" y="212" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="50" font-weight="800">Post-negative ROAS, 60+ day campaigns</text>
-<text x="240" y="342" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">&lt; 1.5</text>
-<rect x="440" y="290" width="230" height="76" rx="10" fill="#ef2016" opacity=".92"/>
-<text x="468" y="340" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Pause</text>
-<text x="240" y="446" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">1.5–4.5</text>
-<rect x="440" y="394" width="414" height="76" rx="10" fill="#f08a3c" opacity=".92"/>
-<text x="468" y="444" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Cut 35–40%</text>
-<text x="240" y="550" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">4.5–6.0</text>
-<rect x="440" y="498" width="552" height="76" rx="10" fill="#f0c75e" opacity=".92"/>
-<text x="468" y="548" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Hold</text>
-<text x="240" y="654" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">6.0–8.0</text>
-<rect x="440" y="602" width="736" height="76" rx="10" fill="#5fd28b" opacity=".92"/>
-<text x="468" y="652" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Scale 2x · +40% TOS</text>
-<text x="240" y="758" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">8.0+</text>
-<rect x="440" y="706" width="920" height="76" rx="10" fill="#2fbf71" opacity=".92"/>
-<text x="468" y="756" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Scale 3x · +75% TOS</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Amazon Ads console style table of five ROAS bands mapped to pause, cut, hold and scale actions">
+<rect width="1600" height="900" fill="#f2f4f8"/>
+<rect width="1600" height="72" fill="#232f3e"/>
+<rect x="230" y="25" width="26" height="3.5" rx="1.5" fill="#fff"/>
+<rect x="230" y="34" width="26" height="3.5" rx="1.5" fill="#fff"/>
+<rect x="230" y="43" width="26" height="3.5" rx="1.5" fill="#fff"/>
+<text x="276" y="46" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#fff" text-anchor="start">Campaign manager</text>
+<rect x="1140" y="18" width="230" height="36" rx="18" fill="#37475a"/>
+<text x="1255" y="43" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="18" font-weight="400" fill="#fff" text-anchor="middle">Ratios only · no names</text>
+<text x="230" y="118" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="20" font-weight="400" fill="#007185" text-anchor="start">Campaigns  ›  Optimization rules  ›  ROAS bands</text>
+<text x="230" y="166" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="38" font-weight="700" fill="#0f1111" text-anchor="start">Budget rules by ROAS band</text>
+<rect x="230.0" y="192" width="271.5" height="128" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<rect x="230.0" y="192" width="271.5" height="6" rx="3" fill="#146eb4"/>
+<text x="250.0" y="236" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">Campaigns audited</text>
+<text x="250.0" y="292" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="40" font-weight="700" fill="#0f1111" text-anchor="start">~600</text>
+<rect x="519.5" y="192" width="271.5" height="128" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<rect x="519.5" y="192" width="271.5" height="6" rx="3" fill="#ff9900"/>
+<text x="539.5" y="236" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">Negatives added</text>
+<text x="539.5" y="292" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="40" font-weight="700" fill="#0f1111" text-anchor="start">2,934</text>
+<rect x="809.0" y="192" width="271.5" height="128" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<rect x="809.0" y="192" width="271.5" height="6" rx="3" fill="#067d62"/>
+<text x="829.0" y="236" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">Pool ROAS</text>
+<text x="829.0" y="292" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="35" font-weight="700" fill="#0f1111" text-anchor="start">4.64 → 5.88</text>
+<rect x="1098.5" y="192" width="271.5" height="128" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<rect x="1098.5" y="192" width="271.5" height="6" rx="3" fill="#007185"/>
+<text x="1118.5" y="236" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">ROAS bands</text>
+<text x="1118.5" y="292" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="40" font-weight="700" fill="#0f1111" text-anchor="start">5</text>
+<rect x="230" y="346" width="1140" height="494" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<text x="258" y="392" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#0f1111" text-anchor="start">Rule set · campaigns older than 60 days, after negatives</text>
+<line x1="230" y1="414" x2="1370" y2="414" stroke="#d5d9d9"/>
+<rect x="231" y="415" width="1138" height="52" fill="#f0f2f2"/>
+<text x="258" y="448" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#565959" text-anchor="start">ROAS band</text>
+<text x="560" y="448" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#565959" text-anchor="start">Status</text>
+<text x="790" y="448" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#565959" text-anchor="start">Budget action</text>
+<text x="258" y="513" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#0f1111" text-anchor="start">Below 1.5</text>
+<rect x="560" y="485" width="122" height="38" rx="19" fill="#cc0c39" fill-opacity=".12"/>
+<circle cx="580" cy="504" r="6" fill="#cc0c39"/>
+<text x="594" y="511" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#cc0c39" text-anchor="start">Paused</text>
+<text x="790" y="513" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Pause and move budget to winners</text>
+<line x1="258" y1="541" x2="1342" y2="541" stroke="#eaeded"/>
+<text x="258" y="587" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#0f1111" text-anchor="start">1.5 – 4.5</text>
+<rect x="560" y="559" width="122" height="38" rx="19" fill="#c45500" fill-opacity=".12"/>
+<circle cx="580" cy="578" r="6" fill="#c45500"/>
+<text x="594" y="585" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#c45500" text-anchor="start">Reduce</text>
+<text x="790" y="587" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Cut budget 35–40%</text>
+<line x1="258" y1="615" x2="1342" y2="615" stroke="#eaeded"/>
+<text x="258" y="661" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#0f1111" text-anchor="start">4.5 – 6.0</text>
+<rect x="560" y="633" width="96" height="38" rx="19" fill="#8d9096" fill-opacity=".12"/>
+<circle cx="580" cy="652" r="6" fill="#8d9096"/>
+<text x="594" y="659" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#8d9096" text-anchor="start">Hold</text>
+<text x="790" y="661" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Keep budget, keep harvesting negatives</text>
+<line x1="258" y1="689" x2="1342" y2="689" stroke="#eaeded"/>
+<text x="258" y="735" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#0f1111" text-anchor="start">6.0 – 8.0</text>
+<rect x="560" y="707" width="109" height="38" rx="19" fill="#067d62" fill-opacity=".12"/>
+<circle cx="580" cy="726" r="6" fill="#067d62"/>
+<text x="594" y="733" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#067d62" text-anchor="start">Scale</text>
+<text x="790" y="735" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Double budget, +40% top of search</text>
+<line x1="258" y1="763" x2="1342" y2="763" stroke="#eaeded"/>
+<text x="258" y="809" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#0f1111" text-anchor="start">8.0 and up</text>
+<rect x="560" y="781" width="109" height="38" rx="19" fill="#067d62" fill-opacity=".12"/>
+<circle cx="580" cy="800" r="6" fill="#067d62"/>
+<text x="594" y="807" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#067d62" text-anchor="start">Scale</text>
+<text x="790" y="809" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Triple budget, +75% top of search</text>
+<text x="230" y="874" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="18" font-weight="400" fill="#565959" text-anchor="start">Illustration rebuilt from exported Amazon reports</text>
 </svg>

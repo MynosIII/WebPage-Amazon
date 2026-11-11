@@ -344,6 +344,27 @@
       "english": "amazon-diy-vs-shop-b2b-share-en.html",
       "spanish": "amazon-diy-vs-shop-b2b-share-es.html",
       "legacy": false
+    },
+    {
+      "page": "escucha-social-politica-osint.html",
+      "sourceLanguage": "es",
+      "english": "escucha-social-politica-osint-en.html",
+      "spanish": "escucha-social-politica-osint-es.html",
+      "legacy": false
+    },
+    {
+      "page": "mapa-politico-multidimensional.html",
+      "sourceLanguage": "es",
+      "english": "mapa-politico-multidimensional-en.html",
+      "spanish": "mapa-politico-multidimensional-es.html",
+      "legacy": false
+    },
+    {
+      "page": "datos-a-estrategia-politica.html",
+      "sourceLanguage": "es",
+      "english": "datos-a-estrategia-politica-en.html",
+      "spanish": "datos-a-estrategia-politica-es.html",
+      "legacy": false
     }
   ],
   "excludedDevelopmentFiles": [

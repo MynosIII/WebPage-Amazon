@@ -278,6 +278,7 @@ ARTICLES = [
                         ('Saturación', 'Pico en −0,97 dBFS.'),
                         ('Voz', 'Nivel parecido al de la versión anterior, algo más bajo.'),
                     ]),
+                    ('figure', 'assets/project-articles/audacity-entrevista-pistas.webp', 1568, 605, 'Captura real de Audacity con dos pistas de la entrevista alineadas: arriba la versión anterior silenciada, abajo la versión limpiada con DeepFilterNet; ambas empiezan en 7:58 y terminan en 21:46', 'El proyecto final en Audacity: la versión anterior queda arriba, silenciada e intacta, y la versión limpiada con IA abajo, alineada muestra por muestra desde 7:58 hasta 21:46.'),
                     ('p', 'El proyecto nuevo se guardó con otro nombre y el anterior quedó intacto. Esa regla vino de mi lado durante el trabajo y es la que ahora aplico a cualquier proceso automático: nunca sobrescribir el material de partida.'),
                 ]),
                 ('Aprendizajes', 'Qué me llevo.', [
@@ -322,6 +323,7 @@ ARTICLES = [
                         ('Clipping', 'Peak at −0.97 dBFS.'),
                         ('Voice', 'Similar level to the previous version, slightly lower.'),
                     ]),
+                    ('figure', 'assets/project-articles/audacity-entrevista-pistas.webp', 1568, 605, 'Real Audacity screenshot with two aligned tracks of the interview: the muted previous version on top and the DeepFilterNet-cleaned version below; both start at 7:58 and end at 21:46', 'The final project in Audacity: the previous version stays on top, muted and untouched, with the AI-cleaned version below, aligned sample by sample from 7:58 to 21:46.'),
                     ('p', 'The new project was saved under a different name and the previous one stayed untouched. I set that rule during the work, and it is now how I approach any automated process: never overwrite the source material.'),
                 ]),
                 ('Takeaways', 'What I learned.', [
