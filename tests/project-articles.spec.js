@@ -2,14 +2,14 @@ const { test, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
 
 const articles = [
-  ['telemetry-one-ecosistema-es.html', 'De varios experimentos a un ecosistema navegable.', 3, 'Telemetry 1: ecosistema de Fórmula 1'],
+  ['telemetry-one-ecosistema-es.html', 'De varios experimentos a un ecosistema navegable.', 3, 'Telemetry One: ecosistema de Fórmula 1'],
   ['f1-predictor-walk-forward-es.html', 'Predecir antes de saber. Aprender después.', 1, 'F1Predictor: predicción walk-forward sin fuga de datos'],
   ['predestinato-simulador-carrera-es.html', 'Una vida deportiva hecha de decisiones conectadas.', 2, 'Predestinato: diseño de un simulador de carrera'],
   ['deteccion-copas-arboles-es.html', 'De un código postal a un mapa vivo del arbolado.', 1, 'Detección geoespacial de copas de árboles']
 ];
 
 const englishArticles = [
-  ['telemetry-one-ecosistema-en.html', 'From separate experiments to a navigable ecosystem.', 3, 'Telemetry 1: a Formula 1 ecosystem'],
+  ['telemetry-one-ecosistema-en.html', 'From separate experiments to a navigable ecosystem.', 3, 'Telemetry One: a Formula 1 ecosystem'],
   ['f1-predictor-walk-forward-en.html', 'Predict before knowing. Learn afterward.', 1, 'F1Predictor: leakage-free walk-forward prediction'],
   ['predestinato-simulador-carrera-en.html', 'A sporting life built from connected decisions.', 2, 'Predestinato: designing a career simulator'],
   ['deteccion-copas-arboles-en.html', 'From a ZIP code to a living tree map.', 1, 'Geospatial tree-crown detection']
@@ -134,17 +134,17 @@ test('English article catalog and All work expose the complete bilingual invento
   await expect(allWork).toBeVisible();
   await allWork.click();
   await expect(page).toHaveURL(/section=all/);
-  await expect(page.locator('[data-catalog-list] article')).toHaveCount(39);
-  await expect(page.locator('[data-catalog-count]')).toContainText('39');
+  await expect(page.locator('[data-catalog-list] article')).toHaveCount(42);
+  await expect(page.locator('[data-catalog-count]')).toContainText('42');
 
   await page.goto('/prototype-amazon/catalog.html?section=all', { waitUntil: 'domcontentloaded' });
   await page.locator('[data-catalog-list] article').first().waitFor({ state: 'visible' });
-  await expect(page.locator('[data-catalog-list] article')).toHaveCount(39);
+  await expect(page.locator('[data-catalog-list] article')).toHaveCount(42);
 });
 
 test('every catalog section filter returns the same bilingual inventory shape', async ({ page }) => {
   test.setTimeout(120000);
-  const expected = { all: 39, ecommerce: 15, bi: 6, creative: 16, articles: 16, research: 5, other: 6 };
+  const expected = { all: 42, ecommerce: 15, bi: 6, creative: 18, articles: 19, research: 5, other: 7 };
   for (const lang of ['es', 'en']) {
     for (const [section, count] of Object.entries(expected)) {
       await page.goto(`/prototype-amazon/catalog.html?section=${section}${lang === 'en' ? '&lang=en' : ''}`, { waitUntil: 'domcontentloaded' });
