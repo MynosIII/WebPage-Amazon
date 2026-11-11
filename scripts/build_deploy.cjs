@@ -13,6 +13,7 @@ const catalog = require('../prototype-amazon/catalog-data.json');
 const publicDirectories = ['assets', 'Cases', 'creatives', 'New format', 'output/pdf', 'prototype-amazon', 'Revolution', 'vendor'];
 const publicExtensions = /\.(?:css|glb|html|jpe?g|js|mp4|pdf|png|svg|txt|webmanifest|webp|xml)$/i;
 const excluded = new Set(['anchor-test.html', 'revolution-test.html', 'debug.log', 'playwright.config.js', 'lighthouserc.json', 'package.json', 'package-lock.json', 'vercel.json']);
+const articleTags = require('../content/article-tags.json');
 const publicData = ['content/case-tools.json', 'prototype-amazon/catalog-data.json', 'search-index.json'];
 
 // Files that vercel.json always redirects or rewrites elsewhere would never be
@@ -134,6 +135,79 @@ const sectionNames = {
   en: { ecommerce: 'Ecommerce and Amazon Growth', bi: 'Business Intelligence', creative: 'Creative and media', articles: 'Systems and articles', research: 'Research and analysis', other: 'Other projects' }
 };
 
+// Search topics + software for each article, and links to related work.
+// Pages that already ship a visible tag block (data from their own generator)
+// keep it; every page gets head metadata and a related-work list.
+const discoveryCopy = {
+  es: { label: 'Herramientas y temas', software: 'Software usado o relacionado', topics: 'Temas', related: 'Trabajo relacionado' },
+  en: { label: 'Tools and topics', software: 'Software used or related', topics: 'Topics', related: 'Related work' }
+};
+
+function articleKey(item) {
+  return item.url.replace(/-(?:es|en)\.html$/, '');
+}
+
+function articleSoftware(item) {
+  const names = (item.toolLogos || []).map(tool => tool.name);
+  for (const name of articleTags.software?.[articleKey(item)] || []) if (!names.includes(name)) names.push(name);
+  return names;
+}
+
+function articleTopics(item) {
+  const topics = articleTags.articles?.[articleKey(item)]?.[item.lang];
+  if (!topics) throw new Error(`No search topics for ${item.url} in content/article-tags.json`);
+  return topics;
+}
+
+function relatedItems(item) {
+  const software = new Set(articleSoftware(item));
+  const categories = new Set(item.categories || []);
+  return catalog
+    .filter(other => other.lang === item.lang && other.url !== item.url)
+    .map((other, index) => ({
+      other, index,
+      score: (other.categories || []).filter(c => categories.has(c)).length * 3
+        + articleSoftware(other).filter(name => software.has(name)).length
+        + (other.categories?.[0] === item.categories?.[0] ? 2 : 0)
+    }))
+    .filter(entry => entry.score > 0)
+    .sort((a, b) => b.score - a.score || a.index - b.index)
+    .slice(0, 3)
+    .map(entry => entry.other);
+}
+
+function discoveryBlock(html, item) {
+  const copy = discoveryCopy[item.lang];
+  const hasTags = /pa-tags-section/.test(html);
+  const chips = (label, values, modifier) => values.length
+    ? `<h3>${label}</h3><ul class="case-discovery__tags${modifier}" aria-label="${label}">${values.map(v => `<li>${escapeHtml(v)}</li>`).join('')}</ul>`
+    : '';
+  const related = relatedItems(item);
+  const relatedList = related.length
+    ? `<h3>${copy.related}</h3><ul class="case-discovery__related">${related.map(other =>
+      `<li><a href="/${other.url.split('/').map(encodeURIComponent).join('/')}">${escapeHtml(other.title)}</a><span>${escapeHtml(other.description)}</span></li>`).join('')}</ul>`
+    : '';
+  const tags = hasTags ? '' : chips(copy.software, articleSoftware(item), '') + chips(copy.topics, articleTopics(item), ' case-discovery__tags--topics');
+  if (!tags && !relatedList) return html;
+  const block = `<section class="case-discovery" data-case-discovery aria-label="${copy.label}"><div class="case-discovery__inner">${tags}${relatedList}</div></section>`;
+  return html.replace(/<\/main>/i, block + '</main>');
+}
+
+function discoveryMeta(html, item) {
+  if (/<meta\b[^>]*property=["']article:tag["']/i.test(html)) return html;
+  const existing = /<meta\b[^>]*name=["']keywords["'][^>]*content=["']([^"']*)["'][^>]*>/i.exec(html);
+  const keywords = [];
+  for (const value of [...articleTopics(item), ...articleSoftware(item), ...(existing ? existing[1].split(',') : [])]) {
+    const clean = value.trim();
+    if (clean && !keywords.some(k => k.toLowerCase() === clean.toLowerCase())) keywords.push(clean);
+  }
+  const tags = [`<meta name="keywords" content="${escapeHtml(keywords.join(', '))}">`,
+    ...keywords.map(k => `<meta property="article:tag" content="${escapeHtml(k)}">`)];
+  return html.replace(/<head\b[^>]*>[\s\S]*?<\/head>/i, head => head
+    .replace(/\s*<meta\b[^>]*name=["']keywords["'][^>]*>/gi, '')
+    .replace(/<\/head>/i, '  ' + tags.join('\n  ') + '\n</head>'));
+}
+
 // Article + breadcrumb structured data for each case page.
 function structuredData(html, item) {
   const section = item.categories?.[0] || 'all';
@@ -154,7 +228,8 @@ function structuredData(html, item) {
         mainEntityOfPage: canonical,
         image: canonicalOrigin + '/' + image.split('/').map(encodeURIComponent).join('/'),
         author: { '@type': 'Person', '@id': `${canonicalOrigin}/#matias-gaglio`, name: 'Matías Gaglio', url: home },
-        isPartOf: { '@type': 'WebSite', name: 'Matías Gaglio', url: `${canonicalOrigin}/` }
+        isPartOf: { '@type': 'WebSite', name: 'Matías Gaglio', url: `${canonicalOrigin}/` },
+        keywords: [...articleTopics(item), ...articleSoftware(item)].join(', ')
       },
       {
         '@type': 'BreadcrumbList',
@@ -201,7 +276,7 @@ function renderProjects() {
     if (!/<h1\b[^>]*>\s*[^<\s]|<h1\b[^>]*>\s*<(?:em|span|strong)\b/i.test(html)) {
       throw new Error(`No static heading in ${item.url}`);
     }
-    fs.writeFileSync(target, structuredData(discoveryHead(nextStep(html, item.lang), item, pair), item));
+    fs.writeFileSync(target, structuredData(discoveryMeta(discoveryHead(nextStep(discoveryBlock(html, item), item.lang), item, pair), item), item));
   }
   console.log(`Prepared ${catalog.length} case pages in ${pairs.size} bilingual pairs.`);
 }

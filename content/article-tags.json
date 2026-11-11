@@ -1,0 +1,1032 @@
+{
+  "_note": "Search topics for every catalog article. build_deploy.cjs adds these plus the article's software (catalog toolLogos + software) as visible tags, meta keywords, article:tag and Article JSON-LD keywords. Pages that already ship their own tag block keep it.",
+  "articles": {
+    "amazon-content-architecture": {
+      "en": [
+        "Amazon listing optimization",
+        "Amazon SEO",
+        "A+ Content",
+        "Product detail page",
+        "Conversion rate optimization",
+        "Product images",
+        "Ecommerce content strategy"
+      ],
+      "es": [
+        "Optimización de listings en Amazon",
+        "SEO en Amazon",
+        "Contenido A+",
+        "Página de producto",
+        "Optimización de conversión",
+        "Imágenes de producto",
+        "Estrategia de contenido ecommerce"
+      ]
+    },
+    "amazon-lifecycle-operating-system": {
+      "en": [
+        "Amazon product launch",
+        "Amazon account management",
+        "Amazon SEO",
+        "Amazon PPC",
+        "Inventory planning",
+        "Retail readiness",
+        "Margin management"
+      ],
+      "es": [
+        "Lanzamiento de productos en Amazon",
+        "Gestión de cuentas Amazon",
+        "SEO en Amazon",
+        "Amazon PPC",
+        "Planificación de inventario",
+        "Retail readiness",
+        "Gestión de margen"
+      ]
+    },
+    "animation-01": {
+      "en": [
+        "Motion graphics",
+        "Loop animation",
+        "Visual effects",
+        "Motion design"
+      ],
+      "es": [
+        "Motion graphics",
+        "Animación en loop",
+        "Efectos visuales",
+        "Diseño en movimiento"
+      ]
+    },
+    "animation-02": {
+      "en": [
+        "Motion graphics",
+        "UI animation",
+        "Explainer animation",
+        "Motion design"
+      ],
+      "es": [
+        "Motion graphics",
+        "Animación de interfaz",
+        "Animación explicativa",
+        "Diseño en movimiento"
+      ]
+    },
+    "animation-03": {
+      "en": [
+        "Kinetic typography",
+        "Motion graphics",
+        "Text animation",
+        "Motion design"
+      ],
+      "es": [
+        "Tipografía cinética",
+        "Motion graphics",
+        "Animación de texto",
+        "Diseño en movimiento"
+      ]
+    },
+    "animation-04": {
+      "en": [
+        "Motion graphics",
+        "Light trails",
+        "Visual effects",
+        "Motion design"
+      ],
+      "es": [
+        "Motion graphics",
+        "Trazos de luz",
+        "Efectos visuales",
+        "Diseño en movimiento"
+      ]
+    },
+    "articulo-milei-chad": {
+      "en": [
+        "Javier Milei",
+        "Argentine politics",
+        "Political communication",
+        "Internet memes",
+        "Digital culture",
+        "Academic research",
+        "University of Buenos Aires"
+      ],
+      "es": [
+        "Javier Milei",
+        "Política argentina",
+        "Comunicación política",
+        "Memes",
+        "Cultura digital",
+        "Investigación académica",
+        "Universidad de Buenos Aires"
+      ]
+    },
+    "BI-case-2": {
+      "en": [
+        "Business Intelligence",
+        "Amazon analytics",
+        "Marketplace growth",
+        "Amazon PPC",
+        "KPI dashboard",
+        "Conversion rate",
+        "Sales analysis"
+      ],
+      "es": [
+        "Business Intelligence",
+        "Analítica de Amazon",
+        "Crecimiento en marketplaces",
+        "Amazon PPC",
+        "Dashboard de KPIs",
+        "Tasa de conversión",
+        "Análisis de ventas"
+      ]
+    },
+    "caso-1": {
+      "en": [
+        "Amazon PPC",
+        "Amazon growth",
+        "ROAS",
+        "Campaign restructuring",
+        "Listing optimization",
+        "Amazon advertising case study"
+      ],
+      "es": [
+        "Amazon PPC",
+        "Crecimiento en Amazon",
+        "ROAS",
+        "Reestructuración de campañas",
+        "Optimización de listings",
+        "Caso de publicidad en Amazon"
+      ]
+    },
+    "caso-2": {
+      "en": [
+        "Business Intelligence",
+        "Ecommerce profitability",
+        "Profit and loss analysis",
+        "Sales analysis",
+        "Portfolio prioritization",
+        "Ecommerce analytics"
+      ],
+      "es": [
+        "Business Intelligence",
+        "Rentabilidad ecommerce",
+        "Análisis de resultados",
+        "Análisis de ventas",
+        "Priorización de portfolio",
+        "Analítica ecommerce"
+      ]
+    },
+    "caso-3": {
+      "en": [
+        "Amazon product images",
+        "Image gallery",
+        "Listing optimization",
+        "Ecommerce design",
+        "Conversion rate optimization"
+      ],
+      "es": [
+        "Imágenes de producto en Amazon",
+        "Galería de imágenes",
+        "Optimización de listings",
+        "Diseño ecommerce",
+        "Optimización de conversión"
+      ]
+    },
+    "caso-daizzy-gear": {
+      "en": [
+        "Amazon account management",
+        "Amazon PPC audit",
+        "A+ Content",
+        "Amazon Storefront",
+        "Promotions",
+        "Inventory management"
+      ],
+      "es": [
+        "Gestión de cuentas Amazon",
+        "Auditoría de Amazon PPC",
+        "Contenido A+",
+        "Amazon Storefront",
+        "Promociones",
+        "Gestión de inventario"
+      ]
+    },
+    "caso-hogar-cocina-ppc": {
+      "en": [
+        "Amazon PPC",
+        "PPC scaling",
+        "Sponsored Products",
+        "ACoS",
+        "Home and Kitchen",
+        "Amazon advertising case study"
+      ],
+      "es": [
+        "Amazon PPC",
+        "Escalado de PPC",
+        "Sponsored Products",
+        "ACoS",
+        "Hogar y cocina",
+        "Caso de publicidad en Amazon"
+      ]
+    },
+    "consultora": {
+      "en": [
+        "Javier Milei",
+        "Argentine politics",
+        "Public opinion",
+        "Polling data",
+        "Political research",
+        "Media monitoring",
+        "Data analysis"
+      ],
+      "es": [
+        "Javier Milei",
+        "Política argentina",
+        "Opinión pública",
+        "Encuestas",
+        "Investigación política",
+        "Monitoreo de medios",
+        "Análisis de datos"
+      ]
+    },
+    "deteccion-copas-arboles": {
+      "en": [
+        "Geospatial analysis",
+        "Computer vision",
+        "Tree crown detection",
+        "GIS",
+        "Remote sensing",
+        "Python data analysis"
+      ],
+      "es": [
+        "Análisis geoespacial",
+        "Visión por computadora",
+        "Detección de copas de árboles",
+        "GIS",
+        "Teledetección",
+        "Análisis de datos con Python"
+      ]
+    },
+    "ecommerce-video-01": {
+      "en": [
+        "Product video",
+        "Ecommerce video",
+        "Amazon video",
+        "Conversion rate optimization",
+        "Video editing"
+      ],
+      "es": [
+        "Video de producto",
+        "Video ecommerce",
+        "Video para Amazon",
+        "Optimización de conversión",
+        "Edición de video"
+      ]
+    },
+    "ecommerce-video-02": {
+      "en": [
+        "Product video",
+        "Ecommerce video",
+        "Amazon video",
+        "Conversion rate optimization",
+        "Video editing"
+      ],
+      "es": [
+        "Video de producto",
+        "Video ecommerce",
+        "Video para Amazon",
+        "Optimización de conversión",
+        "Edición de video"
+      ]
+    },
+    "ecommerce-video-03": {
+      "en": [
+        "Product video",
+        "Ecommerce video",
+        "Amazon video",
+        "Conversion rate optimization",
+        "Video editing"
+      ],
+      "es": [
+        "Video de producto",
+        "Video ecommerce",
+        "Video para Amazon",
+        "Optimización de conversión",
+        "Edición de video"
+      ]
+    },
+    "ecommerce-video-04": {
+      "en": [
+        "Product video",
+        "Ecommerce video",
+        "Amazon video",
+        "Conversion rate optimization",
+        "Video editing"
+      ],
+      "es": [
+        "Video de producto",
+        "Video ecommerce",
+        "Video para Amazon",
+        "Optimización de conversión",
+        "Edición de video"
+      ]
+    },
+    "ecommerce-video-05": {
+      "en": [
+        "Product video",
+        "Ecommerce video",
+        "Amazon video",
+        "Conversion rate optimization",
+        "Video editing"
+      ],
+      "es": [
+        "Video de producto",
+        "Video ecommerce",
+        "Video para Amazon",
+        "Optimización de conversión",
+        "Edición de video"
+      ]
+    },
+    "ecommerce-video-case": {
+      "en": [
+        "Product video",
+        "Ecommerce video strategy",
+        "Amazon video",
+        "Conversion rate optimization",
+        "Marketplace creative"
+      ],
+      "es": [
+        "Video de producto",
+        "Estrategia de video ecommerce",
+        "Video para Amazon",
+        "Optimización de conversión",
+        "Creatividad para marketplaces"
+      ]
+    },
+    "f1-predictor-walk-forward": {
+      "en": [
+        "Machine learning",
+        "Walk-forward validation",
+        "Data leakage",
+        "Predictive modeling",
+        "Formula 1",
+        "Python data analysis"
+      ],
+      "es": [
+        "Machine learning",
+        "Validación walk-forward",
+        "Fuga de datos",
+        "Modelos predictivos",
+        "Fórmula 1",
+        "Análisis de datos con Python"
+      ]
+    },
+    "icon-system-case": {
+      "en": [
+        "Icon design",
+        "Visual communication",
+        "Design system",
+        "Product infographics",
+        "Ecommerce design"
+      ],
+      "es": [
+        "Diseño de íconos",
+        "Comunicación visual",
+        "Sistema de diseño",
+        "Infografías de producto",
+        "Diseño ecommerce"
+      ]
+    },
+    "predestinato-simulador-carrera": {
+      "en": [
+        "Game design",
+        "Web game",
+        "Simulation",
+        "Product design",
+        "Motorsport",
+        "Frontend development"
+      ],
+      "es": [
+        "Diseño de juegos",
+        "Juego web",
+        "Simulación",
+        "Diseño de producto",
+        "Automovilismo",
+        "Desarrollo frontend"
+      ]
+    },
+    "Revolution_creative_case": {
+      "en": [
+        "Amazon listing optimization",
+        "Amazon SEO",
+        "A+ Content",
+        "Product images",
+        "Automotive parts",
+        "Revolution Supply"
+      ],
+      "es": [
+        "Optimización de listings en Amazon",
+        "SEO en Amazon",
+        "Contenido A+",
+        "Imágenes de producto",
+        "Autopartes",
+        "Revolution Supply"
+      ]
+    },
+    "SEO": {
+      "en": [
+        "Portfolio",
+        "Chatbot",
+        "Personal website",
+        "Ecommerce portfolio"
+      ],
+      "es": [
+        "Portfolio",
+        "Chatbot",
+        "Sitio personal",
+        "Portfolio ecommerce"
+      ]
+    },
+    "shulex-voc-creative-case": {
+      "en": [
+        "Voice of Customer",
+        "Review analysis",
+        "Customer insights",
+        "Amazon product images",
+        "Marketplace creative",
+        "Conversion rate optimization"
+      ],
+      "es": [
+        "Voz del cliente",
+        "Análisis de reseñas",
+        "Insights de clientes",
+        "Imágenes de producto en Amazon",
+        "Creatividad para marketplaces",
+        "Optimización de conversión"
+      ]
+    },
+    "telemetry-one-ecosistema": {
+      "en": [
+        "Formula 1",
+        "Sports analytics",
+        "Data visualization",
+        "Web application",
+        "Full-stack development",
+        "AI-assisted development"
+      ],
+      "es": [
+        "Fórmula 1",
+        "Analítica deportiva",
+        "Visualización de datos",
+        "Aplicación web",
+        "Desarrollo full-stack",
+        "Desarrollo asistido por IA"
+      ]
+    },
+    "unimac-case": {
+      "en": [
+        "Product marketing",
+        "Campaign design",
+        "Product storytelling",
+        "Industrial products",
+        "Visual campaign"
+      ],
+      "es": [
+        "Marketing de producto",
+        "Diseño de campaña",
+        "Storytelling de producto",
+        "Productos industriales",
+        "Campaña visual"
+      ]
+    },
+    "Cases/amazon-listing-audit-checklist": {
+      "en": [
+        "Amazon listing audit",
+        "Amazon SEO",
+        "Listing optimization",
+        "Catalog health",
+        "Conversion rate optimization",
+        "Amazon checklist"
+      ],
+      "es": [
+        "Auditoría de listings en Amazon",
+        "SEO en Amazon",
+        "Optimización de listings",
+        "Salud del catálogo",
+        "Optimización de conversión",
+        "Checklist de Amazon"
+      ]
+    },
+    "Cases/automotive-fitment-seo": {
+      "en": [
+        "Automotive fitment",
+        "Amazon SEO",
+        "Automotive parts",
+        "Vehicle compatibility",
+        "Product attributes",
+        "Listing optimization"
+      ],
+      "es": [
+        "Fitment automotriz",
+        "SEO en Amazon",
+        "Autopartes",
+        "Compatibilidad de vehículos",
+        "Atributos de producto",
+        "Optimización de listings"
+      ]
+    },
+    "Cases/DayParting-Case": {
+      "en": [
+        "Amazon PPC",
+        "Dayparting",
+        "Bid optimization",
+        "Budget allocation",
+        "ACoS",
+        "Advertising efficiency"
+      ],
+      "es": [
+        "Amazon PPC",
+        "Dayparting",
+        "Optimización de pujas",
+        "Asignación de presupuesto",
+        "ACoS",
+        "Eficiencia publicitaria"
+      ]
+    },
+    "Cases/market-share-loss-diagnosis": {
+      "en": [
+        "Market share analysis",
+        "Amazon analytics",
+        "Business Intelligence",
+        "Competitive analysis",
+        "Root cause analysis",
+        "Conversion rate"
+      ],
+      "es": [
+        "Análisis de cuota de mercado",
+        "Analítica de Amazon",
+        "Business Intelligence",
+        "Análisis competitivo",
+        "Análisis de causa raíz",
+        "Tasa de conversión"
+      ]
+    },
+    "Cases/search-query-keyword-harvesting": {
+      "en": [
+        "Amazon PPC",
+        "Keyword harvesting",
+        "Search Query Performance",
+        "Search term report",
+        "Negative keywords",
+        "Keyword research"
+      ],
+      "es": [
+        "Amazon PPC",
+        "Cosecha de keywords",
+        "Search Query Performance",
+        "Reporte de términos de búsqueda",
+        "Keywords negativas",
+        "Investigación de keywords"
+      ]
+    },
+    "Cases/search-suppression-catalog-recovery": {
+      "en": [
+        "Search suppression",
+        "Amazon catalog management",
+        "Suppressed listings",
+        "Amazon SEO",
+        "Listing recovery",
+        "Catalog health"
+      ],
+      "es": [
+        "Supresión de búsqueda",
+        "Gestión de catálogo Amazon",
+        "Listings suprimidos",
+        "SEO en Amazon",
+        "Recuperación de listings",
+        "Salud del catálogo"
+      ]
+    },
+    "Cases/voice-of-customer-conversion-brief": {
+      "en": [
+        "Voice of Customer",
+        "Review analysis",
+        "Customer research",
+        "Creative brief",
+        "Conversion rate optimization",
+        "Ecommerce research"
+      ],
+      "es": [
+        "Voz del cliente",
+        "Análisis de reseñas",
+        "Investigación de clientes",
+        "Brief creativo",
+        "Optimización de conversión",
+        "Investigación ecommerce"
+      ]
+    },
+    "construccion-portfolio": {
+      "en": [
+        "Portfolio website",
+        "Static site",
+        "Bilingual website",
+        "Technical SEO",
+        "Web development",
+        "AI-assisted development"
+      ],
+      "es": [
+        "Sitio de portfolio",
+        "Sitio estático",
+        "Sitio bilingüe",
+        "SEO técnico",
+        "Desarrollo web",
+        "Desarrollo asistido por IA"
+      ]
+    },
+    "oxi-contenido-y-analisis": {
+      "en": [
+        "Content agency",
+        "Video production",
+        "Scriptwriting",
+        "Marketing analysis",
+        "Audiovisual content"
+      ],
+      "es": [
+        "Agencia de contenido",
+        "Producción de video",
+        "Guionado",
+        "Análisis de marketing",
+        "Contenido audiovisual"
+      ]
+    },
+    "revolution-operacion-amazon": {
+      "en": [
+        "Amazon Sales Manager",
+        "Amazon PPC",
+        "Automotive fitment",
+        "A+ Content",
+        "Amazon catalog management",
+        "Revolution Supply"
+      ],
+      "es": [
+        "Amazon Sales Manager",
+        "Amazon PPC",
+        "Fitment automotriz",
+        "Contenido A+",
+        "Gestión de catálogo Amazon",
+        "Revolution Supply"
+      ]
+    },
+    "limpieza-audio-entrevista-ia": {
+      "en": [
+        "DeepFilterNet",
+        "Claude Code",
+        "MCP",
+        "mod-script-pipe",
+        "NumPy",
+        "noise reduction",
+        "audio cleanup",
+        "AI audio",
+        "interview",
+        "podcast",
+        "LUFS",
+        "loudness normalization",
+        "compressor",
+        "audio processing",
+        "quality control",
+        "applied AI"
+      ],
+      "es": [
+        "DeepFilterNet",
+        "Claude Code",
+        "MCP",
+        "mod-script-pipe",
+        "NumPy",
+        "reducción de ruido",
+        "limpieza de audio",
+        "IA para audio",
+        "entrevista",
+        "podcast",
+        "LUFS",
+        "normalización",
+        "compresor",
+        "procesamiento de audio",
+        "control de calidad",
+        "IA aplicada"
+      ]
+    },
+    "amazon-fitment-campaigns-roas": {
+      "en": [
+        "Amazon PPC",
+        "Vehicle fitment",
+        "Automotive fitment",
+        "Fitment targeting",
+        "Sponsored Brands",
+        "Sponsored Products",
+        "Campaign analysis",
+        "ROAS",
+        "Budget concentration",
+        "Account daily cap",
+        "Campaign launch strategy",
+        "Lug nuts",
+        "Wheel spacers",
+        "Automotive parts",
+        "Revolution Supply"
+      ],
+      "es": [
+        "Amazon PPC",
+        "Compatibilidad de vehículos",
+        "Fitment automotriz",
+        "Segmentación por vehículo",
+        "Sponsored Brands",
+        "Sponsored Products",
+        "Análisis de campañas",
+        "ROAS",
+        "Concentración de presupuesto",
+        "Tope diario de la cuenta",
+        "Estrategia de lanzamiento",
+        "Tuercas de rueda",
+        "Separadores de rueda",
+        "Autopartes",
+        "Revolution Supply"
+      ]
+    },
+    "amazon-ppc-roas-banding-playbook": {
+      "en": [
+        "Amazon PPC",
+        "ROAS",
+        "TACoS",
+        "ACoS",
+        "Sponsored Products",
+        "Sponsored Brands",
+        "Sponsored Display",
+        "Negative keywords",
+        "Budget allocation",
+        "Bid strategy",
+        "Top-of-search modifiers",
+        "Campaign audit",
+        "Bulk operations",
+        "Search term report",
+        "Automotive parts",
+        "Wheel accessories",
+        "Revolution Supply"
+      ],
+      "es": [
+        "Amazon PPC",
+        "ROAS",
+        "TACoS",
+        "ACoS",
+        "Sponsored Products",
+        "Sponsored Brands",
+        "Sponsored Display",
+        "Palabras clave negativas",
+        "Asignación de presupuesto",
+        "Estrategia de pujas",
+        "Modificadores top of search",
+        "Auditoría de campañas",
+        "Operaciones masivas",
+        "Reporte de términos de búsqueda",
+        "Autopartes",
+        "Accesorios para ruedas",
+        "Revolution Supply"
+      ]
+    },
+    "postproduccion-video-davinci-resolve-ia": {
+      "en": [
+        "Claude Code",
+        "MCP",
+        "Model Context Protocol",
+        "post-production",
+        "video editing",
+        "motion graphics",
+        "logo animation",
+        "reels",
+        "Instagram Reels",
+        "vertical video",
+        "color correction",
+        "sound effects",
+        "sound design",
+        "subtitles",
+        "Oxi",
+        "applied AI"
+      ],
+      "es": [
+        "Claude Code",
+        "MCP",
+        "Model Context Protocol",
+        "postproducción",
+        "edición de video",
+        "motion graphics",
+        "animación de logo",
+        "reels",
+        "Instagram Reels",
+        "video vertical",
+        "corrección de color",
+        "efectos de sonido",
+        "diseño sonoro",
+        "subtítulos",
+        "Oxi",
+        "IA aplicada"
+      ]
+    },
+    "trabajo-con-claude": {
+      "en": [
+        "Claude Code",
+        "Anthropic",
+        "AI agent",
+        "applied AI",
+        "MCP",
+        "Model Context Protocol",
+        "pull requests",
+        "Playwright",
+        "website audit",
+        "technical SEO",
+        "automation",
+        "workflow",
+        "productivity"
+      ],
+      "es": [
+        "Claude Code",
+        "Anthropic",
+        "agente de IA",
+        "IA aplicada",
+        "MCP",
+        "Model Context Protocol",
+        "pull requests",
+        "Playwright",
+        "auditoría web",
+        "SEO técnico",
+        "automatización",
+        "flujo de trabajo",
+        "productividad"
+      ]
+    },
+    "amazon-conversion-promotions-a-plus": {
+      "en": [
+        "Amazon conversion rate",
+        "Unit session percentage",
+        "Conversion rate optimization",
+        "Amazon promotions",
+        "Coupons",
+        "Price discounts",
+        "Restricted ASIN",
+        "Reorder coupon",
+        "A+ Content",
+        "Listing optimization",
+        "Buy Box",
+        "Market share",
+        "Competitor analysis",
+        "Black Friday / Cyber Monday",
+        "Lug nuts",
+        "Wheel spacers",
+        "Automotive parts",
+        "Revolution Supply"
+      ],
+      "es": [
+        "Tasa de conversión en Amazon",
+        "Porcentaje de sesiones con unidad",
+        "Optimización de conversión",
+        "Promociones en Amazon",
+        "Cupones",
+        "Descuentos",
+        "Restricted ASIN",
+        "Cupón de recompra",
+        "Contenido A+",
+        "Optimización de listings",
+        "Buy Box",
+        "Participación de mercado",
+        "Análisis de competencia",
+        "Black Friday / Cyber Monday",
+        "Tuercas de rueda",
+        "Separadores de rueda",
+        "Autopartes",
+        "Revolution Supply"
+      ]
+    },
+    "amazon-ads-negatives-before-budget": {
+      "en": [
+        "Amazon PPC",
+        "PPC audit",
+        "Negative keywords",
+        "Negative product targeting",
+        "Search term analysis",
+        "Keyword harvesting",
+        "Wasted ad spend",
+        "ROAS",
+        "TACoS",
+        "Sponsored Products",
+        "Sponsored Brands",
+        "Sponsored Display",
+        "Budget allocation",
+        "Amazon Canada",
+        "Automotive parts",
+        "Wheel accessories",
+        "Revolution Supply"
+      ],
+      "es": [
+        "Amazon PPC",
+        "Auditoría PPC",
+        "Palabras clave negativas",
+        "Productos negativos",
+        "Análisis de términos de búsqueda",
+        "Cosecha de palabras clave",
+        "Inversión desperdiciada",
+        "ROAS",
+        "TACoS",
+        "Sponsored Products",
+        "Sponsored Brands",
+        "Sponsored Display",
+        "Asignación de presupuesto",
+        "Amazon Canadá",
+        "Autopartes",
+        "Accesorios para ruedas",
+        "Revolution Supply"
+      ]
+    },
+    "amazon-diy-vs-shop-b2b-share": {
+      "en": [
+        "Customer research",
+        "B2B vs B2C",
+        "Amazon Business",
+        "Customer segmentation",
+        "Brand Analytics",
+        "Demographics",
+        "Market basket analysis",
+        "Repeat purchase rate",
+        "Search Query Performance",
+        "Evidence triangulation",
+        "Persona research",
+        "TPMS valve stems",
+        "Wheel spacers",
+        "Lug nuts",
+        "Automotive aftermarket",
+        "Revolution Supply"
+      ],
+      "es": [
+        "Investigación de clientes",
+        "B2B vs B2C",
+        "Amazon Business",
+        "Segmentación de clientes",
+        "Brand Analytics",
+        "Demografía",
+        "Análisis de canasta",
+        "Tasa de recompra",
+        "Search Query Performance",
+        "Triangulación de evidencia",
+        "Investigación de personas",
+        "Válvulas TPMS",
+        "Separadores de rueda",
+        "Tuercas de rueda",
+        "Mercado de autopartes",
+        "Revolution Supply"
+      ]
+    }
+  },
+  "software": {
+    "consultora": [
+      "Google Sheets",
+      "YouTube Data API"
+    ],
+    "telemetry-one-ecosistema": [
+      "React",
+      "GitHub Actions",
+      "Claude Code",
+      "OpenF1",
+      "MapLibre",
+      "Plotly",
+      "Neon Postgres"
+    ],
+    "f1-predictor-walk-forward": [
+      "pandas",
+      "NumPy",
+      "scikit-learn",
+      "SciPy",
+      "pytest",
+      "OpenF1",
+      "Claude Code"
+    ],
+    "predestinato-simulador-carrera": [
+      "HTML",
+      "CSS"
+    ],
+    "construccion-portfolio": [
+      "HTML",
+      "CSS",
+      "Playwright",
+      "Claude Code",
+      "ChatGPT",
+      "Codex"
+    ],
+    "oxi-contenido-y-analisis": [
+      "MCP",
+      "Meridian"
+    ],
+    "deteccion-copas-arboles": [
+      "DeepForest",
+      "rasterio",
+      "GeoPandas",
+      "QGIS"
+    ],
+    "SEO": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  }
+}

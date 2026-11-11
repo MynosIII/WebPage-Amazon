@@ -24,8 +24,9 @@ const check = process.argv.includes('--check');
 const pages = {
   index: {
     es: '/', en: '/index-en.html', locale: 'en_US',
-    title: 'Matías Gaglio — Ecommerce & Amazon Growth Strategist',
-    description: 'Ecommerce and Amazon Growth strategy: Business Intelligence, PPC and visual content to improve conversion and profitability.',
+    title: 'Matías Gaglio | Amazon Sales Manager · Ecommerce & BI',
+    description: 'Amazon Sales Manager at Revolution Supply Co. Amazon PPC, listing SEO, Business Intelligence (Power BI, SQL, Excel) and content for ecommerce growth.',
+    personDescription: 'Amazon Sales Manager and ecommerce and Business Intelligence analyst who connects data, performance and creative systems.',
   },
   about: {
     es: '/about.html', en: '/about-en.html', locale: 'en_US',
@@ -169,6 +170,9 @@ function buildEnglish(name, page, glossary) {
   head = setMeta(head, ['name', 'twitter:title'], page.title);
   head = setMeta(head, ['name', 'twitter:description'], page.description);
   head = head.replace(/"url":"[^"]*","name":"[^"]*"/, `"url":"${SITE}${page.en}","name":${JSON.stringify(page.title)}`);
+  head = head.replace(/("name":"[^"]*","description":)"[^"]*"/, `$1${JSON.stringify(page.description)}`);
+  if (page.personDescription) head = head.replace(/("@type":"Person"[^<]*"description":)"[^"]*"/, `$1${JSON.stringify(page.personDescription)}`);
+  head = head.replace(/"alumniOf":\{"@type":"CollegeOrUniversity","name":"Universidad de Buenos Aires"\}/, '"alumniOf":{"@type":"CollegeOrUniversity","name":"University of Buenos Aires"}');
   head = head.replace(/"inLanguage":"es[^"]*"/g, '"inLanguage":"en"');
   head = head.split(`"@id":"${SITE}/#profile-page"`).join(`"@id":"${SITE}${page.en}#profile-page"`);
 
