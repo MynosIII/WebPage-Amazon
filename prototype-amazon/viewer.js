@@ -151,7 +151,10 @@
       const sourceMain = sourceDocument.querySelector('main');
       if (!sourceMain) { showError(isEnglish ? 'The source page has no main content.' : 'La página de origen no contiene un bloque principal.'); return; }
 
-      const sourceTitle = sourceDocument.querySelector('h1')?.textContent.trim() || sourceDocument.title.split('|')[0].trim() || 'Proyecto';
+      const headingNode = sourceDocument.querySelector('h1')?.cloneNode(true);
+      // A <br> inside the heading would otherwise glue two words together.
+      headingNode?.querySelectorAll('br').forEach(function (br) { br.replaceWith(' '); });
+      const sourceTitle = (headingNode?.textContent || '').replace(/\s+/g, ' ').trim() || sourceDocument.title.split('|')[0].trim() || 'Proyecto';
       document.title = sourceTitle + ' — Matías Gaglio';
       if (crumb) crumb.textContent = sourceTitle;
       syncMeta(sourceDocument, sourceTitle);
