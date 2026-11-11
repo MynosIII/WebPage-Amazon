@@ -53,6 +53,9 @@ SECTION_LABELS_EN = {
     "other": "Other projects",
 }
 
+# Cards are one column on phones and about 320 px wide on desktop.
+THUMB_SIZES = "(max-width: 700px) 92vw, 340px"
+
 START = "<!-- STATIC_CATALOG_START -->"
 END = "<!-- STATIC_CATALOG_END -->"
 
@@ -87,6 +90,13 @@ def media_markup(item: dict) -> str:
         imgs = "".join(image_markup(path) for path in image_set)
         return f'<span class="catalog-icon-mosaic" aria-hidden="true">{imgs}</span>'
     image = item.get("image")
+    if image and not image.lower().endswith(".svg"):
+        from build_catalog_thumbs import thumb_path
+        small, large = (thumb_path(image, width).relative_to(ROOT).as_posix() for width in (480, 800))
+        size = dimensions(ROOT / image)
+        intrinsic = f' width="{size[0]}" height="{size[1]}"' if size else ""
+        return (f'<img src="{resolve_media(small)}" srcset="{resolve_media(small)} 480w, {resolve_media(large)} 800w" '
+                f'sizes="{THUMB_SIZES}" alt=""{intrinsic} loading="lazy" decoding="async">')
     if image:
         return image_markup(image)
     return '<span class="catalog-media-skeleton" data-catalog-placeholder></span>'

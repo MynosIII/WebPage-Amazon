@@ -98,7 +98,15 @@
       }, { once: true });
     } else {
       element = document.createElement('img');
-      element.src = media.url;
+      if (media.thumbs) {
+        // Small WebP thumbnails from scripts/build_catalog_thumbs.py; fall back to the original.
+        element.srcset = media.thumbs[0] + ' 480w, ' + media.thumbs[1] + ' 800w';
+        element.sizes = '(max-width: 700px) 92vw, 340px';
+        element.addEventListener('error', function () { element.removeAttribute('srcset'); element.src = media.url; }, { once: true });
+        element.src = media.thumbs[0];
+      } else {
+        element.src = media.url;
+      }
       element.alt = '';
       element.decoding = 'async';
       element.loading = priority ? 'eager' : 'lazy';
@@ -153,7 +161,10 @@
     if (item?.imageSet?.length) {
       showImageSet(card, item.imageSet.map(function (image) { return resolveMedia('/' + image, item.url); }), priority);
     } else if (item?.image) {
-      showMedia(card, { type: 'image', url: resolveMedia('/' + item.image, item.url) }, priority);
+      const thumbs = /\.svg$/i.test(item.image) ? null : [480, 800].map(function (width) {
+        return '/assets/catalog-thumbs/' + item.image.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + width + '.webp';
+      });
+      showMedia(card, { type: 'image', url: resolveMedia('/' + item.image, item.url), thumbs: thumbs }, priority);
     }
   }
 
