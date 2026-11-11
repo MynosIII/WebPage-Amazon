@@ -8,7 +8,7 @@ const output = path.join(root, 'portfolio-dist');
 const marker = path.join(output, '.generated-portfolio');
 // Set SITE_URL (for example in the Vercel project settings) to publish under another domain.
 const canonicalOrigin = 'https://matiasgaglio.com';
-// The old Vercel hostname is redirected to canonicalOrigin in the Vercel domain settings.
+// The old Vercel hostname now 308-redirects to canonicalOrigin (see vercel.json).
 const legacyOrigins = ['https://matiasgaglio.vercel.app'];
 const origin = (process.env.SITE_URL || canonicalOrigin).replace(/\/+$/, '');
 const catalog = require('../prototype-amazon/catalog-data.json');

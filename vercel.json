@@ -4,7 +4,7 @@
   "outputDirectory": "portfolio-dist",
   "routes": [
     { "src": "/(.*)", "headers": { "X-Content-Type-Options": "nosniff", "X-Frame-Options": "SAMEORIGIN", "Referrer-Policy": "strict-origin-when-cross-origin" }, "continue": true },
-    { "src": "^/(.*)$", "has": [{ "type": "host", "value": "matiasgaglio.com" }], "headers": { "Location": "https://matiasgaglio.com/$1" }, "status": 308 },
+    { "src": "^/(.*)$", "has": [{ "type": "host", "value": "matiasgaglio.vercel.app" }], "headers": { "Location": "https://matiasgaglio.com/$1" }, "status": 308 },
     { "src": "^/(?:index\\.html)?$", "has": [{ "type": "query", "key": "lang", "value": "^en$" }], "headers": { "Location": "/index-en.html" }, "status": 308 },
     { "src": "^/about\\.html$", "has": [{ "type": "query", "key": "lang", "value": "^en$" }], "headers": { "Location": "/about-en.html" }, "status": 308 },
     { "src": "^/contact\\.html$", "has": [{ "type": "query", "key": "lang", "value": "^en$" }], "headers": { "Location": "/contact-en.html" }, "status": 308 },
