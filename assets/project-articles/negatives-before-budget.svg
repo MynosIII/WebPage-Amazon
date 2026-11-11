@@ -1,20 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="ROAS by campaign set from the 30-day search term audit">
-<rect width="1600" height="900" fill="#07090c"/>
-<text x="240" y="140" fill="#ef2016" font-family="system-ui,sans-serif" font-size="26" font-weight="800" letter-spacing="5">SEARCH TERM AUDIT · 30 DAYS</text>
-<text x="240" y="205" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="52" font-weight="800">ROAS by campaign set</text>
-<text x="240" y="314" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Sponsored Display</text>
-<rect x="620" y="265" width="600" height="74" rx="8" fill="#2fbf71"/>
-<text x="1236" y="315" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">10.34</text>
-<text x="240" y="418" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Canada</text>
-<rect x="620" y="369" width="470" height="74" rx="8" fill="#5fd28b"/>
-<text x="1106" y="419" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">8.1</text>
-<text x="240" y="522" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Harvested ASIN targets</text>
-<rect x="620" y="473" width="286" height="74" rx="8" fill="#f0c75e"/>
-<text x="922" y="523" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">4.93</text>
-<text x="240" y="626" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Sponsored Brands</text>
-<rect x="620" y="577" width="93" height="74" rx="8" fill="#ef2016"/>
-<text x="729" y="627" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">1.61</text>
-<text x="240" y="730" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="28" font-weight="700">Harvested keywords</text>
-<rect x="620" y="681" width="80" height="74" rx="8" fill="#ef2016"/>
-<text x="716" y="731" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="30" font-weight="800">1.39</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Amazon Ads console style bar chart of ROAS by campaign set from the search term audit">
+<rect width="1600" height="900" fill="#f2f4f8"/>
+<rect width="1600" height="72" fill="#232f3e"/>
+<rect x="230" y="25" width="26" height="3.5" rx="1.5" fill="#fff"/>
+<rect x="230" y="34" width="26" height="3.5" rx="1.5" fill="#fff"/>
+<rect x="230" y="43" width="26" height="3.5" rx="1.5" fill="#fff"/>
+<text x="276" y="46" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#fff" text-anchor="start">Campaign manager</text>
+<rect x="1140" y="18" width="230" height="36" rx="18" fill="#37475a"/>
+<text x="1255" y="43" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="18" font-weight="400" fill="#fff" text-anchor="middle">Ratios only · no names</text>
+<text x="230" y="118" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="20" font-weight="400" fill="#007185" text-anchor="start">Reports  ›  Search term  ›  Last 30 days</text>
+<text x="230" y="166" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="38" font-weight="700" fill="#0f1111" text-anchor="start">Search term audit</text>
+<rect x="230.0" y="192" width="271.5" height="128" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<rect x="230.0" y="192" width="271.5" height="6" rx="3" fill="#146eb4"/>
+<text x="250.0" y="236" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">Campaigns audited</text>
+<text x="250.0" y="292" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="40" font-weight="700" fill="#0f1111" text-anchor="start">~600</text>
+<rect x="519.5" y="192" width="271.5" height="128" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<rect x="519.5" y="192" width="271.5" height="6" rx="3" fill="#ff9900"/>
+<text x="539.5" y="236" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">Negatives, pass 1</text>
+<text x="539.5" y="292" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="40" font-weight="700" fill="#0f1111" text-anchor="start">1,116</text>
+<rect x="809.0" y="192" width="271.5" height="128" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<rect x="809.0" y="192" width="271.5" height="6" rx="3" fill="#ff9900"/>
+<text x="829.0" y="236" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">Negatives, pass 2</text>
+<text x="829.0" y="292" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="40" font-weight="700" fill="#0f1111" text-anchor="start">1,818</text>
+<rect x="1098.5" y="192" width="271.5" height="128" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<rect x="1098.5" y="192" width="271.5" height="6" rx="3" fill="#007185"/>
+<text x="1118.5" y="236" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">New campaigns</text>
+<text x="1118.5" y="292" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="40" font-weight="700" fill="#0f1111" text-anchor="start">14</text>
+<rect x="230" y="346" width="1140" height="494" rx="8" fill="#fff" stroke="#d5d9d9"/>
+<text x="258" y="392" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#0f1111" text-anchor="start">ROAS by campaign set</text>
+<text x="1296.0" y="392" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="19" font-weight="400" fill="#565959" text-anchor="start">ROAS</text>
+<rect x="1270.0" y="377" width="16" height="16" rx="3" fill="#146eb4"/>
+<line x1="230" y1="414" x2="1370" y2="414" stroke="#d5d9d9"/>
+<line x1="588.0" y1="440" x2="588.0" y2="796.0" stroke="#eaeded"/>
+<line x1="746.0" y1="440" x2="746.0" y2="796.0" stroke="#eaeded"/>
+<line x1="904.0" y1="440" x2="904.0" y2="796.0" stroke="#eaeded"/>
+<line x1="1062.0" y1="440" x2="1062.0" y2="796.0" stroke="#eaeded"/>
+<line x1="1220.0" y1="440" x2="1220.0" y2="796.0" stroke="#eaeded"/>
+<text x="258" y="475.0304" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Sponsored Display</text>
+<rect x="588" y="446.0" width="594.1" height="40.3" rx="4" fill="#146eb4"/>
+<text x="1194.08" y="475.8368" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#0f1111" text-anchor="start">10.34</text>
+<text x="258" y="547.0304" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Canada</text>
+<rect x="588" y="518.0" width="465.4" height="40.3" rx="4" fill="#146eb4"/>
+<text x="1065.3818181818183" y="547.8368" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#0f1111" text-anchor="start">8.10</text>
+<text x="258" y="619.0304" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Harvested ASIN targets</text>
+<rect x="588" y="590.0" width="283.3" height="40.3" rx="4" fill="#146eb4"/>
+<text x="883.2509090909091" y="619.8368" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#0f1111" text-anchor="start">4.93</text>
+<text x="258" y="691.0304" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Sponsored Brands</text>
+<rect x="588" y="662.0" width="92.5" height="40.3" rx="4" fill="#ff9900"/>
+<text x="692.5018181818182" y="691.8368" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#0f1111" text-anchor="start">1.61</text>
+<text x="258" y="763.0304" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="400" fill="#0f1111" text-anchor="start">Harvested keywords</text>
+<rect x="588" y="734.0" width="79.9" height="40.3" rx="4" fill="#ff9900"/>
+<text x="679.8618181818182" y="763.8368" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#0f1111" text-anchor="start">1.39</text>
+<text x="230" y="874" font-family="'Amazon Ember',Arial,Helvetica,sans-serif" font-size="18" font-weight="400" fill="#565959" text-anchor="start">Illustration rebuilt from exported Amazon reports</text>
 </svg>
