@@ -169,3 +169,4 @@ body.project-article-page {
 .pa-tags--topics li { background: transparent; color: var(--pa-muted); }
 .pa-section > .container > p + p { margin-top: 14px; }
 .pa-figure--inline { margin: 26px 0; }
+.pa-figure--inline img { aspect-ratio: auto; object-fit: contain; }

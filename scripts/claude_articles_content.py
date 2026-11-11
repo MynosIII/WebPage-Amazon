@@ -156,6 +156,7 @@ ARTICLES = [
                 ]),
                 ('Edición', 'Animaciones sobre el discurso.', [
                     ('p', 'En un episodio sobre demanda de búsqueda, Claude agregó 11 animaciones en una pista nueva: una barra de búsqueda que se escribe sola, resultados que aparecen y una tarjeta que dice que tu negocio no figura, palabras que se tachan, un botón de guardar y un cierre con el botón de seguir. Las frases destacadas reemplazan a sus subtítulos para no duplicar texto, y cada recurso tiene su sonido: clics, pops o caja registradora.'),
+                    ('figure', 'assets/project-articles/davinci-oxi-timeline.webp', 1917, 1004, 'Captura real de DaVinci Resolve con la timeline de un episodio de Oxi: subtítulos, pistas de animación, efectos de sonido y música sobre el video vertical', 'La timeline real de un episodio de Oxi en DaVinci Resolve: subtítulos arriba, animaciones en V2 y V3, efectos de sonido en A2 y música en A3.'),
                 ]),
                 ('Guía', 'Convertir lo aprendido en un estándar.', [
                     ('p', 'El último paso fue documentar el proceso para que cualquier editor del equipo pueda repetirlo. La guía se genera con Python como PDF y tiene diez pasos en el orden real del trabajo:'),
@@ -213,6 +214,7 @@ ARTICLES = [
                 ]),
                 ('Editing', 'Animations that follow the script.', [
                     ('p', 'For an episode about search demand, Claude added 11 animations on a new track: a search bar that types itself, results that appear and a card saying your business is missing, words that get struck through, a save button and a closing follow button. Highlighted phrases replace their captions to avoid duplicate text, and every element has its sound: clicks, pops or a cash register.'),
+                    ('figure', 'assets/project-articles/davinci-oxi-timeline.webp', 1917, 1004, 'Real DaVinci Resolve screenshot of an Oxi episode timeline: captions, animation tracks, sound effects and music over the vertical video', 'The real timeline of an Oxi episode in DaVinci Resolve: captions on top, animations on V2 and V3, sound effects on A2 and music on A3.'),
                 ]),
                 ('Guide', 'Turning what we learned into a standard.', [
                     ('p', 'The last step was documenting the process so any editor on the team can repeat it. The guide is generated as a PDF with Python and has ten steps in the real order of work:'),
