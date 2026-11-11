@@ -3274,5 +3274,461 @@
         ]
       }
     ]
+  },
+  {
+    "title": "Un sistema de bandas de ROAS para Amazon Ads",
+    "description": "Cómo ordené una cuenta de Amazon Ads de 600 campañas con cinco bandas de ROAS, un filtro de edad y una implementación que empieza por los negativos.",
+    "keywords": "Amazon PPC, ROAS, TACoS, ACoS, Sponsored Products, Sponsored Brands, Sponsored Display, Palabras clave negativas, Asignación de presupuesto, Estrategia de pujas, Modificadores top of search, Auditoría de campañas, Operaciones masivas, Reporte de términos de búsqueda, Autopartes, Accesorios para ruedas, Revolution Supply, Amazon Ads, Amazon Ads bulksheets, Amazon Seller Central, Business Reports, Excel, Asana",
+    "lang": "es",
+    "url": "amazon-ppc-roas-banding-playbook-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/roas-banding-playbook.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "A ROAS banding playbook for Amazon Ads",
+    "description": "How I turned a 600-campaign Amazon Ads account into five ROAS bands, an age gate and a negatives-first rollout that anyone on the team can apply.",
+    "keywords": "Amazon PPC, ROAS, TACoS, ACoS, Sponsored Products, Sponsored Brands, Sponsored Display, Negative keywords, Budget allocation, Bid strategy, Top-of-search modifiers, Campaign audit, Bulk operations, Search term report, Automotive parts, Wheel accessories, Revolution Supply, Amazon Ads, Amazon Ads bulksheets, Amazon Seller Central, Business Reports, Excel, Asana",
+    "lang": "en",
+    "url": "amazon-ppc-roas-banding-playbook-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/roas-banding-playbook.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Negativos antes que presupuesto: auditar una cuenta de Amazon Ads",
+    "description": "Cómo una auditoría por términos de búsqueda de una cuenta de Amazon Ads de 600 campañas mostró que los negativos, y no más inversión, eran la palanca de eficiencia más grande.",
+    "keywords": "Amazon PPC, Auditoría PPC, Palabras clave negativas, Productos negativos, Análisis de términos de búsqueda, Cosecha de palabras clave, Inversión desperdiciada, ROAS, TACoS, Sponsored Products, Sponsored Brands, Sponsored Display, Asignación de presupuesto, Amazon Canadá, Autopartes, Accesorios para ruedas, Revolution Supply, Amazon Ads, Amazon Ads bulksheets, Search term report, Amazon Seller Central, Business Reports, Excel",
+    "lang": "es",
+    "url": "amazon-ads-negatives-before-budget-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/negatives-before-budget.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Negatives before budget: auditing an Amazon Ads account",
+    "description": "How a search-term audit of a 600-campaign Amazon Ads account found that negative keywords, not more spend, were the biggest efficiency lever.",
+    "keywords": "Amazon PPC, PPC audit, Negative keywords, Negative product targeting, Search term analysis, Keyword harvesting, Wasted ad spend, ROAS, TACoS, Sponsored Products, Sponsored Brands, Sponsored Display, Budget allocation, Amazon Canada, Automotive parts, Wheel accessories, Revolution Supply, Amazon Ads, Amazon Ads bulksheets, Search term report, Amazon Seller Central, Business Reports, Excel",
+    "lang": "en",
+    "url": "amazon-ads-negatives-before-budget-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/negatives-before-budget.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Por qué las campañas por vehículo rinden menos que la cuenta",
+    "description": "32 campañas por compatibilidad de vehículo devolvieron menos de la mitad del ROAS de la cuenta. La mayor parte de la diferencia vino de dos presupuestos sobredimensionados y de un tope de cuenta agotado, no de la idea.",
+    "keywords": "Amazon PPC, Compatibilidad de vehículos, Fitment automotriz, Segmentación por vehículo, Sponsored Brands, Sponsored Products, Análisis de campañas, ROAS, Concentración de presupuesto, Tope diario de la cuenta, Estrategia de lanzamiento, Tuercas de rueda, Separadores de rueda, Autopartes, Revolution Supply, Amazon Ads, Amazon Ads bulksheets, Amazon Seller Central, Excel, Asana",
+    "lang": "es",
+    "url": "amazon-fitment-campaigns-roas-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/fitment-campaigns-roas.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Why vehicle-fitment campaigns lag the account",
+    "description": "32 vehicle-fitment campaigns returned less than half the account's ROAS. Most of the gap came from two oversized budgets and an exhausted account cap, not from the idea itself.",
+    "keywords": "Amazon PPC, Vehicle fitment, Automotive fitment, Fitment targeting, Sponsored Brands, Sponsored Products, Campaign analysis, ROAS, Budget concentration, Account daily cap, Campaign launch strategy, Lug nuts, Wheel spacers, Automotive parts, Revolution Supply, Amazon Ads, Amazon Ads bulksheets, Amazon Seller Central, Excel, Asana",
+    "lang": "en",
+    "url": "amazon-fitment-campaigns-roas-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/fitment-campaigns-roas.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Más tráfico, menos conversión: promociones y una actualización de A+",
+    "description": "Las sesiones subieron 11% mientras la conversión bajaba todos los meses. Lo que mostraron la revisión de familias de productos, 26 promociones y una actualización de A+ sobre arreglar la conversión antes de comprar más tráfico.",
+    "keywords": "Tasa de conversión en Amazon, Porcentaje de sesiones con unidad, Optimización de conversión, Promociones en Amazon, Cupones, Descuentos, Restricted ASIN, Cupón de recompra, Contenido A+, Optimización de listings, Buy Box, Participación de mercado, Análisis de competencia, Black Friday / Cyber Monday, Tuercas de rueda, Separadores de rueda, Autopartes, Revolution Supply, Amazon Seller Central, Business Reports, Manage Promotions, A+ Content Manager, Manage Your Experiments, Amazon Ads, Stackline, Excel",
+    "lang": "es",
+    "url": "amazon-conversion-promotions-a-plus-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/conversion-promotions.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "stackline",
+        "name": "Stackline",
+        "asset": "stackline.svg",
+        "aliases": [
+          "Stackline"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "More traffic, less conversion: promotions and an A+ update",
+    "description": "Sessions rose 11% while conversion fell every month. What product-family reviews, 26 promotions and an A+ content update showed about fixing conversion before buying more traffic.",
+    "keywords": "Amazon conversion rate, Unit session percentage, Conversion rate optimization, Amazon promotions, Coupons, Price discounts, Restricted ASIN, Reorder coupon, A+ Content, Listing optimization, Buy Box, Market share, Competitor analysis, Black Friday / Cyber Monday, Lug nuts, Wheel spacers, Automotive parts, Revolution Supply, Amazon Seller Central, Business Reports, Manage Promotions, A+ Content Manager, Manage Your Experiments, Amazon Ads, Stackline, Excel",
+    "lang": "en",
+    "url": "amazon-conversion-promotions-a-plus-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/conversion-promotions.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "stackline",
+        "name": "Stackline",
+        "asset": "stackline.svg",
+        "aliases": [
+          "Stackline"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "¿Particular o taller? Estimar la parte B2B en Amazon con evidencia imperfecta",
+    "description": "La planificación suponía que la mitad de los compradores de Amazon eran talleres. Seis fuentes indirectas, de Brand Analytics a las búsquedas, apuntan a una base mayoritariamente de particulares con un nicho real de talleres en piezas puntuales.",
+    "keywords": "Investigación de clientes, B2B vs B2C, Amazon Business, Segmentación de clientes, Brand Analytics, Demografía, Análisis de canasta, Tasa de recompra, Search Query Performance, Triangulación de evidencia, Investigación de personas, Válvulas TPMS, Separadores de rueda, Tuercas de rueda, Mercado de autopartes, Revolution Supply, Amazon Seller Central, Brand Analytics, Search Query Performance, Business Reports, Amazon Business, Excel",
+    "lang": "es",
+    "url": "amazon-diy-vs-shop-b2b-share-es.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/diy-vs-shop.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
+  },
+  {
+    "title": "DIY or shop? Estimating B2B share on Amazon from imperfect evidence",
+    "description": "Planning assumed half of Amazon buyers were repair shops. Six indirect data sources, from Brand Analytics to search queries, point to a mostly DIY base with a real shop niche in specific parts.",
+    "keywords": "Customer research, B2B vs B2C, Amazon Business, Customer segmentation, Brand Analytics, Demographics, Market basket analysis, Repeat purchase rate, Search Query Performance, Evidence triangulation, Persona research, TPMS valve stems, Wheel spacers, Lug nuts, Automotive aftermarket, Revolution Supply, Amazon Seller Central, Brand Analytics, Search Query Performance, Business Reports, Amazon Business, Excel",
+    "lang": "en",
+    "url": "amazon-diy-vs-shop-b2b-share-en.html",
+    "staticArticle": true,
+    "categories": [
+      "articles",
+      "ecommerce"
+    ],
+    "image": "assets/project-articles/diy-vs-shop.svg",
+    "mediaFit": "cover",
+    "toolLogos": [
+      {
+        "key": "amazon-seller-central",
+        "name": "Amazon Seller Central",
+        "asset": "amazon-seller-central.svg",
+        "aliases": [
+          "Amazon Seller Central",
+          "Seller Central"
+        ]
+      },
+      {
+        "key": "amazon-ads",
+        "name": "Amazon Ads",
+        "asset": "amazon-ads.svg",
+        "aliases": [
+          "Amazon Ads",
+          "Amazon Advertising",
+          "Amazon PPC"
+        ]
+      },
+      {
+        "key": "excel",
+        "name": "Excel",
+        "asset": "excel.svg",
+        "aliases": [
+          "Excel",
+          "Microsoft Excel"
+        ]
+      }
+    ]
   }
 ]

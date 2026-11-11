@@ -499,6 +499,32 @@
     "oxi-contenido-y-analisis.html": [
       "davinci-resolve",
       "claude"
+    ],
+    "amazon-ppc-roas-banding-playbook.html": [
+      "amazon-ads",
+      "amazon-seller-central",
+      "excel"
+    ],
+    "amazon-ads-negatives-before-budget.html": [
+      "amazon-ads",
+      "amazon-seller-central",
+      "excel"
+    ],
+    "amazon-fitment-campaigns-roas.html": [
+      "amazon-ads",
+      "amazon-seller-central",
+      "excel"
+    ],
+    "amazon-conversion-promotions-a-plus.html": [
+      "amazon-seller-central",
+      "amazon-ads",
+      "stackline",
+      "excel"
+    ],
+    "amazon-diy-vs-shop-b2b-share.html": [
+      "amazon-seller-central",
+      "amazon-ads",
+      "excel"
     ]
   }
 }

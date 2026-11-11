@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Negatives before budget: auditing an Amazon Ads account | Matías Gaglio</title>
+  <meta name="description" content="How a search-term audit of a 600-campaign Amazon Ads account found that negative keywords, not more spend, were the biggest efficiency lever.">
+  <meta name="keywords" content="Amazon PPC, PPC audit, Negative keywords, Negative product targeting, Search term analysis, Keyword harvesting, Wasted ad spend, ROAS, TACoS, Sponsored Products, Sponsored Brands, Sponsored Display, Budget allocation, Amazon Canada, Automotive parts, Wheel accessories, Revolution Supply, Amazon Ads, Amazon Ads bulksheets, Search term report, Amazon Seller Central, Business Reports, Excel">
+  <link rel="canonical" href="https://matiasgaglio.vercel.app/amazon-ads-negatives-before-budget-en.html"><link rel="alternate" hreflang="es" href="https://matiasgaglio.vercel.app/amazon-ads-negatives-before-budget-es.html"><link rel="alternate" hreflang="en" href="https://matiasgaglio.vercel.app/amazon-ads-negatives-before-budget-en.html"><link rel="alternate" hreflang="x-default" href="https://matiasgaglio.vercel.app/amazon-ads-negatives-before-budget-es.html">
+  <meta property="og:type" content="article"><meta property="og:site_name" content="Matías Gaglio"><meta property="og:locale" content="en_US"><meta property="og:title" content="Negatives before budget: auditing an Amazon Ads account"><meta property="og:description" content="How a search-term audit of a 600-campaign Amazon Ads account found that negative keywords, not more spend, were the biggest efficiency lever."><meta property="og:url" content="https://matiasgaglio.vercel.app/amazon-ads-negatives-before-budget-en.html"><meta property="og:image" content="https://matiasgaglio.vercel.app/assets/project-articles/negatives-before-budget.svg"><meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="project-article.css"><link rel="stylesheet" href="global-nav.css">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="manifest" href="/prototype-amazon/site.webmanifest">
+  <meta property="article:published_time" content="2026-11-11"><meta property="article:tag" content="Amazon PPC"><meta property="article:tag" content="PPC audit"><meta property="article:tag" content="Negative keywords"><meta property="article:tag" content="Negative product targeting"><meta property="article:tag" content="Search term analysis"><meta property="article:tag" content="Keyword harvesting"><meta property="article:tag" content="Wasted ad spend"><meta property="article:tag" content="ROAS"><meta property="article:tag" content="TACoS"><meta property="article:tag" content="Sponsored Products"><meta property="article:tag" content="Sponsored Brands"><meta property="article:tag" content="Sponsored Display"><meta property="article:tag" content="Budget allocation"><meta property="article:tag" content="Amazon Canada"><meta property="article:tag" content="Automotive parts"><meta property="article:tag" content="Wheel accessories"><meta property="article:tag" content="Revolution Supply"><meta property="article:tag" content="Amazon Ads"><meta property="article:tag" content="Amazon Ads bulksheets"><meta property="article:tag" content="Search term report"><meta property="article:tag" content="Amazon Seller Central"><meta property="article:tag" content="Business Reports"><meta property="article:tag" content="Excel">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Negatives before budget: auditing an Amazon Ads account", "description": "How a search-term audit of a 600-campaign Amazon Ads account found that negative keywords, not more spend, were the biggest efficiency lever.", "inLanguage": "en", "datePublished": "2026-11-11", "dateModified": "2026-11-11", "author": {"@type": "Person", "name": "Matías Gaglio", "url": "https://matiasgaglio.vercel.app/sobre-mi-en.html"}, "image": "https://matiasgaglio.vercel.app/assets/project-articles/negatives-before-budget.svg", "mainEntityOfPage": "https://matiasgaglio.vercel.app/amazon-ads-negatives-before-budget-en.html", "keywords": "Amazon PPC, PPC audit, Negative keywords, Negative product targeting, Search term analysis, Keyword harvesting, Wasted ad spend, ROAS, TACoS, Sponsored Products, Sponsored Brands, Sponsored Display, Budget allocation, Amazon Canada, Automotive parts, Wheel accessories, Revolution Supply, Amazon Ads, Amazon Ads bulksheets, Search term report, Amazon Seller Central, Business Reports, Excel", "articleSection": "Amazon Ads / PPC / Account audit", "about": [{"@type": "Thing", "name": "Amazon PPC"}, {"@type": "Thing", "name": "PPC audit"}, {"@type": "Thing", "name": "Negative keywords"}, {"@type": "Thing", "name": "Negative product targeting"}, {"@type": "Thing", "name": "Search term analysis"}, {"@type": "Thing", "name": "Keyword harvesting"}, {"@type": "Thing", "name": "Wasted ad spend"}, {"@type": "Thing", "name": "ROAS"}], "mentions": [{"@type": "SoftwareApplication", "name": "Amazon Ads"}, {"@type": "SoftwareApplication", "name": "Amazon Ads bulksheets"}, {"@type": "SoftwareApplication", "name": "Search term report"}, {"@type": "SoftwareApplication", "name": "Amazon Seller Central"}, {"@type": "SoftwareApplication", "name": "Business Reports"}, {"@type": "SoftwareApplication", "name": "Excel"}]}</script>
+</head>
+<body class="project-article-page">
+  <header class="global-nav" data-global-nav>
+  <div class="global-nav__badge">
+    <a class="global-nav__logo" href="/index-en.html">Matías Gaglio.</a>
+    <button class="global-nav__toggle" type="button" aria-controls="global-menu" aria-expanded="false" aria-label="Open menu" data-global-nav-toggle><span></span><span></span><span></span></button>
+    <nav class="global-nav__menu" id="global-menu" aria-label="Main navigation" data-global-nav-menu><ul><li><a href="/index-en.html">Home</a></li><li><a href="/catalog-en.html?section=all">Explore work</a></li><li><a href="/about-en.html">About</a></li><li><a href="/cv-en.html">CV</a></li><li><a href="/contact-en.html">Contact</a></li><li class="global-nav__locale"><a href="amazon-ads-negatives-before-budget-es.html" hreflang="es" aria-label="Ver en español">ES</a></li></ul></nav>
+  </div>
+</header>
+  <main class="project-article"><article>
+    <header class="pa-hero"><div class="container"><span class="pa-kicker">Amazon Ads / PPC / Account audit</span><h1>Negatives before <em>budget.</em></h1><p class="pa-deck">How a search-term audit of a 600-campaign Amazon Ads account found that negative keywords, not more spend, were the biggest efficiency lever.</p><p>Matías Gaglio · <time datetime="2026-11-11">11/11/2026</time></p><a href="amazon-ads-negatives-before-budget-es.html" hreflang="es">Leer en español</a></div></header>
+    <section class="pa-media"><div class="container"><figure class="pa-figure pa-figure--wide"><img src="assets/project-articles/negatives-before-budget.svg" width="1600" height="900" alt="Bar chart of ROAS by campaign set from the search term audit" fetchpriority="high"></figure><div class="pa-facts"><div class="pa-fact"><strong>~600</strong><span>campaigns audited across six Amazon Ads reports</span></div><div class="pa-fact"><strong>1,116</strong><span>negatives in the first pass, plus 1,818 in a second</span></div><div class="pa-fact"><strong>4.64 → 5.88</strong><span>projected pool ROAS at the same spend</span></div><div class="pa-fact"><strong>14</strong><span>new campaigns harvested from high-ROAS search terms</span></div></div></div></section>
+
+    <section class="pa-section"><div class="container">
+      <span class="pa-label">The question</span>
+      <h2>Where is the money leaking before we spend more?</h2>
+      <p>The brief was clear: grow Revolution Supply's Amazon sales toward a daily floor, lift blended ROAS to 6.0 or more, and don't lose more than 10% of ad-attributed sales on the way. Management had also set a daily ad spend target. The easy reading was "spend up to the target". I wanted to know first where the current budget was being wasted, because new money poured into the same structure would leak the same way.</p>
+      <p>So the audit started with search terms, not campaigns. A campaign's ROAS is an average of good and bad searches. The search term report shows which queries actually bought something.</p>
+    </div></section>
+
+    <section class="pa-section"><div class="container">
+      <span class="pa-label">Method</span>
+      <h2>Six reports, four questions.</h2>
+      <div class="pa-flow">
+        <article><h3>Search terms</h3><p>30 days of queries with spend and orders, across Sponsored Products, Brands and Display. This is where negatives come from.</p></article>
+        <article><h3>Targeting</h3><p>Keywords and product targets by match type, to see whether a bad query came from a broad keyword or a loose product target.</p></article>
+        <article><h3>Campaign and budget</h3><p>Which campaigns run out of budget, which never spend, and how the daily account cap shapes delivery.</p></article>
+        <article><h3>Business Reports</h3><p>Total sales, sessions and conversion, so ad efficiency is read next to TACoS and the business as a whole.</p></article>
+      </div>
+      <p>Every finding went into one of three buckets: block it (negative), move it (harvest into its own campaign), or fund it (shift budget toward it).</p>
+    </div></section>
+
+    <section class="pa-section"><div class="container">
+      <span class="pa-label">What the search terms said</span>
+      <h2>Ad types weren't equal, and averages hid it.</h2>
+      <p>Split by ad type and source, the 30-day search term data showed a wide spread. Sponsored Display earned more than six times what Sponsored Brands did per dollar. Harvested keywords had stopped working while harvested product targets were still healthy.</p>
+      <div class="pa-table-wrap"><table class="pa-table">
+        <thead><tr><th>Campaign set</th><th>ROAS</th><th>Read</th></tr></thead>
+        <tbody>
+          <tr><td>Sponsored Display (search terms, 30 days)</td><td>10.34</td><td>Strongest ad type. Fund it.</td></tr>
+          <tr><td>Canada campaigns</td><td>8.1</td><td>Separate budget pool and underfunded. Fund it.</td></tr>
+          <tr><td>Harvested product targets</td><td>4.93</td><td>Healthy. Keep it.</td></tr>
+          <tr><td>Sponsored Brands (search terms, 30 days)</td><td><strong>1.61</strong></td><td>Main inefficiency. Block and cut.</td></tr>
+          <tr><td>Harvested keywords</td><td><strong>1.39</strong></td><td>Stopped.</td></tr>
+        </tbody>
+      </table></div>
+    </div></section>
+
+    <section class="pa-section"><div class="container pa-split">
+      <div class="pa-prose">
+        <span class="pa-label">Block</span>
+        <h2>1,116 negatives first, 1,818 more second.</h2>
+        <p>The first pass built 1,116 negative keywords and product targets: mostly queries that had collected clicks and spend over 30 days without a single order. Re-scoring the campaign pool without that waste moved its projected ROAS from 4.64 to 5.88 at the same spend.</p>
+        <p>A second pass went deeper into Sponsored Brands, where broad traffic was concentrated, and produced another 1,818 negatives.</p>
+        <h3>Move</h3>
+        <p>The other side of the same report is the search terms that worked. 14 new campaigns were built from queries with high ROAS that were buried inside broad campaigns. In their own campaigns they get their own budget and bids.</p>
+        <h3>Fund</h3>
+        <p>Budget moves toward Sponsored Display, Canada and product-target harvests. Those moves depend on raising the Sponsored Products daily account cap, which was already limiting delivery.</p>
+      </div>
+      <figure class="pa-figure"><img src="assets/project-articles/negatives-before-budget.svg" width="1600" height="900" alt="ROAS by campaign set: Sponsored Display 10.34, Canada 8.1, harvested product targets 4.93, Sponsored Brands 1.61, harvested keywords 1.39" loading="lazy"><figcaption>ROAS by campaign set, from the 30-day search term audit.</figcaption></figure>
+    </div></section>
+
+    <section class="pa-section"><div class="container">
+      <span class="pa-label">Watching spend after the audit</span>
+      <h2>A spend spike traced to three campaigns.</h2>
+      <p>Cleaning an account once isn't enough. In early November daily spend jumped, and the search term data traced most of it to three Sponsored Brands campaigns returning between 1.4 and 2.4 ROAS. The proposal followed the same rules as everything else: pause the one below 1.5, cut the other two hard, and negate the queries that weren't converting. Because the decision came from the rules, it took one review instead of a debate.</p>
+    </div></section>
+
+    <section class="pa-section"><div class="container">
+      <span class="pa-label">Results and limits</span>
+      <h2>Better efficiency, not yet more demand.</h2>
+      <div class="pa-grid">
+        <article class="pa-card"><b>October</b><h3>4.87 ROAS</h3><p>The most efficient ad month since March, on less spend than September and with no drop in sales.</p></article>
+        <article class="pa-card"><b>Ad share</b><h3>40% → 49%</h3><p>Ad-attributed sales as a share of total Business Report sales, August to early November.</p></article>
+        <article class="pa-card"><b>Total sales</b><h3>About flat</h3><p>Average daily sales in the 44 days after the change were within 2% of the 30 days before.</p></article>
+      </div>
+      <p>Negatives made each ad dollar work harder, but total sales didn't move with them. Ads now account for a bigger share of a business that is roughly the same size. That's why the next work moved from the ad account to the listings: traffic grew while conversion fell. I cover that in <a href="amazon-conversion-promotions-a-plus-en.html">More traffic, less conversion</a>.</p>
+      <div class="pa-callout"><strong>Method note:</strong> sources are Amazon Ads Campaign Manager, the 30-day search term report and Seller Central Business Reports. Ad figures include Canada and Business Reports are US only. Projections assume the same traffic minus the blocked queries. Before/after comparisons are observational.</div>
+    </div></section>
+    <section class="pa-section pa-tags-section"><div class="container"><span class="pa-label">Software and tags</span><h2>Tools and topics in this article.</h2><h3>Software used or related</h3><ul class="pa-tags" aria-label="Software used or related"><li>Amazon Ads</li><li>Amazon Ads bulksheets</li><li>Search term report</li><li>Amazon Seller Central</li><li>Business Reports</li><li>Excel</li></ul><h3>Topics</h3><ul class="pa-tags pa-tags--topics" aria-label="Topics"><li>Amazon PPC</li><li>PPC audit</li><li>Negative keywords</li><li>Negative product targeting</li><li>Search term analysis</li><li>Keyword harvesting</li><li>Wasted ad spend</li><li>ROAS</li><li>TACoS</li><li>Sponsored Products</li><li>Sponsored Brands</li><li>Sponsored Display</li><li>Budget allocation</li><li>Amazon Canada</li><li>Automotive parts</li><li>Wheel accessories</li><li>Revolution Supply</li></ul></div></section>
+    <section class="pa-section"><div class="container"><h2>Keep exploring</h2><ul class="pa-source-list"><li><a href="amazon-ppc-roas-banding-playbook-en.html">A ROAS banding playbook for Amazon Ads</a></li><li><a href="amazon-fitment-campaigns-roas-en.html">Why vehicle-fitment campaigns lag the account</a></li><li><a href="amazon-conversion-promotions-a-plus-en.html">More traffic, less conversion</a></li><li><a href="amazon-diy-vs-shop-b2b-share-en.html">DIY or shop? Estimating B2B share</a></li><li><a href="revolution-operacion-amazon-en.html">Revolution: connecting catalog, ads and content</a></li><li><a href="Articles-en.html">All articles</a></li></ul></div></section>
+  </article></main>
+  <footer><div class="container"><p>© 2026 Matías Gaglio. Personal portfolio.</p></div></footer>
+  <script src="accessibility.js" defer></script><script src="software-stack.js?v=20261012" defer></script><script src="global-nav.js?v=20261012" defer></script>
+</body>
+</html>

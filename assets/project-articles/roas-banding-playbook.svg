@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="Five ROAS bands mapped to pause, cut, hold and scale actions">
+<rect width="1600" height="900" fill="#07090c"/>
+<text x="240" y="150" fill="#ef2016" font-family="system-ui,sans-serif" font-size="24" font-weight="800" letter-spacing="4">AGE GATE → NEGATIVES → ROAS BAND → BUDGET</text>
+<text x="240" y="212" fill="#f6f7f9" font-family="system-ui,sans-serif" font-size="50" font-weight="800">Post-negative ROAS, 60+ day campaigns</text>
+<text x="240" y="342" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">&lt; 1.5</text>
+<rect x="440" y="290" width="230" height="76" rx="10" fill="#ef2016" opacity=".92"/>
+<text x="468" y="340" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Pause</text>
+<text x="240" y="446" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">1.5–4.5</text>
+<rect x="440" y="394" width="414" height="76" rx="10" fill="#f08a3c" opacity=".92"/>
+<text x="468" y="444" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Cut 35–40%</text>
+<text x="240" y="550" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">4.5–6.0</text>
+<rect x="440" y="498" width="552" height="76" rx="10" fill="#f0c75e" opacity=".92"/>
+<text x="468" y="548" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Hold</text>
+<text x="240" y="654" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">6.0–8.0</text>
+<rect x="440" y="602" width="736" height="76" rx="10" fill="#5fd28b" opacity=".92"/>
+<text x="468" y="652" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Scale 2x · +40% TOS</text>
+<text x="240" y="758" fill="#aab1bd" font-family="system-ui,sans-serif" font-size="34" font-weight="700">8.0+</text>
+<rect x="440" y="706" width="920" height="76" rx="10" fill="#2fbf71" opacity=".92"/>
+<text x="468" y="756" fill="#07090c" font-family="system-ui,sans-serif" font-size="32" font-weight="800">Scale 3x · +75% TOS</text>
+</svg>

@@ -134,17 +134,17 @@ test('English article catalog and All work expose the complete bilingual invento
   await expect(allWork).toBeVisible();
   await allWork.click();
   await expect(page).toHaveURL(/section=all/);
-  await expect(page.locator('[data-catalog-list] article')).toHaveCount(42);
-  await expect(page.locator('[data-catalog-count]')).toContainText('42');
+  await expect(page.locator('[data-catalog-list] article')).toHaveCount(47);
+  await expect(page.locator('[data-catalog-count]')).toContainText('47');
 
   await page.goto('/prototype-amazon/catalog.html?section=all', { waitUntil: 'domcontentloaded' });
   await page.locator('[data-catalog-list] article').first().waitFor({ state: 'visible' });
-  await expect(page.locator('[data-catalog-list] article')).toHaveCount(42);
+  await expect(page.locator('[data-catalog-list] article')).toHaveCount(47);
 });
 
 test('every catalog section filter returns the same bilingual inventory shape', async ({ page }) => {
   test.setTimeout(120000);
-  const expected = { all: 42, ecommerce: 15, bi: 6, creative: 18, articles: 19, research: 5, other: 7 };
+  const expected = { all: 47, ecommerce: 20, bi: 6, creative: 18, articles: 24, research: 5, other: 7 };
   for (const lang of ['es', 'en']) {
     for (const [section, count] of Object.entries(expected)) {
       await page.goto(`/prototype-amazon/catalog.html?section=${section}${lang === 'en' ? '&lang=en' : ''}`, { waitUntil: 'domcontentloaded' });

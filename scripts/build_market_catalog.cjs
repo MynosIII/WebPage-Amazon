@@ -10,10 +10,15 @@ const staticArticles = new Set([
   'construccion-portfolio.html', 'deteccion-copas-arboles.html',
   'f1-predictor-walk-forward.html', 'oxi-contenido-y-analisis.html',
   'predestinato-simulador-carrera.html', 'revolution-operacion-amazon.html',
-  'telemetry-one-ecosistema.html'
+  'telemetry-one-ecosistema.html',
+  'amazon-ppc-roas-banding-playbook.html',
+  'amazon-ads-negatives-before-budget.html',
+  'amazon-fitment-campaigns-roas.html',
+  'amazon-conversion-promotions-a-plus.html',
+  'amazon-diy-vs-shop-b2b-share.html'
 ]);
 const categories = key => {
-  if (/revolution-operacion-amazon/.test(key)) return ['articles', 'ecommerce'];
+  if (/revolution-operacion-amazon|amazon-ppc-roas-banding-playbook|amazon-ads-negatives-before-budget|amazon-fitment-campaigns-roas|amazon-conversion-promotions-a-plus|amazon-diy-vs-shop-b2b-share/.test(key)) return ['articles', 'ecommerce'];
   if (/oxi-contenido-y-analisis/.test(key)) return ['articles', 'creative'];
   if (/construccion-portfolio/.test(key)) return ['articles', 'other'];
   if (/^cases\//.test(key)) return ['articles', 'ecommerce', ...(/dayparting|market-share|search-query|voice-of/.test(key) ? ['bi'] : [])];
@@ -65,6 +70,11 @@ const explicitCovers = {
   'cases/search-suppression-catalog-recovery.html': 'assets/catalog-recovery-product-photo-1600.jpg',
   'cases/voice-of-customer-conversion-brief.html': 'creatives/voc-bath-mat/04-size-fit.jpg',
   'telemetry-one-ecosistema.html': 'assets/project-articles/telemetry-home.png',
+  'amazon-ppc-roas-banding-playbook.html': 'assets/project-articles/roas-banding-playbook.svg',
+  'amazon-ads-negatives-before-budget.html': 'assets/project-articles/negatives-before-budget.svg',
+  'amazon-fitment-campaigns-roas.html': 'assets/project-articles/fitment-campaigns-roas.svg',
+  'amazon-conversion-promotions-a-plus.html': 'assets/project-articles/conversion-promotions.svg',
+  'amazon-diy-vs-shop-b2b-share.html': 'assets/project-articles/diy-vs-shop.svg',
   'f1-predictor-walk-forward.html': 'assets/project-articles/f1-predictor-backtest.svg',
   'predestinato-simulador-carrera.html': 'assets/project-articles/predestinato-home.png',
   'deteccion-copas-arboles.html': 'assets/project-articles/tree-crown-07042-results.webp'
