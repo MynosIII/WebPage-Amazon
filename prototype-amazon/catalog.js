@@ -14,7 +14,7 @@
   const description = document.querySelector('[data-catalog-description]');
   const crumb = document.querySelector('[data-catalog-crumb]');
   const params = new URLSearchParams(window.location.search);
-  const language = params.get('lang') === 'en' ? 'en' : 'es';
+  const language = document.documentElement.lang === 'en' || params.get('lang') === 'en' ? 'en' : 'es';
   const isEnglish = language === 'en';
   let section = params.get('section') || 'all';
   let items = [];
@@ -165,8 +165,8 @@
     window.history.replaceState(null, '', url);
     const locale = document.querySelector('.locale');
     if (locale) {
-      if (isEnglish) url.searchParams.delete('lang');
-      else url.searchParams.set('lang', 'en');
+      url.searchParams.delete('lang');
+      url.pathname = url.pathname.replace(/catalog(?:-en)?\.html$/, isEnglish ? 'catalog.html' : 'catalog-en.html');
       locale.href = url.href;
     }
   }
@@ -232,7 +232,7 @@
   scope?.addEventListener('change', function () {
     section = scope.value;
     syncSection();
-    window.history.replaceState(null, '', '?section=' + encodeURIComponent(section) + (input?.value ? '&q=' + encodeURIComponent(input.value) : '') + (isEnglish ? '&lang=en' : ''));
+    window.history.replaceState(null, '', '?section=' + encodeURIComponent(section) + (input?.value ? '&q=' + encodeURIComponent(input.value) : '') + (isEnglish && !/-en\.html$/.test(window.location.pathname) ? '&lang=en' : ''));
     render();
   });
   sort?.addEventListener('change', render);

@@ -30,7 +30,7 @@ CATALOG_PATH = PROTO / "catalog.html"
 SITEMAP_PATH = PROTO / "sitemap.xml"
 from site_config import SITE_URL as SITE
 LANGUAGE = "es"
-FIXED_PAGES = ["/", "/about.html", "/catalog.html", "/contact.html"]
+FIXED_PAGES = ["/", "/index-en.html", "/about.html", "/about-en.html", "/catalog.html", "/catalog-en.html", "/contact.html", "/contact-en.html", "/cv-es.html", "/cv-en.html"]
 VERCEL_CONFIG = ROOT / "vercel.json"
 
 SECTION_LABELS_ES = {
@@ -41,6 +41,16 @@ SECTION_LABELS_ES = {
     "articles": "Sistemas y artículos",
     "research": "Investigación y análisis",
     "other": "Otros proyectos",
+}
+
+SECTION_LABELS_EN = {
+    "all": "All work",
+    "ecommerce": "Ecommerce and Amazon Growth",
+    "bi": "Business Intelligence",
+    "creative": "Creative and media",
+    "articles": "Systems and articles",
+    "research": "Research and analysis",
+    "other": "Other projects",
 }
 
 START = "<!-- STATIC_CATALOG_START -->"
@@ -107,13 +117,19 @@ def card_markup(item: dict, category_label: str) -> str:
     )
 
 
-def build_list_html(items: list[dict]) -> tuple[str, int]:
+def build_list_html(items: list[dict], labels: dict[str, str] = SECTION_LABELS_ES) -> tuple[str, int]:
     cards = []
     for item in items:
         category = item["categories"][0]
-        label = SECTION_LABELS_ES.get(category, SECTION_LABELS_ES["all"])
+        label = labels.get(category, labels["all"])
         cards.append(card_markup(item, label))
     return "".join(cards), len(items)
+
+
+def english_list_html() -> str:
+    """Static English cards for prototype-amazon/catalog-en.html (see build_english_hubs.cjs)."""
+    items = [item for item in json.loads(DATA_PATH.read_text(encoding="utf-8")) if item.get("lang") == "en"]
+    return build_list_html(items, SECTION_LABELS_EN)[0]
 
 
 def build_sitemap_urls(items: list[dict]) -> list[str]:

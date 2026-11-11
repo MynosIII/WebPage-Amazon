@@ -3,12 +3,16 @@
 
   const params = new URLSearchParams(window.location.search);
   const source = params.get('source') || '';
-  const isEnglish = params.get('lang') === 'en' || /\/index-en\.html$/i.test(window.location.pathname) || /(?:^|\/)(?:index|[^/]+)-en\.html$/i.test(source);
+  // English hubs are prerendered as /<page>-en.html with <html lang="en">.
+  const isEnglish = document.documentElement.lang === 'en' || params.get('lang') === 'en' || /\/index-en\.html$/i.test(window.location.pathname) || /(?:^|\/)(?:index|[^/]+)-en\.html$/i.test(source);
   const language = isEnglish ? 'en' : 'es';
   document.documentElement.lang = language;
   window.portfolioLanguage = language;
 
   const english = {
+    'Herramientas que uso': 'Tools I use',
+    'Mi stack de software': 'My software stack',
+    'Creatividad, análisis, ecommerce y automatización conectados en un mismo flujo de trabajo.': 'Creativity, analysis, ecommerce and automation connected in one workflow.',
     'Todo': 'All',
     'Saltar al contenido': 'Skip to main content',
     'Abrir navegación': 'Open navigation',
@@ -227,9 +231,22 @@
     });
   }
 
+  // Spanish hub -> static English twin.
+  const englishHubs = { '': 'index-en.html', 'index.html': 'index-en.html', 'about.html': 'about-en.html', 'catalog.html': 'catalog-en.html', 'contact.html': 'contact-en.html' };
+
   function withLanguage(href, targetLanguage) {
     if (!href || /^(?:#|mailto:|tel:|https?:\/\/)/i.test(href)) return href;
     const url = new URL(href, window.location.href);
+    const hubDirectory = /^\/(?:prototype-amazon\/)?[^/]*$/.test(url.pathname);
+    const name = url.pathname.split('/').pop();
+    const spanishHub = name.match(/^(index|about|catalog|contact)-en\.html$/i);
+    if (hubDirectory && ((targetLanguage === 'en' && name in englishHubs) || (targetLanguage === 'es' && spanishHub))) {
+      const target = targetLanguage === 'en' ? englishHubs[name] : (spanishHub[1] === 'index' ? (href.startsWith('/') ? '' : 'index.html') : spanishHub[1] + '.html');
+      url.pathname = url.pathname.replace(/[^/]*$/, target);
+      url.searchParams.delete('lang');
+      return (href.startsWith('/') ? url.pathname : (url.pathname.split('/').pop() || 'index.html')) + url.search + url.hash;
+    }
+    if (/^(?:index|about|catalog|contact)-en\.html$/i.test(name)) return href;
     if (href.startsWith('/') && /-(?:es|en)\.html$/i.test(url.pathname)) {
       const localized = url.pathname.replace(/-(?:es|en)\.html$/i, '-' + targetLanguage + '.html');
       return localized + url.search + url.hash;

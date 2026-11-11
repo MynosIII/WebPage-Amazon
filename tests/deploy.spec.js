@@ -6,7 +6,9 @@ const bookingUrl = 'https://calendar.app.google/UyiMPukNRaHi2HhD7';
 test('public aliases redirect and unknown pages return a real 404', async ({ request }) => {
   for (const [path, location] of [
     ['/index-es.html', '/'],
-    ['/index-en.html', '/index.html?lang=en'],
+    ['/index.html?lang=en', '/index-en.html'],
+    ['/about.html?lang=en', '/about-en.html'],
+    ['/catalog.html?section=bi&lang=en', '/catalog-en.html?section=bi'],
     ['/prototype-amazon/', '/']
   ]) {
     const response = await request.get(path, { maxRedirects: 0 });

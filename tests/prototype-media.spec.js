@@ -61,7 +61,7 @@ test('custom 404 stays inside the same UI in Spanish and English', async ({ page
   await page.goto('/404.html?lang=en', { waitUntil: 'networkidle' });
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.locator('h1')).toHaveText('We could not find this page.');
-  await expect(page.locator('.not-found-actions a').first()).toHaveAttribute('href', '/index.html?lang=en');
+  await expect(page.locator('.not-found-actions a').first()).toHaveAttribute('href', '/index-en.html');
 });
 
 test('all conversion-video cases populate their original content and defer heavy playback', async ({ page }) => {

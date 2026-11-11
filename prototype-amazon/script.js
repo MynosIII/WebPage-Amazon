@@ -35,7 +35,7 @@
       ['other', 'Automatización y código']
     ];
     const sectionHref = function (key) {
-      return prefix + 'catalog.html?section=' + key + (isEnglish ? '&lang=en' : '');
+      return prefix + (isEnglish ? 'catalog-en.html' : 'catalog.html') + '?section=' + key;
     };
     if (nav) {
       nav.replaceChildren.apply(nav, sections.map(function (section, index) {

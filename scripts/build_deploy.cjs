@@ -109,7 +109,7 @@ const nextStepCopy = {
 function nextStep(html, lang) {
   if (html.includes('data-case-next-step')) return html;
   const copy = nextStepCopy[lang];
-  const catalogHref = lang === 'en' ? '/catalog.html?section=all&amp;lang=en' : '/catalog.html?section=all';
+  const catalogHref = lang === 'en' ? '/catalog-en.html?section=all' : '/catalog.html?section=all';
   const block = `<section class="case-next-step" data-case-next-step aria-labelledby="case-next-step-title"><div class="case-next-step__inner">`
     + `<p class="case-next-step__label">${copy.label}</p><h2 id="case-next-step-title">${copy.title}</h2><p>${copy.body}</p>`
     + `<div class="case-next-step__actions"><a class="case-next-step__primary" href="${bookingUrl}">${copy.book}</a>`
@@ -160,6 +160,32 @@ function* textFiles(directory) {
   }
 }
 
+// Add <lastmod> from the last commit that touched each page's source file.
+// A shallow clone or a build without git history would give wrong dates, so
+// the sitemap then ships without them.
+function addSitemapDates() {
+  const { execFileSync } = require('node:child_process');
+  const git = (...args) => execFileSync('git', args, { cwd: root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  try {
+    if (git('rev-parse', '--is-shallow-repository') !== 'false') return;
+  } catch {
+    return;
+  }
+  const sitemap = path.join(output, 'prototype-amazon', 'sitemap.xml');
+  const source = (pathname) => {
+    if (pathname === '/') return 'prototype-amazon/index.html';
+    const relative = decodeURIComponent(pathname.slice(1));
+    return fs.existsSync(path.join(root, 'prototype-amazon', relative)) && !relative.includes('/') ? `prototype-amazon/${relative}` : relative;
+  };
+  const xml = fs.readFileSync(sitemap, 'utf8').replace(/<url><loc>([^<]+)<\/loc><\/url>/g, (entry, loc) => {
+    const file = source(new URL(loc).pathname);
+    let date = '';
+    try { date = git('log', '-1', '--format=%cs', '--', file); } catch { /* untracked */ }
+    return date ? `<url><loc>${loc}</loc><lastmod>${date}</lastmod></url>` : entry;
+  });
+  fs.writeFileSync(sitemap, xml);
+}
+
 // Publish every absolute URL under one origin and refuse to ship the retired Render domain.
 function finalizeOrigins() {
   const stale = [];
@@ -188,4 +214,5 @@ for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
 for (const directory of publicDirectories) copyPublicDirectory(directory);
 for (const relative of publicData) copy(relative);
 renderProjects();
+addSitemapDates();
 finalizeOrigins();

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://matiasgaglio.vercel.app/</loc></url>
+  <url><loc>https://matiasgaglio.vercel.app/index-en.html</loc></url>
   <url><loc>https://matiasgaglio.vercel.app/about.html</loc></url>
+  <url><loc>https://matiasgaglio.vercel.app/about-en.html</loc></url>
   <url><loc>https://matiasgaglio.vercel.app/catalog.html</loc></url>
+  <url><loc>https://matiasgaglio.vercel.app/catalog-en.html</loc></url>
   <url><loc>https://matiasgaglio.vercel.app/contact.html</loc></url>
+  <url><loc>https://matiasgaglio.vercel.app/contact-en.html</loc></url>
+  <url><loc>https://matiasgaglio.vercel.app/cv-es.html</loc></url>
+  <url><loc>https://matiasgaglio.vercel.app/cv-en.html</loc></url>
   <url><loc>https://matiasgaglio.vercel.app/amazon-content-architecture-en.html</loc></url>
   <url><loc>https://matiasgaglio.vercel.app/amazon-content-architecture-es.html</loc></url>
   <url><loc>https://matiasgaglio.vercel.app/amazon-lifecycle-operating-system-en.html</loc></url>

@@ -15,6 +15,8 @@ from shared_nav import render_global_nav
 
 ROOT = Path(__file__).resolve().parents[1]
 HEADER = re.compile(r'<header class="global-nav" data-global-nav>.*?</header>\n?', re.S)
+# build_homepages.py renders these with its own language switch.
+GENERATED_ELSEWHERE = {"index.html", "index-es.html", "index-en.html"}
 SWITCH = re.compile(r'<li class="global-nav__locale"><a href="([^"]*)"')
 
 
@@ -38,12 +40,12 @@ def main() -> int:
         path = ROOT / name
         text = path.read_text(encoding="utf-8")
         match = HEADER.search(text)
-        if not match:
+        if not match or name in GENERATED_ELSEWHERE:
             continue
         lang = re.search(r'<html[^>]*\blang="([a-z]{2})', text)
         lang = lang.group(1) if lang else "es"
         switch = SWITCH.search(match.group(0))
-        href = pair_href(name, lang) or (switch.group(1) if switch else "") or ("/index.html?lang=en" if lang == "es" else "/")
+        href = pair_href(name, lang) or (switch.group(1) if switch else "") or ("/index-en.html" if lang == "es" else "/")
         updated = text[:match.start()] + render_global_nav(lang, href) + text[match.end():]
         if updated != text:
             stale.append(name)

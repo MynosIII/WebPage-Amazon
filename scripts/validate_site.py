@@ -29,8 +29,10 @@ def public_files():
 
 def vercel_target(path: str) -> Path:
     for route in VERCEL_ROUTES:
-        if "dest" in route and re.fullmatch(route["src"], path):
-            return ROOT / route["dest"].lstrip("/")
+        match = re.fullmatch(route["src"], path) if "dest" in route else None
+        if match:
+            dest = re.sub(r"\$(\d+)", lambda ref: match.group(int(ref[1])) or "", route["dest"])
+            return ROOT / dest.lstrip("/")
     return ROOT / path.lstrip("/")
 
 

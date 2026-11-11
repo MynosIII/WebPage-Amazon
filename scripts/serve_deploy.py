@@ -51,7 +51,7 @@ class DeployHandler(SimpleHTTPRequestHandler):
                     self.end_headers()
                     return None
                 if "dest" in route:
-                    self.path = route["dest"]
+                    self.path = re.sub(r"\$(\w+)", lambda m: captures[m[1]], route["dest"])
                     break
 
         target = Path(self.translate_path(self.path))

@@ -12,8 +12,8 @@ def render_global_nav(lang: str, switch_href: str) -> str:
         [("Inicio", "/"), ("Explorar trabajo", "/catalog.html?section=all"), ("Sobre mí", "/about.html"),
          ("CV", "/cv-es.html"), ("Contacto", "/contact.html")]
         if es else
-        [("Home", "/index.html?lang=en"), ("Explore work", "/catalog.html?section=all&lang=en"),
-         ("About", "/about.html?lang=en"), ("CV", "/cv-en.html"), ("Contact", "/contact.html?lang=en")]
+        [("Home", "/index-en.html"), ("Explore work", "/catalog-en.html?section=all"),
+         ("About", "/about-en.html"), ("CV", "/cv-en.html"), ("Contact", "/contact-en.html")]
     )
     links = "".join(f'<li><a href="{html.escape(href)}">{html.escape(label)}</a></li>' for label, href in items)
     nav_label = "Navegación principal" if es else "Main navigation"
@@ -24,7 +24,7 @@ def render_global_nav(lang: str, switch_href: str) -> str:
     return (
         '<header class="global-nav" data-global-nav>\n'
         '  <div class="global-nav__badge">\n'
-        f'    <a class="global-nav__logo" href="{"/" if es else "/index.html?lang=en"}">Matías Gaglio.</a>\n'
+        f'    <a class="global-nav__logo" href="{"/" if es else "/index-en.html"}">Matías Gaglio.</a>\n'
         f'    <button class="global-nav__toggle" type="button" aria-controls="global-menu" aria-expanded="false" aria-label="{menu_label}" data-global-nav-toggle><span></span><span></span><span></span></button>\n'
         f'    <nav class="global-nav__menu" id="global-menu" aria-label="{nav_label}" data-global-nav-menu><ul>{links}<li class="global-nav__locale"><a href="{switch_href}" hreflang="{hreflang}" aria-label="{switch_label}">{locale}</a></li></ul></nav>\n'
         '  </div>\n'

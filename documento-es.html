@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="robots" content="noindex, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Documento – Matías Gaglio</title>
   <meta name="description" content="Lector de informes académicos de Matías Gaglio." />
@@ -81,17 +82,16 @@
       ['informe_academico_ddd_mayo_2026.pdf', 'Aprobación de gobierno y demanda de cambio'],
       ['informe_academico_ddd_octubre_2025.pdf', 'Informe académico de resultados de encuesta: “Sin dólares no hay paraíso”'],
       ['informe_academico_encuesta_ni_una_menos.pdf', 'Percepciones sociales sobre la violencia contra las mujeres en Argentina'],
-      ['informe_academico_encuesta_ni_una_menos (1).pdf', 'Percepciones sociales sobre la violencia contra las mujeres en Argentina'],
       ['informe_academico_juventudes_unvm_2025.pdf', 'Juventudes, política y representación'],
       ['informe_academico_lo_peor_ya_paso_septiembre_2025.pdf', 'Informe académico de datos de encuesta: “Lo peor ya pasó”'],
       ['informe_academico_medios_noticias_argentina.pdf', 'Medios de comunicación y noticias en Argentina'],
-      ['informe_academico_medios_noticias_argentina (1).pdf', 'Medios de comunicación y noticias en Argentina'],
       ['informe_academico_un_ano_de_polarizacion_2024.pdf', 'Un año de polarización total'],
       ['informe_academico_vdd_agosto_2025.pdf', 'Ciencia, inteligencia artificial y política']
     ]);
 
     const params = new URLSearchParams(window.location.search);
-    const file = params.get('file');
+    // Older links used duplicate copies named "... (1).pdf".
+    const file = (params.get('file') || '').replace(/ \(1\)\.pdf$/, '.pdf');
     const title = allowedDocuments.get(file);
     const heading = document.querySelector('#document-title');
     const pdfObject = document.querySelector('#pdf-object');
