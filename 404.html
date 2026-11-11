@@ -8,9 +8,9 @@
   <title>Página no encontrada — Matías Gaglio</title>
   <link rel="icon" href="/prototype-amazon/logo-signal.svg" type="image/svg+xml">
   <script>document.documentElement.classList.add('js');try{const saved=localStorage.getItem('mg-theme');const preferred=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=saved||preferred}catch(error){document.documentElement.dataset.theme='light'}</script>
-  <link rel="stylesheet" href="/prototype-amazon/styles.css?v=20260903a">
-  <script src="/prototype-amazon/i18n.js?v=20260903a" defer></script>
-  <script src="/prototype-amazon/script.js?v=20260903a" defer></script>
+  <link rel="stylesheet" href="/prototype-amazon/styles.css?v=20260903b">
+  <script src="/prototype-amazon/i18n.js?v=20260903b" defer></script>
+  <script src="/prototype-amazon/script.js?v=20260903b" defer></script>
 </head>
 <body class="not-found-page">
   <div class="load-progress" aria-hidden="true" data-load-progress><span></span></div>
@@ -18,28 +18,28 @@
 
   <header class="market-header" data-header>
     <div class="utility-bar app-width">
-      <a class="identity" href="/index.html" aria-label="Matías Gaglio, inicio del portfolio"><img class="identity__logo" src="/prototype-amazon/logo-signal.svg" width="48" height="40" alt=""><strong>Matías Gaglio</strong></a>
+      <a class="identity" href="/" aria-label="Matías Gaglio, inicio del portfolio"><img class="identity__logo" src="/prototype-amazon/logo-signal.svg" width="48" height="40" alt=""><strong>Matías Gaglio</strong></a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="utility-nav" data-menu-toggle><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span class="sr-only">Abrir navegación</span></button>
-      <nav class="utility-nav" id="utility-nav" aria-label="Utilidades" data-menu><a href="/about.html">Sobre mí</a><a href="/cv-es.html">CV</a><a href="/contact.html">Contacto</a><button class="theme-toggle" type="button" data-theme-toggle><span aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button><a class="locale" href="?lang=en" hreflang="en" lang="en">EN</a></nav>
+      <nav class="utility-nav" id="utility-nav" aria-label="Utilidades" data-menu><a href="/about.html">Sobre mí</a><a href="/cv-es.html">CV</a><a href="/contact.html">Contacto</a><button class="theme-toggle" type="button" data-theme-toggle><span aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button><a class="locale" href="/index-en.html" hreflang="en" lang="en" aria-label="View in English">EN</a></nav>
     </div>
     <form class="portfolio-search app-width" role="search" action="/catalog.html">
       <label class="sr-only" for="missing-query">Buscar en el portfolio</label>
-      <select class="search-scope" aria-label="Filtrar por área" name="section"><option value="all">Todo el portfolio</option><option value="ecommerce">Amazon Growth &amp; PPC</option><option value="creative">Creatividad y medios</option><option value="research">Investigación y análisis</option></select>
+      <select class="search-scope" aria-label="Filtrar por área" name="section"><option value="all">Todo el portfolio</option><option value="ecommerce">Amazon Growth &amp; PPC</option><option value="bi">Business Intelligence</option><option value="creative">Data-to-Creative</option><option value="articles">Sistemas y artículos</option><option value="research">Investigación</option><option value="other">Automatización y código</option></select>
       <input id="missing-query" name="q" type="search" autocomplete="off" placeholder="Buscar casos, proyectos, herramientas o problemas">
       <button type="submit" aria-label="Buscar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg></button>
     </form>
-    <nav class="department-nav" aria-label="Explorar el portfolio"><div class="app-width department-nav__track"><a class="department-nav__all" href="/catalog.html?section=all">Explorar todo</a><a href="/catalog.html?section=ecommerce">Ecommerce</a><a href="/catalog.html?section=creative">Creatividad</a><a href="/catalog.html?section=articles">Sistemas y artículos</a><a href="/catalog.html?section=research">Investigación</a></div></nav>
+    <nav class="department-nav" aria-label="Explorar el portfolio"><div class="app-width department-nav__track"><a class="department-nav__all" href="/catalog.html?section=all" data-section-link="all">Todo el portfolio</a><a href="/catalog.html?section=ecommerce" data-section-link="ecommerce">Amazon Growth &amp; PPC</a><a href="/catalog.html?section=bi" data-section-link="bi">Business Intelligence</a><a href="/catalog.html?section=creative" data-section-link="creative">Data-to-Creative</a><a href="/catalog.html?section=articles" data-section-link="articles">Sistemas y artículos</a><a href="/catalog.html?section=research" data-section-link="research">Investigación</a><a href="/catalog.html?section=other" data-section-link="other">Automatización y código</a></div></nav>
   </header>
 
   <main class="not-found-main app-width" id="contenido">
-    <nav class="breadcrumb" aria-label="Migas de pan"><ol><li><a href="/index.html">Portfolio</a></li><li aria-current="page">Error 404</li></ol></nav>
+    <nav class="breadcrumb" aria-label="Migas de pan"><ol><li><a href="/">Portfolio</a></li><li aria-current="page">Error 404</li></ol></nav>
     <section class="not-found-console" aria-labelledby="not-found-title">
       <div class="not-found-code" aria-hidden="true"><span>4</span><i></i><span>4</span></div>
       <div class="not-found-copy">
         <p class="path-label">Ruta no disponible</p>
         <h1 id="not-found-title">No encontramos esta página.</h1>
         <p>El enlace puede haber cambiado. Volvé al inicio o buscá el proyecto dentro del catálogo.</p>
-        <div class="not-found-actions"><a class="primary-action" href="/index.html">Volver al inicio</a><a class="banner-secondary" href="/catalog.html?section=all">Explorar el catálogo</a></div>
+        <div class="not-found-actions"><a class="primary-action" href="/">Volver al inicio</a><a class="banner-secondary" href="/catalog.html?section=all">Explorar el catálogo</a></div>
       </div>
     </section>
     <section class="not-found-routes" aria-labelledby="routes-title">
