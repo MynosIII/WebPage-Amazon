@@ -39,6 +39,83 @@
     other: ['Otros proyectos', 'Software, automatizaciones y experimentos técnicos fuera del flujo principal de ecommerce.']
   };
 
+  // Each department has its own layout and card label (see the
+  // "Section identities" block in styles.css).
+  const sectionStyle = {
+    all: { layout: 'list' },
+    ecommerce: { layout: 'grid', label: isEnglish ? 'Case' : 'Caso' },
+    bi: { layout: 'grid', label: 'Panel' },
+    creative: { layout: 'grid', label: '' },
+    articles: { layout: 'grid', label: 'Nº' },
+    research: { layout: 'list', label: '' },
+    other: { layout: 'grid', label: '' }
+  };
+
+  function thumbFor(image, width) {
+    return '/assets/catalog-thumbs/' + image.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + width + '.webp';
+  }
+
+  function sectionArtMarkup(name) {
+    if (name === 'ecommerce') {
+      return '<svg viewBox="0 0 360 190" focusable="false"><path class="art-grid" d="M0 150H360M0 100H360M0 50H360"/><path class="art-area" d="M10 160 L70 138 L120 146 L170 104 L220 112 L270 66 L340 40 L340 190 L10 190Z"/><path class="art-line" d="M10 160 L70 138 L120 146 L170 104 L220 112 L270 66 L340 40"/></svg>' +
+        '<span class="art-chip"><small>CVR</small>13,69%</span><span class="art-chip"><small>ROAS</small>6,26</span><span class="art-chip"><small>' + (isEnglish ? 'Sales' : 'Ventas') + '</small>×1,8</span>';
+    }
+    if (name === 'bi') {
+      return [38, 54, 46, 70, 92, 64, 80].map(function (height, index) { return '<i style="--h:' + height + '%;--n:' + index + '"></i>'; }).join('');
+    }
+    if (name === 'creative') {
+      const covers = items.filter(function (item) { return item.categories.includes('creative') && item.image && !/\.svg$/i.test(item.image); }).slice(0, 3);
+      return covers.map(function (item, index) {
+        const n = index - 1;
+        return '<span style="--n:' + n + ';--i:' + index + ';--z:' + (index === 1 ? 30 : 0) + '"><img src="' + thumbFor(item.image, 480) + '" alt="" width="240" height="300" decoding="async"></span>';
+      }).join('');
+    }
+    if (name === 'articles') return [0, 1, 2].map(function (n) { return '<span style="--n:' + n + '"></span>'; }).join('');
+    if (name === 'research') return [1, 2, 3, 4].map(function (n) { return '<i style="--n:' + n + '"></i>'; }).join('') + '<b>“</b>';
+    if (name === 'other') {
+      const lines = isEnglish ? ['python report.py --weekly', 'node automate.js --sync', 'deploy --prod ✓'] : ['python reporte.py --semanal', 'node automatizar.js --sync', 'deploy --prod ✓'];
+      return '<header><i></i><i></i><i></i></header>' + lines.map(function (line, index) { return '<p style="--n:' + index + '">' + line + '</p>'; }).join('');
+    }
+    return '';
+  }
+
+  function syncSectionArt() {
+    const toolbar = document.querySelector('.catalog-toolbar');
+    if (!toolbar) return;
+    let art = toolbar.querySelector('.section-art');
+    if (art && art.dataset.art === section && (section !== 'creative' || art.childElementCount)) return;
+    art?.remove();
+    const markup = sectionArtMarkup(section);
+    if (!markup) return;
+    art = document.createElement('div');
+    art.className = 'section-art section-art--' + section;
+    art.dataset.art = section;
+    art.setAttribute('aria-hidden', 'true');
+    art.innerHTML = markup;
+    toolbar.insertBefore(art, toolbar.querySelector('.catalog-sort'));
+  }
+
+  // The creative section also hosts the interactive 3D model lab, the only
+  // 3D-interactive element of the site. Its module (and three.js, later) loads
+  // only when this section is shown.
+  function syncModelLab() {
+    let lab = document.querySelector('[data-model-lab]');
+    if (section !== 'creative') {
+      if (lab) lab.hidden = true;
+      return;
+    }
+    if (!lab) {
+      lab = document.createElement('section');
+      lab.className = 'model-lab';
+      lab.id = 'modelado-3d';
+      lab.setAttribute('aria-labelledby', 'model-lab-title');
+      lab.dataset.modelLab = '';
+      document.querySelector('.catalog-layout')?.before(lab);
+      import('/prototype-amazon/model-lab.js').then(function (module) { module.mountModelLab(lab, language); }).catch(function () { lab.hidden = true; });
+    }
+    lab.hidden = false;
+  }
+
   function normalize(value) {
     return String(value || '').toLocaleLowerCase(language).normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
@@ -63,8 +140,16 @@
     }).join('') + '</div>';
   }
 
-  function cardMarkup(item) {
-    return '<article class="catalog-result" data-source="' + item.url + '">' +
+  function cardMarkup(item, index) {
+    const style = sectionStyle[section] || sectionStyle.all;
+    const number = String(index + 1).padStart(2, '0');
+    let extra = '';
+    if (section === 'other') {
+      extra = '<div class="catalog-result__chrome" aria-hidden="true"><i></i><i></i><i></i><span>~/' + (isEnglish ? 'projects' : 'proyectos') + '/' + escape(item.url.replace(/-(?:es|en)\.html$/i, '').split('/').pop()) + '</span></div>';
+    } else if (style.label !== undefined) {
+      extra = '<span class="catalog-result__index" aria-hidden="true">' + (style.label ? style.label + ' ' : '') + number + '</span>';
+    }
+    return '<article class="catalog-result" data-source="' + item.url + '">' + extra +
       '<a class="catalog-result__media is-media-pending" data-media-fit="' + (item.mediaFit || 'cover') + '"' + (item.imageSet?.length ? ' data-media-kind="icon-mosaic"' : '') + ' href="' + prototypeUrl(item) + '" tabindex="-1" aria-hidden="true"><span class="catalog-media-skeleton" data-catalog-placeholder></span></a>' +
       '<div class="catalog-result__body"><p class="result-kicker">' + item.categoryLabel + '</p><h3><a href="' + prototypeUrl(item) + '">' + escape(item.title) + '</a></h3><p>' + escape(item.description) + '</p>' + toolLogoMarkup(item.toolLogos) + '</div></article>';
   }
@@ -101,7 +186,7 @@
       if (media.thumbs) {
         // Small WebP thumbnails from scripts/build_catalog_thumbs.py; fall back to the original.
         element.srcset = media.thumbs[0] + ' 480w, ' + media.thumbs[1] + ' 800w';
-        element.sizes = '(max-width: 700px) 92vw, 340px';
+        element.sizes = media.sizes || '(max-width: 700px) 92vw, 340px';
         element.addEventListener('error', function () { element.removeAttribute('srcset'); element.src = media.url; }, { once: true });
         element.src = media.thumbs[0];
       } else {
@@ -161,10 +246,8 @@
     if (item?.imageSet?.length) {
       showImageSet(card, item.imageSet.map(function (image) { return resolveMedia('/' + image, item.url); }), priority);
     } else if (item?.image) {
-      const thumbs = /\.svg$/i.test(item.image) ? null : [480, 800].map(function (width) {
-        return '/assets/catalog-thumbs/' + item.image.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') + '-' + width + '.webp';
-      });
-      showMedia(card, { type: 'image', url: resolveMedia('/' + item.image, item.url), thumbs: thumbs }, priority);
+      const thumbs = /\.svg$/i.test(item.image) ? null : [480, 800].map(function (width) { return thumbFor(item.image, width); });
+      showMedia(card, { type: 'image', url: resolveMedia('/' + item.image, item.url), thumbs: thumbs, sizes: card.dataset.sizes }, priority);
     }
   }
 
@@ -191,7 +274,10 @@
       return sectionMatches && queryMatches;
     });
     if (sort?.value === 'title') visible.sort(function (a, b) { return a.title.localeCompare(b.title, language); });
+    const style = sectionStyle[section] || sectionStyle.all;
+    list.className = 'catalog-list' + (section === 'all' ? '' : ' catalog-list--' + section + (style.layout === 'grid' ? ' catalog-list--grid' : ''));
     list.innerHTML = visible.map(cardMarkup).join('');
+    syncSectionArt();
     list.setAttribute('aria-busy', 'false');
     count.textContent = isEnglish ? (visible.length === 1 ? '1 result' : visible.length + ' results') : (visible.length === 1 ? '1 resultado' : visible.length + ' resultados');
     empty.hidden = visible.length !== 0;
@@ -202,12 +288,15 @@
       // Assign every source immediately and let native lazy loading schedule
       // decoding. A second IntersectionObserver layer could miss cards when a
       // user scrubbed quickly through a long catalog, leaving blank media.
+      if (style.layout === 'grid') card.dataset.sizes = section === 'creative' && index === 0 ? '(max-width: 620px) 92vw, 640px' : '(max-width: 620px) 92vw, (max-width: 1024px) 45vw, 460px';
       hydrateImage(card, index < 4);
     });
   }
 
   function syncSection() {
     const meta = sectionMeta[section] || sectionMeta.all;
+    document.body.dataset.section = section;
+    syncModelLab();
     title.textContent = meta[0];
     description.textContent = meta[1];
     crumb.textContent = meta[0];
