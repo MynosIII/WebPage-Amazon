@@ -239,6 +239,74 @@
         "Shulex VOC AI",
         "Shulex"
       ]
+    },
+    "claude": {
+      "name": "Claude",
+      "asset": "claude.svg",
+      "aliases": [
+        "Claude",
+        "Claude Code",
+        "Anthropic Claude"
+      ]
+    },
+    "github": {
+      "name": "GitHub",
+      "asset": "github.svg",
+      "aliases": [
+        "GitHub",
+        "GitHub Actions"
+      ]
+    },
+    "vercel": {
+      "name": "Vercel",
+      "asset": "vercel.svg",
+      "aliases": [
+        "Vercel"
+      ]
+    },
+    "nextjs": {
+      "name": "Next.js",
+      "asset": "nextjs.svg",
+      "aliases": [
+        "Next.js",
+        "NextJS"
+      ]
+    },
+    "google-drive": {
+      "name": "Google Drive",
+      "asset": "google-drive.svg",
+      "aliases": [
+        "Google Drive"
+      ]
+    },
+    "canva": {
+      "name": "Canva",
+      "asset": "canva.svg",
+      "aliases": [
+        "Canva"
+      ]
+    },
+    "ffmpeg": {
+      "name": "FFmpeg",
+      "asset": "ffmpeg.svg",
+      "aliases": [
+        "FFmpeg"
+      ]
+    },
+    "obs-studio": {
+      "name": "OBS Studio",
+      "asset": "obs-studio.svg",
+      "aliases": [
+        "OBS Studio",
+        "OBS"
+      ]
+    },
+    "audacity": {
+      "name": "Audacity",
+      "asset": "audacity.svg",
+      "aliases": [
+        "Audacity"
+      ]
     }
   },
   "cases": {
@@ -370,26 +438,67 @@
       "photoshop"
     ],
     "telemetry-one-ecosistema.html": [
+      "nextjs",
       "typescript",
+      "javascript",
       "python",
-      "javascript"
+      "vercel",
+      "github",
+      "claude"
     ],
     "f1-predictor-walk-forward.html": [
-      "python"
+      "python",
+      "github",
+      "claude"
     ],
     "predestinato-simulador-carrera.html": [
-      "javascript"
+      "javascript",
+      "github",
+      "vercel"
     ],
     "deteccion-copas-arboles.html": [
       "python"
     ],
     "construccion-portfolio.html": [
       "python",
-      "javascript"
+      "javascript",
+      "claude",
+      "github",
+      "vercel"
     ],
     "revolution-operacion-amazon.html": [
       "amazon-seller-central",
       "amazon-ads"
+    ],
+    "trabajo-con-claude.html": [
+      "claude",
+      "github",
+      "vercel",
+      "nextjs",
+      "typescript",
+      "javascript",
+      "python",
+      "google-drive",
+      "canva",
+      "davinci-resolve",
+      "audacity"
+    ],
+    "postproduccion-video-davinci-resolve-ia.html": [
+      "davinci-resolve",
+      "claude",
+      "python",
+      "ffmpeg",
+      "obs-studio"
+    ],
+    "limpieza-audio-entrevista-ia.html": [
+      "audacity",
+      "claude",
+      "python",
+      "ffmpeg"
+    ],
+    "oxi-contenido-y-analisis.html": [
+      "davinci-resolve",
+      "claude"
     ]
   }
 }

@@ -166,6 +166,8 @@ function structuredData(html, item) {
       }
     ]
   };
+  // Pages that ship their own Article data keep it; only the breadcrumb is added.
+  if (/<script type="application\/ld\+json">[^<]*"@type":\s*"Article"/.test(html)) data['@graph'].shift();
   const json = JSON.stringify(data).replace(/</g, '\\u003c');
   return html.replace(/<\/head>/i, `  <script type="application/ld+json" data-case-schema>${json}</script>\n</head>`);
 }

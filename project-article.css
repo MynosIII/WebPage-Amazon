@@ -162,3 +162,9 @@ body.project-article-page {
 @media (prefers-reduced-motion: reduce) {
   .pa-button { transition: none; }
 }
+
+.pa-tags-section h3 { margin: 22px 0 10px; font-size: .95rem; color: var(--pa-muted); font-weight: 600; }
+.pa-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.pa-tags li { padding: 6px 12px; border: 1px solid var(--pa-line); border-radius: 999px; background: var(--pa-panel-2); color: var(--pa-text); font-size: .86rem; line-height: 1.3; }
+.pa-tags--topics li { background: transparent; color: var(--pa-muted); }
+.pa-section > .container > p + p { margin-top: 14px; }
